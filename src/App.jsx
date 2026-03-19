@@ -8,9 +8,11 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Hero from './components/Hero';
+import Capabilities from './components/Capabilities';
 import Loader from './components/Loader';
 import TunnelBackground from './components/TunnelBackground';
 import SelectedWork from './components/SelectedWork';
+import WorkList from './components/WorkList';
 import InsightsSection from './components/InsightsSection';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -29,14 +31,14 @@ export default function App() {
     video.playsInline = true;
     video.autoplay = true;
     video.setAttribute('crossorigin', 'anonymous');
-    
+
     const handleLoadedMetadata = () => {
       video.play().then(() => {
         setVideoElement(video);
         setLoaded(true);
       }).catch(err => {
         console.error("Video play error:", err);
-        setLoaded(true); 
+        setLoaded(true);
       });
     };
 
@@ -52,7 +54,7 @@ export default function App() {
   return (
     <ReactLenis root>
       <div className="noise"></div>
-      
+
       <Loader loaded={loaded} />
 
       <Header />
@@ -66,6 +68,8 @@ export default function App() {
       <main>
         <Hero videoElement={videoElement} setProgress={setProgress} />
         <SelectedWork />
+        <Capabilities />
+        <WorkList />
         <InsightsSection />
       </main>
 

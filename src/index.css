@@ -898,3 +898,396 @@ header {
     }
 }
 
+
+/* Work List Section */
+.work-list-section {
+    padding: 8rem 3rem;
+    background-color: var(--bg-color);
+    position: relative;
+    z-index: 10;
+}
+
+.work-list-container {
+    max-width: 1600px;
+    margin: 0 auto;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.work-item {
+    display: grid;
+    grid-template-columns: 100px 1fr auto;
+    align-items: center;
+    padding: 3rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    transition: background-color 0.3s ease;
+}
+
+.work-item:hover {
+    background-color: rgba(255, 255, 255, 0.02);
+}
+
+.work-item-year {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.4);
+    font-weight: 500;
+}
+
+.work-item-title {
+    font-size: clamp(2rem, 5vw, 6rem);
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: -0.02em;
+}
+
+.work-item-thumbnails {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+.work-thumbnail {
+    width: 60px;
+    height: 40px;
+    border-radius: 4px;
+    overflow: hidden;
+    background-color: #1a1a1a;
+}
+
+.work-thumbnail img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.8) contrast(1.1);
+    transition: transform 0.3s ease;
+}
+
+.work-item:hover .work-thumbnail img {
+    transform: scale(1.1);
+}
+
+@media (max-width: 900px) {
+    .work-item {
+        grid-template-columns: 60px 1fr;
+        padding: 2rem 0;
+    }
+    .work-item-thumbnails {
+        grid-column: 1 / -1;
+        margin-top: 1rem;
+        justify-content: flex-end;
+    }
+    .work-item-title {
+        font-size: 2.5rem;
+    }
+}
+
+/* Kanso Capabilities Section - Strictly Dark Theme */
+.capabilities-kanso {
+    padding: 8rem 3rem;
+    background-color: #050505;
+    position: relative;
+    z-index: 10;
+}
+
+.cap-grid-container {
+    max-width: 1600px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.2fr 1.3fr 1fr 1fr;
+    gap: 1.5rem;
+    align-items: stretch;
+    height: 530px; /* Exact height as per user request */
+}
+
+.cap-feature-card, .cap-benefits-card, .cap-testimonial-card, .cap-service-mini, .cap-art-card {
+    background-color: #0a0a0a;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 20px;
+    padding: 2rem;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: border-color 0.3s ease;
+}
+
+.cap-feature-card:hover, .cap-benefits-card:hover, .cap-testimonial-card:hover, .cap-service-mini:hover, .cap-art-card:hover {
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+.cap-feature-card {
+    flex: 1;
+    justify-content: flex-end;
+}
+
+.cap-card-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
+.cap-card-bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.5;
+    filter: grayscale(1);
+}
+
+.cap-card-content {
+    position: relative;
+    z-index: 1;
+}
+
+.cap-card-content h3 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+    color: #fff;
+}
+
+.cap-card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.cap-year {
+    font-size: 0.8rem;
+    opacity: 0.5;
+    color: #fff;
+}
+
+.cap-cta-btn {
+    background-color: #f5f5f5;
+    color: #000;
+    border: none;
+    padding: 0.6rem 1.2rem;
+    border-radius: 100px;
+    font-weight: 600;
+    font-size: 0.8rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    transition: transform 0.3s ease;
+}
+
+.cap-cta-btn:hover {
+    transform: scale(1.05);
+}
+
+.cap-col-1 {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    height: 100%;
+}
+
+.cap-benefits-card.dark {
+    padding: 1.5rem 2rem;
+    background-color: #0a0a0a;
+}
+
+.cap-benefits-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    padding: 0;
+}
+
+.cap-benefits-list li {
+    font-size: 0.9rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.cap-benefits-list li .dot {
+    width: 5px;
+    height: 5px;
+    background-color: rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+}
+
+.cap-testimonial-card.dark {
+    background-color: #0c0c0c;
+    padding: 2.22rem;
+    height: 100%;
+}
+
+.testimonial-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.client-avatars {
+    display: flex;
+}
+
+.client-avatars img {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: 2px solid #0a0a0a;
+    margin-right: -10px;
+    filter: grayscale(1);
+}
+
+.rating-box {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.4);
+}
+
+.star { color: rgba(255, 255, 255, 0.4); }
+
+.client-count {
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 3.5rem;
+    color: rgba(255, 255, 255, 0.3);
+}
+
+.stars {
+    font-size: 0.8rem;
+    margin-bottom: 1rem;
+    color: rgba(255, 255, 255, 0.3);
+    letter-spacing: 0.15em;
+}
+
+.testimonial-text {
+    font-size: 1.35rem;
+    font-weight: 500;
+    line-height: 1.4;
+    color: #fff;
+    opacity: 0.8;
+}
+
+.testimonial-footer {
+    margin-top: auto;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.author-img img {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    filter: grayscale(1);
+}
+
+.author-meta {
+    display: flex;
+    flex-direction: column;
+}
+
+.author-name {
+    font-weight: 700;
+    font-size: 0.95rem;
+    color: #fff;
+}
+
+.author-role {
+    font-size: 0.8rem;
+    opacity: 0.4;
+    color: #fff;
+}
+
+.cap-services-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    height: 100%;
+}
+
+.cap-service-mini {
+    padding: 1.8rem;
+    flex: 1;
+}
+
+.cap-service-mini .icon {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    opacity: 0.6;
+}
+
+.cap-service-mini h4 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: #fff;
+}
+
+.cap-service-mini p {
+    font-size: 0.85rem;
+    opacity: 0.4;
+    line-height: 1.4;
+    color: #fff;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.cap-art-card {
+    justify-content: space-between;
+    height: 100%;
+    padding: 2.5rem;
+}
+
+.brand-label {
+    position: relative;
+    z-index: 1;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    font-size: 1.1rem;
+    color: #fff;
+}
+
+.cap-art-bottom {
+    position: relative;
+    z-index: 1;
+}
+
+.cap-art-bottom h3 {
+    font-size: 2rem;
+    line-height: 1.1;
+    margin-bottom: 0.4rem;
+    color: #fff;
+}
+
+.cap-art-bottom p {
+    font-size: 1rem;
+    opacity: 0.5;
+    color: #fff;
+}
+
+@media (max-width: 1200px) {
+    .cap-grid-container {
+        grid-template-columns: 1fr 1fr;
+        height: auto;
+    }
+}
+
+@media (max-width: 768px) {
+    .cap-grid-container {
+        grid-template-columns: 1fr;
+    }
+    .capabilities-kanso {
+        padding: 4rem 1.5rem;
+    }
+}
