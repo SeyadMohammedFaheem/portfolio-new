@@ -10,6 +10,8 @@ import Footer from './components/Footer';
 import Hero from './components/Hero';
 import Loader from './components/Loader';
 import TunnelBackground from './components/TunnelBackground';
+import SelectedWork from './components/SelectedWork';
+import InsightsSection from './components/InsightsSection';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -63,6 +65,8 @@ export default function App() {
 
       <main>
         <Hero videoElement={videoElement} setProgress={setProgress} />
+        <SelectedWork />
+        <InsightsSection />
       </main>
 
       <Footer />
