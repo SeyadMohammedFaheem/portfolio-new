@@ -1,11 +1,12 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const InsightsSection = () => {
     return (
         <section className="insights-section">
             <div className="section-header">
                 <div className="header-left">
-                    <h2 className="section-title">Latest Insights <span className="blog-tag">(blog)</span></h2>
+                    <h2 className="section-title">Latest Insights</h2>
                 </div>
                 <div className="header-right">
                     <a href="#" className="see-all-btn">
@@ -20,7 +21,7 @@ const InsightsSection = () => {
             <div className="insights-grid">
                 
                 {/* Large Card */}
-                <a href="#" className="insights-card large">
+                <Link to="/blog/restraint" className="insights-card large">
                     <img 
                         src="/images/insights.png" 
                         alt="Insights" 
@@ -36,10 +37,10 @@ const InsightsSection = () => {
                             increase impact, and build longer-lasting brands.
                         </p>
                     </div>
-                </a>
+                </Link>
 
                 {/* Standard Card 1 */}
-                <a href="#" className="insights-card standard">
+                <Link to="/blog/calm" className="insights-card standard">
                     <div className="img-container">
                         <img 
                             src="/images/digital_design.png" 
@@ -56,10 +57,10 @@ const InsightsSection = () => {
                             whitespace, and visual pacing shape user emotion.
                         </p>
                     </div>
-                </a>
+                </Link>
 
                 {/* Standard Card 2 */}
-                <a href="#" className="insights-card standard">
+                <Link to="/blog/identity" className="insights-card standard">
                     <div className="img-container">
                         <img 
                             src="/images/strategy.png" 
@@ -76,7 +77,7 @@ const InsightsSection = () => {
                             trends, focusing on core values instead.
                         </p>
                     </div>
-                </a>
+                </Link>
 
             </div>
         </section>

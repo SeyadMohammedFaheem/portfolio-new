@@ -33,7 +33,7 @@ const SelectedWork = () => {
             <div className="work-container">
                 <div className="section-header">
                     <div className="header-left">
-                        <h2 className="section-title">Selected work <span className="blog-tag">(02)</span></h2>
+                        <h2 className="section-title">Selected work</h2>
                     </div>
                     <div className="header-right">
                         <a href="#" className="see-all-btn">

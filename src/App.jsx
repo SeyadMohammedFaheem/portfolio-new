@@ -1,4 +1,5 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState } from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Canvas } from '@react-three/fiber';
 import { ReactLenis } from 'lenis/react';
 import { gsap } from 'gsap';
@@ -7,13 +8,10 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 // Components
 import Header from './components/Header';
 import Footer from './components/Footer';
-import Hero from './components/Hero';
-import Capabilities from './components/Capabilities';
+import Home from './components/Home';
+import BlogDetail from './components/BlogDetail';
 import Loader from './components/Loader';
 import TunnelBackground from './components/TunnelBackground';
-import SelectedWork from './components/SelectedWork';
-import WorkList from './components/WorkList';
-import InsightsSection from './components/InsightsSection';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -52,28 +50,25 @@ export default function App() {
   }, []);
 
   return (
-    <ReactLenis root>
-      <div className="noise"></div>
+    <BrowserRouter>
+      <ReactLenis root>
+        <Loader loaded={loaded} />
 
-      <Loader loaded={loaded} />
+        <Header />
 
-      <Header />
+        <div className="canvas-container">
+          <Canvas orthographic camera={{ zoom: 1, position: [0, 0, 1] }}>
+            <TunnelBackground video={videoElement} progress={progress} />
+          </Canvas>
+        </div>
 
-      <div className="canvas-container">
-        <Canvas orthographic camera={{ zoom: 1, position: [0, 0, 1] }}>
-          <TunnelBackground video={videoElement} progress={progress} />
-        </Canvas>
-      </div>
+        <Routes>
+          <Route path="/" element={<Home videoElement={videoElement} setProgress={setProgress} />} />
+          <Route path="/blog/:id" element={<BlogDetail />} />
+        </Routes>
 
-      <main>
-        <Hero videoElement={videoElement} setProgress={setProgress} />
-        <SelectedWork />
-        <Capabilities />
-        <WorkList />
-        <InsightsSection />
-      </main>
-
-      <Footer />
-    </ReactLenis>
+        <Footer />
+      </ReactLenis>
+    </BrowserRouter>
   );
 }

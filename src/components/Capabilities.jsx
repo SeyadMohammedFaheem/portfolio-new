@@ -18,7 +18,7 @@ const Capabilities = () => {
                             </div>
                         </div>
                     </div>
-                    
+
                     <div className="cap-benefits-card dark">
                         <ul className="cap-benefits-list">
                             <li><span className="dot"></span> Collaborative Approach</li>
@@ -45,14 +45,14 @@ const Capabilities = () => {
                         </div>
                     </div>
                     <div className="client-count">100+ Happy clients worldwide</div>
-                    
+
                     <div className="testimonial-body">
                         <div className="stars">★★★★★</div>
                         <p className="testimonial-text">
-                            "Kanso understood our brand better than we did. Their ability to find the essential and express it simply is what sets them apart."
+                            "Faheem understood our brand better than we did. Their ability to find the essential and express it simply is what sets them apart."
                         </p>
                     </div>
-                    
+
                     <div className="testimonial-footer">
                         <div className="author-img">
                             <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=150&sat=-100" alt="Sofia Ford" />
@@ -85,11 +85,11 @@ const Capabilities = () => {
 
                 {/* Column 4: Vertical Artist Card */}
                 <div className="cap-art-card">
-                    <div className="cap-card-bg">
-                        <img src="https://images.unsplash.com/photo-1550684848-fac1c5b4e853?auto=format&fit=crop&q=80&w=800&sat=-100" alt="Art" />
+                    <div className="cap-card-bg full-color">
+                        <img src="/images/design-with-intent.jpg" alt="Design with intent" />
                     </div>
                     <div className="cap-art-top">
-                        <span className="brand-label">Kanso®</span>
+                        <span className="brand-label">FAHEEM</span>
                     </div>
                     <div className="cap-art-bottom">
                         <h3>Design with intent.</h3>
