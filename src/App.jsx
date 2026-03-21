@@ -12,6 +12,11 @@ import Home from './components/Home';
 import BlogDetail from './components/BlogDetail';
 import Loader from './components/Loader';
 import TunnelBackground from './components/TunnelBackground';
+import Projects from './components/Projects';
+import Insights from './components/Insights';
+import ProjectDetail from './components/ProjectDetail';
+import About from './components/About';
+import Contact from './components/Contact';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -65,6 +70,11 @@ export default function App() {
         <Routes>
           <Route path="/" element={<Home videoElement={videoElement} setProgress={setProgress} />} />
           <Route path="/blog/:id" element={<BlogDetail />} />
+          <Route path="/project/:id" element={<ProjectDetail />} />
+          <Route path="/projects" element={<Projects />} />
+          <Route path="/insights" element={<Insights />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<Contact />} />
         </Routes>
 
         <Footer />

@@ -1,19 +1,20 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 export default function Header() {
   return (
     <header>
-      <a href="/" className="header-logo">FAHEEM</a>
+      <Link to="/" className="header-logo">FAHEEM</Link>
       <nav className="header-nav">
-        <a href="#work" className="nav-item">
+        <Link to="/projects" className="nav-item">
           <span>01 /</span> WORK
-        </a>
-        <a href="#about" className="nav-item">
+        </Link>
+        <Link to="/about" className="nav-item">
           <span>02 /</span> ABOUT
-        </a>
-        <a href="#contact" className="nav-item">
+        </Link>
+        <Link to="/contact" className="nav-item">
           <span>03 /</span> CONTACT
-        </a>
+        </Link>
       </nav>
     </header>
   );

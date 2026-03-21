@@ -23,18 +23,16 @@ export default function Loader({ loaded }) {
       <div className="shutter bottom"></div>
       
       <div className="loader-hud-screen">
-        <div className="hud-label tl">SMF / 01</div>
-        <div className="hud-label tr">YR / 2025</div>
+        <div className="hud-label tl">FAHEEM — 01</div>
+        <div className="hud-label tr">RELEASE — 2025</div>
 
         <div className="hud-main-center">
             <div className="brand-reveal-wrap">
                 <h1 className="brand-name-reveal">FAHEEM</h1>
             </div>
             
-            <div className="progress-blocks">
-                {[...Array(10)].map((_, i) => (
-                    <div key={i} className={`block ${Math.floor(count / 10) > i ? 'active' : ''}`}></div>
-                ))}
+            <div className="progress-container-linear">
+                <div className="progress-bar-fill" style={{ width: `${count}%` }}></div>
             </div>
 
             <div className="progress-meta-info">
@@ -43,8 +41,8 @@ export default function Loader({ loaded }) {
             </div>
         </div>
 
-        <div className="hud-label bl">FAHEEM / PRODUCT DESIGNER</div>
-        <div className="hud-label br">LOADING SYSTEM...</div>
+        <div className="hud-label bl">FAHEEM — DESIGN</div>
+        <div className="hud-label br">SYSTEM — INITIALIZING</div>
       </div>
     </div>
   );

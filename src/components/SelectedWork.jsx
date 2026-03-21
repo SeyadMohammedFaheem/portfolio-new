@@ -1,31 +1,32 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const SelectedWork = () => {
     const projects = [
         {
             title: "Project One",
             year: "2024",
-            type: "Digital Experience",
-            image: "/images/work/p1.png"
+            type: "Digital Systems",
+            image: "/images/work/work1.jpg"
         },
         {
             title: "Project Two",
             year: "2024",
-            type: "Visual Identity",
-            image: "/images/work/p2.png"
+            type: "Brand Identity",
+            image: "/images/work/work2.jpg"
         },
         {
             title: "Project Three",
             year: "2023",
-            type: "Product Design",
-            image: "/images/work/p3.png"
+            type: "Product Interface",
+            image: "/images/work/work3.jpg"
         },
         {
             title: "Project Four",
             year: "2023",
-            type: "Brand System",
-            image: "/images/work/p4.png"
-        }
+            type: "Creative Direction",
+            image: "/images/work/work4.jpg"
+        },
     ];
 
     return (
@@ -36,19 +37,19 @@ const SelectedWork = () => {
                         <h2 className="section-title">Selected work</h2>
                     </div>
                     <div className="header-right">
-                        <a href="#" className="see-all-btn">
+                        <Link to="/projects" className="see-all-btn">
                             <span>View all projects</span>
                             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="arrow-icon">
                                 <line x1="7" y1="17" x2="17" y2="7"></line>
                                 <polyline points="7 7 17 7 17 17"></polyline>
                             </svg>
-                        </a>
+                        </Link>
                     </div>
                 </div>
 
                 <div className="work-grid-kanso">
                     {projects.map((project, index) => (
-                        <a href="#" className="work-card-kanso" key={index}>
+                        <Link to={`/project/${project.title.toLowerCase().replace(/\s+/g, '-')}`} className="work-card-kanso" key={index}>
                             <div className="work-img-wrapper">
                                 <img src={project.image} alt={project.title} />
                             </div>
@@ -61,7 +62,7 @@ const SelectedWork = () => {
                                     <span className="project-type">{project.type}</span>
                                 </div>
                             </div>
-                        </a>
+                        </Link>
                     ))}
                 </div>
             </div>
