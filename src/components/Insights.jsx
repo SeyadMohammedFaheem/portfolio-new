@@ -5,11 +5,11 @@ import { gsap } from 'gsap';
 const Insights = () => {
     const allInsights = [
         {
-            title: "The Power of Restraint in Design",
-            date: "May 30, 2025",
-            type: "Insights",
-            image: "/images/insights.png",
-            link: "/blog/restraint"
+            title: "Delete Button Case Study",
+            date: "Mar 22, 2026",
+            type: "UX Design",
+            image: "/images/delete-button.png",
+            link: "/blog/delete-case-study"
         },
         {
             title: "Designing for Calm: UX Beyond the Screen",

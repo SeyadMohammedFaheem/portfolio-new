@@ -20,11 +20,6 @@ export default function Footer() {
               </a>
             </div>
           </div>
-          <div className="n-footer-availability">
-            <span className="n-avail-dot"></span> Available for project
-            <strong style={{ marginLeft: '1rem', color: '#fff' }}>EARLY FEB 2025</strong>
-            <span style={{ marginLeft: '0.5rem', opacity: 0.5 }}>(GMT+7)</span>
-          </div>
         </div>
 
         {/* Middle Section - Links & Newsletter */}

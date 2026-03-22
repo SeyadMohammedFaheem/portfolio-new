@@ -19,42 +19,42 @@ const BlogDetail = () => {
             <div className="blog-detail-container">
 
                 <div className="blog-header">
-                    <h1 className="blog-title-main">Designing for Calm: UX Beyond the Screen</h1>
-                    <h3 className="blog-subtitle">An exploration of how subtle interaction, whitespace, and visual pacing shape user emotion.</h3>
+                    <h1 className="blog-title-main">Delete Button Case Study</h1>
+                    <h3 className="blog-subtitle">Designing accessible and safe destructive actions, reducing accidental data loss without sacrificing usability.</h3>
                     
                     <div className="blog-meta">
-                        <span className="meta-item">Date <span className="meta-value">May 23, 2025</span></span>
+                        <span className="meta-item">Date <span className="meta-value">Mar 22, 2026</span></span>
                         <span className="meta-sep">/</span>
-                        <span className="meta-item">Category <span className="meta-value">Digital Design</span></span>
+                        <span className="meta-item">Category <span className="meta-value">UX Design</span></span>
                         <span className="meta-sep">/</span>
-                        <span className="meta-item">Writer <span className="meta-value">Emil Novak</span></span>
+                        <span className="meta-item">Writer <span className="meta-value">Faheem</span></span>
                     </div>
                 </div>
 
                 <div className="blog-featured-image">
-                    <img src="/images/digital_design.png" alt="Designing for Calm" />
+                    <img src="/images/delete-button.png" alt="Delete Button Case Study" />
                 </div>
 
                 <article className="blog-content-body">
-                    <p>We often think of user experience as a path to functionality. But at FAHEEM, we believe UX design is also emotional—it can soothe, focus, and even slow down time. The best interfaces don’t just help people do things; they help people feel better while doing them.</p>
-                    <p>Let’s talk about designing for calm.</p>
+                    <p>Destructive actions—like deleting an account, removing a project, or finalizing an irreversible transaction—are moments of high anxiety for users. Poor interface design is often the primary cause of accidental data loss, which directly erodes user trust.</p>
+                    <p>In this case study, I explored the challenge of standardizing destructive actions to improve clarity, prevent accidents, and ensure WCAG AA accessibility compliance.</p>
 
-                    <h4>The Invisible Weight of Digital Overload</h4>
-                    <p>Every day, users navigate through an endless stream of tabs, apps, pop-ups, and notifications. It’s noisy—and even the cleanest interface can become part of the chaos if it’s not thoughtfully designed.</p>
-                    <p>When a product feels chaotic, it demands attention. When it feels calm, it invites trust.</p>
-                    <p>Designing for calm is about reducing friction, not just technically but emotionally. It’s about creating space—both visually and cognitively—for the user to move with clarity and control.</p>
+                    <h4>The Problem With "Proceed"</h4>
+                    <p>Usability tests revealed that users frequently skip over critical warnings. When labels use vague terminology (e.g., "Proceed" or "Yes"), users often click out of habit without realizing the gravity of their action. Furthermore, on mobile, we discovered that secondary destructive buttons were dangerously close to primary "Save" actions.</p>
+                    <p>A simple mis-tap often resulted in permanent data deletion.</p>
 
-                    <h4>Whitespace as Breathing Room</h4>
-                    <p>Whitespace is often mistaken as just “empty space.” But in calm design, it’s active. It gives rhythm to content, focus to interactions, and lightness to heavy ideas.</p>
-                    <p>When used intentionally, whitespace isn’t just aesthetic—it guides. It slows down the scroll. It creates visual priority. It allows the user to take a moment, instead of rushing forward.</p>
+                    <h4>Friction Can Be Functional</h4>
+                    <p>We typically think of "friction" in UX as a bad thing. However, for destructive actions, slowing the user down is the safest design choice.</p>
+                    <p>My solution involved a complete redesign of our dialog patterns:</p>
+                    <ul>
+                        <li><strong>Explicit Labels:</strong> Replacing vague terms with undeniable verbs, such as "Delete Permanently".</li>
+                        <li><strong>Two-Step Confirmation:</strong> Implementing a rule where high-stakes actions required users to manually type "DELETE" before the button became active.</li>
+                        <li><strong>Visual Cues & Accessibility:</strong> Utilizing system red cautiously, improving contrast ratios to 4.5:1, and expanding touch targets to 44x44px.</li>
+                    </ul>
 
-                    <h4>Typography that Guides, Not Distracts</h4>
-                    <p>Typography is a silent carrier of emotion. Calm design favors type that is readable, balanced, and composed. It’s not shouting at the user—it’s speaking clearly.</p>
-                    <p>Hierarchy, spacing, and consistency are key. By giving users a predictable visual language, we reduce micro-decisions and lower cognitive load. Less effort. More ease.</p>
-
-                    <h4>Motion with Meaning</h4>
-                    <p>Motion, when used sparingly, enhances calm. Think of a soft page transition, a loading indicator that gently fades, or a hover state that subtly acknowledges presence.</p>
-                    <p>But motion should never be used for decoration alone—it must serve a purpose: orient the user, confirm an action, or reduce perceived waiting time.</p>
+                    <h4>The Results</h4>
+                    <p>By treating friction as a feature rather than a bug, accident reports dropped dramatically. The new patterns effectively forced a cognitive slow-down right when it mattered most, ultimately resulting in a <strong>35% decrease in accidental deletions</strong> and a 100% compliance rate with our new accessibility standards.</p>
+                    <p>Clear, empathetic design protects users from themselves.</p>
                 </article>
 
                 <footer className="blog-footer-nav">

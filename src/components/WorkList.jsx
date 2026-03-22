@@ -1,42 +1,107 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+
+const WorkItemRow = ({ item, index }) => {
+    const [activeIndex, setActiveIndex] = useState(0);
+    const [isHovered, setIsHovered] = useState(false);
+
+    useEffect(() => {
+        let interval;
+        if (isHovered && item.images.length > 1) {
+            interval = setInterval(() => {
+                setActiveIndex((prev) => (prev + 1) % item.images.length);
+            }, 1200); // Crossfade every 1.2s
+        } else {
+            setActiveIndex(0); // Reset when unhovered
+        }
+        return () => clearInterval(interval);
+    }, [isHovered, item.images.length]);
+
+    return (
+        <div 
+            className="work-item" 
+            onMouseEnter={() => setIsHovered(true)}
+            onMouseLeave={() => setIsHovered(false)}
+        >
+            <div className="work-item-year">
+                {item.year}<span className="orange-dot"></span>
+            </div>
+            
+            <div className="work-item-content">
+                <div className="work-item-title">{item.title}</div>
+                <p className="work-item-desc">{item.description}</p>
+                <div className="work-item-skills">
+                    {item.skills?.map((skill, si) => (
+                        <span className="skill-pill" key={si}>{skill}</span>
+                    ))}
+                </div>
+            </div>
+            
+            <div className="work-item-thumbnails">
+                {item.images.map((img, i) => (
+                    <div 
+                        className={`work-thumbnail ${isHovered && i !== activeIndex ? 'hidden-thumb' : ''}`} 
+                        key={i}
+                    >
+                        <img src={img} alt={`${item.title} ${i}`} />
+                    </div>
+                ))}
+            </div>
+        </div>
+    );
+};
 
 const WorkList = () => {
     const expertise = [
         {
             year: "01",
             title: "Product Design",
+            description: "End-to-end product design solutions focusing on user-centered experiences and robust functional architecture.",
+            skills: ["User Research", "Prototyping", "Usability Testing", "Design Systems"],
             images: [
-                "https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?auto=format&fit=crop&q=80&w=300",
+                "/images/digital_design.png",
+                "/images/delete-button.png",
             ]
         },
         {
             year: "02",
             title: "Brand Identity",
+            description: "Crafting memorable visual identities that deeply connect with your target audience across all mediums.",
+            skills: ["Logo Design", "Visual Language", "Typography", "Brand Guidelines"],
             images: [
-                "https://images.unsplash.com/photo-1557683316-973673baf926?auto=format&fit=crop&q=80&w=300",
-                "https://images.unsplash.com/photo-1626785774573-4b799315345d?auto=format&fit=crop&q=80&w=300",
+                "/images/strategy.png",
+                "/images/design-with-intent.jpg",
+                "/images/insights.png"
             ]
         },
         {
             year: "03",
             title: "UX/UI Design",
+            description: "Beautiful, conversion-focused user interfaces built on a foundation of solid user experience research.",
+            skills: ["Wireframing", "Interaction Design", "Responsive Design", "Accessibility"],
             images: [
-                "https://images.unsplash.com/photo-1586717791821-3f44a563cc4c?auto=format&fit=crop&q=80&w=300",
+                "/images/design-with-intent.jpg",
+                "/images/digital_design.png",
             ]
         },
         {
             year: "04",
             title: "Design Systems",
+            description: "Scalable component libraries that help engineering and design teams move fast without breaking things.",
+            skills: ["Component Libraries", "Documentation", "Token Management"],
             images: [
-                "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&q=80&w=300",
-                "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&q=80&w=300",
+                "/images/insights.png",
+                "/images/strategy.png",
             ]
         },
         {
             year: "05",
-            title: "Strategy",
+            title: "Social Media",
+            description: "Branded templates and content systems to help you stay consistent and scroll-worthy.",
+            skills: ["Instagram Design", "Story Kits", "Content Templates", "Visual Consistency"],
             images: [
-                "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80&w=300",
+                "/images/delete-button.png",
+                "/images/digital_design.png",
+                "/images/insights.png"
             ]
         }
     ];
@@ -55,17 +120,7 @@ const WorkList = () => {
                     </a>
                 </div>
                 {expertise.map((item, index) => (
-                    <div className="work-item" key={index}>
-                        <div className="work-item-year">{item.year}</div>
-                        <div className="work-item-title">{item.title}</div>
-                        <div className="work-item-thumbnails">
-                            {item.images.map((img, i) => (
-                                <div className="work-thumbnail" key={i}>
-                                    <img src={img} alt={`${item.title} ${i}`} />
-                                </div>
-                            ))}
-                        </div>
-                    </div>
+                    <WorkItemRow key={index} item={item} index={index} />
                 ))}
             </div>
         </section>
