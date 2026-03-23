@@ -1,6 +1,25 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 export default function Footer() {
+  const [email, setEmail] = useState('');
+  const [status, setStatus] = useState('idle'); // 'idle', 'loading', 'success', 'error'
+
+  const handleSubscribe = async (e) => {
+    e.preventDefault();
+    if (!email) return;
+    
+    setStatus('loading');
+    
+    // Simulate an API call to a newsletter service like Formspree or Mailchimp
+    setTimeout(() => {
+      setStatus('success');
+      setEmail('');
+      
+      // Reset the success message back to idle after 3 seconds
+      setTimeout(() => setStatus('idle'), 3000);
+    }, 1500);
+  };
+
   return (
     <footer className="n-footer">
       <div className="n-footer-inner">
@@ -48,13 +67,29 @@ export default function Footer() {
             <a href="#" className="n-footer-link">Behance ↗</a>
           </div>
 
-          <div className="n-footer-column n-col-newsletter">
+          <form className="n-footer-column n-col-newsletter" onSubmit={handleSubscribe}>
             <p className="n-newsletter-desc">Sign up for our newsletter to get latest insights and updates</p>
             <div className="n-newsletter-input-group">
-              <input type="email" placeholder="Enter email address" className="n-newsletter-input" />
-              <button className="n-newsletter-submit">SUBSCRIBE</button>
+              <input 
+                type="email" 
+                placeholder="Enter email address" 
+                className="n-newsletter-input" 
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                disabled={status === 'loading' || status === 'success'}
+                required
+              />
+              <button 
+                type="submit" 
+                className="n-newsletter-submit"
+                disabled={status === 'loading' || status === 'success'}
+              >
+                {status === 'loading' ? 'SENDING...' : status === 'success' ? 'DONE' : 'SUBSCRIBE'}
+              </button>
             </div>
-          </div>
+            {status === 'success' && <p className="n-newsletter-msg success">Thanks for subscribing!</p>}
+            {status === 'error' && <p className="n-newsletter-msg error">Something went wrong. Please try again.</p>}
+          </form>
         </div>
 
         {/* Legal & Copyright */}

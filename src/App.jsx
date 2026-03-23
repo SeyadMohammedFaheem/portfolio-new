@@ -76,8 +76,7 @@ export default function App() {
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
         </Routes>
-
-        <div className="viewport-bottom-blur"></div>
+        <div className="viewport-top-blur"></div>
 
         <Footer />
       </ReactLenis>
