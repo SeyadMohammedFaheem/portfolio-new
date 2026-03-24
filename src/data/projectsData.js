@@ -1,12 +1,13 @@
 export const projectsData = [
     {
         id: "project-one",
-        title: "Project One",
-        year: "2024",
-        type: "Digital Systems",
+        slug: "dashboard-design",
+        title: "Dashboard Design",
+        year: "2025",
+        type: "UX Design",
         image: "/images/work/work1.jpg",
         client: "Company Alpha",
-        service: "Digital Systems",
+        service: "UX Design",
         description: "A comprehensive digital system engineered to modernize complex enterprise workflows and data management.",
         heroImage: "/images/work/work1.jpg",
         challenge: {
@@ -17,7 +18,7 @@ export const projectsData = [
             text: "We created a refined brand system that included a logo, lookbook design, e-commerce UX, and tone of voice.",
             subtext: "Our approach drew direct inspiration from brutalist architecture, stripping away all unnecessary elements."
         },
-        result: "Project One launched with a strong, cohesive identity that immediately stood out in the space.",
+        result: "Dashboard Design launched with a strong, cohesive identity that immediately stood out in the space.",
         gridImages: [
             "https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?auto=format&fit=crop&q=80&w=1000",
             "https://images.unsplash.com/photo-1590874103328-eac38a683ce7?auto=format&fit=crop&q=80&w=1000"
@@ -29,13 +30,14 @@ export const projectsData = [
         impactImage: "https://images.unsplash.com/photo-1621257912423-e45f9411d619?auto=format&fit=crop&q=80&w=2000"
     },
     {
-        id: "project-two",
-        title: "Project Two",
+        id: "pickcel-go-app-design",
+        slug: "pickcel-go-app-design",
+        title: "Pickcel GO App Design",
         year: "2024",
-        type: "Brand Identity",
+        type: "Mobile App",
         image: "/images/work/work2.jpg",
         client: "Beta Co.",
-        service: "Brand Identity",
+        service: "Mobile App",
         description: "Reimagining the core visual identity for a leading lifestyle brand to capture a younger demographic.",
         heroImage: "/images/work/work2.jpg",
         challenge: {
@@ -46,7 +48,7 @@ export const projectsData = [
             text: "A modern, bold typographic system combined with vibrant color palettes.",
             subtext: "We preserved the legacy logo mark but gave it a cleaner, flatter execution."
         },
-        result: "Project Two saw a 40% increase in brand recall among the target demographic.",
+        result: "Pickcel GO App saw a 40% increase in brand recall among the target demographic.",
         gridImages: [
             "https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?auto=format&fit=crop&q=80&w=1000",
             "https://images.unsplash.com/photo-1590874103328-eac38a683ce7?auto=format&fit=crop&q=80&w=1000"
@@ -58,13 +60,14 @@ export const projectsData = [
         impactImage: "https://images.unsplash.com/photo-1621257912423-e45f9411d619?auto=format&fit=crop&q=80&w=2000"
     },
     {
-        id: "project-three",
-        title: "Project Three",
-        year: "2023",
-        type: "Product Interface",
+        id: "website-revamp",
+        slug: "website-revamp",
+        title: "Website Revamp",
+        year: "2025",
+        type: "Visual Design",
         image: "/images/work/work3.jpg",
         client: "Gamma Tech",
-        service: "Product Interface",
+        service: "Visual Design",
         description: "Designing an intuitive, frictionless user interface for a complex financial dashboard.",
         heroImage: "/images/work/work3.jpg",
         challenge: {
@@ -87,13 +90,14 @@ export const projectsData = [
         impactImage: "https://images.unsplash.com/photo-1621257912423-e45f9411d619?auto=format&fit=crop&q=80&w=2000"
     },
     {
-        id: "project-four",
-        title: "Project Four",
-        year: "2023",
-        type: "Creative Direction",
+        id: "octalume-iot-dashboard",
+        slug: "octalume-iot-dashboard",
+        title: "Octalume IOT Dashboard",
+        year: "2025",
+        type: "Design System",
         image: "/images/work/work4.jpg",
         client: "Delta Studios",
-        service: "Creative Direction",
+        service: "Design System",
         description: "Guiding the creative vision for a global advertising campaign spanning digital and print.",
         heroImage: "/images/work/work4.jpg",
         challenge: {
@@ -117,6 +121,7 @@ export const projectsData = [
     },
     {
         id: "project-five",
+        slug: "project-five",
         title: "Project Five",
         year: "2023",
         type: "Visual Design",
@@ -146,6 +151,7 @@ export const projectsData = [
     },
     {
         id: "project-six",
+        slug: "project-six",
         title: "Project Six",
         year: "2022",
         type: "Mobile App",

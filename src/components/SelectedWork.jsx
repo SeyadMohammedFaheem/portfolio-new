@@ -1,33 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { projectsData } from '../data/projectsData';
 
 const SelectedWork = () => {
-    const projects = [
-        {
-            title: "Project One",
-            year: "2024",
-            type: "Digital Systems",
-            image: "/images/work/work1.jpg"
-        },
-        {
-            title: "Project Two",
-            year: "2024",
-            type: "Brand Identity",
-            image: "/images/work/work2.jpg"
-        },
-        {
-            title: "Project Three",
-            year: "2023",
-            type: "Product Interface",
-            image: "/images/work/work3.jpg"
-        },
-        {
-            title: "Project Four",
-            year: "2023",
-            type: "Creative Direction",
-            image: "/images/work/work4.jpg"
-        },
-    ];
+    const projects = projectsData.slice(0, 4);
 
     return (
         <section className="selected-work-section">
@@ -49,7 +25,7 @@ const SelectedWork = () => {
 
                 <div className="work-grid-kanso">
                     {projects.map((project, index) => (
-                        <Link to={`/project/${project.title.toLowerCase().replace(/\s+/g, '-')}`} className="work-card-kanso" key={index}>
+                        <Link to={`/project/${project.slug}`} className="work-card-kanso" key={index}>
                             <div className="work-img-wrapper">
                                 <img src={project.image} alt={project.title} />
                             </div>

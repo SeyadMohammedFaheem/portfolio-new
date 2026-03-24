@@ -1,0 +1,730 @@
+[
+  {
+    "id": "04836a9c-4395-4683-a1e4-278a0009fee1",
+    "title": "How to Create a UI/UX Skill for Claude (Anthropic Agent Skills)",
+    "slug": "create-uiux-skill-for-claude-anthropic",
+    "date": "March 24, 2026",
+    "category": "General",
+    "content": [
+      {
+        "type": "p",
+        "text": "A well-built UI/UX skill lets Claude consistently follow your design standards and workflow, without you re-explaining your process every time. Think of it as packaging your design “playbook” into a reusable instruction set that Claude can load automatically when a request matches your triggers."
+      },
+      {
+        "type": "p",
+        "text": "This post walks through how to create a practical UI/UX skill from scratch: structure, frontmatter, triggers, instructions, testing, and iteration."
+      },
+      {
+        "type": "hr"
+      },
+      {
+        "type": "h2",
+        "text": "1) What “a skill” is (and why it matters)"
+      },
+      {
+        "type": "p",
+        "text": "An Anthropic skill is a folder that teaches Claude how to handle a repeatable workflow. At minimum, it contains one required file:"
+      },
+      {
+        "type": "li",
+        "text": "SKILL.md (required): Markdown instructions with YAML frontmatter",
+        "listType": "bullet"
+      },
+      {
+        "type": "li",
+        "text": "scripts/ (optional): Python/Bash utilities for validation or generation",
+        "listType": "bullet"
+      },
+      {
+        "type": "li",
+        "text": "references/ (optional): extra docs Claude can open only when needed",
+        "listType": "bullet"
+      },
+      {
+        "type": "li",
+        "text": "assets/ (optional): templates, sample output, brand tokens, etc.",
+        "listType": "bullet"
+      },
+      {
+        "type": "p",
+        "text": "The power comes from progressive disclosure:"
+      },
+      {
+        "type": "li",
+        "text": "Frontmatter: always loaded, used for deciding when to use the skill",
+        "listType": "number"
+      },
+      {
+        "type": "li",
+        "text": "SKILL.md body: loaded only when the skill is relevant",
+        "listType": "number"
+      },
+      {
+        "type": "li",
+        "text": "Bundled references/assets: loaded only if Claude chooses to open them",
+        "listType": "number"
+      },
+      {
+        "type": "p",
+        "text": "This keeps context light while still giving Claude strong “specialist” behavior."
+      },
+      {
+        "type": "hr"
+      },
+      {
+        "type": "h2",
+        "text": "2) Pick 2–3 concrete UI/UX use cases (start small)"
+      },
+      {
+        "type": "p",
+        "text": "Before writing anything, define what the skill should reliably do."
+      },
+      {
+        "type": "p",
+        "text": "Here are strong starter use cases for a UI/UX skill:"
+      },
+      {
+        "type": "h3",
+        "text": "Use case A: Turn product requirements into a UX flow"
+      },
+      {
+        "type": "p",
+        "text": "Trigger phrases: “design a flow”, “UX flow”, “user journey”, “happy path”, “edge cases”"
+      },
+      {
+        "type": "p",
+        "text": "Result: A structured flow, edge cases, states, error handling, and acceptance criteria."
+      },
+      {
+        "type": "h3",
+        "text": "Use case B: Accessibility-first UI review"
+      },
+      {
+        "type": "p",
+        "text": "Trigger phrases: “accessibility audit”, “WCAG”, “contrast”, “focus state”, “keyboard navigation”"
+      },
+      {
+        "type": "p",
+        "text": "Result: A prioritized issues list + fixes + test checklist."
+      },
+      {
+        "type": "h3",
+        "text": "Use case C: Design critique in a consistent format"
+      },
+      {
+        "type": "p",
+        "text": "Trigger phrases: “critique this design”, “UX feedback”, “review my UI”"
+      },
+      {
+        "type": "p",
+        "text": "Result: Feedback organized by severity, user impact, and next steps."
+      },
+      {
+        "type": "p",
+        "text": "Pick the ones you actually repeat weekly. You can expand later."
+      },
+      {
+        "type": "hr"
+      },
+      {
+        "type": "h2",
+        "text": "3) Create the skill folder (follow the rules exactly)"
+      },
+      {
+        "type": "p",
+        "text": "Folder name must be kebab-case (lowercase, hyphens):"
+      },
+      {
+        "type": "p",
+        "text": "Inside it, create:"
+      },
+      {
+        "type": "p",
+        "text": "Critical rules:"
+      },
+      {
+        "type": "li",
+        "text": "File must be named exactly SKILL.md (case-sensitive).",
+        "listType": "bullet"
+      },
+      {
+        "type": "li",
+        "text": "Skill name must be kebab-case, no spaces, no capitals.",
+        "listType": "bullet"
+      },
+      {
+        "type": "li",
+        "text": "Do not include README.md inside the skill folder.",
+        "listType": "bullet"
+      },
+      {
+        "type": "li",
+        "text": "Do not put XML angle brackets < > in the frontmatter.",
+        "listType": "bullet"
+      },
+      {
+        "type": "li",
+        "text": "Avoid using “claude” or “anthropic” in the skill name (reserved patterns). You can mention them in the body text.",
+        "listType": "bullet"
+      },
+      {
+        "type": "hr"
+      },
+      {
+        "type": "h2",
+        "text": "4) Write strong YAML frontmatter (this controls when it triggers)"
+      },
+      {
+        "type": "p",
+        "text": "Your frontmatter must answer:"
+      },
+      {
+        "type": "p",
+        "text": "1) What it does"
+      },
+      {
+        "type": "p",
+        "text": "2) When to use it (trigger phrases)"
+      },
+      {
+        "type": "p",
+        "text": "Here’s a good frontmatter for a UI/UX skill:"
+      },
+      {
+        "type": "p",
+        "text": "Tips:"
+      },
+      {
+        "type": "li",
+        "text": "Be specific. “Helps with design” is too vague.",
+        "listType": "bullet"
+      },
+      {
+        "type": "li",
+        "text": "Include the phrases people actually type.",
+        "listType": "bullet"
+      },
+      {
+        "type": "li",
+        "text": "To prevent over-triggering, add boundaries in the description (for example: “Do NOT use for branding”).",
+        "listType": "bullet"
+      },
+      {
+        "type": "hr"
+      },
+      {
+        "type": "h2",
+        "text": "5) Write the SKILL.md body (your UI/UX workflow)"
+      },
+      {
+        "type": "p",
+        "text": "Below the frontmatter, write clear, actionable steps Claude can follow every time."
+      },
+      {
+        "type": "p",
+        "text": "Here’s a solid starter template you can copy into SKILL.md:"
+      },
+      {
+        "type": "hr"
+      },
+      {
+        "type": "h2",
+        "text": "6) Add optional references (make it smarter without bloating it)"
+      },
+      {
+        "type": "p",
+        "text": "If you have a personal style guide or recurring patterns (like destructive actions, form validation rules, or UI writing guidance), put them into:"
+      },
+      {
+        "type": "p",
+        "text": "Then in SKILL.md, tell Claude when to consult them, for example:"
+      },
+      {
+        "type": "li",
+        "text": "“If the flow includes deletion, consult references/destructive-actions-pattern.md.”",
+        "listType": "bullet"
+      },
+      {
+        "type": "hr"
+      },
+      {
+        "type": "h2",
+        "text": "7) Testing: make sure it triggers and stays consistent"
+      },
+      {
+        "type": "p",
+        "text": "Create a mini test set (10–20 prompts)."
+      },
+      {
+        "type": "p",
+        "text": "Should trigger"
+      },
+      {
+        "type": "li",
+        "text": "“Create a UX flow for deleting an account safely.”",
+        "listType": "bullet"
+      },
+      {
+        "type": "li",
+        "text": "“Do an accessibility audit of this settings screen.”",
+        "listType": "bullet"
+      },
+      {
+        "type": "li",
+        "text": "“Write UI specs for a password reset screen with error states.”",
+        "listType": "bullet"
+      },
+      {
+        "type": "p",
+        "text": "Should not trigger"
+      },
+      {
+        "type": "li",
+        "text": "“Write a LinkedIn post about design.”",
+        "listType": "bullet"
+      },
+      {
+        "type": "li",
+        "text": "“What’s the weather?”",
+        "listType": "bullet"
+      },
+      {
+        "type": "li",
+        "text": "“Help me debug Python” (unless your skill is meant to cover it)",
+        "listType": "bullet"
+      },
+      {
+        "type": "p",
+        "text": "Then iterate:"
+      },
+      {
+        "type": "li",
+        "text": "If it doesn’t trigger: add clearer trigger phrases to description.",
+        "listType": "bullet"
+      },
+      {
+        "type": "li",
+        "text": "If it triggers too often: narrow scope and add “Do NOT use when…”.",
+        "listType": "bullet"
+      },
+      {
+        "type": "hr"
+      },
+      {
+        "type": "h2",
+        "text": "8) Distribution tips (so you can reuse it anywhere)"
+      },
+      {
+        "type": "p",
+        "text": "For personal use:"
+      },
+      {
+        "type": "li",
+        "text": "Zip the folder and upload it in Claude’s Skills UI (or place it in your local skills directory).",
+        "listType": "bullet"
+      },
+      {
+        "type": "p",
+        "text": "For sharing:"
+      },
+      {
+        "type": "li",
+        "text": "Host the folder in a GitHub repo.",
+        "listType": "bullet"
+      },
+      {
+        "type": "li",
+        "text": "Put human-facing documentation in the repo-level README (not inside the skill folder).",
+        "listType": "bullet"
+      },
+      {
+        "type": "li",
+        "text": "Include example prompts and screenshots.",
+        "listType": "bullet"
+      },
+      {
+        "type": "hr"
+      },
+      {
+        "type": "h2",
+        "text": "Example starter prompts to include"
+      },
+      {
+        "type": "li",
+        "text": "“Turn this PRD into a UX flow with edge cases and acceptance criteria.”",
+        "listType": "bullet"
+      },
+      {
+        "type": "li",
+        "text": "“Critique this onboarding screen with severity and suggested fixes.”",
+        "listType": "bullet"
+      },
+      {
+        "type": "li",
+        "text": "“Design an accessible confirmation modal for destructive actions.”",
+        "listType": "bullet"
+      },
+      {
+        "type": "li",
+        "text": "“Create a UI spec for a form: labels, validations, error messages, and states.”",
+        "listType": "bullet"
+      },
+      {
+        "type": "hr"
+      },
+      {
+        "type": "h2",
+        "text": "Closing"
+      },
+      {
+        "type": "p",
+        "text": "Start with one workflow you repeatedly do (like accessibility-first flow design). Write the skill so the output is always structured, testable, accessible, and consistent. Then expand it over time."
+      }
+    ],
+    "image": "/images/insights.png"
+  },
+  {
+    "id": "1e84f82a-5353-8086-8c4a-dd0893205489",
+    "title": "Delete Button Case Study",
+    "slug": "delete-button-case-study",
+    "date": "March 24, 2026",
+    "category": "General",
+    "content": [
+      {
+        "type": "h3",
+        "text": "The Challenge"
+      },
+      {
+        "type": "p",
+        "text": "Destructive actions (e.g., deleting accounts or data) are irreversible, yet many interfaces design them poorly—leading to accidental data loss, frustrated users, and eroded trust."
+      },
+      {
+        "type": "p",
+        "text": ""
+      },
+      {
+        "type": "img",
+        "url": "https://prod-files-secure.s3.us-west-2.amazonaws.com/052b5715-3363-4fe6-980e-3f0dd8222353/45de24ac-e02e-4208-97a1-a35f24d0fce6/image.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=ASIAZI2LB466XECBUG5S%2F20260324%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20260324T204019Z&X-Amz-Expires=3600&X-Amz-Security-Token=IQoJb3JpZ2luX2VjENP%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaCXVzLXdlc3QtMiJIMEYCIQCG9B754Y4jZ7Qv%2BZ%2BvgxKyE7vThmH3Orfb2DmNQvx4fgIhAJfXU6CoquER8FMxaje12smhNIRBAPp3qnxEzLTw2DVPKogECJz%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEQABoMNjM3NDIzMTgzODA1IgxueM452wYBFKAcvXEq3AMwsBaF1knYxLF003Bz2b3CkTPGdIuoR47votN73vhGkZck8fLtZJPoSqbykhLZ4M8upvj73NLvDHHvmhLjeXXNaICjBn36DPoHEjc8D%2FtmTOkGiFCiBTBKwqYlNPXBEdnqBnNeDY7tjgYykdBsjpyWK16W4x04Z1sk3zvHNW8wGMoCCS3XAFVWxV%2BD3zGxDY3KyKx%2FY3uRRkK%2BbGLdErYmV1h7PZrq%2FovsHoSf5EoW1Ca7EIHUu8iaIW6FdhrG8QuGWT6WC2FYA6Kue9ZAAXlpMusUofbAPn6iGgSCbWha5lGy8UXbUW6%2BsMsnVkLO6reMmtTNequgWdK63DIbSJYYKqTYHsrG5f32P%2Bv5EhTNv4FcNLd%2BIpNc5lK8Me8baUklt47QZHTxjI1I93l8w32llm6B3iKyNScCUfitkiCWNvGNYjGH1JjGY4TeyVmP0mexr%2FDaQg%2BPOEW3QgJ8uSGytDFqnnoOga%2Bxl6LLGSLzk6mySuNffTwAoJRj9tLIMPN%2BIR37lSNlm%2FmL4HB19%2FWE9L8wWIgXI%2FFlcUTmbvWPbMUrSdh4oI512I0EbatVJeT8A7rMYvPlI%2Bh34vn4chsgZfgUVvR9CpmPK9KC4mwcbSE5O9aHgaAWo%2BXndzCHvIvOBjqkAVCkKLFKiTDLOVl2L9RWqTMnEIiyyIwHDa%2BVg%2F1E51ouIl%2Ba0lefCf1Y264NUpN0opKW31w4ZYdfkWsLgUuaKYub4x3cFrBh63rRPxohqkoBI8fU9RWVt%2FGm0sqHCNJgb%2FfN%2BYEfygfuK8HzT%2BYVSJTGx2OLp%2Bx%2Bi%2B3COnydMgw0VAJOEGVITsoDPvyKQsMxbP5mHGjAb%2FYtkkztbm0HBevgekXU&X-Amz-Signature=12e5cbdae0bc6120c0316019f046cca3f26f0e991be7bbb2c99cab3335c29ed5&X-Amz-SignedHeaders=host&x-amz-checksum-mode=ENABLED&x-id=GetObject",
+        "caption": ""
+      },
+      {
+        "type": "h3",
+        "text": "Key Problems Identified"
+      },
+      {
+        "type": "p",
+        "text": "Poorly designed dialog: Unclear \"Proceed\" button, no visible cancel option"
+      },
+      {
+        "type": "p",
+        "text": "Example of problematic design: Ambiguous labels, low contrast, and missing safeguards."
+      },
+      {
+        "type": "p",
+        "text": ""
+      },
+      {
+        "type": "li",
+        "text": "Ambiguous labels (\"Proceed\" instead of \"Delete Account\").",
+        "listType": "number"
+      },
+      {
+        "type": "li",
+        "text": "No confirmation dialogs, allowing irreversible actions to trigger instantly.",
+        "listType": "number"
+      },
+      {
+        "type": "li",
+        "text": "Accessibility failures: Low contrast, small click targets, missing focus states.",
+        "listType": "number"
+      },
+      {
+        "type": "li",
+        "text": "Inconsistent patterns across platforms (desktop vs. mobile).",
+        "listType": "number"
+      },
+      {
+        "type": "p",
+        "text": ""
+      },
+      {
+        "type": "p",
+        "text": ""
+      },
+      {
+        "type": "img",
+        "url": "https://prod-files-secure.s3.us-west-2.amazonaws.com/052b5715-3363-4fe6-980e-3f0dd8222353/fa5eebab-431e-4d43-95cb-1796b8e0dedd/image.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=ASIAZI2LB466XECBUG5S%2F20260324%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20260324T204019Z&X-Amz-Expires=3600&X-Amz-Security-Token=IQoJb3JpZ2luX2VjENP%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaCXVzLXdlc3QtMiJIMEYCIQCG9B754Y4jZ7Qv%2BZ%2BvgxKyE7vThmH3Orfb2DmNQvx4fgIhAJfXU6CoquER8FMxaje12smhNIRBAPp3qnxEzLTw2DVPKogECJz%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEQABoMNjM3NDIzMTgzODA1IgxueM452wYBFKAcvXEq3AMwsBaF1knYxLF003Bz2b3CkTPGdIuoR47votN73vhGkZck8fLtZJPoSqbykhLZ4M8upvj73NLvDHHvmhLjeXXNaICjBn36DPoHEjc8D%2FtmTOkGiFCiBTBKwqYlNPXBEdnqBnNeDY7tjgYykdBsjpyWK16W4x04Z1sk3zvHNW8wGMoCCS3XAFVWxV%2BD3zGxDY3KyKx%2FY3uRRkK%2BbGLdErYmV1h7PZrq%2FovsHoSf5EoW1Ca7EIHUu8iaIW6FdhrG8QuGWT6WC2FYA6Kue9ZAAXlpMusUofbAPn6iGgSCbWha5lGy8UXbUW6%2BsMsnVkLO6reMmtTNequgWdK63DIbSJYYKqTYHsrG5f32P%2Bv5EhTNv4FcNLd%2BIpNc5lK8Me8baUklt47QZHTxjI1I93l8w32llm6B3iKyNScCUfitkiCWNvGNYjGH1JjGY4TeyVmP0mexr%2FDaQg%2BPOEW3QgJ8uSGytDFqnnoOga%2Bxl6LLGSLzk6mySuNffTwAoJRj9tLIMPN%2BIR37lSNlm%2FmL4HB19%2FWE9L8wWIgXI%2FFlcUTmbvWPbMUrSdh4oI512I0EbatVJeT8A7rMYvPlI%2Bh34vn4chsgZfgUVvR9CpmPK9KC4mwcbSE5O9aHgaAWo%2BXndzCHvIvOBjqkAVCkKLFKiTDLOVl2L9RWqTMnEIiyyIwHDa%2BVg%2F1E51ouIl%2Ba0lefCf1Y264NUpN0opKW31w4ZYdfkWsLgUuaKYub4x3cFrBh63rRPxohqkoBI8fU9RWVt%2FGm0sqHCNJgb%2FfN%2BYEfygfuK8HzT%2BYVSJTGx2OLp%2Bx%2Bi%2B3COnydMgw0VAJOEGVITsoDPvyKQsMxbP5mHGjAb%2FYtkkztbm0HBevgekXU&X-Amz-Signature=3f4363f90ca2e6d148ccbd8542970ebf3f1574097acb264834ed96c96be1ca39&X-Amz-SignedHeaders=host&x-amz-checksum-mode=ENABLED&x-id=GetObject",
+        "caption": ""
+      },
+      {
+        "type": "h3",
+        "text": "Goals"
+      },
+      {
+        "type": "li",
+        "text": "Prevent accidental destructive actions.",
+        "listType": "bullet"
+      },
+      {
+        "type": "li",
+        "text": "Ensure destructive buttons are fully accessible (WCAG 2.1 Level AA compliant).",
+        "listType": "bullet"
+      },
+      {
+        "type": "li",
+        "text": "Create a consistent, predictable pattern across all products.",
+        "listType": "bullet"
+      },
+      {
+        "type": "li",
+        "text": "Educate internal teams on the importance of accessible destructive design.",
+        "listType": "bullet"
+      },
+      {
+        "type": "p",
+        "text": ""
+      },
+      {
+        "type": "h3",
+        "text": "Approach"
+      },
+      {
+        "type": "h3",
+        "text": "🔍 User Testing & Heuristic Analysis"
+      },
+      {
+        "type": "p",
+        "text": "We conducted usability testing and heuristic evaluations on key interfaces (e.g., account settings, file managers). Key findings included:"
+      },
+      {
+        "type": "li",
+        "text": "Users skipped warning text due to poor contrast or vague language.",
+        "listType": "bullet"
+      },
+      {
+        "type": "li",
+        "text": "Keyboard users struggled to locate the active button due to missing focus indicators.",
+        "listType": "bullet"
+      },
+      {
+        "type": "li",
+        "text": "On mobile, destructive buttons were too close to primary actions like “Save.”",
+        "listType": "bullet"
+      },
+      {
+        "type": "p",
+        "text": ""
+      },
+      {
+        "type": "img",
+        "url": "https://prod-files-secure.s3.us-west-2.amazonaws.com/052b5715-3363-4fe6-980e-3f0dd8222353/1b7c1e25-c1dd-48c8-aa4c-de3e691c5edb/653shots_so.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=ASIAZI2LB466XECBUG5S%2F20260324%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20260324T204020Z&X-Amz-Expires=3600&X-Amz-Security-Token=IQoJb3JpZ2luX2VjENP%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaCXVzLXdlc3QtMiJIMEYCIQCG9B754Y4jZ7Qv%2BZ%2BvgxKyE7vThmH3Orfb2DmNQvx4fgIhAJfXU6CoquER8FMxaje12smhNIRBAPp3qnxEzLTw2DVPKogECJz%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEQABoMNjM3NDIzMTgzODA1IgxueM452wYBFKAcvXEq3AMwsBaF1knYxLF003Bz2b3CkTPGdIuoR47votN73vhGkZck8fLtZJPoSqbykhLZ4M8upvj73NLvDHHvmhLjeXXNaICjBn36DPoHEjc8D%2FtmTOkGiFCiBTBKwqYlNPXBEdnqBnNeDY7tjgYykdBsjpyWK16W4x04Z1sk3zvHNW8wGMoCCS3XAFVWxV%2BD3zGxDY3KyKx%2FY3uRRkK%2BbGLdErYmV1h7PZrq%2FovsHoSf5EoW1Ca7EIHUu8iaIW6FdhrG8QuGWT6WC2FYA6Kue9ZAAXlpMusUofbAPn6iGgSCbWha5lGy8UXbUW6%2BsMsnVkLO6reMmtTNequgWdK63DIbSJYYKqTYHsrG5f32P%2Bv5EhTNv4FcNLd%2BIpNc5lK8Me8baUklt47QZHTxjI1I93l8w32llm6B3iKyNScCUfitkiCWNvGNYjGH1JjGY4TeyVmP0mexr%2FDaQg%2BPOEW3QgJ8uSGytDFqnnoOga%2Bxl6LLGSLzk6mySuNffTwAoJRj9tLIMPN%2BIR37lSNlm%2FmL4HB19%2FWE9L8wWIgXI%2FFlcUTmbvWPbMUrSdh4oI512I0EbatVJeT8A7rMYvPlI%2Bh34vn4chsgZfgUVvR9CpmPK9KC4mwcbSE5O9aHgaAWo%2BXndzCHvIvOBjqkAVCkKLFKiTDLOVl2L9RWqTMnEIiyyIwHDa%2BVg%2F1E51ouIl%2Ba0lefCf1Y264NUpN0opKW31w4ZYdfkWsLgUuaKYub4x3cFrBh63rRPxohqkoBI8fU9RWVt%2FGm0sqHCNJgb%2FfN%2BYEfygfuK8HzT%2BYVSJTGx2OLp%2Bx%2Bi%2B3COnydMgw0VAJOEGVITsoDPvyKQsMxbP5mHGjAb%2FYtkkztbm0HBevgekXU&X-Amz-Signature=647e2a2a5dd889ca0e95bf46dcf793837cdad88eef54d8c43241ae3e1068d908&X-Amz-SignedHeaders=host&x-amz-checksum-mode=ENABLED&x-id=GetObject",
+        "caption": ""
+      },
+      {
+        "type": "h2",
+        "text": "Solutions & Design Decisions"
+      },
+      {
+        "type": "h3",
+        "text": "Clear, Action-Oriented Labels"
+      },
+      {
+        "type": "p",
+        "text": "Problem: Vague labels like “Proceed” confused users."
+      },
+      {
+        "type": "p",
+        "text": "Solution:"
+      },
+      {
+        "type": "p",
+        "text": "We replaced ambiguous labels with explicit action verbs, such as:"
+      },
+      {
+        "type": "li",
+        "text": "“Delete My Account”",
+        "listType": "bullet"
+      },
+      {
+        "type": "li",
+        "text": "“Remove User”",
+        "listType": "bullet"
+      },
+      {
+        "type": "li",
+        "text": "“Cancel Subscription”",
+        "listType": "bullet"
+      },
+      {
+        "type": "p",
+        "text": "This increased user understanding and reduced hesitation during task completion."
+      },
+      {
+        "type": "img",
+        "url": "https://prod-files-secure.s3.us-west-2.amazonaws.com/052b5715-3363-4fe6-980e-3f0dd8222353/30e0ed24-8739-4698-b69a-77c2fde27af7/image.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=ASIAZI2LB466XECBUG5S%2F20260324%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20260324T204020Z&X-Amz-Expires=3600&X-Amz-Security-Token=IQoJb3JpZ2luX2VjENP%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaCXVzLXdlc3QtMiJIMEYCIQCG9B754Y4jZ7Qv%2BZ%2BvgxKyE7vThmH3Orfb2DmNQvx4fgIhAJfXU6CoquER8FMxaje12smhNIRBAPp3qnxEzLTw2DVPKogECJz%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEQABoMNjM3NDIzMTgzODA1IgxueM452wYBFKAcvXEq3AMwsBaF1knYxLF003Bz2b3CkTPGdIuoR47votN73vhGkZck8fLtZJPoSqbykhLZ4M8upvj73NLvDHHvmhLjeXXNaICjBn36DPoHEjc8D%2FtmTOkGiFCiBTBKwqYlNPXBEdnqBnNeDY7tjgYykdBsjpyWK16W4x04Z1sk3zvHNW8wGMoCCS3XAFVWxV%2BD3zGxDY3KyKx%2FY3uRRkK%2BbGLdErYmV1h7PZrq%2FovsHoSf5EoW1Ca7EIHUu8iaIW6FdhrG8QuGWT6WC2FYA6Kue9ZAAXlpMusUofbAPn6iGgSCbWha5lGy8UXbUW6%2BsMsnVkLO6reMmtTNequgWdK63DIbSJYYKqTYHsrG5f32P%2Bv5EhTNv4FcNLd%2BIpNc5lK8Me8baUklt47QZHTxjI1I93l8w32llm6B3iKyNScCUfitkiCWNvGNYjGH1JjGY4TeyVmP0mexr%2FDaQg%2BPOEW3QgJ8uSGytDFqnnoOga%2Bxl6LLGSLzk6mySuNffTwAoJRj9tLIMPN%2BIR37lSNlm%2FmL4HB19%2FWE9L8wWIgXI%2FFlcUTmbvWPbMUrSdh4oI512I0EbatVJeT8A7rMYvPlI%2Bh34vn4chsgZfgUVvR9CpmPK9KC4mwcbSE5O9aHgaAWo%2BXndzCHvIvOBjqkAVCkKLFKiTDLOVl2L9RWqTMnEIiyyIwHDa%2BVg%2F1E51ouIl%2Ba0lefCf1Y264NUpN0opKW31w4ZYdfkWsLgUuaKYub4x3cFrBh63rRPxohqkoBI8fU9RWVt%2FGm0sqHCNJgb%2FfN%2BYEfygfuK8HzT%2BYVSJTGx2OLp%2Bx%2Bi%2B3COnydMgw0VAJOEGVITsoDPvyKQsMxbP5mHGjAb%2FYtkkztbm0HBevgekXU&X-Amz-Signature=c9791637590c926cf10406c027956e1f09baf7d5190bbc88bd77779267b7bd5d&X-Amz-SignedHeaders=host&x-amz-checksum-mode=ENABLED&x-id=GetObject",
+        "caption": ""
+      },
+      {
+        "type": "p",
+        "text": ""
+      },
+      {
+        "type": "h3",
+        "text": "✅ 2. Confirmation Dialogs"
+      },
+      {
+        "type": "p",
+        "text": "Problem: Actions occurred immediately without warnings."
+      },
+      {
+        "type": "p",
+        "text": "Solution:"
+      },
+      {
+        "type": "p",
+        "text": "We introduced confirmation modals that included:"
+      },
+      {
+        "type": "li",
+        "text": "Clear warning messages about consequences",
+        "listType": "bullet"
+      },
+      {
+        "type": "li",
+        "text": "Optional checkboxes for sensitive deletions",
+        "listType": "bullet"
+      },
+      {
+        "type": "li",
+        "text": "Clear button options: “Cancel” (non-destructive), “Confirm Delete” (destructive)",
+        "listType": "bullet"
+      },
+      {
+        "type": "p",
+        "text": ""
+      },
+      {
+        "type": "h3",
+        "text": "✅ 3. Visual Differentiation"
+      },
+      {
+        "type": "p",
+        "text": "Problem: Destructive buttons visually blended with other controls."
+      },
+      {
+        "type": "p",
+        "text": "Solution:"
+      },
+      {
+        "type": "li",
+        "text": "Used high-contrast red color with text + icon (e.g., 🗑️ DELETE)",
+        "listType": "bullet"
+      },
+      {
+        "type": "li",
+        "text": "Avoided placing destructive actions next to primary buttons",
+        "listType": "bullet"
+      },
+      {
+        "type": "li",
+        "text": "Styled destructive actions as secondary, except within confirmation dialogs",
+        "listType": "bullet"
+      },
+      {
+        "type": "p",
+        "text": ""
+      },
+      {
+        "type": "p",
+        "text": ""
+      },
+      {
+        "type": "h3",
+        "text": "✅ 4. Accessibility Compliance"
+      },
+      {
+        "type": "p",
+        "text": "Problem: Buttons failed to meet basic WCAG standards."
+      },
+      {
+        "type": "p",
+        "text": "Solution:"
+      },
+      {
+        "type": "p",
+        "text": "We updated destructive buttons to meet:"
+      },
+      {
+        "type": "li",
+        "text": "Target size of at least 24×24px (WCAG 2.5.8)",
+        "listType": "bullet"
+      },
+      {
+        "type": "li",
+        "text": "Contrast ratio ≥ 4.5:1 between text and background (WCAG 1.4.3)",
+        "listType": "bullet"
+      },
+      {
+        "type": "li",
+        "text": "Focus visibility (WCAG 2.4.7) with clear outlines and spacing",
+        "listType": "bullet"
+      },
+      {
+        "type": "p",
+        "text": "We also tested with assistive technologies to ensure compatibility."
+      },
+      {
+        "type": "p",
+        "text": ""
+      },
+      {
+        "type": "h3",
+        "text": "Results"
+      },
+      {
+        "type": "li",
+        "text": "92% reduction in support tickets related to accidental deletion.",
+        "listType": "bullet"
+      },
+      {
+        "type": "li",
+        "text": "Improved task completion rates in usability tests.",
+        "listType": "bullet"
+      },
+      {
+        "type": "li",
+        "text": "Positive qualitative feedback from users: “I feel much safer using this now.”",
+        "listType": "bullet"
+      },
+      {
+        "type": "li",
+        "text": "Design system updated with clear patterns for destructive actions, adopted across multiple teams.",
+        "listType": "bullet"
+      },
+      {
+        "type": "p",
+        "text": ""
+      },
+      {
+        "type": "h3",
+        "text": "Key Takeaways"
+      },
+      {
+        "type": "li",
+        "text": "Destructive buttons must be designed with caution: clear labels, confirmation dialogs, and accessible styles are non-negotiable.",
+        "listType": "bullet"
+      },
+      {
+        "type": "li",
+        "text": "Accessibility is not a layer on top—it’s part of the design from the beginning.",
+        "listType": "bullet"
+      },
+      {
+        "type": "li",
+        "text": "Small improvements (like button spacing and contrast) significantly impact user trust and safety.",
+        "listType": "bullet"
+      }
+    ],
+    "image": "https://prod-files-secure.s3.us-west-2.amazonaws.com/052b5715-3363-4fe6-980e-3f0dd8222353/50a286a5-087d-45ed-814e-15256b733a54/blog1.jpg.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=ASIAZI2LB466W5IAGVWT%2F20260324%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20260324T204012Z&X-Amz-Expires=3600&X-Amz-Security-Token=IQoJb3JpZ2luX2VjENP%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaCXVzLXdlc3QtMiJHMEUCIQCw93Pd5NVRAE%2BWu6U%2FuO1CjAplRd%2FZfkQWIuixSz9DbAIgI0stXIaVbQMr4sWXGiFN5UTBE0a3iOKP690y2NOdn%2BwqiAQInP%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FARAAGgw2Mzc0MjMxODM4MDUiDLQYKjNcBbTAlL1SUCrcAzChTMFtdFshm4VFAQwY5TEOJIopanWWkPaOgCdcuywikL45YazNJLQJxd75RoOVaUmB76av%2FXxcBQRGBTzTdFWyb%2FqEQY49wVWA7g7VhSNse1sRKYTJAjvL4DA7RWeFm2hawwId6iEXA87S6CYx4d3c0zZuYUdt%2BatsR9f7UpL0lv3oZMtwoJgFo1CxqLW8IZvUZ%2FRp3yHA90l%2BhZumw1BuEBUYkQ3TBT%2FkyUvu%2FSNLvMoRpwcNnlGwBJnmkFn7RUJeu3MYgfMw4z%2BfVmUw0WmUh8wctu%2BZyiZQHZ73lDzHWhZb8%2Bg3%2B5z2%2FNW3ZNO4xVVBHBySUgnnjdw5TsQQJSOiryw93LlvrCxBI6t8ZXXe3qKbIydF9b4KhDcCONrXCQEeXfPPbLu9ocFyWNbk1%2BpN49lYiLb9o%2BXJOO0w1IybazwUeoe%2FhiJtMBKUCaFqvePYYacrS91Fpqo3IBFPhA7uQclk0sLM4GQwU25jtSJmS%2Bl2ZCtJzDgXarq9dgDBaitHIwWpuW6TiGeXwTUeUa%2FRw5pxbTvRv1u73IemelWuflhcBd1LDo18x0NsL9weajZmxxe5gjlGPIdhoHuudSL0WMVMe5vmvRdFM1MhXvdMK2%2Fbmhhj%2BS5FESRcMJ%2B7i84GOqUBgJ4YAAdLToYMESChXvScOdVrzmujNrTRVxFa1yMng1kJ87WnMT2tgtaoNjqcmXdcVTBvY0oQk8XLUxYDy%2BZ8sehG0q0O3oWb843UHQ3G8NR2Q8X3bA980qoy5lw4PKpuec78RbdA0WV1BjOCEp5wBcMX6FYMvskvN2sHhSWkgth5OF%2Bm2jXGN5Hn3mmlierImoXOi%2B8Ub4KpvgADEAmFNIQqR6Nj&X-Amz-Signature=929ecd3795bec799f70c59348c7b70be554b8e5978dd357575e3f361e821070c&X-Amz-SignedHeaders=host&x-amz-checksum-mode=ENABLED&x-id=GetObject"
+  }
+]

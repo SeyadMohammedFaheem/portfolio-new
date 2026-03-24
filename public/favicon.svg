@@ -4,11 +4,11 @@
   
   <!-- "F" Monogram for Faheem -->
   <!-- Left Vertical Bar -->
-  <rect x="84" y="64" width="36" height="128" fill="#ffffff"/>
+  <rect x="84" y="64" width="36" height="128" fill="#000000"/>
   
   <!-- Top Horizontal Bar -->
-  <rect x="120" y="64" width="52" height="36" fill="#ffffff"/>
+  <rect x="120" y="64" width="52" height="36" fill="#000000"/>
   
   <!-- Middle Horizontal Bar -->
-  <rect x="120" y="118" width="36" height="36" fill="#ffffff"/>
+  <rect x="120" y="118" width="36" height="36" fill="#000000"/>
 </svg>

@@ -1,46 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { gsap } from 'gsap';
+import { projectsData } from '../data/projectsData';
 
 const Projects = () => {
-    const allProjects = [
-        {
-            title: "Project One",
-            year: "2024",
-            type: "Digital Systems",
-            image: "/images/work/work1.jpg"
-        },
-        {
-            title: "Project Two",
-            year: "2024",
-            type: "Brand Identity",
-            image: "/images/work/work2.jpg"
-        },
-        {
-            title: "Project Three",
-            year: "2023",
-            type: "Product Interface",
-            image: "/images/work/work3.jpg"
-        },
-        {
-            title: "Project Four",
-            year: "2023",
-            type: "Creative Direction",
-            image: "/images/work/work4.jpg"
-        },
-        {
-            title: "Project Five",
-            year: "2023",
-            type: "Visual Design",
-            image: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&q=80&w=800"
-        },
-        {
-            title: "Project Six",
-            year: "2022",
-            type: "Mobile App",
-            image: "https://images.unsplash.com/photo-1616469829581-73993eb86b02?auto=format&fit=crop&q=80&w=800"
-        }
-    ];
+    const allProjects = projectsData;
 
     const [activeFilter, setActiveFilter] = useState("All projects");
 
@@ -73,7 +37,7 @@ const Projects = () => {
 
     // Re-trigger animation when filter changes
     useEffect(() => {
-        gsap.fromTo(".work-card-kanso", 
+        gsap.fromTo(".work-card-kanso",
             { y: 50, opacity: 0 },
             { y: 0, opacity: 1, duration: 0.6, stagger: 0.1, ease: "power3.out" }
         );
@@ -90,7 +54,7 @@ const Projects = () => {
 
                 <div className="projects-filter">
                     {categories.map((cat, index) => (
-                        <button 
+                        <button
                             key={cat}
                             className={`filter-btn ${activeFilter === cat ? 'active' : ''}`}
                             onClick={() => setActiveFilter(cat)}
@@ -102,7 +66,7 @@ const Projects = () => {
 
                 <div className="projects-grid-full">
                     {filteredProjects.map((project, index) => (
-                        <Link to={`/project/${project.title.toLowerCase().replace(/\s+/g, '-')}`} className="work-card-kanso" key={`${project.title}-${index}`}>
+                        <Link to={`/project/${project.slug}`} className="work-card-kanso" key={`${project.id}-${index}`}>
                             <div className="work-img-wrapper">
                                 <img src={project.image} alt={project.title} />
                             </div>

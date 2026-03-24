@@ -70,7 +70,7 @@ export default function App() {
         <Routes>
           <Route path="/" element={<Home videoElement={videoElement} setProgress={setProgress} />} />
           <Route path="/blog/:id" element={<BlogDetail />} />
-          <Route path="/project/:id" element={<ProjectDetail />} />
+          <Route path="/project/:slug" element={<ProjectDetail />} />
           <Route path="/projects" element={<Projects />} />
           <Route path="/insights" element={<Insights />} />
           <Route path="/about" element={<About />} />

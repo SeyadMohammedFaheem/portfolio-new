@@ -23,12 +23,18 @@ const Capabilities = () => {
                     <div className="fc-visual aww-visual">
                         <div className="fc-inner-mockup">
                             <img src="/images/awwwards-cert.jpg" alt="Awwwards Young Jury Faheem Certificate" style={{ objectFit: 'cover' }} />
-                            <div className="aww-hover-btn">
+                            <a
+                                className="aww-hover-btn"
+                                href="https://www.awwwards.com/jury-member/Faheemmeehaf"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                aria-label="View Faheem's Awwwards Jury Profile"
+                            >
                                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                                     <line x1="7" y1="17" x2="17" y2="7"></line>
                                     <polyline points="7 7 17 7 17 17"></polyline>
                                 </svg>
-                            </div>
+                            </a>
                         </div>
                     </div>
                 </div>

@@ -1,0 +1,346 @@
+{
+  "id": "1e84f82a535380868c4add0893205489",
+  "title": "Delete Button Case Study",
+  "subtitle": "Fetched from Notion",
+  "date": "May 3, 2025",
+  "content": [
+    {
+      "type": "h2",
+      "text": "Case Study: Designing Accessible and Safe Destructive Actions"
+    },
+    {
+      "type": "h3",
+      "text": "The Challenge"
+    },
+    {
+      "type": "p",
+      "text": "Destructive actions (e.g., deleting accounts or data) are irreversible, yet many interfaces design them poorly—leading to accidental data loss, frustrated users, and eroded trust."
+    },
+    {
+      "type": "p",
+      "text": ""
+    },
+    {
+      "type": "img",
+      "url": "https://prod-files-secure.s3.us-west-2.amazonaws.com/052b5715-3363-4fe6-980e-3f0dd8222353/45de24ac-e02e-4208-97a1-a35f24d0fce6/image.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=ASIAZI2LB466UWH6YDSB%2F20260324%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20260324T145511Z&X-Amz-Expires=3600&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEM%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaCXVzLXdlc3QtMiJHMEUCIQCqxXdtVJkhEky1MOiYhVvfbwZNK7n4I0vgzCHBTVVMSQIgVoy5kaXu9KqdjCltLXS6LdrIbbtd7W5kjDp5vYuxeqMqiAQImP%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FARAAGgw2Mzc0MjMxODM4MDUiDFzcqYrCnNGcA7Yy9CrcA5g3RogEhPEsIQ5K4fpeR%2F50uXOu%2BMq1Y0p%2BN%2FVjbAAkvHUEaYQjwUzrJ01tmYNM2J6ogigjcED%2FjAiitlk65X%2BHJ1jKJe5LOapMYglAXShwhEuT3zarahg9np854ISfzr7RJNTx%2B7FDQiVwviCTEIPS1R21kux0T1aH%2BklzjV2ZFYH04Xvxeq%2Bs%2BijVtz5Et%2FjQvE3b8qWHz0joWmXNV%2FjPB2GqoNqahjCvzXk42KA6jXQxSb%2FF9Qdki%2F1PA6jhv4%2BtLnw56Rt7nAr0K5xe7RvB6IbebPy2dwRiXBkCYWr3TipGzcl3fKiNK0WhqTDrkhHY0LY1IaSYeYrcL1%2BMr%2FBPFdnh3V8UXH3rxN5uyoEz5A%2Bj04j%2BxLu%2BE07XeGOZGNcHvibFHT2VrEOJj%2BbbwGY6Cbi%2B4IhWKNhYxg2OnqOYDqxPTNLf0z%2BuhRoQQCWebTH%2FBpaoSP%2BAhPBZRYv3qeGiuhge45w6wCTJ4kUEdt%2BAyi3DTe10gyiQ%2F5vQ4z5avpcXoX9Vb%2Bsf4m%2F2SBghmduixvILqZMvYYqwtv8WLBkWk6yyU1Zt%2BT47OorBerdEQly47wUx7dwywAeJ3jtYu4M23Wf1XZs0fMQX%2BxY%2Bcg%2BBkFiPbzukFW2uECiIMJ7Ais4GOqUBacEjj8GpbD83pteKKVeMC8xgE0gMcMoSiw00InE1zIb%2Bp2AtzV5Y5CY2ASf5gMUNFSbWWO1Rvo6TDNvd86qaNCPYKdJvolf7IAQvTWGkdHpFdMOqVCnYWLudv3grGoIv%2BE00qP5Sa9Oyrk%2FXhY7fEuVqigALxDTuOFWFkM2tjr2jfCpe03MXA1lCXIKFISKezRn%2BRaxSjaZg9wsi21mM%2BHaLYaBj&X-Amz-Signature=b28b0fa2ace4c5ff9afc0946e11f33ae740615f72ce9a505ae89ab7ca4537025&X-Amz-SignedHeaders=host&x-amz-checksum-mode=ENABLED&x-id=GetObject",
+      "caption": ""
+    },
+    {
+      "type": "h3",
+      "text": "Key Problems Identified"
+    },
+    {
+      "type": "p",
+      "text": "Poorly designed dialog: Unclear \"Proceed\" button, no visible cancel option"
+    },
+    {
+      "type": "p",
+      "text": "Example of problematic design: Ambiguous labels, low contrast, and missing safeguards."
+    },
+    {
+      "type": "p",
+      "text": ""
+    },
+    {
+      "type": "li",
+      "text": "Ambiguous labels (\"Proceed\" instead of \"Delete Account\").",
+      "listType": "number"
+    },
+    {
+      "type": "li",
+      "text": "No confirmation dialogs, allowing irreversible actions to trigger instantly.",
+      "listType": "number"
+    },
+    {
+      "type": "li",
+      "text": "Accessibility failures: Low contrast, small click targets, missing focus states.",
+      "listType": "number"
+    },
+    {
+      "type": "li",
+      "text": "Inconsistent patterns across platforms (desktop vs. mobile).",
+      "listType": "number"
+    },
+    {
+      "type": "p",
+      "text": ""
+    },
+    {
+      "type": "p",
+      "text": ""
+    },
+    {
+      "type": "img",
+      "url": "https://prod-files-secure.s3.us-west-2.amazonaws.com/052b5715-3363-4fe6-980e-3f0dd8222353/fa5eebab-431e-4d43-95cb-1796b8e0dedd/image.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=ASIAZI2LB466UWH6YDSB%2F20260324%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20260324T145511Z&X-Amz-Expires=3600&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEM%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaCXVzLXdlc3QtMiJHMEUCIQCqxXdtVJkhEky1MOiYhVvfbwZNK7n4I0vgzCHBTVVMSQIgVoy5kaXu9KqdjCltLXS6LdrIbbtd7W5kjDp5vYuxeqMqiAQImP%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FARAAGgw2Mzc0MjMxODM4MDUiDFzcqYrCnNGcA7Yy9CrcA5g3RogEhPEsIQ5K4fpeR%2F50uXOu%2BMq1Y0p%2BN%2FVjbAAkvHUEaYQjwUzrJ01tmYNM2J6ogigjcED%2FjAiitlk65X%2BHJ1jKJe5LOapMYglAXShwhEuT3zarahg9np854ISfzr7RJNTx%2B7FDQiVwviCTEIPS1R21kux0T1aH%2BklzjV2ZFYH04Xvxeq%2Bs%2BijVtz5Et%2FjQvE3b8qWHz0joWmXNV%2FjPB2GqoNqahjCvzXk42KA6jXQxSb%2FF9Qdki%2F1PA6jhv4%2BtLnw56Rt7nAr0K5xe7RvB6IbebPy2dwRiXBkCYWr3TipGzcl3fKiNK0WhqTDrkhHY0LY1IaSYeYrcL1%2BMr%2FBPFdnh3V8UXH3rxN5uyoEz5A%2Bj04j%2BxLu%2BE07XeGOZGNcHvibFHT2VrEOJj%2BbbwGY6Cbi%2B4IhWKNhYxg2OnqOYDqxPTNLf0z%2BuhRoQQCWebTH%2FBpaoSP%2BAhPBZRYv3qeGiuhge45w6wCTJ4kUEdt%2BAyi3DTe10gyiQ%2F5vQ4z5avpcXoX9Vb%2Bsf4m%2F2SBghmduixvILqZMvYYqwtv8WLBkWk6yyU1Zt%2BT47OorBerdEQly47wUx7dwywAeJ3jtYu4M23Wf1XZs0fMQX%2BxY%2Bcg%2BBkFiPbzukFW2uECiIMJ7Ais4GOqUBacEjj8GpbD83pteKKVeMC8xgE0gMcMoSiw00InE1zIb%2Bp2AtzV5Y5CY2ASf5gMUNFSbWWO1Rvo6TDNvd86qaNCPYKdJvolf7IAQvTWGkdHpFdMOqVCnYWLudv3grGoIv%2BE00qP5Sa9Oyrk%2FXhY7fEuVqigALxDTuOFWFkM2tjr2jfCpe03MXA1lCXIKFISKezRn%2BRaxSjaZg9wsi21mM%2BHaLYaBj&X-Amz-Signature=ea1d5d2775bbcb2d4e3e578d0677dec3888cf17d0025ea96e672a74d33013e76&X-Amz-SignedHeaders=host&x-amz-checksum-mode=ENABLED&x-id=GetObject",
+      "caption": ""
+    },
+    {
+      "type": "h3",
+      "text": "Goals"
+    },
+    {
+      "type": "li",
+      "text": "Prevent accidental destructive actions.",
+      "listType": "bullet"
+    },
+    {
+      "type": "li",
+      "text": "Ensure destructive buttons are fully accessible (WCAG 2.1 Level AA compliant).",
+      "listType": "bullet"
+    },
+    {
+      "type": "li",
+      "text": "Create a consistent, predictable pattern across all products.",
+      "listType": "bullet"
+    },
+    {
+      "type": "li",
+      "text": "Educate internal teams on the importance of accessible destructive design.",
+      "listType": "bullet"
+    },
+    {
+      "type": "p",
+      "text": ""
+    },
+    {
+      "type": "h3",
+      "text": "Approach"
+    },
+    {
+      "type": "h3",
+      "text": "🔍 User Testing & Heuristic Analysis"
+    },
+    {
+      "type": "p",
+      "text": "We conducted usability testing and heuristic evaluations on key interfaces (e.g., account settings, file managers). Key findings included:"
+    },
+    {
+      "type": "li",
+      "text": "Users skipped warning text due to poor contrast or vague language.",
+      "listType": "bullet"
+    },
+    {
+      "type": "li",
+      "text": "Keyboard users struggled to locate the active button due to missing focus indicators.",
+      "listType": "bullet"
+    },
+    {
+      "type": "li",
+      "text": "On mobile, destructive buttons were too close to primary actions like “Save.”",
+      "listType": "bullet"
+    },
+    {
+      "type": "p",
+      "text": ""
+    },
+    {
+      "type": "img",
+      "url": "https://prod-files-secure.s3.us-west-2.amazonaws.com/052b5715-3363-4fe6-980e-3f0dd8222353/1b7c1e25-c1dd-48c8-aa4c-de3e691c5edb/653shots_so.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=ASIAZI2LB466UWH6YDSB%2F20260324%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20260324T145512Z&X-Amz-Expires=3600&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEM%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaCXVzLXdlc3QtMiJHMEUCIQCqxXdtVJkhEky1MOiYhVvfbwZNK7n4I0vgzCHBTVVMSQIgVoy5kaXu9KqdjCltLXS6LdrIbbtd7W5kjDp5vYuxeqMqiAQImP%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FARAAGgw2Mzc0MjMxODM4MDUiDFzcqYrCnNGcA7Yy9CrcA5g3RogEhPEsIQ5K4fpeR%2F50uXOu%2BMq1Y0p%2BN%2FVjbAAkvHUEaYQjwUzrJ01tmYNM2J6ogigjcED%2FjAiitlk65X%2BHJ1jKJe5LOapMYglAXShwhEuT3zarahg9np854ISfzr7RJNTx%2B7FDQiVwviCTEIPS1R21kux0T1aH%2BklzjV2ZFYH04Xvxeq%2Bs%2BijVtz5Et%2FjQvE3b8qWHz0joWmXNV%2FjPB2GqoNqahjCvzXk42KA6jXQxSb%2FF9Qdki%2F1PA6jhv4%2BtLnw56Rt7nAr0K5xe7RvB6IbebPy2dwRiXBkCYWr3TipGzcl3fKiNK0WhqTDrkhHY0LY1IaSYeYrcL1%2BMr%2FBPFdnh3V8UXH3rxN5uyoEz5A%2Bj04j%2BxLu%2BE07XeGOZGNcHvibFHT2VrEOJj%2BbbwGY6Cbi%2B4IhWKNhYxg2OnqOYDqxPTNLf0z%2BuhRoQQCWebTH%2FBpaoSP%2BAhPBZRYv3qeGiuhge45w6wCTJ4kUEdt%2BAyi3DTe10gyiQ%2F5vQ4z5avpcXoX9Vb%2Bsf4m%2F2SBghmduixvILqZMvYYqwtv8WLBkWk6yyU1Zt%2BT47OorBerdEQly47wUx7dwywAeJ3jtYu4M23Wf1XZs0fMQX%2BxY%2Bcg%2BBkFiPbzukFW2uECiIMJ7Ais4GOqUBacEjj8GpbD83pteKKVeMC8xgE0gMcMoSiw00InE1zIb%2Bp2AtzV5Y5CY2ASf5gMUNFSbWWO1Rvo6TDNvd86qaNCPYKdJvolf7IAQvTWGkdHpFdMOqVCnYWLudv3grGoIv%2BE00qP5Sa9Oyrk%2FXhY7fEuVqigALxDTuOFWFkM2tjr2jfCpe03MXA1lCXIKFISKezRn%2BRaxSjaZg9wsi21mM%2BHaLYaBj&X-Amz-Signature=a956af25bc40dc2c3585e1da97662e8d7a9d2ea70db52422c1c2df1f19c1fee5&X-Amz-SignedHeaders=host&x-amz-checksum-mode=ENABLED&x-id=GetObject",
+      "caption": ""
+    },
+    {
+      "type": "h2",
+      "text": "Solutions & Design Decisions"
+    },
+    {
+      "type": "h3",
+      "text": "Clear, Action-Oriented Labels"
+    },
+    {
+      "type": "p",
+      "text": "Problem: Vague labels like “Proceed” confused users."
+    },
+    {
+      "type": "p",
+      "text": "Solution:"
+    },
+    {
+      "type": "p",
+      "text": "We replaced ambiguous labels with explicit action verbs, such as:"
+    },
+    {
+      "type": "li",
+      "text": "“Delete My Account”",
+      "listType": "bullet"
+    },
+    {
+      "type": "li",
+      "text": "“Remove User”",
+      "listType": "bullet"
+    },
+    {
+      "type": "li",
+      "text": "“Cancel Subscription”",
+      "listType": "bullet"
+    },
+    {
+      "type": "p",
+      "text": "This increased user understanding and reduced hesitation during task completion."
+    },
+    {
+      "type": "img",
+      "url": "https://prod-files-secure.s3.us-west-2.amazonaws.com/052b5715-3363-4fe6-980e-3f0dd8222353/30e0ed24-8739-4698-b69a-77c2fde27af7/image.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=ASIAZI2LB466UWH6YDSB%2F20260324%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20260324T145512Z&X-Amz-Expires=3600&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEM%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaCXVzLXdlc3QtMiJHMEUCIQCqxXdtVJkhEky1MOiYhVvfbwZNK7n4I0vgzCHBTVVMSQIgVoy5kaXu9KqdjCltLXS6LdrIbbtd7W5kjDp5vYuxeqMqiAQImP%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FARAAGgw2Mzc0MjMxODM4MDUiDFzcqYrCnNGcA7Yy9CrcA5g3RogEhPEsIQ5K4fpeR%2F50uXOu%2BMq1Y0p%2BN%2FVjbAAkvHUEaYQjwUzrJ01tmYNM2J6ogigjcED%2FjAiitlk65X%2BHJ1jKJe5LOapMYglAXShwhEuT3zarahg9np854ISfzr7RJNTx%2B7FDQiVwviCTEIPS1R21kux0T1aH%2BklzjV2ZFYH04Xvxeq%2Bs%2BijVtz5Et%2FjQvE3b8qWHz0joWmXNV%2FjPB2GqoNqahjCvzXk42KA6jXQxSb%2FF9Qdki%2F1PA6jhv4%2BtLnw56Rt7nAr0K5xe7RvB6IbebPy2dwRiXBkCYWr3TipGzcl3fKiNK0WhqTDrkhHY0LY1IaSYeYrcL1%2BMr%2FBPFdnh3V8UXH3rxN5uyoEz5A%2Bj04j%2BxLu%2BE07XeGOZGNcHvibFHT2VrEOJj%2BbbwGY6Cbi%2B4IhWKNhYxg2OnqOYDqxPTNLf0z%2BuhRoQQCWebTH%2FBpaoSP%2BAhPBZRYv3qeGiuhge45w6wCTJ4kUEdt%2BAyi3DTe10gyiQ%2F5vQ4z5avpcXoX9Vb%2Bsf4m%2F2SBghmduixvILqZMvYYqwtv8WLBkWk6yyU1Zt%2BT47OorBerdEQly47wUx7dwywAeJ3jtYu4M23Wf1XZs0fMQX%2BxY%2Bcg%2BBkFiPbzukFW2uECiIMJ7Ais4GOqUBacEjj8GpbD83pteKKVeMC8xgE0gMcMoSiw00InE1zIb%2Bp2AtzV5Y5CY2ASf5gMUNFSbWWO1Rvo6TDNvd86qaNCPYKdJvolf7IAQvTWGkdHpFdMOqVCnYWLudv3grGoIv%2BE00qP5Sa9Oyrk%2FXhY7fEuVqigALxDTuOFWFkM2tjr2jfCpe03MXA1lCXIKFISKezRn%2BRaxSjaZg9wsi21mM%2BHaLYaBj&X-Amz-Signature=9158848296c5cb7fcc51da9e32186b0c264584da969c2381598708bb5ff3dfdb&X-Amz-SignedHeaders=host&x-amz-checksum-mode=ENABLED&x-id=GetObject",
+      "caption": ""
+    },
+    {
+      "type": "p",
+      "text": ""
+    },
+    {
+      "type": "h3",
+      "text": "✅ 2. Confirmation Dialogs"
+    },
+    {
+      "type": "p",
+      "text": "Problem: Actions occurred immediately without warnings."
+    },
+    {
+      "type": "p",
+      "text": "Solution:"
+    },
+    {
+      "type": "p",
+      "text": "We introduced confirmation modals that included:"
+    },
+    {
+      "type": "li",
+      "text": "Clear warning messages about consequences",
+      "listType": "bullet"
+    },
+    {
+      "type": "li",
+      "text": "Optional checkboxes for sensitive deletions",
+      "listType": "bullet"
+    },
+    {
+      "type": "li",
+      "text": "Clear button options: “Cancel” (non-destructive), “Confirm Delete” (destructive)",
+      "listType": "bullet"
+    },
+    {
+      "type": "p",
+      "text": ""
+    },
+    {
+      "type": "h3",
+      "text": "✅ 3. Visual Differentiation"
+    },
+    {
+      "type": "p",
+      "text": "Problem: Destructive buttons visually blended with other controls."
+    },
+    {
+      "type": "p",
+      "text": "Solution:"
+    },
+    {
+      "type": "li",
+      "text": "Used high-contrast red color with text + icon (e.g., 🗑️ DELETE)",
+      "listType": "bullet"
+    },
+    {
+      "type": "li",
+      "text": "Avoided placing destructive actions next to primary buttons",
+      "listType": "bullet"
+    },
+    {
+      "type": "li",
+      "text": "Styled destructive actions as secondary, except within confirmation dialogs",
+      "listType": "bullet"
+    },
+    {
+      "type": "p",
+      "text": ""
+    },
+    {
+      "type": "p",
+      "text": ""
+    },
+    {
+      "type": "h3",
+      "text": "✅ 4. Accessibility Compliance"
+    },
+    {
+      "type": "p",
+      "text": "Problem: Buttons failed to meet basic WCAG standards."
+    },
+    {
+      "type": "p",
+      "text": "Solution:"
+    },
+    {
+      "type": "p",
+      "text": "We updated destructive buttons to meet:"
+    },
+    {
+      "type": "li",
+      "text": "Target size of at least 24×24px (WCAG 2.5.8)",
+      "listType": "bullet"
+    },
+    {
+      "type": "li",
+      "text": "Contrast ratio ≥ 4.5:1 between text and background (WCAG 1.4.3)",
+      "listType": "bullet"
+    },
+    {
+      "type": "li",
+      "text": "Focus visibility (WCAG 2.4.7) with clear outlines and spacing",
+      "listType": "bullet"
+    },
+    {
+      "type": "p",
+      "text": "We also tested with assistive technologies to ensure compatibility."
+    },
+    {
+      "type": "p",
+      "text": ""
+    },
+    {
+      "type": "h3",
+      "text": "Results"
+    },
+    {
+      "type": "li",
+      "text": "92% reduction in support tickets related to accidental deletion.",
+      "listType": "bullet"
+    },
+    {
+      "type": "li",
+      "text": "Improved task completion rates in usability tests.",
+      "listType": "bullet"
+    },
+    {
+      "type": "li",
+      "text": "Positive qualitative feedback from users: “I feel much safer using this now.”",
+      "listType": "bullet"
+    },
+    {
+      "type": "li",
+      "text": "Design system updated with clear patterns for destructive actions, adopted across multiple teams.",
+      "listType": "bullet"
+    },
+    {
+      "type": "p",
+      "text": ""
+    },
+    {
+      "type": "h3",
+      "text": "Key Takeaways"
+    },
+    {
+      "type": "li",
+      "text": "Destructive buttons must be designed with caution: clear labels, confirmation dialogs, and accessible styles are non-negotiable.",
+      "listType": "bullet"
+    },
+    {
+      "type": "li",
+      "text": "Accessibility is not a layer on top—it’s part of the design from the beginning.",
+      "listType": "bullet"
+    },
+    {
+      "type": "li",
+      "text": "Small improvements (like button spacing and contrast) significantly impact user trust and safety.",
+      "listType": "bullet"
+    }
+  ]
+}

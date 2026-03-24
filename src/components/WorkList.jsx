@@ -17,15 +17,15 @@ const WorkItemRow = ({ item, index }) => {
     }, [isHovered, item.images.length]);
 
     return (
-        <div 
-            className="work-item" 
+        <div
+            className="work-item"
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
         >
             <div className="work-item-year">
                 {item.year}<span className="orange-dot"></span>
             </div>
-            
+
             <div className="work-item-content">
                 <div className="work-item-title">{item.title}</div>
                 <p className="work-item-desc">{item.description}</p>
@@ -35,11 +35,11 @@ const WorkItemRow = ({ item, index }) => {
                     ))}
                 </div>
             </div>
-            
+
             <div className="work-item-thumbnails">
                 {item.images.map((img, i) => (
-                    <div 
-                        className={`work-thumbnail ${isHovered && i !== activeIndex ? 'hidden-thumb' : ''}`} 
+                    <div
+                        className={`work-thumbnail ${isHovered && i !== activeIndex ? 'hidden-thumb' : ''}`}
                         key={i}
                     >
                         <img src={img} alt={`${item.title} ${i}`} />
@@ -55,8 +55,8 @@ const WorkList = () => {
         {
             year: "01",
             title: "Product Design",
-            description: "End-to-end product design solutions focusing on user-centered experiences and robust functional architecture.",
-            skills: ["User Research", "Prototyping", "Usability Testing", "Design Systems"],
+            description: "End-to-end product design from discovery and research to high-fidelity prototypes and handoff. Building products that are intuitive, functional, and visually compelling.",
+            skills: ["User Research", "Wireframing", "Prototyping", "Usability Testing", "Design Systems"],
             images: [
                 "/images/digital_design.png",
                 "/images/delete-button.png",
@@ -64,44 +64,43 @@ const WorkList = () => {
         },
         {
             year: "02",
-            title: "Brand Identity",
-            description: "Crafting memorable visual identities that deeply connect with your target audience across all mediums.",
-            skills: ["Logo Design", "Visual Language", "Typography", "Brand Guidelines"],
-            images: [
-                "/images/strategy.png",
-                "/images/design-with-intent.jpg",
-                "/images/insights.png"
-            ]
-        },
-        {
-            year: "03",
-            title: "UX/UI Design",
-            description: "Beautiful, conversion-focused user interfaces built on a foundation of solid user experience research.",
-            skills: ["Wireframing", "Interaction Design", "Responsive Design", "Accessibility"],
-            images: [
-                "/images/design-with-intent.jpg",
-                "/images/digital_design.png",
-            ]
-        },
-        {
-            year: "04",
             title: "Design Systems",
-            description: "Scalable component libraries that help engineering and design teams move fast without breaking things.",
-            skills: ["Component Libraries", "Documentation", "Token Management"],
+            description: "Scalable, token-based component libraries that help engineering and design teams ship faster without sacrificing consistency.",
+            skills: ["Component Libraries", "Token Management", "Documentation", "Figma Systems"],
             images: [
                 "/images/insights.png",
                 "/images/strategy.png",
             ]
         },
         {
-            year: "05",
+            year: "03",
             title: "Social Media",
-            description: "Branded templates and content systems to help you stay consistent and scroll-worthy.",
+            description: "Branded templates and content systems engineered to keep your social presence sharp, consistent, and scroll-stopping.",
             skills: ["Instagram Design", "Story Kits", "Content Templates", "Visual Consistency"],
             images: [
                 "/images/delete-button.png",
                 "/images/digital_design.png",
                 "/images/insights.png"
+            ]
+        },
+        {
+            year: "04",
+            title: "Video Editing",
+            description: "Motion-rich edits that tell your story with impact — from brand reels to product demos and social-first short form content.",
+            skills: ["Brand Reels", "Short-Form Content", "Motion Graphics", "Color Grading"],
+            images: [
+                "/images/strategy.png",
+                "/images/design-with-intent.jpg",
+            ]
+        },
+        {
+            year: "05",
+            title: "Development",
+            description: "Shaping the visual language and creative vision behind campaigns, product launches, and brand identities from concept to execution.",
+            skills: ["Art Direction", "Campaign Strategy", "Visual Identity", "Brand Storytelling"],
+            images: [
+                "/images/design-with-intent.jpg",
+                "/images/digital_design.png",
             ]
         }
     ];

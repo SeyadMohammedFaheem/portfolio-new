@@ -1,7 +1,15 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import blogsData from '../data/blogsData.json';
 
 const InsightsSection = () => {
+    // Take first 3 blogs for the homepage
+    const displayPosts = blogsData.slice(0, 3);
+    
+    // Large card is the first one
+    const mainPost = displayPosts[0];
+    const sidePosts = displayPosts.slice(1);
+
     return (
         <section className="insights-section">
             <div className="section-header">
@@ -18,67 +26,47 @@ const InsightsSection = () => {
                     </Link>
                 </div>
             </div>
+            
             <div className="insights-grid">
-                
-                {/* Large Card */}
-                <Link to="/blog/restraint" className="insights-card large">
-                    <img 
-                        src="/images/insights.png" 
-                        alt="Insights" 
-                        className="insights-card-bg"
-                    />
-                    <div className="card-badge">Insights</div>
-                    
-                    <div className="card-content">
-                        <div className="card-date">May 30, 2025</div>
-                        <h3 className="card-title">The Power of Restraint in Design</h3>
-                        <p className="card-desc">
-                            A look at how simplicity can sharpen communication,
-                            increase impact, and build longer-lasting brands.
-                        </p>
-                    </div>
-                </Link>
-
-                {/* Standard Card 1 */}
-                <Link to="/blog/calm" className="insights-card standard">
-                    <div className="img-container">
+                {/* Large Card (Dynamic) */}
+                {mainPost ? (
+                    <Link to={`/blog/${mainPost.slug}`} className="insights-card large">
                         <img 
-                            src="/images/digital_design.png" 
-                            alt="Digital Design" 
+                            src={mainPost.image} 
+                            alt={mainPost.title} 
+                            className="insights-card-bg"
                         />
-                        <div className="card-badge">Digital Design</div>
-                    </div>
-                    
-                    <div className="card-content">
-                        <div className="card-date">May 23, 2025</div>
-                        <h3 className="card-title">Designing for Calm: UX Beyond the Screen</h3>
-                        <p className="card-desc">
-                            An exploration of how subtle interaction, 
-                            whitespace, and visual pacing shape user emotion.
-                        </p>
-                    </div>
-                </Link>
+                        <div className="card-badge">{mainPost.category}</div>
+                        
+                        <div className="card-content">
+                            <div className="card-date">{mainPost.date}</div>
+                            <h3 className="card-title">{mainPost.title}</h3>
+                            <p className="card-desc">
+                                Read the latest from my Notion.
+                            </p>
+                        </div>
+                    </Link>
+                ) : (
+                    <p>Loading posts...</p>
+                )}
 
-                {/* Standard Card 2 */}
-                <Link to="/blog/identity" className="insights-card standard">
-                    <div className="img-container">
-                        <img 
-                            src="/images/strategy.png" 
-                            alt="Strategy" 
-                        />
-                        <div className="card-badge">Strategy</div>
-                    </div>
-                    
-                    <div className="card-content">
-                        <div className="card-date">May 16, 2025</div>
-                        <h3 className="card-title">Building a Timeless Identity</h3>
-                        <p className="card-desc">
-                            A guide to creating brands that transcend 
-                            trends, focusing on core values instead.
-                        </p>
-                    </div>
-                </Link>
-
+                {/* Standard Cards (Dynamic) */}
+                {sidePosts.map(post => (
+                    <Link key={post.id} to={`/blog/${post.slug}`} className="insights-card standard">
+                        <div className="img-container">
+                            <img src={post.image} alt={post.title} />
+                            <div className="card-badge">{post.category}</div>
+                        </div>
+                        
+                        <div className="card-content">
+                            <div className="card-date">{post.date}</div>
+                            <h3 className="card-title">{post.title}</h3>
+                            <p className="card-desc">
+                                Exploring {post.category} and UX design.
+                            </p>
+                        </div>
+                    </Link>
+                ))}
             </div>
         </section>
     );
