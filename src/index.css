@@ -1527,7 +1527,7 @@ header {
 .fintech-quote-text {
     position: relative;
     z-index: 10;
-    font-size: 1.45rem;
+    font-size: 1.2rem;
     font-weight: 600;
     line-height: 1.4;
     letter-spacing: -0.02em;
@@ -1859,8 +1859,10 @@ header {
 }
 
 .blog-next-card-img img {
-    width: 100%; height: 100%;
-    object-fit: cover; display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
     image-rendering: -webkit-optimize-contrast;
     image-rendering: crisp-edges;
 }

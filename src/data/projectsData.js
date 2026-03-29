@@ -178,5 +178,35 @@ export const projectsData = [
             "https://images.unsplash.com/photo-1492288991661-058aa541ff43?auto=format&fit=crop&q=80&w=1600"
         ],
         impactImage: "https://images.unsplash.com/photo-1621257912423-e45f9411d619?auto=format&fit=crop&q=80&w=2000"
+    },
+    {
+        id: "gift-ease-app",
+        slug: "gift-ease",
+        title: "Gift Suggestion App",
+        year: "2026",
+        type: "Mobile App",
+        image: "/images/work/giftease.png",
+        client: "Gift Ease",
+        service: "Mobile App",
+        description: "A smart gifting app that curates personalized gift suggestions based on recipient preferences.",
+        heroImage: "/images/work/giftease.png",
+        challenge: {
+            text: "Users often struggle to find meaningful gifts within short timeframes.",
+            subtext: "The experience of navigating through endless e-commerce options is overwhelming."
+        },
+        solution: {
+            text: "A clean, intuitive mobile app featuring quick preference quizzes and AI-driven recommendations.",
+            subtext: "Incorporated a vibrant pink-themed UI to evoke the joyful nature of gifting."
+        },
+        result: "Gift Ease streamlined the gifting process and significantly reduced the time taken to find a perfect present.",
+        gridImages: [
+            "/images/work/giftease.png",
+            "https://images.unsplash.com/photo-1513885535751-8b9238bd345a?auto=format&fit=crop&q=80&w=1000"
+        ],
+        stackImages: [
+            "/images/work/giftease.png",
+            "https://images.unsplash.com/photo-1540200049848-d9813ea0e120?auto=format&fit=crop&q=80&w=1600"
+        ],
+        impactImage: "/images/work/giftease.png"
     }
 ];

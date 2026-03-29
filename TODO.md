@@ -1,9 +1,7 @@
 # Portfolio TODO
 
 ## Up Next
-- Testimonial content
 - Expertise section images
-- 3 blog updates
 - All Works Updation
 - Mobile view Updation
 - Work case studies
@@ -19,3 +17,5 @@
 - Built Kanso-style Capabilities section
 - Built Kanso-style Selected Work section
 - Contact & About UI redesign (hero, form, marquee, values, experience)
+- Testimonial content
+- 3 blog updates

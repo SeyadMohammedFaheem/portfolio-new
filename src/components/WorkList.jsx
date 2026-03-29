@@ -68,7 +68,7 @@ const WorkList = () => {
             description: "Scalable, token-based component libraries that help engineering and design teams ship faster without sacrificing consistency.",
             skills: ["Component Libraries", "Token Management", "Documentation", "Figma Systems"],
             images: [
-                "/images/insights.png",
+                "/images/design-tokens.png",
                 "/images/strategy.png",
             ]
         },
@@ -78,7 +78,7 @@ const WorkList = () => {
             description: "Branded templates and content systems engineered to keep your social presence sharp, consistent, and scroll-stopping.",
             skills: ["Instagram Design", "Story Kits", "Content Templates", "Visual Consistency"],
             images: [
-                "/images/delete-button.png",
+                "/images/google-ads-banner.png",
                 "/images/digital_design.png",
                 "/images/insights.png"
             ]
@@ -96,11 +96,11 @@ const WorkList = () => {
         {
             year: "05",
             title: "Development",
-            description: "Shaping the visual language and creative vision behind campaigns, product launches, and brand identities from concept to execution.",
-            skills: ["Art Direction", "Campaign Strategy", "Visual Identity", "Brand Storytelling"],
+            description: "Building robust, high-performance web applications and digital products. Translating complex designs into pixel-perfect, responsive, and interactive digital experiences.",
+            skills: ["Front-end Development", "React.js", "Creative Coding", "Performance Optimization"],
             images: [
-                "/images/design-with-intent.jpg",
-                "/images/digital_design.png",
+                "/images/octalume.png",
+                "/images/skill_testing.png",
             ]
         }
     ];

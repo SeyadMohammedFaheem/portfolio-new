@@ -99,7 +99,7 @@ export default function Footer() {
             <a href="#">Privacy Policy</a> • <a href="#">Terms of Service</a>
           </div>
           <div className="n-footer-madeby">
-            MADE BY <strong>FAHEEM</strong>
+            DESIGNED & DEVELOPED BY <strong>FAHEEM</strong>
           </div>
         </div>
       </div>
@@ -108,7 +108,7 @@ export default function Footer() {
       <div className="n-footer-brand-band">
         <div className="n-brand-huge-text">FAHEEM<span className="n-brand-reg">®</span></div>
         <div className="n-brand-slogan">
-          Beyond<br />Visuals.<br />Built with<br />Vision.
+          Product<br />Designer<br />Who<br />Codes.
         </div>
       </div>
     </footer>

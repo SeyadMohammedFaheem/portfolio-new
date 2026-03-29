@@ -47,13 +47,12 @@ const Capabilities = () => {
                         </svg>
                     </div>
                     <p className="fintech-quote-text">
-                        "Faheem's design expertise goes beyond aesthetics—he crafts experiences that truly connect with users. A great collaborator and problem-solver."
-                    </p>
+                        Faheem has a strong eye for detail and focuses on creating seamless user experiences. He iterates and refines designs based on feedback, understands development constraints, contributes ideas, and adapts quickly.                    </p>
                     <div className="fintech-author-pill">
-                        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=150" alt="Samantha" />
+                        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=150" alt="Vamsi" />
                         <div className="fintech-author-info">
-                            <strong>Samantha</strong>
-                            <span>Founder, NexaTech</span>
+                            <strong>Vamsi</strong>
+                            <span>Project Manager, Pickcel</span>
                         </div>
                     </div>
                 </div>
