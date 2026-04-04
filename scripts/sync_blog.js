@@ -29,7 +29,35 @@ async function fetchAllBlocks(blockId) {
   return blocks;
 }
 
-function parseBlocks(blocks) {
+/**
+ * Local Image Helper: Finds the correct local path for a blog image.
+ * Tries .png and .jpg extensions in public/images/blogs/
+ */
+function getLocalImagePath(slug, type = "hero", index = 0) {
+  const localDir = path.join(process.cwd(), "public", "images", "blogs");
+  
+  // Potential paths:
+  // 1. For hero: /images/blogs/delete-button-case-study.png
+  // 2. For inline: /images/blogs/delete-button-case-study/image-1.png
+  
+  let targetFile = type === "hero" 
+    ? `${slug}` 
+    : path.join(`${slug}`, `image-${index}`);
+
+  const extensions = [".png", ".jpg", ".jpeg", ".webp"];
+  
+  for (const ext of extensions) {
+    if (fs.existsSync(path.join(localDir, targetFile + ext))) {
+      return `/images/blogs/${targetFile.replace(/\\/g, "/")}${ext}`;
+    }
+  }
+
+  // Fallback if no specific manual image exists
+  return type === "hero" ? "/images/insights.png" : null;
+}
+
+function parseBlocks(blocks, slug) {
+  let imageCount = 0;
   return blocks.map((block) => {
     const type = block.type;
     const content = block[type];
@@ -45,11 +73,22 @@ function parseBlocks(blocks) {
     if (type === "heading_3") return { type: "h3", text };
     if (type === "bulleted_list_item") return { type: "li", text, listType: "bullet" };
     if (type === "numbered_list_item") return { type: "li", text, listType: "number" };
+    
     if (type === "image") {
-      const url = content.type === "external" ? content.external.url : content.file.url;
+      imageCount++;
+      // Automation removed: Using local path convention for manual image management
+      // Looks for: /public/images/blogs/[slug]/image-[1, 2, 3...].png
+      const localUrl = getLocalImagePath(slug, "inline", imageCount);
+      const notionUrl = content.type === "external" ? content.external.url : content.file.url;
       const caption = content.caption?.[0]?.plain_text || "";
-      return { type: "img", url, caption };
+      
+      return { 
+        type: "img", 
+        url: localUrl || notionUrl, // Use local if exists, else fallback to Notion for previewing
+        caption 
+      };
     }
+    
     if (type === "divider") return { type: "hr" };
     if (type === "quote") return { type: "quote", text };
 
@@ -59,17 +98,12 @@ function parseBlocks(blocks) {
 
 async function main() {
   try {
-    console.log("Searching for blog pages in Notion with dynamic thumbnails...");
+    console.log("Searching for blog pages in Notion...");
     
-    // Use search to find pages in our target database
     const response = await notion.search({
-      filter: {
-        property: "object",
-        value: "page"
-      }
+      filter: { property: "object", value: "page" }
     });
 
-    // Filter pages that belong to our database
     const blogPages = response.results.filter(page => {
       return page.parent && page.parent.database_id && page.parent.database_id.replace(/-/g, "") === targetId.replace(/-/g, "");
     });
@@ -91,12 +125,8 @@ async function main() {
       const date = page.properties.Date?.date?.start || new Date(page.created_time).toISOString();
       const category = page.properties.Category?.select?.name || "Insights";
 
-      // Extractfeatured image from 'Image' property (files array)
-      let featuredImage = "/images/insights.png"; // Fallback
-      if (page.properties.Image?.files && page.properties.Image.files.length > 0) {
-        const fileObj = page.properties.Image.files[0];
-        featuredImage = fileObj.type === "external" ? fileObj.external.url : fileObj.file.url;
-      }
+      // Automation removed: Use local image path convention
+      const featuredImage = getLocalImagePath(slug, "hero");
 
       console.log(`- ${title} (Syncing content...)`);
       const blocks = await fetchAllBlocks(pageId);
@@ -107,7 +137,7 @@ async function main() {
         slug,
         date: new Date(date).toLocaleDateString("en-US", { year: 'numeric', month: 'long', day: 'numeric' }),
         category,
-        content: parseBlocks(blocks),
+        content: parseBlocks(blocks, slug),
         image: featuredImage 
       });
     }
@@ -120,7 +150,7 @@ async function main() {
       JSON.stringify(postsData, null, 2)
     );
 
-    console.log("✅ All blogs synchronized with custom thumbnails! Saved to src/data/blogsData.json");
+    console.log("✅ All blogs synchronized! Images now prioritize local files in public/images/blogs/");
   } catch (error) {
     console.error("❌ Sync failed:", error.message);
   }

@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
-import { Link, useParams, Navigate } from 'react-router-dom';
+import { Link, useParams, Navigate, useNavigate } from 'react-router-dom';
+import Header from './Header';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { projectsData } from '../data/projectsData';
@@ -8,51 +9,22 @@ gsap.registerPlugin(ScrollTrigger);
 
 const ProjectDetail = () => {
     const { slug } = useParams();
+    const navigate = useNavigate();
     const project = projectsData.find(p => p.slug === slug);
     const currentIndex = projectsData.findIndex(p => p.slug === slug);
     const nextProject = projectsData[(currentIndex + 1) % projectsData.length];
 
     useEffect(() => {
         window.scrollTo(0, 0);
-
         if (!project) return;
 
-        // ── Hero entrance ──
-        gsap.from(".project-header-left h1", {
-            y: 80, opacity: 0, duration: 1.2, ease: "power4.out", delay: 0.1
-        });
-        gsap.from(".project-header-right", {
-            y: 40, opacity: 0, duration: 1, ease: "power3.out", delay: 0.25
-        });
-        gsap.from(".project-meta-row", {
-            y: 20, opacity: 0, duration: 0.9, ease: "power3.out", delay: 0.35
-        });
-        gsap.from(".hero-img-container", {
-            y: 60, opacity: 0, duration: 1.3, ease: "power3.out", delay: 0.4
-        });
+        gsap.from('.zc-hero-title', { y: 60, opacity: 0, duration: 1, ease: 'power3.out', delay: 0.1 });
+        gsap.from('.zc-info-col', { y: 30, opacity: 0, duration: 0.8, stagger: 0.1, ease: 'power3.out', delay: 0.3 });
 
-        // ── Scroll‑triggered sections ──
-        gsap.utils.toArray(".pd-section-animate").forEach(el => {
+        gsap.utils.toArray('.zc-animate').forEach(el => {
             gsap.from(el, {
-                y: 60, opacity: 0, duration: 1, ease: "power3.out",
-                scrollTrigger: { trigger: el, start: "top 85%", toggleActions: "play none none none" }
-            });
-        });
-
-        gsap.utils.toArray(".pd-img-reveal").forEach(el => {
-            gsap.from(el, {
-                scale: 1.06, opacity: 0, duration: 1.2, ease: "power3.out",
-                scrollTrigger: { trigger: el, start: "top 88%", toggleActions: "play none none none" }
-            });
-        });
-
-        // Key metrics counter
-        gsap.utils.toArray(".metric-number").forEach(el => {
-            const end = parseInt(el.dataset.value, 10);
-            gsap.fromTo(el, { textContent: 0 }, {
-                textContent: end, duration: 1.5, ease: "power1.out", snap: { textContent: 1 },
-                scrollTrigger: { trigger: el, start: "top 90%", toggleActions: "play none none none" },
-                onUpdate() { el.textContent = Math.ceil(el.textContent) + (el.dataset.suffix || ''); }
+                y: 40, opacity: 0, duration: 0.8, ease: 'power3.out',
+                scrollTrigger: { trigger: el, start: 'top 88%', toggleActions: 'play none none none' }
             });
         });
 
@@ -61,165 +33,218 @@ const ProjectDetail = () => {
 
     if (!project) return <Navigate to="/projects" replace />;
 
-    // Build scope / tags
     const scopeTags = project.service ? project.service.split(',').map(s => s.trim()) : [project.type];
 
+    // Case study content (generic, adapts to each project)
+    const goals = [
+        'Create a Guided Onboarding Journey With Clear Expectations',
+        'Reduce drop-offs and improve application completion rate',
+        'Provide Clear Application Status to Improve User Confidence',
+        'Build a reusable system for future integrations',
+    ];
+
+    const targetUsers = [
+        'Users improving their experience with ' + (project.client || 'the product'),
+        'First-time applicants and new users',
+        'Users from varied demographics',
+        'Users with varying levels of digital literacy',
+    ];
+
+    const keyInsights = [
+        'Users are willing to fill long forms only if the journey flow is engaging',
+        'Trust is a bigger blocker than effort',
+        `${project.client || 'The product'} rarely explains what happens after submission`,
+        'Lack of status visibility creates anxiety',
+        'Redirection increases fear of rejection and abandonment',
+    ];
+
+    const solutionBlocks = [
+        {
+            num: '1/4',
+            title: project.challenge?.text || 'Create a Guided Onboarding Journey With Clear Expectations',
+            desc: 'The journey starts with a step overview screen that clearly shows all application stages, current progress, and estimated time. This screen acts as a single source of truth, allowing users to understand where they are in the journey and safely resume from the same step if they exit and return.',
+            tags: ['Easy navigation', 'Clear time estimation', 'Progress visibility'],
+            rationale: 'First-time users often abandon long flows due to uncertainty and fear of losing progress. A clear step overview with resume capability was chosen to reduce anxiety, set expectations early, and reassure users that their progress is safe.',
+            mockupBg: '#2D1B4E',
+            mockupImg: project.heroImage,
+        },
+        {
+            num: '2/4',
+            title: project.solution?.text || 'Reduce drop-offs and improve application completion rate',
+            desc: 'Long forms were broken into smaller, grouped sections with fewer inputs per screen. Autofill and pre-fetched data were used where possible, while clear bank branding and redirection messaging helped users feel confident during sensitive verification steps.',
+            tags: ['Simplified form structure', 'Autofill & smart defaults', 'Building Trust'],
+            rationale: 'Since the number of steps was constrained by APIs, reducing actual length wasn\'t possible. The focus shifted to reducing perceived complexity through chunking, autofill, and trust cues.',
+            mockupBg: '#1B2B4E',
+            mockupImg: project.gridImages?.[0],
+        },
+        {
+            num: '3/4',
+            title: 'Provide Clear Application Status to Improve User Confidence',
+            desc: 'After submission, users are shown clear application status states with visual indicators and guidance on what happens next. Status screens explain whether the application is under review, requires action, or is completed, reducing uncertainty after submission.',
+            tags: ['Status transparency', 'Visual feedback'],
+            rationale: 'Extending the experience beyond submission with clear status and next steps was chosen to reduce post-submission anxiety and prevent support queries or silent drop-offs.',
+            mockupBg: '#2D1B4E',
+            mockupImg: project.gridImages?.[1],
+        },
+        {
+            num: '4/4',
+            title: 'Create a reusable and scalable system for future integrations',
+            desc: 'The journey was designed as a system, not a one-off flow, enabling faster integrations while maintaining a consistent and reliable user experience.',
+            tags: ['System-driven onboarding flow', 'Reusable components', 'Delightful experience'],
+            rationale: `${project.client || 'The client'} partners with multiple providers, each with different APIs and requirements. Designing a system rather than a one-off flow reduced future design and development effort.`,
+            mockupBg: '#1B3A2B',
+            mockupImg: project.stackImages?.[0],
+        },
+    ];
+
     return (
-        <div className="project-detail-page">
-            <div className="projects-container">
+        <div className="zc-page">
+            <Header />
 
-                {/* ═══════ HERO (kept as‑is — user loves this fold) ═══════ */}
-                <div className="project-header">
-                    <div className="project-header-top">
-                        <div className="project-header-left">
-                            <h1 className="kanso-projects-title">{project.title}.</h1>
-                        </div>
-                        <div className="project-header-right">
-                            <p>{project.description}</p>
-                        </div>
-                    </div>
+            {/* HUD Elements for consistency with home page */}
 
-                    <div className="project-meta-row">
-                        <div className="meta-info">
-                            <span>Client <strong>{project.client}</strong></span>
-                            <span>Service <strong>{project.service}</strong></span>
-                            <span>Year <strong>{project.year}</strong></span>
-                        </div>
-                        <a href="https://example.com" target="_blank" rel="noreferrer" className="live-site-btn">
-                            Live website
-                        </a>
-                    </div>
-                </div>
 
-                {/* Hero Image */}
-                <div className="hero-img-container">
-                    <img src={project.heroImage} alt={`${project.title} Hero`} />
-                </div>
+            <main className="zc-main">
 
-                {/* ═══════ KEY METRICS BAR ═══════ */}
-                <section className="pd-metrics-bar pd-section-animate">
-                    <div className="pd-metric">
-                        <span className="metric-number" data-value="65" data-suffix="%">0%</span>
-                        <span className="metric-label">Increase in engagement</span>
-                    </div>
-                    <div className="pd-metric-divider"></div>
-                    <div className="pd-metric">
-                        <span className="metric-number" data-value="40" data-suffix="%">0%</span>
-                        <span className="metric-label">Faster onboarding flow</span>
-                    </div>
-                    <div className="pd-metric-divider"></div>
-                    <div className="pd-metric">
-                        <span className="metric-number" data-value="4" data-suffix=" Weeks">0</span>
-                        <span className="metric-label">From brief to launch</span>
-                    </div>
-                    <div className="pd-metric-divider"></div>
-                    <div className="pd-metric">
-                        <span className="metric-number" data-value="12" data-suffix="+">0</span>
-                        <span className="metric-label">Screens delivered</span>
-                    </div>
-                </section>
-
-                {/* ═══════ SCOPE TAGS ═══════ */}
-                <section className="pd-scope-strip pd-section-animate">
-                    <span className="pd-scope-label">Scope</span>
-                    <div className="pd-scope-tags">
-                        {scopeTags.map((tag, i) => (
-                            <span className="pd-scope-tag" key={i}>{tag}</span>
+                {/* ─── HERO ─── */}
+                <section className="zc-hero zc-animate">
+                    <h1 className="zc-hero-title">
+                        {project.title.split(' ').map((word, idx) => (
+                            <span key={idx}>
+                                {word}{' '}
+                            </span>
                         ))}
-                        <span className="pd-scope-tag">Strategy</span>
-                        <span className="pd-scope-tag">Visual Design</span>
-                        <span className="pd-scope-tag">Prototyping</span>
+                    </h1>
+
+                    <div className="zc-info-grid">
+                        <div className="zc-info-col">
+                            <span className="zc-label">COMPANY</span>
+                            <span className="zc-val">{project.client}</span>
+                        </div>
+                        <div className="zc-info-divider" />
+                        <div className="zc-info-col">
+                            <span className="zc-label">ROLE</span>
+                            <span className="zc-val">{project.type}</span>
+                        </div>
+                        <div className="zc-info-divider" />
+                        <div className="zc-info-col">
+                            <span className="zc-label">TIME</span>
+                            <span className="zc-val">{project.time || '3 Weeks'}</span>
+                        </div>
+                        <div className="zc-info-divider" />
+                        <div className="zc-info-col">
+                            <span className="zc-label">YEAR</span>
+                            <span className="zc-val">{project.year}</span>
+                        </div>
+                        <div className="zc-info-divider" />
+                        <div className="zc-info-col">
+                            <span className="zc-label">CATEGORY</span>
+                            <span className="zc-val">{project.category || project.service}</span>
+                        </div>
                     </div>
                 </section>
 
-                {/* ═══════ SECTION 01 — CHALLENGE ═══════ */}
-                <section className="pd-case-section pd-section-animate">
-                    <div className="pd-case-eyebrow">
-                        <span className="pd-case-number">01</span>
-                        <span className="pd-case-line"></span>
-                        <span className="pd-case-label">The Challenge</span>
-                    </div>
-                    <div className="pd-case-body">
-                        <h2 className="pd-case-heading">{project.challenge.text}</h2>
-                        {project.challenge.subtext && (
-                            <p className="pd-case-subtext">{project.challenge.subtext}</p>
-                        )}
-                    </div>
-                </section>
-
-                {/* 2‑col image grid */}
-                <div className="pd-image-duo pd-img-reveal">
-                    <div className="pd-duo-img">
-                        <img src={project.gridImages[0]} alt={`${project.title} Detail 1`} />
-                    </div>
-                    <div className="pd-duo-img">
-                        <img src={project.gridImages[1]} alt={`${project.title} Detail 2`} />
-                    </div>
+                {/* ─── HERO THUMBNAIL (WIDER) ─── */}
+                <div className="zc-hero-thumb zc-animate">
+                    <img src={project.heroImage || project.image} alt={project.title} />
                 </div>
 
-                {/* ═══════ SECTION 02 — SOLUTION ═══════ */}
-                <section className="pd-case-section pd-section-animate">
-                    <div className="pd-case-eyebrow">
-                        <span className="pd-case-number">02</span>
-                        <span className="pd-case-line"></span>
-                        <span className="pd-case-label">The Solution</span>
-                    </div>
-                    <div className="pd-case-body">
-                        <h2 className="pd-case-heading">{project.solution.text}</h2>
-                        {project.solution.subtext && (
-                            <p className="pd-case-subtext">{project.solution.subtext}</p>
-                        )}
-                    </div>
-                </section>
+                <div className="zc-content-col">
+                    {/* ─── BACKGROUND & CONTEXT ─── */}
+                    <section className="zc-section-block zc-animate">
+                        <h2 className="zc-section-h2">Background &amp; Context</h2>
+                        <p className="zc-section-desc">{project.description}</p>
+                        <div className="zc-dark-card">
+                            <p className="zc-dark-card-title">The Challenge</p>
+                            <ul className="zc-bullet-list">
+                                <li><span className="zc-bullet-dot">🛑</span> High drop-offs during application</li>
+                                <li><span className="zc-bullet-dot">🛑</span> Poor visibility into user progress</li>
+                                <li><span className="zc-bullet-dot">🛑</span> Inconsistent experience across platforms</li>
+                            </ul>
+                        </div>
+                    </section>
 
-                {/* Full‑bleed stack images */}
-                <div className="pd-image-stack">
-                    <div className="pd-stack-img pd-img-reveal">
-                        <img src={project.stackImages[0]} alt={`${project.title} Lookbook 1`} />
-                    </div>
-                    <div className="pd-stack-img pd-img-reveal">
-                        <img src={project.stackImages[1]} alt={`${project.title} Lookbook 2`} />
-                    </div>
+                    {/* ─── TARGET USERS ─── */}
+                    <section className="zc-section-block zc-animate">
+                        <h2 className="zc-section-h2">Target Users</h2>
+                        <ul className="zc-user-list">
+                            {targetUsers.map((u, i) => (
+                                <li key={i}><span className="zc-user-icon">👤</span>{u}</li>
+                            ))}
+                        </ul>
+                    </section>
+
+                    {/* ─── GOALS ─── */}
+                    <section className="zc-section-block zc-animate">
+                        <h2 className="zc-section-h2">The Goals</h2>
+                        <div className="zc-goals-list">
+                            {goals.map((g, i) => (
+                                <div key={i} className="zc-goal-item">
+                                    <span className="zc-goal-num">{i + 1}</span>
+                                    <span>{g}</span>
+                                </div>
+                            ))}
+                        </div>
+                    </section>
                 </div>
 
-                {/* ═══════ SECTION 03 — RESULT ═══════ */}
-                <section className="pd-result-section pd-section-animate">
-                    <div className="pd-case-eyebrow">
-                        <span className="pd-case-number">03</span>
-                        <span className="pd-case-line"></span>
-                        <span className="pd-case-label">The Result</span>
-                    </div>
-                    <div className="pd-result-body">
-                        <h2 className="pd-result-heading">{project.result}</h2>
-                    </div>
-                </section>
+                {/* ─── SOLUTION BLOCKS ─── */}
+                {solutionBlocks.map((sol, i) => (
+                    <section key={i} className="zc-solution-block zc-animate">
+                        <span className="zc-sol-badge">SOLUTION {sol.num}</span>
+                        <h2 className="zc-sol-title">{sol.title}</h2>
 
-                {/* Impact full‑width image */}
-                <div className="pd-impact-image pd-img-reveal">
-                    <img src={project.impactImage} alt={`${project.title} Impact`} />
+                        <p className="zc-sol-desc">{sol.desc}</p>
+                        <div className="zc-rationale-box">
+                            <p>{sol.rationale}</p>
+                        </div>
+
+                        <div className="zc-mockup-container" style={{ background: sol.mockupBg }}>
+                            <img src={sol.mockupImg} alt={`Solution ${i + 1} mockup`} />
+                        </div>
+                    </section>
+                ))}
+
+                <div className="zc-content-col">
+                    {/* ─── FUTURE IMPROVEMENTS ─── */}
+                    <section className="zc-section-block zc-animate">
+                        <h2 className="zc-section-h2">Next Steps</h2>
+                        <p className="zc-section-desc">Post-launch user testing and funnel analysis would help refine time estimates, error handling, and navigation clarity.</p>
+                        <ul className="zc-sparkle-list" style={{ marginTop: '24px' }}>
+                            <li><span className="zc-sparkle">❇️</span> More user testing, validation, and iterations to refine flows and edge cases.</li>
+                            <li><span className="zc-sparkle">❇️</span> Better personalisation of steps based on user profile and eligibility signals.</li>
+                            <li><span className="zc-sparkle">❇️</span> Gamified concepts with subtle animations to increase engagement and reduce form fatigue.</li>
+                        </ul>
+                    </section>
                 </div>
 
-                {/* ═══════ NEXT PROJECT NAVIGATION ═══════ */}
-                <section className="pd-next-project">
-                    <Link to={`/project/${nextProject.slug}`} className="pd-next-link">
-                        <div className="pd-next-top">
-                            <span className="pd-next-eyebrow">Next Project</span>
-                            <svg className="pd-next-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-                                <path d="M7 17L17 7M17 7H7M17 7v10" />
-                            </svg>
-                        </div>
-                        <h2 className="pd-next-title">{nextProject.title}.</h2>
-                        <div className="pd-next-meta">
-                            <span>{nextProject.type}</span>
-                            <span>{nextProject.year}</span>
-                        </div>
-                        <div className="pd-next-image-peek">
-                            <img src={nextProject.image} alt={nextProject.title} />
-                        </div>
-                    </Link>
-                </section>
+            </main>
 
-            </div>
+            {/* ─── NEXT PROJECT (full 1600px width) ─── */}
+            <section className="zc-next-section zc-animate">
+                <div className="zc-next-inner">
+                    <span className="zc-next-label">Next Project</span>
+                    <div className="work-grid-kanso">
+                        {[nextProject, projectsData[(currentIndex + 2) % projectsData.length]].map((p, i) => (
+                            <Link key={i} to={`/project/${p.slug}`} className="work-card-kanso">
+                                <div className="work-img-wrapper">
+                                    <img src={p.image} alt={p.title} />
+                                </div>
+                                <div className="work-info">
+                                    <div className="info-top">
+                                        <h3 className="project-title">{p.title}</h3>
+                                        <span className="project-year">{p.year}</span>
+                                    </div>
+                                    <div className="info-bottom">
+                                        <span className="project-type">{p.type}</span>
+                                    </div>
+                                </div>
+                            </Link>
+                        ))}
+                    </div>
+                </div>
+            </section>
+
         </div>
     );
 };

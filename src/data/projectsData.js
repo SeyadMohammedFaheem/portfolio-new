@@ -5,11 +5,13 @@ export const projectsData = [
         title: "Dashboard Design",
         year: "2025",
         type: "UX Design",
+        time: "3 Weeks",
+        category: "Visual Design",
         image: "/images/work/work1.jpg",
         client: "Company Alpha",
         service: "UX Design",
         description: "A comprehensive digital system engineered to modernize complex enterprise workflows and data management.",
-        heroImage: "/images/work/work1.jpg",
+        heroImage: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&q=80&w=2000",
         challenge: {
             text: "Their concept was clear, but their visual language was not.",
             subtext: "We needed to align their ambition with a visual language that spoke to their avant-garde approach to daily wear."

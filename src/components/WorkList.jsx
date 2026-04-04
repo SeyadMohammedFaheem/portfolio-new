@@ -58,7 +58,7 @@ const WorkList = () => {
             description: "End-to-end product design from discovery and research to high-fidelity prototypes and handoff. Building products that are intuitive, functional, and visually compelling.",
             skills: ["User Research", "Wireframing", "Prototyping", "Usability Testing", "Design Systems"],
             images: [
-                "/images/digital_design.png",
+                "/images/scentropolis.png",
                 "/images/delete-button.png",
             ]
         },

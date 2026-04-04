@@ -19,3 +19,16 @@
 - Contact & About UI redesign (hero, form, marquee, values, experience)
 - Testimonial content
 - 3 blog updates
+
+
+------
+Product Design - 2
+
+
+Design System - 2
+
+Social Media - 3
+
+Video Editing - 2
+
+Development - 2
