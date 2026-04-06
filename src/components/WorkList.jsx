@@ -58,8 +58,8 @@ const WorkList = () => {
             description: "End-to-end product design from discovery and research to high-fidelity prototypes and handoff. Building products that are intuitive, functional, and visually compelling.",
             skills: ["User Research", "Wireframing", "Prototyping", "Usability Testing", "Design Systems"],
             images: [
+                "/images/work/giftease.png",
                 "/images/scentropolis.png",
-                "/images/delete-button.png",
             ]
         },
         {
@@ -78,9 +78,9 @@ const WorkList = () => {
             description: "Branded templates and content systems engineered to keep your social presence sharp, consistent, and scroll-stopping.",
             skills: ["Instagram Design", "Story Kits", "Content Templates", "Visual Consistency"],
             images: [
+                "/images/work/poster.jpg",
                 "/images/google-ads-banner.png",
-                "/images/digital_design.png",
-                "/images/insights.png"
+                "/images/pickcel_collage.jpg",
             ]
         },
         {
@@ -89,7 +89,7 @@ const WorkList = () => {
             description: "Motion-rich edits that tell your story with impact — from brand reels to product demos and social-first short form content.",
             skills: ["Brand Reels", "Short-Form Content", "Motion Graphics", "Color Grading"],
             images: [
-                "/images/strategy.png",
+                "/images/video-editing.gif",
                 "/images/design-with-intent.jpg",
             ]
         },
@@ -99,8 +99,8 @@ const WorkList = () => {
             description: "Building robust, high-performance web applications and digital products. Translating complex designs into pixel-perfect, responsive, and interactive digital experiences.",
             skills: ["Front-end Development", "React.js", "Creative Coding", "Performance Optimization"],
             images: [
+                "/images/launchkit.png",
                 "/images/octalume.png",
-                "/images/skill_testing.png",
             ]
         }
     ];
