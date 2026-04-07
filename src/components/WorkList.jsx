@@ -69,7 +69,7 @@ const WorkList = () => {
             skills: ["Component Libraries", "Token Management", "Documentation", "Figma Systems"],
             images: [
                 "/images/design-tokens.png",
-                "/images/strategy.png",
+                "/images/design-system-2.png",
             ]
         },
         {
@@ -90,7 +90,7 @@ const WorkList = () => {
             skills: ["Brand Reels", "Short-Form Content", "Motion Graphics", "Color Grading"],
             images: [
                 "/images/video-editing.gif",
-                "/images/design-with-intent.jpg",
+                "/images/video-editing2.gif",
             ]
         },
         {
@@ -99,8 +99,8 @@ const WorkList = () => {
             description: "Building robust, high-performance web applications and digital products. Translating complex designs into pixel-perfect, responsive, and interactive digital experiences.",
             skills: ["Front-end Development", "React.js", "Creative Coding", "Performance Optimization"],
             images: [
-                "/images/launchkit.png",
                 "/images/octalume.png",
+                "/images/launchkit.png",
             ]
         }
     ];

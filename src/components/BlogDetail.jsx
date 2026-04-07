@@ -94,13 +94,7 @@ const BlogDetail = () => {
                     </div>
                 </footer>
 
-                {/* ── LET'S COLLABORATE CTA ── */}
-                <section className="blog-collab-cta">
-                    <p className="blog-collab-label">Let's Collaborate</p>
-                    <a href="mailto:faheemseyadmd@gmail.com" className="blog-collab-email">
-                        faheemseyadmd@gmail.com
-                    </a>
-                </section>
+            
 
             </div>
         </div>

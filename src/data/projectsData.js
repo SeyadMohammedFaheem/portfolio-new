@@ -5,10 +5,10 @@ export const projectsData = [
         title: "Dashboard Design",
         year: "2025",
         type: "UX Design",
-        time: "3 Weeks",
+        time: "5 Weeks",
         category: "Visual Design",
         image: "/images/work/work1.jpg",
-        client: "Company Alpha",
+        client: "Pickcel",
         service: "UX Design",
         description: "A comprehensive digital system engineered to modernize complex enterprise workflows and data management.",
         heroImage: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&q=80&w=2000",
@@ -29,7 +29,37 @@ export const projectsData = [
             "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&q=80&w=1600",
             "https://images.unsplash.com/photo-1492288991661-058aa541ff43?auto=format&fit=crop&q=80&w=1600"
         ],
-        impactImage: "https://images.unsplash.com/photo-1621257912423-e45f9411d619?auto=format&fit=crop&q=80&w=2000"
+        impactImage: "https://images.unsplash.com/photo-1621257912423-e45f9411d619?auto=format&fit=crop&q=80&w=2000",
+        caseStudy: {
+            goals: [
+                "Streamline enterprise data entry workflows",
+                "Reduce cognitive load for daily power users",
+                "Improve visibility of real-time server metrics"
+            ],
+            targetUsers: [
+                "Operations Managers",
+                "IT Administrators",
+                "Data Integrity Officers"
+            ],
+            challengeBullets: [
+                { icon: "📉", text: "Low efficiency in manual data sorting" },
+                { icon: "🛠️", text: "Fragmented legacy toolsets and APIs" }
+            ],
+            solutions: [
+                {
+                    num: "1/2",
+                    title: "The Central Dashboard",
+                    desc: "A single pane of glass design that aggregates all critical metrics.",
+                    rationale: "Research showed that switching between 5 different monitor screens was the source of 40% of human errors.",
+                    mockupBg: "#111",
+                    mockupImg: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&q=80&w=2000"
+                }
+            ],
+            nextSteps: [
+                "Deploy AI error-detection models in Q3",
+                "Finalize mobile dashboard transition"
+            ]
+        }
     },
     {
         id: "pickcel-go-app-design",

@@ -7,21 +7,27 @@ gsap.registerPlugin(ScrollTrigger);
 
 const skills = [
     "Product Design", "UI/UX", "Design Systems", "Prototyping",
-    "Brand Identity", "Motion Design", "Interaction Design", "User Research",
-    "Figma", "Creative Direction", "Web Design", "Mobile Design"
+    "Figma", "Framer", "Adobe Creative Cloud", "Photoshop",
+    "Tailwind", "HTML/CSS", "Interaction Design", "User Research",
+    "Design Tokens", "OpenAI"
 ];
 
 const experiences = [
-    { year: "2021 — Present", role: "Senior Product Designer", company: "Studio Kanso", type: "Full-time" },
-    { year: "2018 — 2021", role: "Lead UI/UX Designer", company: "TechFlow Inc.", type: "Full-time" },
-    { year: "2015 — 2018", role: "Digital Designer", company: "Creative Form", type: "Full-time" },
-    { year: "2013 — 2015", role: "Junior Designer", company: "Pixel Agency", type: "Full-time" },
+    { year: "2023 — Present", role: "UI/UX Designer", company: "Pickcel", type: "Full-time" },
+    { year: "2022 — 2024", role: "Visual Designer", company: "Freelance", type: "contract" },
+];
+
+const certifications = [
+    { title: "Google UX Design", issuer: "Google", date: "2024" },
+    { title: "Complete Web & Mobile Designer", issuer: "Udemy", date: "2022" },
+    { title: "Digital Skills: UX", issuer: "Accenture", date: "2022" },
+    { title: "Human Interface Guidelines", issuer: "ProApp", date: "2022" },
 ];
 
 const values = [
-    { number: "01", title: "Clarity over complexity", desc: "Every design decision must have a reason. I strip away anything that doesn't serve the user." },
-    { number: "02", title: "Detail is everything", desc: "The difference between good and exceptional lives in the micro — spacing, timing, weight." },
-    { number: "03", title: "Function shapes form", desc: "Beautiful work that doesn't perform isn't really beautiful. Purpose precedes aesthetics." },
+    { number: "01", title: "Impact through 'Why'", desc: "I start every project by asking 'why'. Understanding the root user behavior leads to solutions that truly matter." },
+    { number: "02", title: "Effortless Complexity", desc: "My goal is to take complex functional requirements and turn them into interfaces that feel simple and invisible." },
+    { number: "03", title: "Engineering Mindset", desc: "With a background in Computer Science, I bridge the gap between aesthetic design and technical feasibility." },
 ];
 
 const About = () => {
@@ -80,23 +86,23 @@ const About = () => {
                             I think.
                         </h1>
                         <p className="about-hero-intro">
-                            I'm Faheem — a product designer based in Riyadh who believes the best
-                            interfaces disappear into the background, letting experiences take center stage.
-                            I work at the intersection of craft, systems thinking, and human behaviour.
+                            I'm Faheem — a designer with over 3 years of experience shaping intuitive digital products. 
+                            With a background in computer engineering, I bring a strong technical foundation to my design process, 
+                            focusing on creating solutions that are both impactful and effortless to use.
                         </p>
 
                         <div className="about-hero-stats">
                             <div className="about-stat">
-                                <span className="stat-number">10+</span>
-                                <span className="stat-label">Years of experience</span>
+                                <span className="stat-number">3+</span>
+                                <span className="stat-label">Years Experience</span>
                             </div>
                             <div className="about-stat">
-                                <span className="stat-number">80+</span>
-                                <span className="stat-label">Projects shipped</span>
+                                <span className="stat-number">50k+</span>
+                                <span className="stat-label">Users Reached</span>
                             </div>
                             <div className="about-stat">
-                                <span className="stat-number">30+</span>
-                                <span className="stat-label">Global clients</span>
+                                <span className="stat-number">29.5%</span>
+                                <span className="stat-label">Engagement Boost</span>
                             </div>
                         </div>
                     </div>
@@ -165,6 +171,28 @@ const About = () => {
                                 </div>
                                 <span className="exp-type">{exp.type}</span>
                                 <span className="exp-arrow">↗</span>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </section>
+
+            {/* ── CERTIFICATIONS ── */}
+            <section className="about-experience-section" style={{ borderTop: "1px solid rgba(255,255,255,0.05)" }}>
+                <div className="about-section-inner">
+                    <div className="about-exp-header">
+                        <span className="about-section-eyebrow">Academic & Training</span>
+                        <h2 className="about-section-title">Certifications</h2>
+                    </div>
+                    <div className="about-exp-list">
+                        {certifications.map((cert, i) => (
+                            <div className="exp-item" key={i}>
+                                <span className="exp-year">{cert.date}</span>
+                                <div className="exp-role">
+                                    <strong>{cert.title}</strong>
+                                    <span>{cert.issuer}</span>
+                                </div>
+                                <span className="exp-arrow">★</span>
                             </div>
                         ))}
                     </div>

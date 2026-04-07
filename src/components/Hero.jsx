@@ -48,7 +48,7 @@ export default function Hero({ videoElement, setProgress }) {
   return (
     <section ref={sectionRef} className="hero">
       <div className="hero-bg-image">
-        <img src="/hero-bg.jpg" alt="Runner" />
+        <img src="/hero-runner.png" alt="Runner" />
       </div>
       
       <div className="hero-main-title" ref={titleRef}>
