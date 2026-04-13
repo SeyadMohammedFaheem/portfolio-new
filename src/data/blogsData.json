@@ -381,7 +381,7 @@
         "text": "Start with one workflow you repeatedly do (like accessibility-first flow design). Write the skill so the output is always structured, testable, accessible, and consistent. Then expand it over time."
       }
     ],
-    "image": "/images/blogs/create-uiux-skill-for-claude-anthropic.png"
+    "image": "/images/blogs/create-uiux-skill-for-claude-anthropic.webp"
   },
   {
     "id": "1e84f82a-5353-8086-8c4a-dd0893205489",
@@ -725,6 +725,6 @@
         "listType": "bullet"
       }
     ],
-    "image": "/images/blogs/delete-button-case-study.jpg"
+    "image": "/images/blogs/delete-button-case-study.webp"
   }
 ]

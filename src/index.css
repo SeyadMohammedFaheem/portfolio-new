@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800;900&display=swap');
+/* Google Fonts now loaded via <link> in index.html for non-blocking delivery */
 
 :root {
     --bg-color: #0a0a0a;
@@ -37,6 +37,8 @@ canvas {
     height: 100vh;
     z-index: -1;
     opacity: 0.4;
+    /* Promote to GPU compositor layer so scroll repaints don't touch it */
+    will-change: transform;
     /* Tinted background for the tunnel */
 }
 

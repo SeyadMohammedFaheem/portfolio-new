@@ -27,7 +27,7 @@ const SelectedWork = () => {
                     {projects.map((project, index) => (
                         <Link to={`/project/${project.slug}`} className="work-card-kanso" key={index}>
                             <div className="work-img-wrapper">
-                                <img src={project.image} alt={project.title} />
+                                <img src={project.image} alt={project.title} loading="lazy" width="800" height="600" />
                             </div>
                             <div className="work-info">
                                 <div className="info-top">

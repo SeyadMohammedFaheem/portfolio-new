@@ -7,7 +7,7 @@ export const projectsData = [
         type: "UX Design",
         time: "5 Weeks",
         category: "Visual Design",
-        image: "/images/work/work1.jpg",
+        image: "/images/work/work1.webp",
         client: "Pickcel",
         service: "UX Design",
         description: "A comprehensive digital system engineered to modernize complex enterprise workflows and data management.",
@@ -67,7 +67,7 @@ export const projectsData = [
         title: "Pickcel Mobile Redesign",
         year: "2024",
         type: "Mobile App",
-        image: "/images/work/work2.jpg",
+        image: "/images/work/work2.webp",
         client: "Pickcel",
         service: "Mobile UI/UX",
         description: "Redesigning the mobile experience to enable faster access, simplified workflows, and better on-the-go control for signage operators.",
@@ -153,11 +153,11 @@ export const projectsData = [
         title: "Website Revamp",
         year: "2025",
         type: "Visual Design",
-        image: "/images/work/work3.jpg",
+        image: "/images/work/work3.webp",
         client: "Gamma Tech",
         service: "Visual Design",
         description: "Designing an intuitive, frictionless user interface for a complex financial dashboard.",
-        heroImage: "/images/work/work3.jpg",
+        heroImage: "/images/work/work3.webp",
         challenge: {
             text: "Users were overwhelmed by the density of data.",
             subtext: "Navigation was confusing, leading to high drop-off rates during onboarding."
@@ -183,11 +183,11 @@ export const projectsData = [
         title: "Octalume IOT Dashboard",
         year: "2025",
         type: "Design System",
-        image: "/images/work/work4.jpg",
+        image: "/images/work/work4.webp",
         client: "Delta Studios",
         service: "Design System",
         description: "Guiding the creative vision for a global advertising campaign spanning digital and print.",
-        heroImage: "/images/work/work4.jpg",
+        heroImage: "/images/work/work4.webp",
         challenge: {
             text: "The campaign lacked a unifying theme across different media formats.",
             subtext: ""
@@ -273,11 +273,11 @@ export const projectsData = [
         title: "Gift Suggestion App",
         year: "2026",
         type: "Mobile App",
-        image: "/images/work/giftease.png",
+        image: "/images/work/giftease.webp",
         client: "Gift Ease",
         service: "Mobile App",
         description: "A smart gifting app that curates personalized gift suggestions based on recipient preferences.",
-        heroImage: "/images/work/giftease.png",
+        heroImage: "/images/work/giftease.webp",
         challenge: {
             text: "Users often struggle to find meaningful gifts within short timeframes.",
             subtext: "The experience of navigating through endless e-commerce options is overwhelming."
@@ -288,13 +288,13 @@ export const projectsData = [
         },
         result: "Gift Ease streamlined the gifting process and significantly reduced the time taken to find a perfect present.",
         gridImages: [
-            "/images/work/giftease.png",
+            "/images/work/giftease.webp",
             "https://images.unsplash.com/photo-1513885535751-8b9238bd345a?auto=format&fit=crop&q=80&w=1000"
         ],
         stackImages: [
-            "/images/work/giftease.png",
+            "/images/work/giftease.webp",
             "https://images.unsplash.com/photo-1540200049848-d9813ea0e120?auto=format&fit=crop&q=80&w=1600"
         ],
-        impactImage: "/images/work/giftease.png"
+        impactImage: "/images/work/giftease.webp"
     }
 ];
