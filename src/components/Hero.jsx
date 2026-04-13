@@ -13,8 +13,7 @@ export default function Hero({ videoElement, setProgress }) {
     const trigger = ScrollTrigger.create({
       trigger: sectionRef.current,
       start: "top top",
-      end: "+=150%",
-      pin: true,
+      end: "bottom top",
       scrub: 1,
       onUpdate: (self) => {
         setProgress(self.progress);

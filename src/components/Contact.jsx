@@ -37,42 +37,7 @@ const Contact = () => {
         <div className="contact-page">
 
             {/* ── HERO ── */}
-            <section className="contact-hero-section">
-                <div className="contact-hero-inner">
-                    <div className="contact-hero-top">
-                        <span className="contact-hero-eyebrow">Get in touch</span>
-                        <div className="contact-avail-badge">
-                            <span className="avail-dot-green"></span>
-                            Available for new projects
-                        </div>
-                    </div>
-
-                    <h1 className="contact-hero-title">
-                        Let's make<br />
-                        <em>something</em><br />
-                        remarkable.
-                    </h1>
-
-                    <p className="contact-hero-sub">
-                        Whether you have a project in mind, want to explore a collaboration, or
-                        simply want to say hello — I'd love to hear from you.
-                    </p>
-                </div>
-            </section>
-
-            {/* ── GIANT EMAIL ── */}
-            <section className="contact-email-section">
-                <div className="contact-email-inner">
-                    <span className="contact-email-label">Email me directly</span>
-                    <a href="mailto:hello@faheem.com" className="contact-email-giant">
-                        hello@faheem.com
-                        <svg className="email-arrow-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-                            <path d="M7 17L17 7M17 7H7M17 7v10" />
-                        </svg>
-                    </a>
-                    <div className="contact-email-divider"></div>
-                </div>
-            </section>
+       
 
             {/* ── FORM + INFO ── */}
             <section className="contact-form-section">
@@ -112,7 +77,7 @@ const Contact = () => {
                                             id="contact-name"
                                             name="name"
                                             type="text"
-                                            placeholder="John Doe"
+                                            placeholder="Your name"
                                             value={formState.name}
                                             onChange={handleChange}
                                             required
@@ -124,7 +89,7 @@ const Contact = () => {
                                             id="contact-email"
                                             name="email"
                                             type="email"
-                                            placeholder="john@company.com"
+                                            placeholder="your@email.com"
                                             value={formState.email}
                                             onChange={handleChange}
                                             required
@@ -172,7 +137,7 @@ const Contact = () => {
 
                             <div className="contact-info-block">
                                 <h3>Location</h3>
-                                <p className="contact-info-text">Riyadh, Saudi Arabia</p>
+                                <p className="contact-info-text">India</p>
                                 <p className="contact-info-muted">Remote-friendly worldwide.</p>
                             </div>
 

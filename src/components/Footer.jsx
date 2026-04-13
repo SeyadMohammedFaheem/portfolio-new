@@ -48,7 +48,7 @@ export default function Footer() {
             <a href="mailto:faheemseyadmd@gmail.com" className="n-footer-email">faheemseyadmd@gmail.com</a>
 
             <span className="n-footer-column-title" style={{ marginTop: '2rem' }}>(PHONE)</span>
-            <a href="tel:+12345678" className="n-footer-phone">+966 539630501</a>
+            <a href="tel:+12345678" className="n-footer-phone">+91 6379439162</a>
           </div>
 
           <div className="n-footer-column">

@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react';
-import portraitImg from '../assets/about-portrait.png';
+import portraitImg from '../assets/faheem-portrait.png';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 

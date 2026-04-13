@@ -64,32 +64,88 @@ export const projectsData = [
     {
         id: "pickcel-go-app-design",
         slug: "pickcel-go-app-design",
-        title: "Pickcel GO App Design",
+        title: "Pickcel Mobile Redesign",
         year: "2024",
         type: "Mobile App",
         image: "/images/work/work2.jpg",
-        client: "Beta Co.",
-        service: "Mobile App",
-        description: "Reimagining the core visual identity for a leading lifestyle brand to capture a younger demographic.",
-        heroImage: "/images/work/work2.jpg",
+        client: "Pickcel",
+        service: "Mobile UI/UX",
+        description: "Redesigning the mobile experience to enable faster access, simplified workflows, and better on-the-go control for signage operators.",
+        heroImage: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&q=80&w=2000",
         challenge: {
-            text: "The brand felt outdated and disconnected from its new audience.",
-            subtext: "A complete overhaul was required without losing the heritage built over 20 years."
+            text: "The existing mobile experience was limited, cluttered, and not optimized for quick actions.",
+            subtext: "Users struggled to manage screens, monitor status, and perform key tasks efficiently on smaller devices. Navigation was not optimized for thumb-friendly interaction."
         },
         solution: {
-            text: "A modern, bold typographic system combined with vibrant color palettes.",
-            subtext: "We preserved the legacy logo mark but gave it a cleaner, flatter execution."
+            text: "A streamlined mobile experience focused on speed, clarity, and control.",
+            subtext: "By introducing bottom navigation, quick actions, and real-time monitoring alerts, we reduced friction in critical workflows and increased user confidence."
         },
-        result: "Pickcel GO App saw a 40% increase in brand recall among the target demographic.",
+        result: "Faster on-the-go task completion, improved accessibility, and significantly reduced friction in critical maintenance workflows.",
         gridImages: [
-            "https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?auto=format&fit=crop&q=80&w=1000",
-            "https://images.unsplash.com/photo-1590874103328-eac38a683ce7?auto=format&fit=crop&q=80&w=1000"
+            "https://images.unsplash.com/photo-1523206489230-c012c64b2b48?auto=format&fit=crop&q=80&w=1000",
+            "https://images.unsplash.com/photo-1551650975-87deedd944c3?auto=format&fit=crop&q=80&w=1000"
         ],
         stackImages: [
-            "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&q=80&w=1600",
-            "https://images.unsplash.com/photo-1492288991661-058aa541ff43?auto=format&fit=crop&q=80&w=1600"
+            "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&q=80&w=1600",
+            "https://images.unsplash.com/photo-1555774698-0b77e0d5fac6?auto=format&fit=crop&q=80&w=1600"
         ],
-        impactImage: "https://images.unsplash.com/photo-1621257912423-e45f9411d619?auto=format&fit=crop&q=80&w=2000"
+        impactImage: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&q=80&w=2000",
+        caseStudy: {
+            goals: [
+                "Enable quick access to key actions on mobile",
+                "Simplify navigation for one-handed use",
+                "Improve visibility of system status",
+                "Reduce steps for common workflows"
+            ],
+            targetUsers: [
+                "Operations teams and managers who need quick control and visibility while away from desktop"
+            ],
+            challengeBullets: [
+                { icon: "📱", text: "Mobile usage was focused on quick checks only" },
+                { icon: "👍", text: "Navigation not optimized for one-handed use" },
+                { icon: "⏳", text: "Important actions required too many steps" },
+                { icon: "🛑", text: "Lack of real-time visibility and status alerts" }
+            ],
+            solutions: [
+                {
+                    num: "1/4",
+                    title: "Mobile Dashboard",
+                    desc: "Key metrics surfaced upfront with simplified cards for quick scanning and real-time status indicators.",
+                    rationale: "Instant visibility reduces the need for deeper drill-downs for common health checks.",
+                    mockupBg: "#111",
+                    mockupImg: "https://images.unsplash.com/photo-1523206489230-c012c64b2b48?auto=format&fit=crop&q=80&w=1000"
+                },
+                {
+                    num: "2/4",
+                    title: "Bottom Navigation",
+                    desc: "Thumb-friendly interface with reduced hierarchy and clear prioritization of core sections.",
+                    rationale: "Optimizing for ergonomic one-handed use significantly decreases cognitive load and interaction time.",
+                    mockupBg: "#1B2B4E",
+                    mockupImg: "https://images.unsplash.com/photo-1551650975-87deedd944c3?auto=format&fit=crop&q=80&w=1000"
+                },
+                {
+                    num: "3/4",
+                    title: "Quick Actions",
+                    desc: "Instant access to publish, update, and monitor tools based on contextual user needs.",
+                    rationale: "Reducing dependency on Desktop allows operators to fix critical signage issues immediately from anywhere.",
+                    mockupBg: "#2D1B4E",
+                    mockupImg: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&q=80&w=1000"
+                },
+                {
+                    num: "4/4",
+                    title: "Monitoring & Alerts",
+                    desc: "Live status updates and proactive alerts for hardware failures or schedule overlaps.",
+                    rationale: "Faster response to problems is essential for enterprise-grade digital signage reliability.",
+                    mockupBg: "#1B3A2B",
+                    mockupImg: "https://images.unsplash.com/photo-1555774698-0b77e0d5fac6?auto=format&fit=crop&q=80&w=1000"
+                }
+            ],
+            nextSteps: [
+                "Introduce biometric authentication for secure quick-actions",
+                "Advanced offline mode for remote location troubleshooting",
+                "Integration with push notification infrastructure"
+            ]
+        }
     },
     {
         id: "website-revamp",
