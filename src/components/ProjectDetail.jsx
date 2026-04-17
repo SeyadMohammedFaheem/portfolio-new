@@ -36,29 +36,38 @@ const ProjectDetail = () => {
     const scopeTags = project.service ? project.service.split(',').map(s => s.trim()) : [project.type];
 
     // Case study content (generic, adapts to each project)
-    const goals = [
+    const goals = project.caseStudy?.goals || [
         'Create a Guided Onboarding Journey With Clear Expectations',
         'Reduce drop-offs and improve application completion rate',
         'Provide Clear Application Status to Improve User Confidence',
         'Build a reusable system for future integrations',
     ];
 
-    const targetUsers = [
+    const targetUsers = project.caseStudy?.targetUsers || [
         'Users improving their experience with ' + (project.client || 'the product'),
         'First-time applicants and new users',
         'Users from varied demographics',
         'Users with varying levels of digital literacy',
     ];
 
-    const keyInsights = [
-        'Users are willing to fill long forms only if the journey flow is engaging',
-        'Trust is a bigger blocker than effort',
-        `${project.client || 'The product'} rarely explains what happens after submission`,
-        'Lack of status visibility creates anxiety',
-        'Redirection increases fear of rejection and abandonment',
+    const challengeBullets = project.caseStudy?.challengeBullets || [
+        { icon: "🛑", text: "High drop-offs during application" },
+        { icon: "🛑", text: "Poor visibility into user progress" },
+        { icon: "🛑", text: "Inconsistent experience across platforms" }
     ];
 
-    const solutionBlocks = [
+    const nextSteps = project.caseStudy?.nextSteps || [
+        "More user testing, validation, and iterations to refine flows and edge cases.",
+        "Better personalisation of steps based on user profile and eligibility signals.",
+        "Gamified concepts with subtle animations to increase engagement and reduce form fatigue."
+    ];
+
+    const understandingUsers = project.caseStudy?.understandingUsers || null;
+    const impactOnUsers = project.caseStudy?.impactOnUsers || null;
+    const finalOutcome = project.caseStudy?.finalOutcome || null;
+    const endNote = project.caseStudy?.endNote || null;
+
+    const solutionBlocks = project.caseStudy?.solutions || [
         {
             num: '1/4',
             title: project.challenge?.text || 'Create a Guided Onboarding Journey With Clear Expectations',
@@ -153,26 +162,46 @@ const ProjectDetail = () => {
                     {/* ─── BACKGROUND & CONTEXT ─── */}
                     <section className="zc-section-block zc-animate">
                         <h2 className="zc-section-h2">Background &amp; Context</h2>
-                        <p className="zc-section-desc">{project.description}</p>
-                        <div className="zc-dark-card">
-                            <p className="zc-dark-card-title">The Challenge</p>
-                            <ul className="zc-bullet-list">
-                                <li><span className="zc-bullet-dot">🛑</span> High drop-offs during application</li>
-                                <li><span className="zc-bullet-dot">🛑</span> Poor visibility into user progress</li>
-                                <li><span className="zc-bullet-dot">🛑</span> Inconsistent experience across platforms</li>
-                            </ul>
+                        <p className="zc-section-desc" style={{ whiteSpace: 'pre-line' }}>{project.description}</p>
+                        <div className="zc-challenge-bento">
+                            <p className="zc-dark-card-title" style={{ marginBottom: '1.5rem', display: 'block' }}>The Challenge</p>
+                            <div className="zc-bento-grid">
+                                {challengeBullets.map((b, i) => (
+                                    <div key={i} className="zc-bento-card">
+                                        <div className="zc-bento-icon">{b.icon}</div>
+                                        <p className="zc-bento-text">{b.text}</p>
+                                    </div>
+                                ))}
+                            </div>
                         </div>
                     </section>
 
                     {/* ─── TARGET USERS ─── */}
                     <section className="zc-section-block zc-animate">
                         <h2 className="zc-section-h2">Target Users</h2>
-                        <ul className="zc-user-list">
+                        <div className="zc-target-grid">
                             {targetUsers.map((u, i) => (
-                                <li key={i}><span className="zc-user-icon">👤</span>{u}</li>
+                                <div key={i} className="zc-target-card">
+                                    <div className="zc-target-icon">👤</div>
+                                    <p className="zc-target-text">{u}</p>
+                                </div>
                             ))}
-                        </ul>
+                        </div>
                     </section>
+
+                    {understandingUsers && (
+                        <section className="zc-section-block zc-animate">
+                            <h2 className="zc-section-h2">Understanding the Users</h2>
+                            <div className="zc-understanding-grid">
+                                {understandingUsers.map((item, i) => (
+                                    <div key={i} className="zc-understanding-card">
+                                        <div className="zc-understanding-icon">🔍</div>
+                                        <p className="zc-understanding-text">{item}</p>
+                                    </div>
+                                ))}
+                            </div>
+                        </section>
+                    )}
 
                     {/* ─── GOALS ─── */}
                     <section className="zc-section-block zc-animate">
@@ -199,22 +228,108 @@ const ProjectDetail = () => {
                             <p>{sol.rationale}</p>
                         </div>
 
-                        <div className="zc-mockup-container" style={{ background: sol.mockupBg }}>
-                            <img src={sol.mockupImg} alt={`Solution ${i + 1} mockup`} />
+                        <div className="">
+                            {sol.mockupType === 'clay' ? (
+                                <div className="zc-clay-container">
+                                    {(Array.isArray(sol.mockupImg) ? sol.mockupImg : [sol.mockupImg]).map((imgSrc, i2, arr) => (
+                                        <div key={i2} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+                                            <div className={`zc-clay-phone ${sol.noHover ? 'no-hover' : ''}`}>
+                                                <div className="zc-clay-camera"></div>
+                                                <div className="zc-power-btn"></div>
+                                                <div className={`zc-clay-screen ${sol.isScrollable ? 'is-scrollable' : ''}`}>
+                                                    <img src={imgSrc} alt="iPhone 17 Mockup" />
+                                                </div>
+                                            </div>
+                                            {arr.length === 2 && (
+                                                <span className="zc-mockup-label">{i2 === 0 ? 'BEFORE' : 'AFTER'}</span>
+                                            )}
+                                        </div>
+                                    ))}
+                                </div>
+                            ) : Array.isArray(sol.mockupImg) ? (
+                                <div style={{ display: 'flex', flexDirection: 'column', gap: '40px', width: '100%' }}>
+                                    {sol.mockupImg.map((imgSrc, j) => (
+                                        <div key={j} style={{ width: '100%' }}>
+                                            <img src={imgSrc} alt={Array.isArray(sol.mockupCaption) ? sol.mockupCaption[j] : `Solution ${i + 1} mockup ${j + 1}`} />
+                                            {Array.isArray(sol.mockupCaption) && sol.mockupCaption[j] && (
+                                                <span className="zc-mockup-caption">{sol.mockupCaption[j]}</span>
+                                            )}
+                                        </div>
+                                    ))}
+                                </div>
+                            ) : (
+                                <div style={{ width: '100%' }}>
+                                    <img src={sol.mockupImg} alt={sol.mockupCaption || `Solution ${i + 1} mockup`} />
+                                    {sol.mockupCaption && (
+                                        <span className="zc-mockup-caption">{sol.mockupCaption}</span>
+                                    )}
+                                </div>
+                            )}
                         </div>
                     </section>
                 ))}
 
                 <div className="zc-content-col">
+                    {impactOnUsers && (
+                        <section className="zc-section-block zc-animate" style={{ marginBottom: '40px' }}>
+                            <h2 className="zc-section-h2">Impact on Users</h2>
+                            <div className="zc-impact-list">
+                                {impactOnUsers.map((item, i) => (
+                                    <div key={i} className="zc-impact-item">
+                                        <span className="zc-impact-num">⚡</span>
+                                        <span>{item}</span>
+                                    </div>
+                                ))}
+                            </div>
+                        </section>
+                    )}
+
+                    {finalOutcome && (
+                        <div className="zc-outcome-card zc-animate">
+                            <h2 className="zc-outcome-title">Final Outcome</h2>
+                            <p className="zc-outcome-desc" style={{ whiteSpace: 'pre-line' }}>{finalOutcome}</p>
+                        </div>
+                    )}
+
+                    {project.caseStudy?.highlightMockups && (
+                        <div className="zc-clay-container zc-animate">
+                            {project.caseStudy.highlightMockups.map((imgSrc, i3, arr) => (
+                                <div key={i3} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+                                    <div className="zc-clay-phone">
+                                        <div className="zc-clay-camera"></div>
+                                        <div className="zc-power-btn"></div>
+                                        <div className="zc-clay-screen">
+                                            <img src={imgSrc} alt="Highlight Mockup" />
+                                        </div>
+                                    </div>
+                                    {arr.length === 2 && (
+                                        <span className="zc-mockup-label">{i3 === 0 ? 'BEFORE' : 'AFTER'}</span>
+                                    )}
+                                </div>
+                            ))}
+                        </div>
+                    )}
+
                     {/* ─── FUTURE IMPROVEMENTS ─── */}
                     <section className="zc-section-block zc-animate">
                         <h2 className="zc-section-h2">Next Steps</h2>
-                        <p className="zc-section-desc">Post-launch user testing and funnel analysis would help refine time estimates, error handling, and navigation clarity.</p>
-                        <ul className="zc-sparkle-list" style={{ marginTop: '24px' }}>
-                            <li><span className="zc-sparkle">❇️</span> More user testing, validation, and iterations to refine flows and edge cases.</li>
-                            <li><span className="zc-sparkle">❇️</span> Better personalisation of steps based on user profile and eligibility signals.</li>
-                            <li><span className="zc-sparkle">❇️</span> Gamified concepts with subtle animations to increase engagement and reduce form fatigue.</li>
-                        </ul>
+                        {project.slug !== 'dashboard-design' && (
+                            <p className="zc-section-desc">Post-launch user testing and funnel analysis would help refine time estimates, error handling, and navigation clarity.</p>
+                        )}
+                        <div className="zc-impact-list" style={{ marginTop: '24px' }}>
+                            {nextSteps.map((step, i) => (
+                                <div key={i} className="zc-impact-item">
+                                    <span className="zc-step-icon">❇️</span>
+                                    <span>{step}</span>
+                                </div>
+                            ))}
+                        </div>
+
+                        {endNote && (
+                            <div className="zc-dark-card zc-animate" style={{ marginTop: '40px', textAlign: 'center', fontStyle: 'italic', padding: '32px' }}>
+                                <p>{endNote}</p>
+                            </div>
+                        )}
                     </section>
                 </div>
 

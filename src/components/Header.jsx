@@ -24,9 +24,9 @@ export default function Header() {
         <Link to="/about" className="nav-item" onClick={closeMenu}>
           <span>02 /</span> ABOUT
         </Link>
-        <Link to="/contact" className="nav-item" onClick={closeMenu}>
-          <span>03 /</span> CONTACT
-        </Link>
+        <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" className="nav-item" onClick={closeMenu}>
+          <span>03 /</span> RESUME
+        </a>
       </nav>
     </header>
   );

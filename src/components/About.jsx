@@ -13,7 +13,7 @@ const skills = [
 ];
 
 const experiences = [
-    { year: "2023 — Present", role: "UI/UX Designer", company: "Pickcel", type: "Full-time" },
+    { year: "2023 — 2025", role: "UI/UX Designer", company: "Pickcel", type: "Full-time" },
     { year: "2022 — 2024", role: "Visual Designer", company: "Freelance", type: "contract" },
 ];
 

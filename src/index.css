@@ -3996,6 +3996,48 @@ header.main-header {
     flex-shrink: 0;
 }
 
+/* Impact on Users (green goals variation) */
+.zc-impact-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 1.5rem;
+}
+
+.zc-impact-item {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    background: rgba(255,255,255,0.02);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 100px;
+    padding: 20px 40px;
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: var(--text-color);
+    transition: all 0.4s cubic-bezier(0.2, 0, 0, 1);
+}
+
+.zc-impact-item:hover {
+    background: rgba(255,255,255,0.04);
+    border-color: #22c55e;
+    transform: translateX(10px);
+}
+
+.zc-impact-num {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: #22c55e;
+    color: #111;
+    font-size: 1.2rem;
+    font-weight: 950;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
 /* Diamond list */
 .zc-diamond-list {
     list-style: none;
@@ -4134,17 +4176,202 @@ header.main-header {
     overflow: hidden;
     background: #000;
     border: 1px solid rgba(255,255,255,0.05);
-    padding: 80px 40px;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
+
+
+/* Next project — full 1600px width, same as home page */
+.zc-next-section {
+    padding: 160px 3rem 8rem;
+    border-top: 1px solid rgba(255,255,255,0.1);
+}
+
+.zc-next-inner {
+    max-width: 1600px;
+    margin: 0 auto;
+}
+
+.zc-next-label {
+    display: block;
+    font-size: 11px;
+    font-weight: 700;
+    color: rgba(255,255,255,0.35);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+}
+
+.zc-next-cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.zc-next-card {
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    border-radius: 16px;
+    overflow: hidden;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.07);
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.zc-next-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(255,255,255,0.15);
+}
+
+.zc-next-card-img {
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    overflow: hidden;
+}
+
+.zc-next-card-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+.zc-next-card:hover .zc-next-card-img img { transform: scale(1.05); }
+
+.zc-next-card-footer {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding: 18px 20px 20px;
+    gap: 12px;
+}
+
+.zc-next-card-info {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+/* Next Steps Icon */
+.zc-step-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: rgba(34, 197, 94, 0.1);
+    border: 1px solid rgba(34, 197, 94, 0.3);
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.zc-sticky-note:nth-child(even) { transform: rotate(1.5deg); }
+
+.zc-sticky-notes::-webkit-scrollbar { height: 4px; }
+.zc-sticky-notes::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.2); border-radius: 10px; }
+
+/* Constraints grid */
+.zc-constraints-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.zc-constraint-card {
+    border-radius: 16px;
+    padding: 32px;
+}
+
+.zc-constraint-card.purple { background: rgba(147, 112, 219, 0.1); border: 1px solid rgba(147, 112, 219, 0.2); }
+.zc-constraint-card.blue   { background: rgba(30, 144, 255, 0.1); border: 1px solid rgba(30, 144, 255, 0.2); }
+
+.zc-constraint-card h4 {
+    font-size: 0.8rem;
+    font-weight: 900;
+    margin-bottom: 20px;
+    color: var(--text-color);
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+}
+
+.zc-constraint-card ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+.zc-constraint-card ul li { font-size: 1rem; line-height: 1.5; color: rgba(255,255,255,0.6); }
+
+/* Solution blocks - Narrowed to 900px per request */
+.zc-solution-block { 
+    margin: 160px auto;
+    max-width: 900px;
+}
+
+.zc-sol-badge {
+    display: inline-flex;
+    align-items: center;
+    background: var(--accent-color);
+    color: #fff;
+    font-size: 0.8rem;
+    font-weight: 900;
+    border-radius: 4px;
+    padding: 6px 12px;
+    margin-bottom: 24px;
+    letter-spacing: 0.1em;
+}
+
+.zc-sol-title {
+    font-size: clamp(1.8rem, 3.5vw, 3rem);
+    font-weight: 950;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    text-transform: uppercase;
+    margin-bottom: 32px;
+    color: #fff;
+}
+
+.zc-sol-desc {
+    font-size: 1.25rem;
+    color: rgba(255,255,255,0.4);
+    line-height: 1.6;
+    margin-bottom: 48px;
+    font-weight: 400;
+}
+
+/* Rationale box */
+.zc-rationale-box {
+    border-radius: 24px;
+    padding: 48px;
+    background: linear-gradient(to right, rgba(255,255,255,0.03), transparent);
+    border: 1px solid rgba(255,255,255,0.05);
+    border-left: 6px solid var(--accent-color);
+    margin-bottom: 56px;
+    backdrop-filter: blur(5px);
+}
+
+.zc-rationale-box p {
+    font-size: 1.15rem;
+    line-height: 1.7;
+    color: rgba(255,255,255,0.7);
+    margin: 0;
+    font-weight: 500;
+}
+
+/* Mockup container - Fits the 900px column */
+.zc-mockup-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 40px;
+}
+
 .zc-mockup-container img {
-    max-width: 100%;
-    max-height: 70vh;
-    border-radius: 12px;
-    box-shadow: 0 50px 100px rgba(0,0,0,0.8);
+    width: 100%;
+    height: auto;
+    border-radius: 16px;
+
 }
 
 /* Next project — full 1600px width, same as home page */
@@ -4254,6 +4481,190 @@ header.main-header {
     border: 1px solid rgba(255,255,255,0.1);
 }
 
+.zc-next-card-year {
+    font-size: 12px;
+    color: rgba(255,255,255,0.35);
+    white-space: nowrap;
+    margin-top: 2px;
+    font-weight: 500;
+}
+
+/* Bento Grid for Case Study Challenges */
+.zc-challenge-bento {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 16px;
+    padding: 32px;
+}
+
+.zc-bento-grid {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 16px;
+}
+
+.zc-bento-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    padding: 24px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    transition: background 0.3s ease, border-color 0.3s ease;
+}
+
+.zc-bento-card:hover {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+.zc-bento-icon {
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    flex-shrink: 0;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+}
+
+.zc-bento-text {
+    font-size: 0.95rem;
+    color: #f1f1f1;
+    line-height: 1.5;
+    margin: 0;
+}
+
+/* Target Users 3-Card Grid */
+.zc-target-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-top: 1.5rem;
+}
+
+.zc-target-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.zc-target-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(255, 255, 255, 0.15);
+}
+
+.zc-target-icon {
+    font-size: 1.8rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+}
+
+.zc-target-text {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.85);
+    line-height: 1.5;
+    margin: 0;
+    font-weight: 500;
+}
+
+/* Understanding Users Grid */
+.zc-understanding-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    margin-top: 1.5rem;
+}
+
+.zc-understanding-card {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 16px;
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.zc-understanding-card:hover {
+    transform: translateY(-4px);
+    background: rgba(255, 255, 255, 0.04);
+}
+
+.zc-understanding-icon {
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    background: rgba(255, 255, 255, 0.06);
+    border-radius: 50%;
+}
+
+.zc-understanding-text {
+    font-size: 1.05rem;
+    color: rgba(255, 255, 255, 0.85);
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* Final Outcome Premium Card */
+.zc-outcome-card {
+    position: relative;
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.04) 0%, rgba(255, 255, 255, 0.01) 100%);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 24px;
+    padding: 56px;
+    margin-bottom: 60px;
+    overflow: hidden;
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.2);
+}
+
+.zc-outcome-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 6px;
+    height: 100%;
+    background: linear-gradient(to bottom, var(--accent-color), #22c55e); 
+}
+
+.zc-outcome-title {
+    font-size: 2.5rem;
+    font-weight: 950;
+    margin-bottom: 24px;
+    background: linear-gradient(90deg, #fff, rgba(255, 255, 255, 0.6));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    letter-spacing: -0.02em;
+    text-transform: uppercase;
+}
+
+.zc-outcome-desc {
+    font-size: 1.25rem;
+    color: rgba(255, 255, 255, 0.85);
+    line-height: 1.8;
+    margin: 0;
+    font-weight: 400;
+}
+
 /* Responsive fixes */
 @media (max-width: 1024px) {
     .zc-main { padding: 160px 2rem 80px; }
@@ -4264,7 +4675,7 @@ header.main-header {
 @media (max-width: 768px) {
     .zc-main { padding-top: 120px; }
     .zc-hero-title { font-size: 4rem; line-height: 0.9; }
-    .zc-info-grid { padding: 32px 0; border-right: none; }
+    .zc-info-grid { padding: 32px 0; border-right: none; flex-wrap: wrap; gap: 20px;}
     .zc-info-divider { display: none; }
     .zc-info-col { padding: 16px 0; min-width: 100%; border-bottom: 1px solid rgba(255,255,255,0.05); }
     .zc-info-col:last-child { border-bottom: none; }
@@ -4272,41 +4683,14 @@ header.main-header {
     .zc-hero-thumb { border-radius: 24px; margin-bottom: 100px; }
     .zc-hero-thumb img { height: 400px; }
     .zc-dark-card { padding: 32px; }
+    .zc-outcome-card { padding: 32px; }
+    .zc-outcome-title { font-size: 2rem; }
+    .zc-outcome-desc { font-size: 1.15rem; }
     .zc-section-block { margin: 120px 0; }
-    .zc-mockup-container { padding: 32px; }
-    .zc-mockup-container img { transform: none; }
-}
-
-.zc-next-card-info h3 {
-    font-size: 15px;
-    font-weight: 700;
-    color: var(--text-color);
-    margin: 0;
-    line-height: 1.3;
-}
-
-.zc-next-card-type {
-    font-size: 12px;
-    color: var(--accent-color);
-    font-weight: 600;
-}
-
-.zc-next-card-year {
-    font-size: 12px;
-    color: rgba(255,255,255,0.35);
-    white-space: nowrap;
-    margin-top: 2px;
-    font-weight: 500;
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-    .zc-info-grid { flex-wrap: wrap; gap: 20px; }
-    .zc-info-divider { display: none; }
-    .zc-info-col { padding: 0; min-width: 42%; }
     .zc-constraints-grid { grid-template-columns: 1fr; }
     .zc-next-cards { grid-template-columns: 1fr; }
-    .zc-main { padding-top: 110px; }
+    .zc-target-grid { grid-template-columns: 1fr; }
+    .zc-understanding-grid { grid-template-columns: 1fr; }
 
     /* Fix View All buttons getting cut off on mobile */
     .view-all-projects-btn, .view-all-btn-orange, .see-all-btn {
@@ -4333,3 +4717,161 @@ header.main-header {
         width: 100%;
     }
 }
+
+/* Mockup Caption Styles */
+.zc-mockup-caption {
+    display: block;
+    margin-top: 1.5rem;
+    font-size: 0.85rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    opacity: 0.4;
+    text-align: center;
+}
+
+/* Clay Mockup System */
+.zc-clay-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    margin: 60px 0;
+    flex-wrap: wrap;
+}
+
+.zc-clay-phone {
+    position: relative;
+    width: 300px;
+    height: 620px;
+    background: #1a1a1a;
+    border-radius: 54px;
+    padding: 8px; /* Ultra-slim bezels */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 
+        0 30px 60px rgba(0, 0, 0, 0.5),
+        inset 0 0 2px rgba(255, 255, 255, 0.2);
+    transition: transform 0.6s cubic-bezier(0.2, 0, 0, 1);
+}
+
+/* iPhone Buttons - Left: Action + Volume, Right: Power */
+.zc-clay-phone::before {
+    content: '';
+    position: absolute;
+    width: 3px;
+    height: 30px; /* Action Button */
+    background: #333;
+    border-radius: 2px 0 0 2px;
+    left: -3px;
+    top: 80px;
+    box-shadow: -2px 0 5px rgba(0,0,0,0.3);
+}
+
+.zc-clay-phone::after {
+    content: '';
+    position: absolute;
+    width: 3px;
+    height: 90px; /* Volume Rocker (combined look or discrete) */
+    background: #333;
+    border-radius: 2px 0 0 2px;
+    left: -3px;
+    top: 130px;
+    box-shadow: -2px 0 5px rgba(0,0,0,0.3);
+}
+
+.zc-power-btn {
+    position: absolute;
+    width: 3px;
+    height: 80px;
+    background: #333;
+    border-radius: 0 2px 2px 0;
+    right: -3px;
+    top: 160px;
+    box-shadow: 2px 0 5px rgba(0,0,0,0.3);
+}
+
+
+
+.zc-clay-phone:hover {
+    transform: translateY(-15px) rotate(-1deg);
+}
+
+.zc-clay-phone:nth-child(even):hover {
+    transform: translateY(-15px) rotate(1deg);
+}
+
+.zc-clay-phone.no-hover:hover {
+    transform: none;
+}
+
+
+.zc-clay-screen {
+    width: 100%;
+    height: 100%;
+    background: #000;
+    border-radius: 48px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: inset 0 0 10px rgba(0,0,0,0.8);
+}
+
+.zc-clay-screen.is-scrollable {
+    overflow-y: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    overscroll-behavior-y: contain;
+}
+
+
+.zc-clay-screen.is-scrollable::-webkit-scrollbar {
+    display: none;
+}
+
+.zc-clay-screen img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.zc-clay-screen.is-scrollable img {
+    height: auto !important;
+    display: block;
+    width: 100%;
+}
+
+
+/* Dynamic Island for iPhone 17 */
+.zc-clay-camera {
+    position: absolute;
+    top: 18px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 85px;
+    height: 26px;
+    background: #000;
+    border-radius: 20px;
+    z-index: 10;
+    box-shadow: inset 0 0 4px rgba(255,255,255,0.1);
+}
+
+@media (max-width: 768px) {
+    .zc-clay-phone {
+        width: 260px;
+        height: 540px;
+    }
+    .zc-clay-container {
+        gap: 20px;
+    }
+}
+
+.zc-mockup-label {
+    margin-top: 1.5rem;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: rgba(255, 255, 255, 0.4);
+    text-align: center;
+}
+
