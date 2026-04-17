@@ -24,7 +24,12 @@ export default function Header() {
         <Link to="/about" className="nav-item" onClick={closeMenu}>
           <span>02 /</span> ABOUT
         </Link>
-        <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" className="nav-item" onClick={closeMenu}>
+        <a 
+          href="/assets/Resume - Faheem Product Designer.pdf" 
+          download="Resume - Faheem Product Designer.pdf"
+          className="nav-item" 
+          onClick={closeMenu}
+        >
           <span>03 /</span> RESUME
         </a>
       </nav>
