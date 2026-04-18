@@ -90,6 +90,8 @@ export default function App() {
           </Canvas>
         </div>
 
+        <Loader loaded={loaded} />
+
         <Suspense fallback={<PageFallback />}>
           <Routes>
             <Route path="/"              element={<Home videoElement={videoElement} setProgress={setProgress} />} />
