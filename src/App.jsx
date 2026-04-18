@@ -8,7 +8,6 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 // Always-present shell components (tiny, needed on every page)
 import Header from './components/Header';
 import Footer from './components/Footer';
-import Loader from './components/Loader';
 import TunnelBackground from './components/TunnelBackground';
 
 // Home is the most-visited page — keep it eager
@@ -89,8 +88,6 @@ export default function App() {
             <TunnelBackground video={videoElement} progress={progress} />
           </Canvas>
         </div>
-
-        <Loader loaded={loaded} />
 
         <Suspense fallback={<PageFallback />}>
           <Routes>

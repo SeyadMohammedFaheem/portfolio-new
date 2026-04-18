@@ -66,20 +66,40 @@ const Projects = () => {
 
                 <div className="projects-grid-full">
                     {filteredProjects.map((project, index) => (
-                        <Link to={`/project/${project.slug}`} className="work-card-kanso" key={`${project.id}-${index}`}>
-                            <div className="work-img-wrapper">
-                                <img src={project.image} alt={project.title} />
-                            </div>
-                            <div className="work-info">
-                                <div className="info-top">
-                                    <h3 className="project-title">{project.title}</h3>
-                                    <span className="project-year">{project.year}</span>
+                        project.isLocked ? (
+                            <div className="work-card-kanso is-locked" key={`${project.id}-${index}`}>
+                                <div className="work-img-wrapper">
+                                    <img src={project.image} alt={project.title} />
+                                    <div className="locked-overlay">
+                                        <span>COMING SOON</span>
+                                    </div>
                                 </div>
-                                <div className="info-bottom">
-                                    <span className="project-type">{project.type}</span>
+                                <div className="work-info">
+                                    <div className="info-top">
+                                        <h3 className="project-title">{project.title}</h3>
+                                        <span className="project-year">{project.year}</span>
+                                    </div>
+                                    <div className="info-bottom">
+                                        <span className="project-type">{project.type}</span>
+                                    </div>
                                 </div>
                             </div>
-                        </Link>
+                        ) : (
+                            <Link to={`/project/${project.slug}`} className="work-card-kanso" key={`${project.id}-${index}`}>
+                                <div className="work-img-wrapper">
+                                    <img src={project.image} alt={project.title} />
+                                </div>
+                                <div className="work-info">
+                                    <div className="info-top">
+                                        <h3 className="project-title">{project.title}</h3>
+                                        <span className="project-year">{project.year}</span>
+                                    </div>
+                                    <div className="info-bottom">
+                                        <span className="project-type">{project.type}</span>
+                                    </div>
+                                </div>
+                            </Link>
+                        )
                     ))}
                 </div>
             </div>
