@@ -30,7 +30,8 @@ const SelectedWork = () => {
                                 <div className="work-img-wrapper">
                                     <img src={project.image} alt={project.title} loading="lazy" width="800" height="600" />
                                     <div className="locked-overlay">
-                                        <span>COMING SOON</span>
+                                        <span>LOCKED
+                                        </span>
                                     </div>
                                 </div>
                                 <div className="work-info">

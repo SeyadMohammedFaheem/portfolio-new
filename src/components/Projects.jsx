@@ -71,7 +71,7 @@ const Projects = () => {
                                 <div className="work-img-wrapper">
                                     <img src={project.image} alt={project.title} />
                                     <div className="locked-overlay">
-                                        <span>COMING SOON</span>
+                                        <span>LOCKED</span>
                                     </div>
                                 </div>
                                 <div className="work-info">

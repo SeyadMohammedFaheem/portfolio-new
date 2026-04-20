@@ -4155,7 +4155,7 @@ header.main-header {
 .zc-constraint-card ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
 .zc-constraint-card ul li { font-size: 1rem; line-height: 1.5; color: rgba(255,255,255,0.6); }
 
-/* Solution blocks - Narrowed to 900px per request */
+/* Solution blocks */
 .zc-solution-block { 
     margin: 160px auto;
     max-width: 900px;
@@ -4192,6 +4192,16 @@ header.main-header {
     font-weight: 400;
 }
 
+/* Fix missing mockup images: solution-block images now have proper sizing */
+.zc-solution-block img {
+    width: 100%;
+    height: auto;
+    border-radius: 24px;
+    display: block;
+    margin: 20px 0;
+    border: 1px solid rgba(255,255,255,0.05);
+}
+
 /* Rationale box */
 .zc-rationale-box {
     border-radius: 24px;
@@ -4211,7 +4221,7 @@ header.main-header {
     font-weight: 500;
 }
 
-/* Mockup container - Fits the 900px column */
+/* Mockup container */
 .zc-mockup-container {
     border-radius: 32px;
     overflow: hidden;
@@ -4220,11 +4230,16 @@ header.main-header {
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-top: 40px;
 }
 
+.zc-mockup-container img {
+    width: 100%;
+    height: auto;
+    border-radius: 16px;
+}
 
-
-/* Next project — full 1600px width, same as home page */
+/* Next project section */
 .zc-next-section {
     padding: 160px 3rem 8rem;
     border-top: 1px solid rgba(255,255,255,0.1);
@@ -4298,7 +4313,15 @@ header.main-header {
     gap: 5px;
 }
 
-/* Next Steps Icon */
+.zc-next-card-year {
+    font-size: 12px;
+    color: rgba(255,255,255,0.35);
+    white-space: nowrap;
+    margin-top: 2px;
+    font-weight: 500;
+}
+
+/* Next Steps Icons & Lists */
 .zc-step-icon {
     width: 36px;
     height: 36px;
@@ -4312,184 +4335,6 @@ header.main-header {
     flex-shrink: 0;
 }
 
-.zc-sticky-note:nth-child(even) { transform: rotate(1.5deg); }
-
-.zc-sticky-notes::-webkit-scrollbar { height: 4px; }
-.zc-sticky-notes::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.2); border-radius: 10px; }
-
-/* Constraints grid */
-.zc-constraints-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
-}
-
-.zc-constraint-card {
-    border-radius: 16px;
-    padding: 32px;
-}
-
-.zc-constraint-card.purple { background: rgba(147, 112, 219, 0.1); border: 1px solid rgba(147, 112, 219, 0.2); }
-.zc-constraint-card.blue   { background: rgba(30, 144, 255, 0.1); border: 1px solid rgba(30, 144, 255, 0.2); }
-
-.zc-constraint-card h4 {
-    font-size: 0.8rem;
-    font-weight: 900;
-    margin-bottom: 20px;
-    color: var(--text-color);
-    text-transform: uppercase;
-    letter-spacing: 0.15em;
-}
-
-.zc-constraint-card ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
-.zc-constraint-card ul li { font-size: 1rem; line-height: 1.5; color: rgba(255,255,255,0.6); }
-
-/* Solution blocks - Narrowed to 900px per request */
-.zc-solution-block { 
-    margin: 160px auto;
-    max-width: 900px;
-}
-
-.zc-sol-badge {
-    display: inline-flex;
-    align-items: center;
-    background: var(--accent-color);
-    color: #fff;
-    font-size: 0.8rem;
-    font-weight: 900;
-    border-radius: 4px;
-    padding: 6px 12px;
-    margin-bottom: 24px;
-    letter-spacing: 0.1em;
-}
-
-.zc-sol-title {
-    font-size: clamp(1.8rem, 3.5vw, 3rem);
-    font-weight: 950;
-    line-height: 1.05;
-    letter-spacing: -0.02em;
-    text-transform: uppercase;
-    margin-bottom: 32px;
-    color: #fff;
-}
-
-.zc-sol-desc {
-    font-size: 1.25rem;
-    color: rgba(255,255,255,0.4);
-    line-height: 1.6;
-    margin-bottom: 48px;
-    font-weight: 400;
-}
-
-/* Rationale box */
-.zc-rationale-box {
-    border-radius: 24px;
-    padding: 48px;
-    background: linear-gradient(to right, rgba(255,255,255,0.03), transparent);
-    border: 1px solid rgba(255,255,255,0.05);
-    border-left: 6px solid var(--accent-color);
-    margin-bottom: 56px;
-    backdrop-filter: blur(5px);
-}
-
-.zc-rationale-box p {
-    font-size: 1.15rem;
-    line-height: 1.7;
-    color: rgba(255,255,255,0.7);
-    margin: 0;
-    font-weight: 500;
-}
-
-/* Mockup container - Fits the 900px column */
-.zc-mockup-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: 40px;
-}
-
-.zc-mockup-container img {
-    width: 100%;
-    height: auto;
-    border-radius: 16px;
-
-}
-
-/* Next project — full 1600px width, same as home page */
-.zc-next-section {
-    padding: 160px 3rem 8rem;
-    border-top: 1px solid rgba(255,255,255,0.1);
-}
-
-.zc-next-inner {
-    max-width: 1600px;
-    margin: 0 auto;
-}
-
-.zc-next-label {
-    display: block;
-    font-size: 11px;
-    font-weight: 700;
-    color: rgba(255,255,255,0.35);
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    margin-bottom: 24px;
-}
-
-.zc-next-cards {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
-}
-
-.zc-next-card {
-    text-decoration: none;
-    display: flex;
-    flex-direction: column;
-    border-radius: 16px;
-    overflow: hidden;
-    background: rgba(255,255,255,0.03);
-    border: 1px solid rgba(255,255,255,0.07);
-    transition: transform 0.3s ease, border-color 0.3s ease;
-}
-
-.zc-next-card:hover {
-    transform: translateY(-5px);
-    border-color: rgba(255,255,255,0.15);
-}
-
-.zc-next-card-img {
-    width: 100%;
-    aspect-ratio: 16 / 10;
-    overflow: hidden;
-}
-
-.zc-next-card-img img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
-    display: block;
-    transition: transform 0.5s ease;
-}
-
-.zc-next-card:hover .zc-next-card-img img { transform: scale(1.05); }
-
-.zc-next-card-footer {
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-    padding: 18px 20px 20px;
-    gap: 12px;
-}
-
-.zc-next-card-info {
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-}
-
-/* Sparkle list for Next Steps */
 .zc-sparkle-list {
     list-style: none;
     padding: 0;
@@ -4520,14 +4365,6 @@ header.main-header {
     background: rgba(255,255,255,0.05);
     border-radius: 6px;
     border: 1px solid rgba(255,255,255,0.1);
-}
-
-.zc-next-card-year {
-    font-size: 12px;
-    color: rgba(255,255,255,0.35);
-    white-space: nowrap;
-    margin-top: 2px;
-    font-weight: 500;
 }
 
 /* Bento Grid for Case Study Challenges */
@@ -4706,71 +4543,6 @@ header.main-header {
     font-weight: 400;
 }
 
-/* Responsive fixes */
-@media (max-width: 1024px) {
-    .zc-main { padding: 160px 2rem 80px; }
-    .zc-hero-title { font-size: 8rem; }
-    .zc-info-col { padding: 0 24px; }
-}
-
-@media (max-width: 768px) {
-    .zc-main { padding-top: 120px; }
-    .zc-hero-title { font-size: 4rem; line-height: 0.9; }
-    .zc-info-grid { padding: 32px 0; border-right: none; flex-wrap: wrap; gap: 20px;}
-    .zc-info-divider { display: none; }
-    .zc-info-col { padding: 16px 0; min-width: 100%; border-bottom: 1px solid rgba(255,255,255,0.05); }
-    .zc-info-col:last-child { border-bottom: none; }
-    .zc-hud-label { display: none; }
-    .zc-hero-thumb { border-radius: 24px; margin-bottom: 100px; }
-    .zc-hero-thumb img { height: 400px; }
-    .zc-dark-card { padding: 32px; }
-    .zc-outcome-card { padding: 32px; }
-    .zc-outcome-title { font-size: 2rem; }
-    .zc-outcome-desc { font-size: 1.15rem; }
-    .zc-section-block { margin: 120px 0; }
-    .zc-constraints-grid { grid-template-columns: 1fr; }
-    .zc-next-cards { grid-template-columns: 1fr; }
-    .zc-target-grid { grid-template-columns: 1fr; }
-    .zc-understanding-grid { grid-template-columns: 1fr; }
-
-    /* Fix View All buttons getting cut off on mobile */
-    .view-all-projects-btn, .view-all-btn-orange, .see-all-btn {
-        padding: 0.8rem 1.2rem;
-        font-size: 0.8rem;
-        white-space: normal;
-        text-align: center;
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin-top: 1rem;
-        box-sizing: border-box;
-    }
-    
-    .section-header, .work-header-custom, .about-section-header {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 1rem;
-        width: 100%;
-    }
-    
-    .header-right {
-        width: 100%;
-    }
-}
-
-/* Mockup Caption Styles */
-.zc-mockup-caption {
-    display: block;
-    margin-top: 1.5rem;
-    font-size: 0.85rem;
-    font-weight: 500;
-    text-transform: uppercase;
-    letter-spacing: 0.15em;
-    opacity: 0.4;
-    text-align: center;
-}
-
 /* Clay Mockup System */
 .zc-clay-container {
     display: flex;
@@ -4787,64 +4559,15 @@ header.main-header {
     height: 620px;
     background: #1a1a1a;
     border-radius: 54px;
-    padding: 8px; /* Ultra-slim bezels */
+    padding: 8px;
     border: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 
-        0 30px 60px rgba(0, 0, 0, 0.5),
-        inset 0 0 2px rgba(255, 255, 255, 0.2);
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5), inset 0 0 2px rgba(255, 255, 255, 0.2);
     transition: transform 0.6s cubic-bezier(0.2, 0, 0, 1);
 }
 
-/* iPhone Buttons - Left: Action + Volume, Right: Power */
-.zc-clay-phone::before {
-    content: '';
-    position: absolute;
-    width: 3px;
-    height: 30px; /* Action Button */
-    background: #333;
-    border-radius: 2px 0 0 2px;
-    left: -3px;
-    top: 80px;
-    box-shadow: -2px 0 5px rgba(0,0,0,0.3);
-}
-
-.zc-clay-phone::after {
-    content: '';
-    position: absolute;
-    width: 3px;
-    height: 90px; /* Volume Rocker (combined look or discrete) */
-    background: #333;
-    border-radius: 2px 0 0 2px;
-    left: -3px;
-    top: 130px;
-    box-shadow: -2px 0 5px rgba(0,0,0,0.3);
-}
-
-.zc-power-btn {
-    position: absolute;
-    width: 3px;
-    height: 80px;
-    background: #333;
-    border-radius: 0 2px 2px 0;
-    right: -3px;
-    top: 160px;
-    box-shadow: 2px 0 5px rgba(0,0,0,0.3);
-}
-
-
-
-.zc-clay-phone:hover {
-    transform: translateY(-15px) rotate(-1deg);
-}
-
-.zc-clay-phone:nth-child(even):hover {
-    transform: translateY(-15px) rotate(1deg);
-}
-
-.zc-clay-phone.no-hover:hover {
-    transform: none;
-}
-
+.zc-clay-phone:hover { transform: translateY(-15px) rotate(-1deg); }
+.zc-clay-phone:nth-child(even):hover { transform: translateY(-15px) rotate(1deg); }
+.zc-clay-phone.no-hover:hover { transform: none; }
 
 .zc-clay-screen {
     width: 100%;
@@ -4859,14 +4582,10 @@ header.main-header {
 .zc-clay-screen.is-scrollable {
     overflow-y: auto;
     scrollbar-width: none;
-    -ms-overflow-style: none;
     overscroll-behavior-y: contain;
 }
 
-
-.zc-clay-screen.is-scrollable::-webkit-scrollbar {
-    display: none;
-}
+.zc-clay-screen.is-scrollable::-webkit-scrollbar { display: none; }
 
 .zc-clay-screen img {
     width: 100%;
@@ -4875,14 +4594,8 @@ header.main-header {
     display: block;
 }
 
-.zc-clay-screen.is-scrollable img {
-    height: auto !important;
-    display: block;
-    width: 100%;
-}
+.zc-clay-screen.is-scrollable img { height: auto !important; }
 
-
-/* Dynamic Island for iPhone 17 */
 .zc-clay-camera {
     position: absolute;
     top: 18px;
@@ -4896,16 +4609,6 @@ header.main-header {
     box-shadow: inset 0 0 4px rgba(255,255,255,0.1);
 }
 
-@media (max-width: 768px) {
-    .zc-clay-phone {
-        width: 260px;
-        height: 540px;
-    }
-    .zc-clay-container {
-        gap: 20px;
-    }
-}
-
 .zc-mockup-label {
     margin-top: 1.5rem;
     font-size: 0.8rem;
@@ -4913,6 +4616,37 @@ header.main-header {
     text-transform: uppercase;
     letter-spacing: 0.2em;
     color: rgba(255, 255, 255, 0.4);
+    text-align: center;
+}
+
+/* Responsive fixes */
+@media (max-width: 1024px) {
+    .zc-main { padding: 160px 2rem 80px; }
+    .zc-hero-title { font-size: 8rem; }
+    .zc-info-col { padding: 0 24px; }
+}
+
+@media (max-width: 768px) {
+    .zc-main { padding-top: 120px; }
+    .zc-hero-title { font-size: 4rem; line-height: 0.9; }
+    .zc-info-grid { padding: 32px 0; flex-wrap: wrap; gap: 20px;}
+    .zc-info-divider { display: none; }
+    .zc-info-col { padding: 16px 0; min-width: 100%; border-bottom: 1px solid rgba(255,255,255,0.05); }
+    .zc-info-col:last-child { border-bottom: none; }
+    .zc-hero-thumb { border-radius: 24px; margin-bottom: 100px; }
+    .zc-hero-thumb img { height: 400px; }
+    .zc-clay-phone { width: 260px; height: 540px; }
+    .zc-target-grid, .zc-understanding-grid, .zc-next-cards { grid-template-columns: 1fr; }
+}
+
+.zc-mockup-caption {
+    display: block;
+    margin-top: 1.5rem;
+    font-size: 0.85rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    opacity: 0.4;
     text-align: center;
 }
 

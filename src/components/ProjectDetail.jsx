@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { Link, useParams, Navigate, useNavigate } from 'react-router-dom';
-import Header from './Header';
+
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { projectsData } from '../data/projectsData';
@@ -28,6 +28,7 @@ const ProjectDetail = () => {
             });
         });
 
+        ScrollTrigger.refresh();
         return () => ScrollTrigger.getAll().forEach(t => t.kill());
     }, [project, slug]);
 
@@ -108,7 +109,6 @@ const ProjectDetail = () => {
 
     return (
         <div className="zc-page">
-            <Header />
 
             {/* HUD Elements for consistency with home page */}
 
