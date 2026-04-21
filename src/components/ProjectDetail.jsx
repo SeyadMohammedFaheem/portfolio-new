@@ -57,11 +57,7 @@ const ProjectDetail = () => {
         { icon: "🛑", text: "Inconsistent experience across platforms" }
     ];
 
-    const nextSteps = project.caseStudy?.nextSteps || [
-        "More user testing, validation, and iterations to refine flows and edge cases.",
-        "Better personalisation of steps based on user profile and eligibility signals.",
-        "Gamified concepts with subtle animations to increase engagement and reduce form fatigue."
-    ];
+    const nextSteps = project.caseStudy?.nextSteps || [];
 
     const understandingUsers = project.caseStudy?.understandingUsers || null;
     const impactOnUsers = project.caseStudy?.impactOnUsers || null;
@@ -163,17 +159,6 @@ const ProjectDetail = () => {
                     <section className="zc-section-block zc-animate">
                         <h2 className="zc-section-h2">Background &amp; Context</h2>
                         <p className="zc-section-desc" style={{ whiteSpace: 'pre-line' }}>{project.description}</p>
-                        <div className="zc-challenge-bento">
-                            <p className="zc-dark-card-title" style={{ marginBottom: '1.5rem', display: 'block' }}>The Challenge</p>
-                            <div className="zc-bento-grid">
-                                {challengeBullets.map((b, i) => (
-                                    <div key={i} className="zc-bento-card">
-                                        <div className="zc-bento-icon">{b.icon}</div>
-                                        <p className="zc-bento-text">{b.text}</p>
-                                    </div>
-                                ))}
-                            </div>
-                        </div>
                     </section>
 
                     {/* ─── TARGET USERS ─── */}
@@ -188,6 +173,42 @@ const ProjectDetail = () => {
                             ))}
                         </div>
                     </section>
+
+                    {/* ─── THE PROBLEM ─── */}
+                    {project.backgroundImages && project.backgroundImages.length > 0 && (
+                        <section className="zc-section-block zc-animate">
+                            {project.backgroundImages.map((item, i) => {
+                                const heading = typeof item === 'object' ? item.heading : null;
+                                const desc = typeof item === 'object' ? item.desc : null;
+                                const subheading = typeof item === 'object' ? item.subheading : null;
+                                const columns = typeof item === 'object' ? item.columns : null;
+                                return (
+                                    <div key={i} className="zc-bg-image-block">
+                                    <div className="zc-bg-image-header">
+                                            {heading && <h2 className="zc-section-h2">{heading}</h2>}
+                                            {desc && <p className="zc-section-desc" style={{ marginBottom: 0 }}>{desc}</p>}
+                                        </div>
+                                        <div className="zc-bg-image-divider" />
+                                        {subheading && (
+                                            <div className="zc-bg-subheading-row">
+                                                <p className="zc-bg-subheading">{subheading}</p>
+                                            </div>
+                                        )}
+                                        {columns && columns.length > 0 && (
+                                            <div className="zc-bg-columns">
+                                                {columns.map((col, j) => (
+                                                    <div key={j} className="zc-bg-column-item">
+                                                        <span className="zc-bg-column-num">0{j + 1}</span>
+                                                        <p className="zc-bg-column-text">{col}</p>
+                                                    </div>
+                                                ))}
+                                            </div>
+                                        )}
+                                    </div>
+                                );
+                            })}
+                        </section>
+                    )}
 
                     {understandingUsers && (
                         <section className="zc-section-block zc-animate">
@@ -216,6 +237,21 @@ const ProjectDetail = () => {
                         </div>
                     </section>
                 </div>
+
+                {/* ─── VISUAL SECTIONS (Branding, Typography) ─── */}
+                {project.visualSections && project.visualSections.map((vs, i) => (
+                    <div key={i} className="zc-content-col zc-animate" style={{ marginBottom: '120px' }}>
+                        <section className="zc-section-block" style={{ marginBottom: '40px' }}>
+                            <h2 className="zc-section-h2">{vs.heading}</h2>
+                            <p className="zc-section-desc">{vs.desc}</p>
+                        </section>
+                        <img
+                            src={vs.image}
+                            alt={vs.heading}
+                            style={{ width: '100%', height: 'auto', borderRadius: '24px', display: 'block', border: '1px solid rgba(255,255,255,0.07)', boxShadow: '0 24px 60px rgba(0,0,0,0.5)' }}
+                        />
+                    </div>
+                ))}
 
                 {/* ─── SOLUTION BLOCKS ─── */}
                 {solutionBlocks.map((sol, i) => (
@@ -269,6 +305,274 @@ const ProjectDetail = () => {
                     </section>
                 ))}
 
+                {/* ─── DESIGN SYSTEM & TOKENS ─── */}
+                {project.caseStudy?.designSystemSection && (
+                    <div className="zc-content-col zc-animate">
+                        <section className="zc-section-block">
+                            <h2 className="zc-section-h2">{project.caseStudy.designSystemSection.heading}</h2>
+                            <p className="zc-section-desc">{project.caseStudy.designSystemSection.why}</p>
+
+                            {project.caseStudy.designSystemSection.benefits && (
+                                <div style={{ marginTop: '56px', marginBottom: '80px' }}>
+                                    <p className="zc-label" style={{ color: '#FF5733', marginBottom: '24px', fontWeight: '900', letterSpacing: '0.1em', fontSize: '0.8rem' }}>KEY BENEFITS:</p>
+                                    <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+                                        {project.caseStudy.designSystemSection.benefits.map((b, i) => (
+                                            <div key={i} style={{ 
+                                                padding: '16px 24px', 
+                                                borderRadius: '100px', 
+                                                display: 'flex', 
+                                                alignItems: 'center', 
+                                                gap: '16px', 
+                                                backgroundColor: '#0A0A0A',
+                                                border: '1px solid rgba(255,255,255,0.06)',
+                                            }}>
+                                                <div style={{ 
+                                                    width: '32px', 
+                                                    height: '32px', 
+                                                    borderRadius: '50%', 
+                                                    backgroundColor: 'rgba(255,255,255,0.03)', 
+                                                    display: 'flex', 
+                                                    alignItems: 'center', 
+                                                    justifyContent: 'center',
+                                                    border: '1px solid rgba(255,255,255,0.1)'
+                                                }}>
+                                                    <span style={{ color: 'rgba(255,255,255,0.8)', fontSize: '0.9rem' }}>✦</span>
+                                                </div>
+                                                <span style={{ fontWeight: '500', fontSize: '1rem', color: 'rgba(255,255,255,0.9)' }}>{b}</span>
+                                            </div>
+                                        ))}
+                                    </div>
+                                </div>
+                            )}
+
+                            {project.caseStudy.designSystemSection.colorLanguage && (
+                                <div style={{ marginBottom: '80px' }}>
+                                    <h2 className="zc-section-h2">{project.caseStudy.designSystemSection.colorLanguage.title}</h2>
+                                    <p className="zc-section-desc" style={{ marginBottom: '40px' }}>{project.caseStudy.designSystemSection.colorLanguage.desc}</p>
+                                    <div className="zc-animate" style={{ borderRadius: '24px', overflow: 'hidden', border: '1px solid rgba(255,255,255,0.08)' }}>
+                                        <img src={project.caseStudy.designSystemSection.colorLanguage.image} alt="Color Language" style={{ width: '100%', display: 'block' }} />
+                                    </div>
+                                </div>
+                            )}
+
+                            {project.caseStudy.designSystemSection.architectureSection && (
+                                <div style={{ marginBottom: '80px' }}>
+                                    <h2 className="zc-section-h2">{project.caseStudy.designSystemSection.architectureSection.title}</h2>
+                                    <p className="zc-section-desc" style={{ marginBottom: '40px' }}>{project.caseStudy.designSystemSection.architectureSection.desc}</p>
+                                    <div className="zc-animate" style={{ borderRadius: '24px', overflow: 'hidden', border: '1px solid rgba(255,255,255,0.08)' }}>
+                                        <img src={project.caseStudy.designSystemSection.architectureSection.image} alt="Design Token Architecture" style={{ width: '100%', display: 'block' }} />
+                                    </div>
+                                </div>
+                            )}
+
+                            
+
+                            {project.caseStudy.designSystemSection.tokenLayers && (
+                                <div style={{ marginTop: '60px' }}>
+                                    <h2 className="zc-section-h2" style={{ marginBottom: '40px' }}>Token Layering System</h2>
+                                    
+                                    {/* Comp Highlight Image under the heading */}
+                                    <div className="zc-animate" style={{ borderRadius: '24px', overflow: 'hidden', border: '1px solid rgba(255,255,255,0.08)', marginBottom: '60px' }}>
+                                        <img src="/images/work/comp-highlight.png" alt="System Detail" style={{ width: '100%', display: 'block' }} />
+                                    </div>
+
+                                    {project.caseStudy.designSystemSection.tokenLayers.map((layer, idx) => (
+                                        <div key={idx} style={{ marginBottom: '48px' }}>
+                                            <h3 className="zc-section-h3" style={{ fontSize: '1.5rem', marginBottom: '20px', color: 'rgba(255,255,255,0.95)' }}>{layer.title}</h3>
+                                            <p className="zc-section-desc" style={{ lineHeight: '1.8', color: 'rgba(255,255,255,0.6)', marginBottom: layer.title === "Semantic Tokens" ? '40px' : '0' }}>
+                                                {layer.desc.split(/(\{[^}]+\})/).map((part, i) => {
+                                                    const match = part.match(/\{([^:]+):([^}]+)\}/);
+                                                    if (match) {
+                                                        const [_, name, color] = match;
+                                                        return (
+                                                            <span key={i} style={{ 
+                                                                display: 'inline-flex', 
+                                                                alignItems: 'center', 
+                                                                backgroundColor: 'rgba(255,255,255,0.9)', 
+                                                                color: '#444',
+                                                                padding: '4px 10px', 
+                                                                borderRadius: '6px', 
+                                                                margin: '0 4px',
+                                                                fontSize: '0.85rem',
+                                                                fontWeight: '600',
+                                                                verticalAlign: 'middle'
+                                                            }}>
+                                                                <span style={{ 
+                                                                    width: '12px', 
+                                                                    height: '12px', 
+                                                                    backgroundColor: color, 
+                                                                    borderRadius: '2px', 
+                                                                    marginRight: '8px',
+                                                                    border: '1px solid rgba(0,0,0,0.1)'
+                                                                }} />
+                                                                {name}
+                                                            </span>
+                                                        );
+                                                    }
+                                                    return part;
+                                                })}
+                                            </p>
+
+                                            {/* Laptop Image under Semantic Tokens */}
+                                            {layer.title === "Semantic Tokens" && (
+                                                <div className="zc-animate" style={{ borderRadius: '24px', overflow: 'hidden', border: '1px solid rgba(255,255,255,0.08)', marginTop: '40px' }}>
+                                                    <img src="/images/work/laptop.png" alt="Laptop View" style={{ width: '100%', display: 'block' }} />
+                                                </div>
+                                            )}
+                                        </div>
+                                    ))}
+                                </div>
+                            )}
+                            {project.caseStudy.designSystemSection.integrationSection && (
+                                <div style={{ marginTop: '80px' }}>
+                                    <h2 className="zc-section-h2">{project.caseStudy.designSystemSection.integrationSection.title}</h2>
+                                    <p className="zc-section-desc">{project.caseStudy.designSystemSection.integrationSection.desc}</p>
+                                </div>
+                            )}
+
+                            {project.caseStudy.designSystemSection.handoffSection && (
+                                <div style={{ marginTop: '80px' }}>
+                                    <h2 className="zc-section-h2">{project.caseStudy.designSystemSection.handoffSection.title}</h2>
+                                    <p className="zc-section-desc" style={{ marginBottom: '40px', maxWidth: 'none' }}>
+                                        {project.caseStudy.designSystemSection.handoffSection.desc}
+                                    </p>
+
+                                    {project.caseStudy.designSystemSection.handoffSection.code && (
+                                        <div className="zc-animate" style={{ 
+                                            backgroundColor: '#0D0D0D', 
+                                            padding: '40px', 
+                                            borderRadius: '24px', 
+                                            border: '1px solid rgba(255,255,255,0.05)',
+                                            fontFamily: '"JetBrains Mono", monospace',
+                                            fontSize: '0.9rem',
+                                            lineHeight: '1.6',
+                                            overflowX: 'auto',
+                                            position: 'relative'
+                                        }}>
+                                            <div style={{ position: 'absolute', top: '16px', right: '24px', display: 'flex', gap: '6px' }}>
+                                                <div style={{ width: '10px', height: '10px', borderRadius: '50%', backgroundColor: '#FF5F56' }} />
+                                                <div style={{ width: '10px', height: '10px', borderRadius: '50%', backgroundColor: '#FFBD2E' }} />
+                                                <div style={{ width: '10px', height: '10px', borderRadius: '50%', backgroundColor: '#27C93F' }} />
+                                            </div>
+                                            <pre style={{ margin: 0 }}>
+                                                <code style={{ color: '#DFFE52' }}>
+                                                    {JSON.stringify(project.caseStudy.designSystemSection.handoffSection.code, null, 4)
+                                                        .replace(/"([^"]+)":/g, '<span style="color: #9CDCFE">"$1"</span>:')
+                                                        .replace(/: "([^"]+)"/g, ': <span style="color: #CE9178">"$1"</span>')
+                                                        .split('\n').map((line, i) => (
+                                                            <div key={i} dangerouslySetInnerHTML={{ __html: line }} />
+                                                        ))
+                                                    }
+                                                </code>
+                                            </pre>
+                                        </div>
+                                    )}
+                                </div>
+                            )}
+
+                            {project.caseStudy.designSystemSection.scalingSection && (
+                                <div style={{ marginTop: '100px' }}>
+                                    <h2 className="zc-section-h2" style={{ marginBottom: '40px' }}>{project.caseStudy.designSystemSection.scalingSection.title}</h2>
+                                    <div style={{ borderTop: '1px solid rgba(255,255,255,0.1)', paddingTop: '40px' }}>
+                                        <p className="zc-section-desc" style={{ marginBottom: '60px', maxWidth: 'none' }}>
+                                            {project.caseStudy.designSystemSection.scalingSection.desc}
+                                        </p>
+                                        
+                                        <div style={{ 
+                                            display: 'grid', 
+                                            gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', 
+                                            gap: '32px',
+                                            marginBottom: '40px'
+                                        }}>
+                                            {project.caseStudy.designSystemSection.scalingSection.images.map((img, i) => (
+                                                <div key={i} className="zc-animate" style={{ borderRadius: '24px', overflow: 'hidden', border: '1px solid rgba(255,255,255,0.08)' }}>
+                                                    <img src={img} alt={`Scale detail ${i + 1}`} style={{ width: '100%', display: 'block' }} />
+                                                </div>
+                                            ))}
+                                        </div>
+
+                                        <p className="zc-section-desc" style={{ fontSize: '1.1rem', marginTop: '40px', maxWidth: 'none' }}>
+                                            {project.caseStudy.designSystemSection.scalingSection.bottomText.split(/(\{[^}]+\})/).map((part, i) => {
+                                                const match = part.match(/\{([^:]+):([^}]+)\}/);
+                                                if (match) {
+                                                    const [_, name, color] = match;
+                                                    return (
+                                                        <span key={i} style={{ 
+                                                            display: 'inline-flex', 
+                                                            alignItems: 'center', 
+                                                            backgroundColor: 'rgba(255,255,255,0.9)', 
+                                                            color: '#444',
+                                                            padding: '4px 10px', 
+                                                            borderRadius: '6px', 
+                                                            margin: '0 4px',
+                                                            fontSize: '0.85rem',
+                                                            fontWeight: '600',
+                                                            verticalAlign: 'middle'
+                                                        }}>
+                                                            <span style={{ 
+                                                                width: '12px', 
+                                                                height: '12px', 
+                                                                backgroundColor: color, 
+                                                                borderRadius: '2px', 
+                                                                marginRight: '8px',
+                                                                border: '1px solid rgba(0,0,0,0.1)'
+                                                            }} />
+                                                            {name}
+                                                        </span>
+                                                    );
+                                                }
+                                                return part;
+                                            })}
+                                        </p>
+                                    </div>
+                                </div>
+                            )}
+                            {project.caseStudy.designSystemSection.outcomeSection && (
+                                <div style={{ marginTop: '150px', textAlign: 'center' }}>
+                                    {/* Redesigned Header Area */}
+                                    <div style={{ marginBottom: '80px' }}>
+                                        <h2 className="zc-section-h2" style={{ 
+                                            fontSize: 'clamp(3rem, 10vw, 6rem)', 
+                                            lineHeight: '0.9', 
+                                            letterSpacing: '-0.04em',
+                                            marginBottom: '40px',
+                                            background: 'linear-gradient(to bottom, #fff, rgba(255,255,255,0.4))',
+                                            WebkitBackgroundClip: 'text',
+                                            WebkitTextFillColor: 'transparent'
+                                        }}>
+                                            {project.caseStudy.designSystemSection.outcomeSection.title}
+                                        </h2>
+                                        <p className="zc-section-desc" style={{ 
+                                            maxWidth: '700px', 
+                                            margin: '0 auto', 
+                                            fontSize: '1.25rem', 
+                                            lineHeight: '1.8',
+                                            color: 'rgba(255,255,255,0.7)'
+                                        }}>
+                                            {project.caseStudy.designSystemSection.outcomeSection.desc}
+                                        </p>
+                                    </div>
+
+                                    {/* High-Impact Final Visual */}
+                                    <div className="zc-animate" style={{ 
+                                        borderRadius: '32px', 
+                                        overflow: 'hidden', 
+                                        boxShadow: '0 40px 100px rgba(0,0,0,0.5)',
+                                        border: '1px solid rgba(255,255,255,0.1)',
+                                        background: '#111'
+                                    }}>
+                                        <img 
+                                            src={project.caseStudy.designSystemSection.outcomeSection.bottomImage} 
+                                            alt="Final Impact" 
+                                            style={{ width: '100%', display: 'block' }} 
+                                        />
+                                    </div>
+                                </div>
+                            )}
+                        </section>
+                    </div>
+                )}
+
                 <div className="zc-content-col">
                     {impactOnUsers && (
                         <section className="zc-section-block zc-animate" style={{ marginBottom: '40px' }}>
@@ -311,26 +615,28 @@ const ProjectDetail = () => {
                     )}
 
                     {/* ─── FUTURE IMPROVEMENTS ─── */}
-                    <section className="zc-section-block zc-animate">
-                        <h2 className="zc-section-h2">Next Steps</h2>
-                        {project.slug !== 'dashboard-design' && (
-                            <p className="zc-section-desc">Post-launch user testing and funnel analysis would help refine time estimates, error handling, and navigation clarity.</p>
-                        )}
-                        <div className="zc-impact-list" style={{ marginTop: '24px' }}>
-                            {nextSteps.map((step, i) => (
-                                <div key={i} className="zc-impact-item">
-                                    <span className="zc-step-icon">❇️</span>
-                                    <span>{step}</span>
-                                </div>
-                            ))}
-                        </div>
-
-                        {endNote && (
-                            <div className="zc-dark-card zc-animate" style={{ marginTop: '40px', textAlign: 'center', fontStyle: 'italic', padding: '32px' }}>
-                                <p>{endNote}</p>
+                    {(nextSteps.length > 0 || endNote) && (
+                        <section className="zc-section-block zc-animate">
+                            <h2 className="zc-section-h2">Next Steps</h2>
+                            {project.slug !== 'dashboard-design' && nextSteps.length === 0 && (
+                                <p className="zc-section-desc">Post-launch user testing and funnel analysis would help refine time estimates, error handling, and navigation clarity.</p>
+                            )}
+                            <div className="zc-impact-list" style={{ marginTop: '24px' }}>
+                                {nextSteps.map((step, i) => (
+                                    <div key={i} className="zc-impact-item">
+                                        <span className="zc-step-icon">❇️</span>
+                                        <span>{step}</span>
+                                    </div>
+                                ))}
                             </div>
-                        )}
-                    </section>
+
+                            {endNote && (
+                                <div className="zc-dark-card zc-animate" style={{ marginTop: '40px', textAlign: 'center', fontStyle: 'italic', padding: '32px' }}>
+                                    <p>{endNote}</p>
+                                </div>
+                            )}
+                        </section>
+                    )}
                 </div>
 
             </main>

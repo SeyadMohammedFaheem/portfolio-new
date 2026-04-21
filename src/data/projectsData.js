@@ -194,7 +194,7 @@ export const projectsData = [
                         "/images/work/screen-details.webp"
                     ]
                 },
-          
+
             ],
             impactOnUsers: [
                 "Improved readability and accessibility across the app",
@@ -211,7 +211,7 @@ export const projectsData = [
             ],
             finalOutcome: "A modern, accessible mobile experience that allows users to monitor, manage, and act instantly — without needing to switch to desktop.",
             endNote: "The redesign addressed core usability gaps and brought mobile to parity with real user needs, making it a critical part of the Pickcel ecosystem.",
-           
+
         }
     },
     {
@@ -248,33 +248,204 @@ export const projectsData = [
     {
         id: "octalume-iot-dashboard",
         slug: "octalume-iot-dashboard",
-        title: "Octalume IOT Dashboard",
-        year: "2025",
-        type: "Design System",
-        isLocked: true,
+        title: "OctaLume IoT Dashboard",
+        year: "2024",
+        type: "UX Design, UI Design, Branding, Design System",
         image: "/images/work/work4.webp",
-        client: "Delta Studios",
-        service: "Design System",
-        description: "Guiding the creative vision for a global advertising campaign spanning digital and print.",
+        client: "OctaLume",
+        service: "UX Design, UI Design, Branding, Design System",
+        category: "Smart Home Technology",
+        time: "6 Weeks",
+        description: "OctaLume is an AI-powered IoT management dashboard designed to provide real-time insights, intelligent alerting, and seamless device control — helping users monitor and optimize smart environments efficiently. IoT dashboards today fail at the basics: users are overwhelmed by excessive data, critical issues go unnoticed, and interfaces lack the clarity needed to act fast.",
         heroImage: "/images/work/work4.webp",
+        backgroundImages: [
+            {
+                heading: "Problems",
+                desc: "I've discovered a common issue that many users may face in IoT dashboards.",
+                columns: [
+                    "Overwhelmed by the sheer amount of information presented",
+                    "Notify users of important events, anomalies, or issues with their devices",
+                    "IoT dashboards often lack proper contrast and hierarchy, making them hard to use."
+                ]
+            }
+        ],
+        visualSections: [
+            {
+                heading: "Branding & Logo",
+                desc: "Illuminating spaces with an 8-pointed star, Octalume combines Octa (eight points) and Lume (light) to symbolize smart, advanced lighting solutions.",
+                image: "/images/work/2.png"
+            },
+            {
+                heading: "Typography & Color",
+                desc: "Lufga is a modern sans-serif typeface designed with a clean, geometric, and minimalist style. It features rounded letterforms, giving it a friendly and approachable look.",
+                image: "/images/work/3.png"
+            }
+        ],
         challenge: {
-            text: "The campaign lacked a unifying theme across different media formats.",
-            subtext: ""
+            text: "IoT dashboards overwhelm users with data, miss critical alerts, and lack the visual hierarchy needed for fast decision-making.",
+            subtext: "Users needed a way to quickly scan, understand, and act on smart environment data without cognitive overload."
         },
         solution: {
-            text: "Developed a core visual motif that translated perfectly from billboard to mobile screen.",
-            subtext: ""
+            text: "Designed a system that simplifies complex IoT data, surfaces important insights instantly, enables quick action, and scales across devices and teams.",
+            subtext: "Room-based grouping, real-time alerts, strong visual hierarchy, and a robust design token system formed the core of the solution."
         },
-        result: "The campaign won several industry awards for cohesive creative execution.",
+        result: "The redesigned dashboard significantly reduced cognitive overload, enabled faster response to critical issues, improved usability across the system, and established a consistent, scalable UI architecture.",
         gridImages: [
-            "https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?auto=format&fit=crop&q=80&w=1000",
-            "https://images.unsplash.com/photo-1590874103328-eac38a683ce7?auto=format&fit=crop&q=80&w=1000"
+            "/images/work/work4.webp",
+            "/images/work/work4.webp"
         ],
         stackImages: [
-            "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&q=80&w=1600",
-            "https://images.unsplash.com/photo-1492288991661-058aa541ff43?auto=format&fit=crop&q=80&w=1600"
+            "/images/work/work4.webp",
+            "/images/work/work4.webp"
         ],
-        impactImage: "https://images.unsplash.com/photo-1621257912423-e45f9411d619?auto=format&fit=crop&q=80&w=2000"
+        impactImage: "/images/work/work4.webp",
+        caseStudy: {
+            goals: [
+                "Simplify complex IoT data so users can scan and act quickly",
+                "Surface important alerts and insights instantly without noise",
+                "Establish a strong visual hierarchy for fast decision-making",
+                "Build a scalable design system that works across devices and teams"
+            ],
+            targetUsers: [
+                "Homeowners managing multiple smart devices across rooms",
+                "Facility managers monitoring energy and network systems",
+                "Teams requiring consistent real-time device visibility",
+            ],
+            challengeBullets: [
+                { icon: "🛑", text: "Information Overload — too much data with no prioritization, leaving users confused and fatigued" },
+                { icon: "🛑", text: "No Intelligent Alerts — users miss critical events like water leaks or open windows because alerts are buried" },
+                { icon: "🛑", text: "Weak Visual Hierarchy — hard to scan and understand; no clear contrast or structure to guide the eye" },
+                { icon: "🛑", text: "Slow Decision-Making — the lack of structure forces users to think too hard before they can act" }
+            ],
+            solutionsDesc: "I identified key friction points in existing IoT dashboards and designed targeted solutions to improve clarity, usability, and responsiveness.",
+            solutions: [
+                {
+                    num: "1/4",
+                    title: "Navigation Simplified",
+                    desc: "All elements are grouped logically by rooms and usage context, making navigation predictable and easy to scan.",
+                    rationale: "This reduces cognitive load and helps users find what they need without friction.",
+                    mockupImg: "/images/work/nav-simplified.png"
+                },
+                {
+                    num: "2/4",
+                    title: "Warnings & Alerts",
+                    desc: "A real-time alert system highlights critical issues instantly through notifications and a dedicated alert section.",
+                    rationale: "This ensures users don’t miss important events and can take immediate action.",
+                    mockupImg: "/images/work/warning-alert.png"
+                },
+                {
+                    num: "3/4",
+                    title: "Clear Typography & Better Hierarchy",
+                    desc: "A strong visual hierarchy was established using typography, spacing, and contrast.",
+                    rationale: "Important data stands out, allowing users to quickly understand insights without scanning the entire screen.",
+                    mockupImg: "/images/work/clear-typo.png"
+                },
+                {
+                    num: "4/4",
+                    title: "Time-Sensitive Device Indicators",
+                    desc: "Gradient progress bars and time-based indicators communicate device status and urgency.",
+                    rationale: "This gives users immediate feedback on active processes and remaining time.",
+                    mockupImg: "/images/work/time-sensitve.png"
+                }
+            ],
+            designSystemSection: {
+                heading: "Why Design Tokens?",
+                why: "The goal of using design tokens is to bridge the gap between design and development. Tokens allow designers and developers to speak the same visual language while ensuring consistency across platforms and devices. This approach also simplifies theming, facilitates brand updates, and reduces visual bugs.",
+                benefits: [
+                    "Single source of truth",
+                    "Scalable across teams and platforms",
+                    "Easier theming and customization",
+                    "Improved collaboration between design and dev"
+                ],
+                howItScales: [
+                    "Modular architecture — tokens are layered (Global → Base → Semantic)",
+                    "Update once → reflect everywhere across all screens and components",
+                    "Supports white-labeling — swapping primary-default changes the full brand",
+                    "Reduces design debt — no more one-off hardcoded values",
+                    "Developers consume only semantic tokens, fully decoupled from raw values"
+                ],
+                colorLanguage: {
+                    title: "Color Language",
+                    desc: "Design tokens are the building blocks of a cohesive and scalable design system. In this project, I delve into the world of design tokens, exploring how they can streamline the design process and enhance consistency across various platforms.",
+                    image: "/images/work/3re.png"
+                },
+                architectureSection: {
+                    title: "Design Token Architecture",
+                    desc: "Design tokens are the building blocks of a cohesive and scalable design system. In this project, I delve into the world of design tokens, exploring how they can streamline the design process and enhance consistency across various platforms.",
+                    image: "/images/work/4re.png"
+                },
+
+                tokenLayers: [
+                    {
+                        title: "Global Tokens",
+                        desc: "Global tokens are the raw design values that serve as the foundational palette for the entire system. These include brand colors like {b-500:#DFFE52}, {b-400:#E8FF8E} neutrals from {neutral-0:#FFFFFF}, {neutral-900:#111111} and status indicators {success:#4CAF50}, {warning:#FFC107} and {danger:#F44336} These values are universal and not tied to any specific UI component or context."
+                    },
+                    {
+                        title: "Base Tokens",
+                        desc: "Base tokens derive from global tokens and organize them into meaningful categories like {primary-default:#DFFE52} {background:#000000} or {icon-default:#FFFFFF} They introduce structure by mapping raw values to usage-based roles, while still remaining neutral. This layer provides a flexible bridge between raw values and their intended functional purpose."
+                    },
+                    {
+                        title: "Semantic Tokens",
+                        desc: "Semantic tokens are the most context-aware layer, assigning base tokens to specific UI roles—like {primary-button-fill:#DFFE52} {tertiary-button-border:#DFFE52} {primary-container-bg:#1A1A1A} are directly used in components to maintain clarity, consistency, and theme flexibility. They enable seamless theme swapping without changing component logic."
+                    }
+                ],
+                systemImages: [
+                    "/images/work/laptop.png",
+                    "/images/work/comp-highlight.png"
+                ],
+                handoffSection: {
+                    title: "Token Integration",
+                    desc: "To ensure seamless handoff between design and development, I structured the token system in a platform-agnostic JSON format. This allowed easy integration into both design tools like Figma (via plugins such as Tokens Studio) and front-end codebases using CSS variables or design token libraries. By abstracting values into global, base, and semantic layers, developers could consume tokens at the appropriate level of abstraction. For example, component styles referenced semantic tokens like primary-button-fill, while the underlying value remained consistent and manageable across themes. This modular approach also made the system scalable and easy to maintain over time.",
+                    code: {
+                        "globalTokens": {
+                            "b-500": "#dffe52",
+                            "neutral-0": "#ffffff",
+                            "neutral-50": "#fafafa",
+                            "neutral-100": "#f5f5f5",
+                            "neutral-200": "#e5e5e5",
+                            "neutral-300": "#d4d4d4",
+                            "neutral-400": "#a3a3a3",
+                            "neutral-500": "#737373",
+                            "neutral-600": "#525252",
+                            "neutral-700": "#404040",
+                            "neutral-800": "#2f2f2f",
+                            "neutral-900": "#171717",
+                            "black": "#000000",
+                            "success": "#4caf50",
+                            "warning": "#ffeb3b",
+                            "danger": "#ff4545"
+                        },
+                        "baseTokens": {
+                            "primary-default": "{b-500}",
+                            "secondary-default": "{neutral-900}",
+                            "primary-text-light": "{neutral-100}",
+                            "primary-text-dark": "{neutral-900}",
+                            "secondary-text": "{neutral-600}",
+                            "primary-container-text": "{neutral-800}",
+                            "secondary-container-text": "{neutral-800}",
+                            "background": "{black}",
+                            "icon-default": "{neutral-800}",
+                            "icon-on-black": "{neutral-100}"
+                        },
+                        "semanticTokens": {
+                            "primary-button-fill": "{primary-default}"
+                        }
+                    }
+                },
+                scalingSection: {
+                    title: "How it Scales",
+                    desc: "This token system is designed to be modular and easy to extend. By separating raw values (global), utility mappings (base), and context-specific meanings (semantic), updates can be made at any level without breaking visual consistency. As the product evolves, new components can be built quickly by referencing existing semantic tokens—ensuring a cohesive UI without adding visual debt.",
+                    images: ["/images/work/scaled.png"],
+                    bottomText: "I've updated the {primary-default:#00E5FF} {primary-container-bg:#1A1A1A} in design and i would refect on the code, See how easy and simple it is"
+                },
+                outcomeSection: {
+                    title: "Outcome & Impact",
+                    desc: "The final outcome is a production-ready UI system powered by design tokens — enabling fast, scalable, and consistent implementation across the interface. By abstracting styling logic into a flexible token structure, the product is now easier to maintain, expand, and evolve with minimal design debt.",
+                    topImage: "/images/work/octalume-dashboard.png",
+                    bottomImage: "/images/work/last.png"
+                }
+            }
+        }
     },
     {
         id: "project-five",

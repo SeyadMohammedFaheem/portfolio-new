@@ -3918,10 +3918,10 @@ header.main-header {
 .zc-section-block { margin: 120px 0; }
 
 .zc-section-h2 {
-    font-size: clamp(2rem, 4.5vw, 3.5rem);
+    font-size: clamp(1.4rem, 3vw, 2.4rem);
     font-weight: 900;
-    line-height: 1.05;
-    letter-spacing: -0.04em;
+    line-height: 1.1;
+    letter-spacing: -0.03em;
     text-transform: uppercase;
     margin-bottom: 32px;
     color: var(--text-color);
@@ -3934,6 +3934,148 @@ header.main-header {
     margin-bottom: 40px;
     max-width: 800px;
 }
+
+/* Background context images (branding, typography visuals) */
+.zc-bg-images {
+    display: flex;
+    flex-direction: column;
+    gap: 80px;
+    margin-top: 64px;
+    margin-bottom: 64px;
+}
+
+.zc-bg-image-block {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+.zc-bg-image-header {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 28px;
+}
+
+.zc-bg-image-heading {
+    font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    color: var(--text-color);
+    line-height: 1.1;
+    margin: 0;
+}
+
+.zc-bg-image-desc {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.5);
+    margin: 0;
+    padding-top: 6px;
+}
+
+.zc-bg-image-divider {
+    width: 100%;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.1);
+    margin-bottom: 28px;
+}
+
+.zc-bg-subheading {
+    font-size: clamp(1.2rem, 2.5vw, 1.8rem);
+    font-weight: 700;
+    color: var(--text-color);
+    line-height: 1.3;
+    margin: 0;
+    max-width: 480px;
+}
+
+.zc-bg-header-split {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: start;
+}
+
+.zc-bg-subheading-row {
+    padding: 40px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    margin-bottom: 0;
+}
+
+.zc-bg-columns {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+    margin-top: 0;
+}
+
+.zc-bg-column-item {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 32px 32px 32px 0;
+    border-right: 1px solid rgba(255, 255, 255, 0.08);
+    padding-right: 32px;
+}
+
+.zc-bg-column-item:last-child {
+    border-right: none;
+    padding-left: 32px;
+    padding-right: 0;
+}
+
+.zc-bg-column-item:nth-child(2) {
+    padding-left: 32px;
+}
+
+.zc-bg-column-num {
+    font-size: 0.7rem;
+    font-weight: 900;
+    letter-spacing: 0.15em;
+    color: var(--accent-color);
+    opacity: 0.8;
+}
+
+.zc-bg-column-text {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.5);
+    margin: 0;
+}
+
+@media (max-width: 768px) {
+    .zc-bg-header-split {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+    .zc-bg-columns {
+        grid-template-columns: 1fr;
+    }
+    .zc-bg-column-item,
+    .zc-bg-column-item:last-child,
+    .zc-bg-column-item:nth-child(2) {
+        border-right: none;
+        border-bottom: 1px solid rgba(255,255,255,0.08);
+        padding: 24px 0;
+    }
+}
+
+.zc-bg-image {
+    width: 100%;
+    height: auto;
+    border-radius: 24px;
+    display: block;
+    border: 1px solid rgba(255,255,255,0.07);
+    box-shadow: 0 24px 60px rgba(0,0,0,0.5);
+}
+
+@media (max-width: 768px) {
+    .zc-bg-image-header {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+}
+
 
 .zc-dark-card {
     background: linear-gradient(135deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
@@ -4175,9 +4317,9 @@ header.main-header {
 }
 
 .zc-sol-title {
-    font-size: clamp(1.8rem, 3.5vw, 3rem);
-    font-weight: 950;
-    line-height: 1.05;
+    font-size: clamp(1.2rem, 2.2vw, 2rem);
+    font-weight: 900;
+    line-height: 1.15;
     letter-spacing: -0.02em;
     text-transform: uppercase;
     margin-bottom: 32px;
