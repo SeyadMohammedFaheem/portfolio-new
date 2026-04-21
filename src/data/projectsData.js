@@ -273,12 +273,12 @@ export const projectsData = [
             {
                 heading: "Branding & Logo",
                 desc: "Illuminating spaces with an 8-pointed star, Octalume combines Octa (eight points) and Lume (light) to symbolize smart, advanced lighting solutions.",
-                image: "/images/work/2.png"
+                image: "/images/work/2.webp"
             },
             {
                 heading: "Typography & Color",
                 desc: "Lufga is a modern sans-serif typeface designed with a clean, geometric, and minimalist style. It features rounded letterforms, giving it a friendly and approachable look.",
-                image: "/images/work/3.png"
+                image: "/images/work/3.webp"
             }
         ],
         challenge: {
@@ -324,28 +324,28 @@ export const projectsData = [
                     title: "Navigation Simplified",
                     desc: "All elements are grouped logically by rooms and usage context, making navigation predictable and easy to scan.",
                     rationale: "This reduces cognitive load and helps users find what they need without friction.",
-                    mockupImg: "/images/work/nav-simplified.png"
+                    mockupImg: "/images/work/nav-simplified.webp"
                 },
                 {
                     num: "2/4",
                     title: "Warnings & Alerts",
                     desc: "A real-time alert system highlights critical issues instantly through notifications and a dedicated alert section.",
                     rationale: "This ensures users don’t miss important events and can take immediate action.",
-                    mockupImg: "/images/work/warning-alert.png"
+                    mockupImg: "/images/work/warning-alert.webp"
                 },
                 {
                     num: "3/4",
                     title: "Clear Typography & Better Hierarchy",
                     desc: "A strong visual hierarchy was established using typography, spacing, and contrast.",
                     rationale: "Important data stands out, allowing users to quickly understand insights without scanning the entire screen.",
-                    mockupImg: "/images/work/clear-typo.png"
+                    mockupImg: "/images/work/clear-typo.webp"
                 },
                 {
                     num: "4/4",
                     title: "Time-Sensitive Device Indicators",
                     desc: "Gradient progress bars and time-based indicators communicate device status and urgency.",
                     rationale: "This gives users immediate feedback on active processes and remaining time.",
-                    mockupImg: "/images/work/time-sensitve.png"
+                    mockupImg: "/images/work/time-sensitve.webp"
                 }
             ],
             designSystemSection: {
@@ -367,12 +367,12 @@ export const projectsData = [
                 colorLanguage: {
                     title: "Color Language",
                     desc: "Design tokens are the building blocks of a cohesive and scalable design system. In this project, I delve into the world of design tokens, exploring how they can streamline the design process and enhance consistency across various platforms.",
-                    image: "/images/work/3re.png"
+                    image: "/images/work/3re.webp"
                 },
                 architectureSection: {
                     title: "Design Token Architecture",
                     desc: "Design tokens are the building blocks of a cohesive and scalable design system. In this project, I delve into the world of design tokens, exploring how they can streamline the design process and enhance consistency across various platforms.",
-                    image: "/images/work/4re.png"
+                    image: "/images/work/4re.webp"
                 },
 
                 tokenLayers: [
@@ -390,8 +390,8 @@ export const projectsData = [
                     }
                 ],
                 systemImages: [
-                    "/images/work/laptop.png",
-                    "/images/work/comp-highlight.png"
+                    "/images/work/laptop.webp",
+                    "/images/work/comp-highlight.webp"
                 ],
                 handoffSection: {
                     title: "Token Integration",
@@ -435,14 +435,14 @@ export const projectsData = [
                 scalingSection: {
                     title: "How it Scales",
                     desc: "This token system is designed to be modular and easy to extend. By separating raw values (global), utility mappings (base), and context-specific meanings (semantic), updates can be made at any level without breaking visual consistency. As the product evolves, new components can be built quickly by referencing existing semantic tokens—ensuring a cohesive UI without adding visual debt.",
-                    images: ["/images/work/scaled.png"],
+                    images: ["/images/work/scaled.webp"],
                     bottomText: "I've updated the {primary-default:#00E5FF} {primary-container-bg:#1A1A1A} in design and i would refect on the code, See how easy and simple it is"
                 },
                 outcomeSection: {
                     title: "Outcome & Impact",
                     desc: "The final outcome is a production-ready UI system powered by design tokens — enabling fast, scalable, and consistent implementation across the interface. By abstracting styling logic into a flexible token structure, the product is now easier to maintain, expand, and evolve with minimal design debt.",
-                    topImage: "/images/work/octalume-dashboard.png",
-                    bottomImage: "/images/work/last.png"
+                    topImage: "/images/work/octalume-dashboard.webp",
+                    bottomImage: "/images/work/last.webp"
                 }
             }
         }
