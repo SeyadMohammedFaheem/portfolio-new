@@ -583,7 +583,7 @@ export const projectsData = [
         type: "Motion Design",
         time: "3 Years",
         isSimpleShowcase: true,
-        image: "/images/work/video_hero.jpg",
+        image: "/images/work/video_hero.webp",
         videoUrls: [
             "https://www.youtube.com/watch?v=TInIxaV14rY",
             "https://www.youtube.com/watch?v=QDYKB-7qx8g",
@@ -610,7 +610,7 @@ export const projectsData = [
             link: "https://www.youtube.com/@thinkstack_ai/videos",
             linkText: "View ThinkStack Videos"
         },
-        heroImage: "/images/work/video_hero.jpg",
+        heroImage: "/images/work/video_hero.webp",
         challenge: {
             text: "Capturing the essence of a heritage brand while appealing to a younger demographic.",
             subtext: "The challenge was to maintain luxury appeal while introducing dynamic, modern editing rhythms."
@@ -621,14 +621,14 @@ export const projectsData = [
         },
         result: "The brand film achieved over 1M views across social platforms and increased brand engagement by 45%.",
         gridImages: [
-            "/images/work/video_hero.jpg",
-            "/images/work/video_grading.png"
+            "/images/work/video_hero.webp",
+            "/images/work/video_grading.webp"
         ],
         stackImages: [
-            "/images/work/video_grading.png",
+            "/images/work/video_grading.webp",
             "https://images.unsplash.com/photo-1492288991661-058aa541ff43?auto=format&fit=crop&q=80&w=1600"
         ],
-        impactImage: "/images/work/video_hero.jpg"
+        impactImage: "/images/work/video_hero.webp"
     },
     {
         id: "print-design-identity",
@@ -638,11 +638,11 @@ export const projectsData = [
         type: "Print & Branding",
         isLocked: true,
         isSimpleShowcase: true,
-        image: "/images/work/print_hero.jpg",
+        image: "/images/work/print_hero.webp",
         client: "Pickcel",
         service: "Print Design, Brand Identity",
         description: "A comprehensive brochure design for Pickcel, highlighting their digital signage solutions, global reach, and seamless integration partners.",
-        heroImage: "/images/work/print_hero.jpg",
+        heroImage: "/images/work/print_hero.webp",
         challenge: {
             text: "Communicating complex digital solutions through a clean, tactile print medium.",
             subtext: "The challenge was to balance technical information with high-end visual appeal."
@@ -653,11 +653,11 @@ export const projectsData = [
         },
         result: "The new brochure system improved sales handoff and became a staple at international tech expos.",
         gridImages: [
-            "/images/work/print_hero.jpg"
+            "/images/work/print_hero.webp"
         ],
         stackImages: [
-            "/images/work/print_hero.jpg"
+            "/images/work/print_hero.webp"
         ],
-        impactImage: "/images/work/print_hero.jpg"
+        impactImage: "/images/work/print_hero.webp"
     }
 ];
