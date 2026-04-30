@@ -14,6 +14,35 @@ const ProjectDetail = () => {
     const currentIndex = projectsData.findIndex(p => p.slug === slug);
     const nextProject = projectsData[(currentIndex + 1) % projectsData.length];
 
+    const VideoEmbed = ({ id, title, isSmall }) => {
+        const [isPlaying, setIsPlaying] = React.useState(false);
+
+        if (isPlaying) {
+            return (
+                <div className={`zc-video-container ${isSmall ? 'small' : ''}`}>
+                    <iframe 
+                        src={`https://www.youtube.com/embed/${id}?autoplay=1&mute=1&modestbranding=1&rel=0`} 
+                        title={title}
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowFullScreen
+                    ></iframe>
+                </div>
+            );
+        }
+
+        return (
+            <div 
+                className={`zc-video-thumbnail-container ${isSmall ? 'small' : ''}`}
+                onClick={() => setIsPlaying(true)}
+            >
+                <img src={`https://img.youtube.com/vi/${id}/maxresdefault.jpg`} alt={title} />
+                <div className="zc-play-button">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                </div>
+            </div>
+        );
+    };
+
     useEffect(() => {
         window.scrollTo(0, 0);
         if (!project) return;
@@ -103,6 +132,13 @@ const ProjectDetail = () => {
         },
     ];
 
+    const getYouTubeID = (url) => {
+        if (!url) return null;
+        const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=)([^#&?]*).*/;
+        const match = url.match(regExp);
+        return (match && match[2].length === 11) ? match[2] : null;
+    };
+
     return (
         <div className="zc-page">
 
@@ -151,91 +187,139 @@ const ProjectDetail = () => {
 
                 {/* ─── HERO THUMBNAIL (WIDER) ─── */}
                 <div className="zc-hero-thumb zc-animate">
-                    <img src={project.heroImage || project.image} alt={project.title} />
+                    {project.videoUrls ? (
+                        <VideoEmbed id={getYouTubeID(project.videoUrls[0])} title={project.title} />
+                    ) : project.videoUrl ? (
+                        <VideoEmbed id={getYouTubeID(project.videoUrl)} title={project.title} />
+                    ) : (
+                        <img src={project.heroImage || project.image} alt={project.title} />
+                    )}
                 </div>
 
                 <div className="zc-content-col">
-                    {/* ─── BACKGROUND & CONTEXT ─── */}
-                    <section className="zc-section-block zc-animate">
-                        <h2 className="zc-section-h2">Background &amp; Context</h2>
-                        <p className="zc-section-desc" style={{ whiteSpace: 'pre-line' }}>{project.description}</p>
-                    </section>
-
-                    {/* ─── TARGET USERS ─── */}
-                    <section className="zc-section-block zc-animate">
-                        <h2 className="zc-section-h2">Target Users</h2>
-                        <div className="zc-target-grid">
-                            {targetUsers.map((u, i) => (
-                                <div key={i} className="zc-target-card">
-                                    <div className="zc-target-icon">👤</div>
-                                    <p className="zc-target-text">{u}</p>
-                                </div>
-                            ))}
-                        </div>
-                    </section>
-
-                    {/* ─── THE PROBLEM ─── */}
-                    {project.backgroundImages && project.backgroundImages.length > 0 && (
+                    {/* ─── VIDEO GRID (If multiple videos) ─── */}
+                    {project.videoUrls && project.videoUrls.length > 1 && (
                         <section className="zc-section-block zc-animate">
-                            {project.backgroundImages.map((item, i) => {
-                                const heading = typeof item === 'object' ? item.heading : null;
-                                const desc = typeof item === 'object' ? item.desc : null;
-                                const subheading = typeof item === 'object' ? item.subheading : null;
-                                const columns = typeof item === 'object' ? item.columns : null;
-                                return (
-                                    <div key={i} className="zc-bg-image-block">
-                                    <div className="zc-bg-image-header">
-                                            {heading && <h2 className="zc-section-h2">{heading}</h2>}
-                                            {desc && <p className="zc-section-desc" style={{ marginBottom: 0 }}>{desc}</p>}
-                                        </div>
-                                        <div className="zc-bg-image-divider" />
-                                        {subheading && (
-                                            <div className="zc-bg-subheading-row">
-                                                <p className="zc-bg-subheading">{subheading}</p>
-                                            </div>
-                                        )}
-                                        {columns && columns.length > 0 && (
-                                            <div className="zc-bg-columns">
-                                                {columns.map((col, j) => (
-                                                    <div key={j} className="zc-bg-column-item">
-                                                        <span className="zc-bg-column-num">0{j + 1}</span>
-                                                        <p className="zc-bg-column-text">{col}</p>
-                                                    </div>
-                                                ))}
-                                            </div>
-                                        )}
-                                    </div>
-                                );
-                            })}
-                        </section>
-                    )}
-
-                    {understandingUsers && (
-                        <section className="zc-section-block zc-animate">
-                            <h2 className="zc-section-h2">Understanding the Users</h2>
-                            <div className="zc-understanding-grid">
-                                {understandingUsers.map((item, i) => (
-                                    <div key={i} className="zc-understanding-card">
-                                        <div className="zc-understanding-icon">🔍</div>
-                                        <p className="zc-understanding-text">{item}</p>
+                            <h2 className="zc-section-h2">Project Showcase</h2>
+                            <div className="zc-video-grid">
+                                {project.videoUrls.slice(1).map((url, i) => (
+                                    <div key={i} className="zc-video-item">
+                                        <VideoEmbed 
+                                            id={getYouTubeID(url)} 
+                                            title={`${project.title} - Video ${i + 2}`} 
+                                            isSmall={true} 
+                                        />
                                     </div>
                                 ))}
                             </div>
                         </section>
                     )}
 
-                    {/* ─── GOALS ─── */}
-                    <section className="zc-section-block zc-animate">
-                        <h2 className="zc-section-h2">The Goals</h2>
-                        <div className="zc-goals-list">
-                            {goals.map((g, i) => (
-                                <div key={i} className="zc-goal-item">
-                                    <span className="zc-goal-num">{i + 1}</span>
-                                    <span>{g}</span>
+                    {project.thinkStackNote && (
+                        <section className="zc-section-block zc-animate" style={{ textAlign: 'center', marginTop: '80px' }}>
+                            <div className="zc-dark-card" style={{ padding: '48px', borderRadius: '32px', border: '1px solid rgba(255,255,255,0.08)' }}>
+                                <p className="zc-section-desc" style={{ margin: '0 auto 24px', maxWidth: '600px' }}>
+                                    {project.thinkStackNote.text}
+                                </p>
+                                <a 
+                                    href={project.thinkStackNote.link} 
+                                    target="_blank" 
+                                    rel="noopener noreferrer"
+                                    className="view-all-projects-btn"
+                                    style={{ display: 'inline-flex', alignItems: 'center', gap: '10px' }}
+                                >
+                                    {project.thinkStackNote.linkText}
+                                    <span style={{ fontSize: '0.8rem' }}>↗</span>
+                                </a>
+                            </div>
+                        </section>
+                    )}
+
+                    {!project.isSimpleShowcase && (
+                        <>
+                            {/* ─── BACKGROUND & CONTEXT ─── */}
+                            <section className="zc-section-block zc-animate">
+                                <h2 className="zc-section-h2">Background &amp; Context</h2>
+                                <p className="zc-section-desc" style={{ whiteSpace: 'pre-line' }}>{project.description}</p>
+                            </section>
+
+                            {/* ─── TARGET USERS ─── */}
+                            <section className="zc-section-block zc-animate">
+                                <h2 className="zc-section-h2">Target Users</h2>
+                                <div className="zc-target-grid">
+                                    {targetUsers.map((u, i) => (
+                                        <div key={i} className="zc-target-card">
+                                            <div className="zc-target-icon">👤</div>
+                                            <p className="zc-target-text">{u}</p>
+                                        </div>
+                                    ))}
                                 </div>
-                            ))}
-                        </div>
-                    </section>
+                            </section>
+
+                            {/* ─── THE PROBLEM ─── */}
+                            {project.backgroundImages && project.backgroundImages.length > 0 && (
+                                <section className="zc-section-block zc-animate">
+                                    {project.backgroundImages.map((item, i) => {
+                                        const heading = typeof item === 'object' ? item.heading : null;
+                                        const desc = typeof item === 'object' ? item.desc : null;
+                                        const subheading = typeof item === 'object' ? item.subheading : null;
+                                        const columns = typeof item === 'object' ? item.columns : null;
+                                        return (
+                                            <div key={i} className="zc-bg-image-block">
+                                            <div className="zc-bg-image-header">
+                                                    {heading && <h2 className="zc-section-h2">{heading}</h2>}
+                                                    {desc && <p className="zc-section-desc" style={{ marginBottom: 0 }}>{desc}</p>}
+                                                </div>
+                                                <div className="zc-bg-image-divider" />
+                                                {subheading && (
+                                                    <div className="zc-bg-subheading-row">
+                                                        <p className="zc-bg-subheading">{subheading}</p>
+                                                    </div>
+                                                )}
+                                                {columns && columns.length > 0 && (
+                                                    <div className="zc-bg-columns">
+                                                        {columns.map((col, j) => (
+                                                            <div key={j} className="zc-bg-column-item">
+                                                                <span className="zc-bg-column-num">0{j + 1}</span>
+                                                                <p className="zc-bg-column-text">{col}</p>
+                                                            </div>
+                                                        ))}
+                                                    </div>
+                                                )}
+                                            </div>
+                                        );
+                                    })}
+                                </section>
+                            )}
+
+                            {understandingUsers && (
+                                <section className="zc-section-block zc-animate">
+                                    <h2 className="zc-section-h2">Understanding the Users</h2>
+                                    <div className="zc-understanding-grid">
+                                        {understandingUsers.map((item, i) => (
+                                            <div key={i} className="zc-understanding-card">
+                                                <div className="zc-understanding-icon">🔍</div>
+                                                <p className="zc-understanding-text">{item}</p>
+                                            </div>
+                                        ))}
+                                    </div>
+                                </section>
+                            )}
+
+                            {/* ─── GOALS ─── */}
+                            <section className="zc-section-block zc-animate">
+                                <h2 className="zc-section-h2">The Goals</h2>
+                                <div className="zc-goals-list">
+                                    {goals.map((g, i) => (
+                                        <div key={i} className="zc-goal-item">
+                                            <span className="zc-goal-num">{i + 1}</span>
+                                            <span>{g}</span>
+                                        </div>
+                                    ))}
+                                </div>
+                            </section>
+                        </>
+                    )}
                 </div>
 
                 {/* ─── VISUAL SECTIONS (Branding, Typography) ─── */}
@@ -254,7 +338,7 @@ const ProjectDetail = () => {
                 ))}
 
                 {/* ─── SOLUTION BLOCKS ─── */}
-                {solutionBlocks.map((sol, i) => (
+                {!project.isSimpleShowcase && solutionBlocks.map((sol, i) => (
                     <section key={i} className="zc-solution-block zc-animate">
                         <span className="zc-sol-badge">SOLUTION {sol.num}</span>
                         <h2 className="zc-sol-title">{sol.title}</h2>

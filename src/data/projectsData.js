@@ -218,39 +218,137 @@ export const projectsData = [
         id: "website-revamp",
         slug: "website-revamp",
         title: "Website Revamp",
-        year: "2025",
-        type: "Visual Design",
-        isLocked: true,
+        year: "2024",
+        type: "UI/UX & Strategy",
         image: "/images/work/work3.webp",
-        client: "Gamma Tech",
-        service: "Visual Design",
-        description: "Designing an intuitive, frictionless user interface for a complex financial dashboard.",
+        client: "Pickcel",
+        service: "Website Design, Strategy",
+        time: "4 Weeks",
+        description: "Redesign of the Pickcel marketing website to improve clarity, conversion, and scalability. The old experience was content-heavy, visually inconsistent, and lacked a clear hierarchy. The new design focuses on simplifying messaging, guiding users, and reinforcing trust.",
         heroImage: "/images/work/work3.webp",
         challenge: {
-            text: "Users were overwhelmed by the density of data.",
-            subtext: "Navigation was confusing, leading to high drop-off rates during onboarding."
+            text: "The previous website suffered from weak first impressions, visual clutter, and a fragmented storytelling approach that disconnected features from benefits.",
+            subtext: "Enterprise decision-makers found it difficult to scan and understand the core value proposition, leading to lower credibility and conversion."
         },
         solution: {
-            text: "We restructured the information architecture and introduced progressive disclosure.",
-            subtext: "By utilizing whitespace and clear typographic hierarchy, we reduced cognitive load."
+            text: "We implemented a strong hero section, improved content hierarchy, and a consistent design system focused on enterprise-ready visuals.",
+            subtext: "By simplifying the visual language and placing conversion-focused CTAs strategically, we created a path of least resistance for high-value leads."
         },
-        result: "User engagement increased by 65%, and support tickets dropped significantly.",
-        gridImages: [
-            "https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?auto=format&fit=crop&q=80&w=1000",
-            "https://images.unsplash.com/photo-1590874103328-eac38a683ce7?auto=format&fit=crop&q=80&w=1000"
-        ],
-        stackImages: [
-            "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&q=80&w=1600",
-            "https://images.unsplash.com/photo-1492288991661-058aa541ff43?auto=format&fit=crop&q=80&w=1600"
-        ],
-        impactImage: "https://images.unsplash.com/photo-1621257912423-e45f9411d619?auto=format&fit=crop&q=80&w=2000"
+        result: "The revamp led to higher trial/demo conversions, reduced bounce rates, and a significantly stronger brand perception among enterprise users.",
+        caseStudy: {
+            targetUsers: [
+                "Enterprise decision-makers (IT, Operations, Marketing)",
+                "SMB owners exploring digital signage solutions",
+                "Agencies and system integrators"
+            ],
+            goals: [
+                "Communicate product value within the first 5 seconds",
+                "Improve content hierarchy and readability",
+                "Increase trial/demo conversions",
+                "Build trust with enterprise-focused visuals and data",
+                "Create a scalable design system for future growth"
+            ],
+            challengeBullets: [
+                { icon: "🛑", text: "Weak first impression: unclear value proposition above the fold" },
+                { icon: "🛑", text: "Visual clutter: too many sections competing for attention" },
+                { icon: "🛑", text: "Poor hierarchy: difficult to scan and understand key offerings" },
+                { icon: "🛑", text: "Low conversion focus: CTAs were inconsistent and not emphasized" },
+                { icon: "🛑", text: "Outdated UI patterns: reduced credibility for an enterprise product" },
+                { icon: "🛑", text: "Fragmented storytelling: features, solutions, and benefits felt disconnected" }
+            ],
+            solutions: [
+                {
+                    num: '1/7',
+                    title: 'Strong Hero Section',
+                    desc: '“Simple, Safe, and Scalable Digital Signage Software” — Immediate CTAs for Free Trial and Demo. Cleaner layout with focused visual.',
+                    tags: ['Clarity', 'Action-Oriented', 'Value Prop'],
+                    rationale: 'Users instantly understand what the product does and what to do next, reducing initial bounce rates.',
+                    mockupBg: '#7A1C1C',
+                    mockupImg: '/images/work/work3.webp',
+                },
+                {
+                    num: '2/7',
+                    title: 'Improved Content Hierarchy',
+                    desc: 'Grouped content into logical sections: Value proposition, Features, Use cases, Social proof, and Integrations. Reduced cognitive load by removing redundant blocks.',
+                    tags: ['Information Architecture', 'Readability'],
+                    rationale: 'Logical grouping allows for faster scanning and better comprehension for busy enterprise leads.',
+                    mockupBg: '#1B2B4E',
+                    mockupImg: '/images/work/work1.webp',
+                },
+                {
+                    num: '3/7',
+                    title: 'Visual Simplification',
+                    desc: 'Reduced noise with fewer icons and less decorative clutter. Consistent spacing and modern typography across all cards and sections.',
+                    tags: ['Enterprise-Ready', 'Minimalism'],
+                    rationale: 'A cleaner interface creates a more professional and reliable feel for enterprise-level clients.',
+                    mockupBg: '#2D1B4E',
+                    mockupImg: '/images/work/work2.webp',
+                },
+                {
+                    num: '4/7',
+                    title: 'Conversion-Focused CTAs',
+                    desc: 'Persistent and repeated CTAs across sections with high-contrast primary red buttons. Contextual placement after key value sections.',
+                    tags: ['Conversion Rate Optimization', 'Visual Hierarchy'],
+                    rationale: 'Creating a clear conversion path ensures users always know the next step without searching.',
+                    mockupBg: '#1B3A2B',
+                    mockupImg: '/images/work/work4.webp',
+                },
+                {
+                    num: '5/7',
+                    title: 'Trust & Credibility',
+                    desc: 'Highlighted customer logos early, added key performance metrics (users, screens, countries), and integrated enterprise security badges.',
+                    tags: ['Social Proof', 'Reliability'],
+                    rationale: 'Builds immediate confidence for high-value buyers by demonstrating scale and security.',
+                    mockupBg: '#1A1A1A',
+                    mockupImg: '/images/work/work5.webp',
+                },
+                {
+                    num: '6/7',
+                    title: 'Feature Communication Upgrade',
+                    desc: 'Replaced generic blurbs with structured feature sections detailing specific benefits like content management and multi-device support.',
+                    tags: ['Benefit-Driven', 'Feature Showcase'],
+                    rationale: 'Tying features to real user value makes the product more relatable and desirable.',
+                    mockupBg: '#2D1B4E',
+                    mockupImg: '/images/work/work1.webp',
+                },
+                {
+                    num: '7/7',
+                    title: 'Consistent Design System',
+                    desc: 'Defined standard color usage (primary red, neutral backgrounds) and reusable components like cards and layout patterns.',
+                    tags: ['Scalability', 'Maintenance'],
+                    rationale: 'Easier maintenance and faster expansion for future marketing landing pages.',
+                    mockupBg: '#1B2B4E',
+                    mockupImg: '/images/work/work2.webp',
+                }
+            ],
+            learnings: [
+                "Clarity beats creativity in SaaS landing pages",
+                "Strong hierarchy is more important than adding more content",
+                "Repetition of CTAs is necessary, not redundant",
+                "Trust signals should appear early, not at the bottom",
+                "Simplification directly improves perceived value"
+            ],
+            nextSteps: [
+                "A/B test hero messaging and CTA copy",
+                "Add interactive product preview",
+                "Personalize sections based on user type (SMB vs Enterprise)",
+                "Improve SEO structure for feature pages"
+            ],
+            finalOutcome: "The redesign successfully transformed Pickcel’s marketing site into a powerful conversion tool, effectively bridging the gap between product capability and user understanding.",
+            impactOnUsers: [
+                "Higher conversion rate (trial/demo clicks)",
+                "Reduced bounce rate from landing section",
+                "Improved time on page",
+                "Stronger brand perception for enterprise users"
+            ]
+        }
     },
     {
         id: "octalume-iot-dashboard",
         slug: "octalume-iot-dashboard",
         title: "OctaLume IoT Dashboard",
         year: "2024",
-        type: "UX Design, UI Design, Branding, Design System",
+        type: "Design System",
         image: "/images/work/work4.webp",
         client: "OctaLume",
         service: "UX Design, UI Design, Branding, Design System",
@@ -448,66 +546,6 @@ export const projectsData = [
         }
     },
     {
-        id: "project-five",
-        slug: "project-five",
-        title: "Project Five",
-        year: "2023",
-        type: "Visual Design",
-        image: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&q=80&w=800",
-        client: "Epsilon Arts",
-        service: "Visual Design",
-        description: "Creating a stunning digital gallery experience for contemporary artists.",
-        heroImage: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&q=80&w=2000",
-        challenge: {
-            text: "The digital format was dulling the impact of the physical artworks.",
-            subtext: ""
-        },
-        solution: {
-            text: "Implemented high-resolution immersive viewing modes with ultra-minimal UI framing.",
-            subtext: ""
-        },
-        result: "Artists reported higher satisfaction and online sales doubled.",
-        gridImages: [
-            "https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?auto=format&fit=crop&q=80&w=1000",
-            "https://images.unsplash.com/photo-1590874103328-eac38a683ce7?auto=format&fit=crop&q=80&w=1000"
-        ],
-        stackImages: [
-            "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&q=80&w=1600",
-            "https://images.unsplash.com/photo-1492288991661-058aa541ff43?auto=format&fit=crop&q=80&w=1600"
-        ],
-        impactImage: "https://images.unsplash.com/photo-1621257912423-e45f9411d619?auto=format&fit=crop&q=80&w=2000"
-    },
-    {
-        id: "project-six",
-        slug: "project-six",
-        title: "Project Six",
-        year: "2022",
-        type: "Mobile App",
-        image: "https://images.unsplash.com/photo-1616469829581-73993eb86b02?auto=format&fit=crop&q=80&w=800",
-        client: "Zeta Mobility",
-        service: "Mobile App",
-        description: "A seamless transit tracking and ticketing application for urban commuters.",
-        heroImage: "https://images.unsplash.com/photo-1616469829581-73993eb86b02?auto=format&fit=crop&q=80&w=2000",
-        challenge: {
-            text: "Commuters found the existing app confusing layout leading to missed trains.",
-            subtext: ""
-        },
-        solution: {
-            text: "A completely redesigned interface focusing strictly on real-time data and quick access actions.",
-            subtext: ""
-        },
-        result: "App Store rating went from 2.1 to 4.8 within three months.",
-        gridImages: [
-            "https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?auto=format&fit=crop&q=80&w=1000",
-            "https://images.unsplash.com/photo-1590874103328-eac38a683ce7?auto=format&fit=crop&q=80&w=1000"
-        ],
-        stackImages: [
-            "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&q=80&w=1600",
-            "https://images.unsplash.com/photo-1492288991661-058aa541ff43?auto=format&fit=crop&q=80&w=1600"
-        ],
-        impactImage: "https://images.unsplash.com/photo-1621257912423-e45f9411d619?auto=format&fit=crop&q=80&w=2000"
-    },
-    {
         id: "gift-ease-app",
         slug: "gift-ease",
         title: "Gift Suggestion App",
@@ -536,5 +574,90 @@ export const projectsData = [
             "https://images.unsplash.com/photo-1540200049848-d9813ea0e120?auto=format&fit=crop&q=80&w=1600"
         ],
         impactImage: "/images/work/giftease.webp"
+    },
+    {
+        id: "video-editing-brand-film",
+        slug: "video-editing",
+        title: "Pickcel Video Editing",
+        year: "2023-2026",
+        type: "Motion Design",
+        time: "3 Years",
+        isSimpleShowcase: true,
+        image: "/images/work/video_hero.jpg",
+        videoUrls: [
+            "https://www.youtube.com/watch?v=TInIxaV14rY",
+            "https://www.youtube.com/watch?v=QDYKB-7qx8g",
+            "https://www.youtube.com/watch?v=iFuy_XKBn7U",
+            "https://www.youtube.com/watch?v=VONTBiSwOgo",
+            "https://www.youtube.com/watch?v=ukWlpmriw6U",
+            "https://www.youtube.com/watch?v=9CB9JEWQVW4",
+            "https://www.youtube.com/watch?v=qi3ewcHrD1E",
+            "https://www.youtube.com/watch?v=7qPekebQCLw",
+            "https://www.youtube.com/watch?v=fq7jRZJRu6c",
+            "https://www.youtube.com/watch?v=1IszBd2lYJI",
+            "https://www.youtube.com/watch?v=aH4Y3cE4Mlc",
+            "https://www.youtube.com/watch?v=wS2pD1NUo_M",
+            "https://www.youtube.com/watch?v=FdDnqb1MORs",
+            "https://www.youtube.com/watch?v=BPE8q3QHz9I",
+            "https://www.youtube.com/watch?v=pXO8CXaM4cY",
+            "https://www.youtube.com/watch?v=5pP9_Gg6hkU"
+        ],
+        client: "Pickcel",
+        service: "Video Editing",
+        description: "A multi-video project showcasing various digital signage solutions and brand stories.",
+        thinkStackNote: {
+            text: "I have also produced numerous videos for ThinkStack AI (a sister company of Pickcel).",
+            link: "https://www.youtube.com/@thinkstack_ai/videos",
+            linkText: "View ThinkStack Videos"
+        },
+        heroImage: "/images/work/video_hero.jpg",
+        challenge: {
+            text: "Capturing the essence of a heritage brand while appealing to a younger demographic.",
+            subtext: "The challenge was to maintain luxury appeal while introducing dynamic, modern editing rhythms."
+        },
+        solution: {
+            text: "A cinematic edit featuring rhythmic transitions and deep, moody color grading.",
+            subtext: "We used a sophisticated palette to emphasize texture and mood, creating an emotional connection."
+        },
+        result: "The brand film achieved over 1M views across social platforms and increased brand engagement by 45%.",
+        gridImages: [
+            "/images/work/video_hero.jpg",
+            "/images/work/video_grading.png"
+        ],
+        stackImages: [
+            "/images/work/video_grading.png",
+            "https://images.unsplash.com/photo-1492288991661-058aa541ff43?auto=format&fit=crop&q=80&w=1600"
+        ],
+        impactImage: "/images/work/video_hero.jpg"
+    },
+    {
+        id: "print-design-identity",
+        slug: "print-design",
+        title: "Print Design Portfolio",
+        year: "2024",
+        type: "Print & Branding",
+        isLocked: true,
+        isSimpleShowcase: true,
+        image: "/images/work/print_hero.jpg",
+        client: "Pickcel",
+        service: "Print Design, Brand Identity",
+        description: "A comprehensive brochure design for Pickcel, highlighting their digital signage solutions, global reach, and seamless integration partners.",
+        heroImage: "/images/work/print_hero.jpg",
+        challenge: {
+            text: "Communicating complex digital solutions through a clean, tactile print medium.",
+            subtext: "The challenge was to balance technical information with high-end visual appeal."
+        },
+        solution: {
+            text: "A structured tri-fold layout using Pickcel's signature red and clean architectural grids.",
+            subtext: "The design emphasizes global metrics and integration depth while maintaining white space for readability."
+        },
+        result: "The new brochure system improved sales handoff and became a staple at international tech expos.",
+        gridImages: [
+            "/images/work/print_hero.jpg"
+        ],
+        stackImages: [
+            "/images/work/print_hero.jpg"
+        ],
+        impactImage: "/images/work/print_hero.jpg"
     }
 ];
