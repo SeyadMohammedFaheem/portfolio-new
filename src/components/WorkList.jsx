@@ -58,8 +58,8 @@ const WorkList = () => {
             description: "End-to-end product design from discovery and research to high-fidelity prototypes and handoff. Building products that are intuitive, functional, and visually compelling.",
             skills: ["User Research", "Wireframing", "Prototyping", "Usability Testing", "Design Systems"],
             images: [
-                "/images/work/giftease.webp",
-                "/images/scentropolis.webp",
+                "/images/work/giftease.png",
+                "/images/scentropolis.png",
             ]
         },
         {
@@ -68,8 +68,8 @@ const WorkList = () => {
             description: "Scalable, token-based component libraries that help engineering and design teams ship faster without sacrificing consistency.",
             skills: ["Component Libraries", "Token Management", "Documentation", "Figma Systems"],
             images: [
-                "/images/design-tokens.webp",
-                "/images/design-system-2.webp",
+                "/images/design-tokens.png",
+                "/images/design-system-2.png",
             ]
         },
         {
@@ -78,9 +78,9 @@ const WorkList = () => {
             description: "Branded templates and content systems engineered to keep your social presence sharp, consistent, and scroll-stopping.",
             skills: ["Instagram Design", "Story Kits", "Content Templates", "Visual Consistency"],
             images: [
-                "/images/work/poster.webp",
-                "/images/google-ads-banner.webp",
-                "/images/pickcel_collage.webp",
+                "/images/work/poster.jpg",
+                "/images/google-ads-banner.png",
+                "/images/pickcel_collage.jpg",
             ]
         },
         {
@@ -99,8 +99,8 @@ const WorkList = () => {
             description: "Building robust, high-performance web applications and digital products. Translating complex designs into pixel-perfect, responsive, and interactive digital experiences.",
             skills: ["Front-end Development", "React.js", "Creative Coding", "Performance Optimization"],
             images: [
-                "/images/octalume.webp",
-                "/images/launchkit.webp",
+                "/images/octalume.png",
+                "/images/launchkit.png",
             ]
         }
     ];

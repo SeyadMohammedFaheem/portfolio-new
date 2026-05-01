@@ -344,6 +344,35 @@ const ProjectDetail = () => {
                         <h2 className="zc-sol-title">{sol.title}</h2>
 
                         <p className="zc-sol-desc">{sol.desc}</p>
+                        
+                        {sol.pdfLink && (
+                            <a 
+                                href={sol.pdfLink} 
+                                target="_blank" 
+                                rel="noopener noreferrer"
+                                className="zc-pdf-link"
+                                style={{
+                                    display: 'inline-flex',
+                                    alignItems: 'center',
+                                    gap: '12px',
+                                    padding: '14px 28px',
+                                    backgroundColor: 'rgba(255,255,255,0.05)',
+                                    border: '1px solid rgba(255,255,255,0.1)',
+                                    borderRadius: '100px',
+                                    color: '#fff',
+                                    textDecoration: 'none',
+                                    fontSize: '0.9rem',
+                                    fontWeight: '600',
+                                    marginBottom: '32px',
+                                    transition: 'all 0.3s ease'
+                                }}
+                            >
+                                <span style={{ fontSize: '1.2rem' }}>📄</span>
+                                VIEW PDF
+                                <span style={{ opacity: 0.5, marginLeft: '4px' }}>↗</span>
+                            </a>
+                        )}
+
                         <div className="zc-rationale-box">
                             <p>{sol.rationale}</p>
                         </div>
@@ -457,7 +486,7 @@ const ProjectDetail = () => {
                                     
                                     {/* Comp Highlight Image under the heading */}
                                     <div className="zc-animate" style={{ borderRadius: '24px', overflow: 'hidden', border: '1px solid rgba(255,255,255,0.08)', marginBottom: '60px' }}>
-                                        <img src="/images/work/comp-highlight.webp" alt="System Detail" style={{ width: '100%', display: 'block' }} />
+                                        <img src="/images/work/comp-highlight.png" alt="System Detail" style={{ width: '100%', display: 'block' }} />
                                     </div>
 
                                     {project.caseStudy.designSystemSection.tokenLayers.map((layer, idx) => (
@@ -500,7 +529,7 @@ const ProjectDetail = () => {
                                             {/* Laptop Image under Semantic Tokens */}
                                             {layer.title === "Semantic Tokens" && (
                                                 <div className="zc-animate" style={{ borderRadius: '24px', overflow: 'hidden', border: '1px solid rgba(255,255,255,0.08)', marginTop: '40px' }}>
-                                                    <img src="/images/work/laptop.webp" alt="Laptop View" style={{ width: '100%', display: 'block' }} />
+                                                    <img src="/images/work/laptop.png" alt="Laptop View" style={{ width: '100%', display: 'block' }} />
                                                 </div>
                                             )}
                                         </div>

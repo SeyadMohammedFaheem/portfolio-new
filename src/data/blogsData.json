@@ -381,15 +381,19 @@
         "text": "Start with one workflow you repeatedly do (like accessibility-first flow design). Write the skill so the output is always structured, testable, accessible, and consistent. Then expand it over time."
       }
     ],
-    "image": "/images/blogs/create-uiux-skill-for-claude-anthropic.webp"
+    "image": "/images/blogs/create-uiux-skill-for-claude-anthropic.png"
   },
   {
     "id": "1e84f82a-5353-8086-8c4a-dd0893205489",
     "title": "Delete Button Case Study",
     "slug": "delete-button-case-study",
-    "date": "March 24, 2026",
+    "date": "May 3, 2025",
     "category": "General",
     "content": [
+      {
+        "type": "h2",
+        "text": "Case Study: Designing Accessible and Safe Destructive Actions"
+      },
       {
         "type": "h3",
         "text": "The Challenge"
@@ -404,8 +408,8 @@
       },
       {
         "type": "img",
-        "url": "https://prod-files-secure.s3.us-west-2.amazonaws.com/052b5715-3363-4fe6-980e-3f0dd8222353/45de24ac-e02e-4208-97a1-a35f24d0fce6/image.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=ASIAZI2LB466S7QCC65Z%2F20260330%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20260330T123649Z&X-Amz-Expires=3600&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEFwaCXVzLXdlc3QtMiJGMEQCIE7oAowiGsZKFIMUC1%2Baqjzb79IoG2XjGC4ZBfkL6kUpAiBFyK7qH%2FYWed%2FVCtmHQ5dm6U4DIH7SKsCKZlQVSeUIXSr%2FAwglEAAaDDYzNzQyMzE4MzgwNSIMvFgUeyrWRu8OKZ37KtwDSScIhakOmdP5azisxL60gT1SAha0KhtFWsn3sFbCQcq8HLilVhzMcHHSm5bCRGH1%2BZZy75amVOuNFqaB2NR%2FWxpR31HfdqWk%2BZK7I885L71fbhNXYmnhBvIFbg%2FuRnRXDPprnH4nT2Lvs0Op5JJX8j2Xk0M8gjzDvh5SPoWtvhfXvCXgWXGDU8o8taHKU4lDRpPNqjPSSkUtjgI4%2F5YsTsQ%2BzdVdgtW8aVjoQgdqgDAAjitbIMhNiS18soplhQCEYdxylkwM2uZUvm%2Bqgud%2FC0of9sJBh89jGxzLQGjVgt9h7EzwndOoj51McvQrCPwC5mUz7q313kjjRbv5m2sMjxd6cTrquvasMqid6wmf5KocnLf%2B8OzDx2Yeo1M34vMyRV1uYONA%2FMLiwn4RNHWYh61F6TOj2Yo%2BQp%2FgtaHO3GI0tL8tVO4Nos1Ni8grahNdtZwh0vSkWc1EmQZlp3qvP7UXKSvcGL1fYb05NtRgdM8F1CLGI4pmxbovePlSvPAMZdxD8mhUiOt%2Fws%2FcrUdJO4ybcFrWQjQEaSlGUvTJ9tldiScF0hMDWR1xd0F8ZZHYJ7rTV9cGHCroOar%2BPipKlm%2BXpJFhIey4mDaSv3OH5T4rM3Ll8gQmCxDHcjgwuc2pzgY6pgEYiFvzUcYj8e0sUx1uHsDictPS28Byb0HrZa%2B858GQ4Dwjue3x%2Fh2x6sp2bIc37yPrvDv7P0RZhIo43T94iZlVMxDIGyRXkF1CSbZ1jcbzdEDdN3X490xQcU2Ts0fmv2X6ut4ELYFbh%2Fs6T38yJeBCluea1Nuf6YfaKb0Xeeg7K1mrcUol9brzwfYxtKkF3%2FbA60RTF8j20ZfIjSxhjoXkC51enRU7&X-Amz-Signature=fb7390a1c1ace6e063fc4e7dc17b87f1d4cb994342edf6696eee4ec554690048&X-Amz-SignedHeaders=host&x-amz-checksum-mode=ENABLED&x-id=GetObject",
-        "caption": ""
+        "url": "/images/work/warning-alert.png",
+        "caption": "Example of problematic destructive design: low contrast and vague labels."
       },
       {
         "type": "h3",
@@ -453,8 +457,8 @@
       },
       {
         "type": "img",
-        "url": "https://prod-files-secure.s3.us-west-2.amazonaws.com/052b5715-3363-4fe6-980e-3f0dd8222353/fa5eebab-431e-4d43-95cb-1796b8e0dedd/image.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=ASIAZI2LB466S7QCC65Z%2F20260330%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20260330T123649Z&X-Amz-Expires=3600&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEFwaCXVzLXdlc3QtMiJGMEQCIE7oAowiGsZKFIMUC1%2Baqjzb79IoG2XjGC4ZBfkL6kUpAiBFyK7qH%2FYWed%2FVCtmHQ5dm6U4DIH7SKsCKZlQVSeUIXSr%2FAwglEAAaDDYzNzQyMzE4MzgwNSIMvFgUeyrWRu8OKZ37KtwDSScIhakOmdP5azisxL60gT1SAha0KhtFWsn3sFbCQcq8HLilVhzMcHHSm5bCRGH1%2BZZy75amVOuNFqaB2NR%2FWxpR31HfdqWk%2BZK7I885L71fbhNXYmnhBvIFbg%2FuRnRXDPprnH4nT2Lvs0Op5JJX8j2Xk0M8gjzDvh5SPoWtvhfXvCXgWXGDU8o8taHKU4lDRpPNqjPSSkUtjgI4%2F5YsTsQ%2BzdVdgtW8aVjoQgdqgDAAjitbIMhNiS18soplhQCEYdxylkwM2uZUvm%2Bqgud%2FC0of9sJBh89jGxzLQGjVgt9h7EzwndOoj51McvQrCPwC5mUz7q313kjjRbv5m2sMjxd6cTrquvasMqid6wmf5KocnLf%2B8OzDx2Yeo1M34vMyRV1uYONA%2FMLiwn4RNHWYh61F6TOj2Yo%2BQp%2FgtaHO3GI0tL8tVO4Nos1Ni8grahNdtZwh0vSkWc1EmQZlp3qvP7UXKSvcGL1fYb05NtRgdM8F1CLGI4pmxbovePlSvPAMZdxD8mhUiOt%2Fws%2FcrUdJO4ybcFrWQjQEaSlGUvTJ9tldiScF0hMDWR1xd0F8ZZHYJ7rTV9cGHCroOar%2BPipKlm%2BXpJFhIey4mDaSv3OH5T4rM3Ll8gQmCxDHcjgwuc2pzgY6pgEYiFvzUcYj8e0sUx1uHsDictPS28Byb0HrZa%2B858GQ4Dwjue3x%2Fh2x6sp2bIc37yPrvDv7P0RZhIo43T94iZlVMxDIGyRXkF1CSbZ1jcbzdEDdN3X490xQcU2Ts0fmv2X6ut4ELYFbh%2Fs6T38yJeBCluea1Nuf6YfaKb0Xeeg7K1mrcUol9brzwfYxtKkF3%2FbA60RTF8j20ZfIjSxhjoXkC51enRU7&X-Amz-Signature=6c1181cddc22d45551ffe6a5d0880f9021818ad7a90c43c4f077ba3543792c42&X-Amz-SignedHeaders=host&x-amz-checksum-mode=ENABLED&x-id=GetObject",
-        "caption": ""
+        "url": "/images/work/old_dashboard_ui.png",
+        "caption": "Legacy UI showing destructive actions lacking clear visual hierarchy."
       },
       {
         "type": "h3",
@@ -517,8 +521,8 @@
       },
       {
         "type": "img",
-        "url": "https://prod-files-secure.s3.us-west-2.amazonaws.com/052b5715-3363-4fe6-980e-3f0dd8222353/1b7c1e25-c1dd-48c8-aa4c-de3e691c5edb/653shots_so.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=ASIAZI2LB466S7QCC65Z%2F20260330%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20260330T123649Z&X-Amz-Expires=3600&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEFwaCXVzLXdlc3QtMiJGMEQCIE7oAowiGsZKFIMUC1%2Baqjzb79IoG2XjGC4ZBfkL6kUpAiBFyK7qH%2FYWed%2FVCtmHQ5dm6U4DIH7SKsCKZlQVSeUIXSr%2FAwglEAAaDDYzNzQyMzE4MzgwNSIMvFgUeyrWRu8OKZ37KtwDSScIhakOmdP5azisxL60gT1SAha0KhtFWsn3sFbCQcq8HLilVhzMcHHSm5bCRGH1%2BZZy75amVOuNFqaB2NR%2FWxpR31HfdqWk%2BZK7I885L71fbhNXYmnhBvIFbg%2FuRnRXDPprnH4nT2Lvs0Op5JJX8j2Xk0M8gjzDvh5SPoWtvhfXvCXgWXGDU8o8taHKU4lDRpPNqjPSSkUtjgI4%2F5YsTsQ%2BzdVdgtW8aVjoQgdqgDAAjitbIMhNiS18soplhQCEYdxylkwM2uZUvm%2Bqgud%2FC0of9sJBh89jGxzLQGjVgt9h7EzwndOoj51McvQrCPwC5mUz7q313kjjRbv5m2sMjxd6cTrquvasMqid6wmf5KocnLf%2B8OzDx2Yeo1M34vMyRV1uYONA%2FMLiwn4RNHWYh61F6TOj2Yo%2BQp%2FgtaHO3GI0tL8tVO4Nos1Ni8grahNdtZwh0vSkWc1EmQZlp3qvP7UXKSvcGL1fYb05NtRgdM8F1CLGI4pmxbovePlSvPAMZdxD8mhUiOt%2Fws%2FcrUdJO4ybcFrWQjQEaSlGUvTJ9tldiScF0hMDWR1xd0F8ZZHYJ7rTV9cGHCroOar%2BPipKlm%2BXpJFhIey4mDaSv3OH5T4rM3Ll8gQmCxDHcjgwuc2pzgY6pgEYiFvzUcYj8e0sUx1uHsDictPS28Byb0HrZa%2B858GQ4Dwjue3x%2Fh2x6sp2bIc37yPrvDv7P0RZhIo43T94iZlVMxDIGyRXkF1CSbZ1jcbzdEDdN3X490xQcU2Ts0fmv2X6ut4ELYFbh%2Fs6T38yJeBCluea1Nuf6YfaKb0Xeeg7K1mrcUol9brzwfYxtKkF3%2FbA60RTF8j20ZfIjSxhjoXkC51enRU7&X-Amz-Signature=4e3ddcc7a606f7fab171b12641ae41d62659fe861a7640d2bbe25d6626c9c8b8&X-Amz-SignedHeaders=host&x-amz-checksum-mode=ENABLED&x-id=GetObject",
-        "caption": ""
+        "url": "/images/work/delete-button.png",
+        "caption": "Testing new high-contrast button states for destructive actions."
       },
       {
         "type": "h2",
@@ -561,8 +565,8 @@
       },
       {
         "type": "img",
-        "url": "https://prod-files-secure.s3.us-west-2.amazonaws.com/052b5715-3363-4fe6-980e-3f0dd8222353/30e0ed24-8739-4698-b69a-77c2fde27af7/image.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=ASIAZI2LB466S7QCC65Z%2F20260330%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20260330T123649Z&X-Amz-Expires=3600&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEFwaCXVzLXdlc3QtMiJGMEQCIE7oAowiGsZKFIMUC1%2Baqjzb79IoG2XjGC4ZBfkL6kUpAiBFyK7qH%2FYWed%2FVCtmHQ5dm6U4DIH7SKsCKZlQVSeUIXSr%2FAwglEAAaDDYzNzQyMzE4MzgwNSIMvFgUeyrWRu8OKZ37KtwDSScIhakOmdP5azisxL60gT1SAha0KhtFWsn3sFbCQcq8HLilVhzMcHHSm5bCRGH1%2BZZy75amVOuNFqaB2NR%2FWxpR31HfdqWk%2BZK7I885L71fbhNXYmnhBvIFbg%2FuRnRXDPprnH4nT2Lvs0Op5JJX8j2Xk0M8gjzDvh5SPoWtvhfXvCXgWXGDU8o8taHKU4lDRpPNqjPSSkUtjgI4%2F5YsTsQ%2BzdVdgtW8aVjoQgdqgDAAjitbIMhNiS18soplhQCEYdxylkwM2uZUvm%2Bqgud%2FC0of9sJBh89jGxzLQGjVgt9h7EzwndOoj51McvQrCPwC5mUz7q313kjjRbv5m2sMjxd6cTrquvasMqid6wmf5KocnLf%2B8OzDx2Yeo1M34vMyRV1uYONA%2FMLiwn4RNHWYh61F6TOj2Yo%2BQp%2FgtaHO3GI0tL8tVO4Nos1Ni8grahNdtZwh0vSkWc1EmQZlp3qvP7UXKSvcGL1fYb05NtRgdM8F1CLGI4pmxbovePlSvPAMZdxD8mhUiOt%2Fws%2FcrUdJO4ybcFrWQjQEaSlGUvTJ9tldiScF0hMDWR1xd0F8ZZHYJ7rTV9cGHCroOar%2BPipKlm%2BXpJFhIey4mDaSv3OH5T4rM3Ll8gQmCxDHcjgwuc2pzgY6pgEYiFvzUcYj8e0sUx1uHsDictPS28Byb0HrZa%2B858GQ4Dwjue3x%2Fh2x6sp2bIc37yPrvDv7P0RZhIo43T94iZlVMxDIGyRXkF1CSbZ1jcbzdEDdN3X490xQcU2Ts0fmv2X6ut4ELYFbh%2Fs6T38yJeBCluea1Nuf6YfaKb0Xeeg7K1mrcUol9brzwfYxtKkF3%2FbA60RTF8j20ZfIjSxhjoXkC51enRU7&X-Amz-Signature=2d53b172ca6cb5713065321a72ec878a1a908ea444be6182572e85705fe697b3&X-Amz-SignedHeaders=host&x-amz-checksum-mode=ENABLED&x-id=GetObject",
-        "caption": ""
+        "url": "/images/work/comp-highlight.png",
+        "caption": "High-fidelity mockups of the updated destructive action components."
       },
       {
         "type": "p",
@@ -725,6 +729,6 @@
         "listType": "bullet"
       }
     ],
-    "image": "/images/blogs/delete-button-case-study.webp"
+    "image": "/images/blogs/delete-button-case-study.jpg"
   }
 ]

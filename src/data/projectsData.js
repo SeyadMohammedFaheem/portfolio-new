@@ -7,11 +7,11 @@ export const projectsData = [
         type: "Product Design",
         time: "5 Weeks",
         category: "Product & UI/UX",
-        image: "/images/work/work1.webp",
+        image: "/images/work/work1.jpg",
         client: "Pickcel",
         service: "Product Redesign",
         description: "A redesign of the Pickcel console experience to improve clarity, usability, and efficiency in managing digital signage at scale.",
-        heroImage: "/images/work/work1.webp",
+        heroImage: "/images/work/work1.jpg",
         challenge: {
             text: "Users struggled to organize and update content efficiently.",
             subtext: "Key features like bulk actions and real-time previews were missing or hard to access, causing friction."
@@ -22,8 +22,8 @@ export const projectsData = [
         },
         result: "A streamlined console that reduces complexity and helps users focus on tasks rather than navigating.",
         gridImages: [
-            "/images/work/old_dashboard_ui.webp",
-            "/images/work/work1.webp"
+            "/images/work/old_dashboard_ui.png",
+            "/images/work/work1.jpg"
         ],
         stackImages: [
             "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&q=80&w=1600",
@@ -67,7 +67,7 @@ export const projectsData = [
                     desc: "Centralized view displaying total screens, active screens, storage usage, and schedules. Real-time analytics, an interactive map, and a personalized feedback module were added.",
                     rationale: "Increased visibility across all key metrics in a single view enables faster decision-making and simplified workflows through better data grouping.",
                     mockupBg: "#111",
-                    mockupImg: "/images/work/1.webp",
+                    mockupImg: "/images/work/1.jpg",
                     mockupCaption: "Dashboard Overview with Metrics & Analytics"
                 },
                 {
@@ -76,7 +76,7 @@ export const projectsData = [
                     desc: "Introduced folder-based media organization, a simplified 'Move Media' flow with drag-and-drop, and faster searching within the composition editor.",
                     rationale: "Faster media management with reduced organization time, improved discoverability, and a scalable system for large media libraries.",
                     mockupBg: "#1B2B4E",
-                    mockupImg: "/images/work/2.webp",
+                    mockupImg: "/images/work/2.png",
                     mockupCaption: "Media Library with Folder Organization"
                 },
                 {
@@ -86,8 +86,8 @@ export const projectsData = [
                     rationale: "The live preview and logical grouping significantly reduced the complex and time-consuming setup process, increasing user confidence.",
                     mockupBg: "#2D1B4E",
                     mockupImg: [
-                        "/images/work/3.webp",
-                        "/images/work/4.webp"
+                        "/images/work/3.png",
+                        "/images/work/4.jpg"
                     ],
                     mockupCaption: [
                         "Individual App Page Before",
@@ -110,11 +110,11 @@ export const projectsData = [
         title: "Pickcel Mobile Redesign",
         year: "2024",
         type: "Mobile App",
-        image: "/images/work/media-list.webp",
+        image: "/images/work/work2.jpg",
         client: "Pickcel",
         service: "Mobile UI/UX",
         description: "Redesigning the Pickcel mobile experience to make it modern, accessible, and truly usable for on-the-go management.\n\nThe existing mobile app felt outdated, visually heavy, and not optimized for mobile usage. It lacked clarity, accessibility, and critical functionality needed for real-time monitoring.",
-        heroImage: "/images/work/media-list.webp",
+        heroImage: "/images/work/work2.jpg",
         gridImages: [
             "https://images.unsplash.com/photo-1523206489230-c012c64b2b48?auto=format&fit=crop&q=80&w=1000",
             "https://images.unsplash.com/photo-1551650975-87deedd944c3?auto=format&fit=crop&q=80&w=1000"
@@ -157,8 +157,8 @@ export const projectsData = [
                     rationale: "Designed with mobile-first accessibility in mind.",
                     mockupType: "clay",
                     mockupImg: [
-                        "/images/work/1-pickcel-go.webp",
-                        "/images/work/media-list.webp"
+                        "/images/work/1-pickcel-go.png",
+                        "/images/work/media-list.jpg"
                     ]
                 },
                 {
@@ -168,8 +168,8 @@ export const projectsData = [
                     rationale: "Immediate visibility of issues and system health.",
                     mockupType: "clay",
                     mockupImg: [
-                        "/images/work/screen-management.webp",
-                        "/images/work/screen-list.webp"
+                        "/images/work/screen-management.jpg",
+                        "/images/work/screen-list.jpg"
                     ]
                 },
                 {
@@ -179,7 +179,7 @@ export const projectsData = [
                     rationale: "Reduced uncertainty around content delivery.",
                     mockupType: "clay",
                     mockupImg: [
-                        "/images/work/composition-details.webp"
+                        "/images/work/composition-details.jpg"
                     ]
                 },
                 {
@@ -191,7 +191,7 @@ export const projectsData = [
                     isScrollable: true,
                     noHover: true,
                     mockupImg: [
-                        "/images/work/screen-details.webp"
+                        "/images/work/screen-details.jpg"
                     ]
                 },
 
@@ -220,12 +220,12 @@ export const projectsData = [
         title: "Website Revamp",
         year: "2024",
         type: "UI/UX & Strategy",
-        image: "/images/work/work3.webp",
+        image: "/images/work/work3.jpg",
         client: "Pickcel",
         service: "Website Design, Strategy",
         time: "4 Weeks",
         description: "Redesign of the Pickcel marketing website to improve clarity, conversion, and scalability. The old experience was content-heavy, visually inconsistent, and lacked a clear hierarchy. The new design focuses on simplifying messaging, guiding users, and reinforcing trust.",
-        heroImage: "/images/work/work3.webp",
+        heroImage: "/images/work/work3.jpg",
         challenge: {
             text: "The previous website suffered from weak first impressions, visual clutter, and a fragmented storytelling approach that disconnected features from benefits.",
             subtext: "Enterprise decision-makers found it difficult to scan and understand the core value proposition, leading to lower credibility and conversion."
@@ -264,7 +264,7 @@ export const projectsData = [
                     tags: ['Clarity', 'Action-Oriented', 'Value Prop'],
                     rationale: 'Users instantly understand what the product does and what to do next, reducing initial bounce rates.',
                     mockupBg: '#7A1C1C',
-                    mockupImg: '/images/work/work3.webp',
+                    mockupImg: '/images/work/work3.jpg',
                 },
                 {
                     num: '2/7',
@@ -273,7 +273,7 @@ export const projectsData = [
                     tags: ['Information Architecture', 'Readability'],
                     rationale: 'Logical grouping allows for faster scanning and better comprehension for busy enterprise leads.',
                     mockupBg: '#1B2B4E',
-                    mockupImg: '/images/work/work1.webp',
+                    mockupImg: '/images/work/work1.jpg',
                 },
                 {
                     num: '3/7',
@@ -282,7 +282,7 @@ export const projectsData = [
                     tags: ['Enterprise-Ready', 'Minimalism'],
                     rationale: 'A cleaner interface creates a more professional and reliable feel for enterprise-level clients.',
                     mockupBg: '#2D1B4E',
-                    mockupImg: '/images/work/work2.webp',
+                    mockupImg: '/images/work/work2.jpg',
                 },
                 {
                     num: '4/7',
@@ -291,7 +291,7 @@ export const projectsData = [
                     tags: ['Conversion Rate Optimization', 'Visual Hierarchy'],
                     rationale: 'Creating a clear conversion path ensures users always know the next step without searching.',
                     mockupBg: '#1B3A2B',
-                    mockupImg: '/images/work/work4.webp',
+                    mockupImg: '/images/work/work4.jpg',
                 },
                 {
                     num: '5/7',
@@ -300,7 +300,7 @@ export const projectsData = [
                     tags: ['Social Proof', 'Reliability'],
                     rationale: 'Builds immediate confidence for high-value buyers by demonstrating scale and security.',
                     mockupBg: '#1A1A1A',
-                    mockupImg: '/images/work/work5.webp',
+                    mockupImg: '/images/work/work5.jpg',
                 },
                 {
                     num: '6/7',
@@ -309,7 +309,7 @@ export const projectsData = [
                     tags: ['Benefit-Driven', 'Feature Showcase'],
                     rationale: 'Tying features to real user value makes the product more relatable and desirable.',
                     mockupBg: '#2D1B4E',
-                    mockupImg: '/images/work/work1.webp',
+                    mockupImg: '/images/work/work1.jpg',
                 },
                 {
                     num: '7/7',
@@ -318,7 +318,7 @@ export const projectsData = [
                     tags: ['Scalability', 'Maintenance'],
                     rationale: 'Easier maintenance and faster expansion for future marketing landing pages.',
                     mockupBg: '#1B2B4E',
-                    mockupImg: '/images/work/work2.webp',
+                    mockupImg: '/images/work/work2.jpg',
                 }
             ],
             learnings: [
@@ -349,13 +349,13 @@ export const projectsData = [
         title: "OctaLume IoT Dashboard",
         year: "2024",
         type: "Design System",
-        image: "/images/work/work4.webp",
+        image: "/images/work/work4.jpg",
         client: "OctaLume",
         service: "UX Design, UI Design, Branding, Design System",
         category: "Smart Home Technology",
         time: "6 Weeks",
         description: "OctaLume is an AI-powered IoT management dashboard designed to provide real-time insights, intelligent alerting, and seamless device control — helping users monitor and optimize smart environments efficiently. IoT dashboards today fail at the basics: users are overwhelmed by excessive data, critical issues go unnoticed, and interfaces lack the clarity needed to act fast.",
-        heroImage: "/images/work/work4.webp",
+        heroImage: "/images/work/work4.jpg",
         backgroundImages: [
             {
                 heading: "Problems",
@@ -371,12 +371,12 @@ export const projectsData = [
             {
                 heading: "Branding & Logo",
                 desc: "Illuminating spaces with an 8-pointed star, Octalume combines Octa (eight points) and Lume (light) to symbolize smart, advanced lighting solutions.",
-                image: "/images/work/2.webp"
+                image: "/images/work/2.png"
             },
             {
                 heading: "Typography & Color",
                 desc: "Lufga is a modern sans-serif typeface designed with a clean, geometric, and minimalist style. It features rounded letterforms, giving it a friendly and approachable look.",
-                image: "/images/work/3.webp"
+                image: "/images/work/3.png"
             }
         ],
         challenge: {
@@ -389,14 +389,14 @@ export const projectsData = [
         },
         result: "The redesigned dashboard significantly reduced cognitive overload, enabled faster response to critical issues, improved usability across the system, and established a consistent, scalable UI architecture.",
         gridImages: [
-            "/images/work/work4.webp",
-            "/images/work/work4.webp"
+            "/images/work/work4.jpg",
+            "/images/work/work4.jpg"
         ],
         stackImages: [
-            "/images/work/work4.webp",
-            "/images/work/work4.webp"
+            "/images/work/work4.jpg",
+            "/images/work/work4.jpg"
         ],
-        impactImage: "/images/work/work4.webp",
+        impactImage: "/images/work/work4.jpg",
         caseStudy: {
             goals: [
                 "Simplify complex IoT data so users can scan and act quickly",
@@ -422,28 +422,28 @@ export const projectsData = [
                     title: "Navigation Simplified",
                     desc: "All elements are grouped logically by rooms and usage context, making navigation predictable and easy to scan.",
                     rationale: "This reduces cognitive load and helps users find what they need without friction.",
-                    mockupImg: "/images/work/nav-simplified.webp"
+                    mockupImg: "/images/work/nav-simplified.png"
                 },
                 {
                     num: "2/4",
                     title: "Warnings & Alerts",
                     desc: "A real-time alert system highlights critical issues instantly through notifications and a dedicated alert section.",
                     rationale: "This ensures users don’t miss important events and can take immediate action.",
-                    mockupImg: "/images/work/warning-alert.webp"
+                    mockupImg: "/images/work/warning-alert.png"
                 },
                 {
                     num: "3/4",
                     title: "Clear Typography & Better Hierarchy",
                     desc: "A strong visual hierarchy was established using typography, spacing, and contrast.",
                     rationale: "Important data stands out, allowing users to quickly understand insights without scanning the entire screen.",
-                    mockupImg: "/images/work/clear-typo.webp"
+                    mockupImg: "/images/work/clear-typo.png"
                 },
                 {
                     num: "4/4",
                     title: "Time-Sensitive Device Indicators",
                     desc: "Gradient progress bars and time-based indicators communicate device status and urgency.",
                     rationale: "This gives users immediate feedback on active processes and remaining time.",
-                    mockupImg: "/images/work/time-sensitve.webp"
+                    mockupImg: "/images/work/time-sensitve.png"
                 }
             ],
             designSystemSection: {
@@ -465,12 +465,12 @@ export const projectsData = [
                 colorLanguage: {
                     title: "Color Language",
                     desc: "Design tokens are the building blocks of a cohesive and scalable design system. In this project, I delve into the world of design tokens, exploring how they can streamline the design process and enhance consistency across various platforms.",
-                    image: "/images/work/3re.webp"
+                    image: "/images/work/3re.png"
                 },
                 architectureSection: {
                     title: "Design Token Architecture",
                     desc: "Design tokens are the building blocks of a cohesive and scalable design system. In this project, I delve into the world of design tokens, exploring how they can streamline the design process and enhance consistency across various platforms.",
-                    image: "/images/work/4re.webp"
+                    image: "/images/work/4re.png"
                 },
 
                 tokenLayers: [
@@ -488,8 +488,8 @@ export const projectsData = [
                     }
                 ],
                 systemImages: [
-                    "/images/work/laptop.webp",
-                    "/images/work/comp-highlight.webp"
+                    "/images/work/laptop.png",
+                    "/images/work/comp-highlight.png"
                 ],
                 handoffSection: {
                     title: "Token Integration",
@@ -533,14 +533,14 @@ export const projectsData = [
                 scalingSection: {
                     title: "How it Scales",
                     desc: "This token system is designed to be modular and easy to extend. By separating raw values (global), utility mappings (base), and context-specific meanings (semantic), updates can be made at any level without breaking visual consistency. As the product evolves, new components can be built quickly by referencing existing semantic tokens—ensuring a cohesive UI without adding visual debt.",
-                    images: ["/images/work/scaled.webp"],
+                    images: ["/images/work/scaled.png"],
                     bottomText: "I've updated the {primary-default:#00E5FF} {primary-container-bg:#1A1A1A} in design and i would refect on the code, See how easy and simple it is"
                 },
                 outcomeSection: {
                     title: "Outcome & Impact",
                     desc: "The final outcome is a production-ready UI system powered by design tokens — enabling fast, scalable, and consistent implementation across the interface. By abstracting styling logic into a flexible token structure, the product is now easier to maintain, expand, and evolve with minimal design debt.",
-                    topImage: "/images/work/octalume-dashboard.webp",
-                    bottomImage: "/images/work/last.webp"
+                    topImage: "/images/work/octalume-dashboard.png",
+                    bottomImage: "/images/work/last.png"
                 }
             }
         }
@@ -551,11 +551,11 @@ export const projectsData = [
         title: "Gift Suggestion App",
         year: "2026",
         type: "Mobile App",
-        image: "/images/work/giftease.webp",
+        image: "/images/work/giftease.png",
         client: "Gift Ease",
         service: "Mobile App",
         description: "A smart gifting app that curates personalized gift suggestions based on recipient preferences.",
-        heroImage: "/images/work/giftease.webp",
+        heroImage: "/images/work/giftease.png",
         challenge: {
             text: "Users often struggle to find meaningful gifts within short timeframes.",
             subtext: "The experience of navigating through endless e-commerce options is overwhelming."
@@ -566,14 +566,14 @@ export const projectsData = [
         },
         result: "Gift Ease streamlined the gifting process and significantly reduced the time taken to find a perfect present.",
         gridImages: [
-            "/images/work/giftease.webp",
+            "/images/work/giftease.png",
             "https://images.unsplash.com/photo-1513885535751-8b9238bd345a?auto=format&fit=crop&q=80&w=1000"
         ],
         stackImages: [
-            "/images/work/giftease.webp",
+            "/images/work/giftease.png",
             "https://images.unsplash.com/photo-1540200049848-d9813ea0e120?auto=format&fit=crop&q=80&w=1600"
         ],
-        impactImage: "/images/work/giftease.webp"
+        impactImage: "/images/work/giftease.png"
     },
     {
         id: "video-editing-brand-film",
@@ -583,7 +583,7 @@ export const projectsData = [
         type: "Motion Design",
         time: "3 Years",
         isSimpleShowcase: true,
-        image: "/images/work/video_hero.webp",
+        image: "/images/work/video_hero.png",
         videoUrls: [
             "https://www.youtube.com/watch?v=TInIxaV14rY",
             "https://www.youtube.com/watch?v=QDYKB-7qx8g",
@@ -610,7 +610,7 @@ export const projectsData = [
             link: "https://www.youtube.com/@thinkstack_ai/videos",
             linkText: "View ThinkStack Videos"
         },
-        heroImage: "/images/work/video_hero.webp",
+        heroImage: "/images/work/video_hero.png",
         challenge: {
             text: "Capturing the essence of a heritage brand while appealing to a younger demographic.",
             subtext: "The challenge was to maintain luxury appeal while introducing dynamic, modern editing rhythms."
@@ -621,14 +621,14 @@ export const projectsData = [
         },
         result: "The brand film achieved over 1M views across social platforms and increased brand engagement by 45%.",
         gridImages: [
-            "/images/work/video_hero.webp",
-            "/images/work/video_grading.webp"
+            "/images/work/video_hero.png",
+            "/images/work/video_grading.png"
         ],
         stackImages: [
-            "/images/work/video_grading.webp",
+            "/images/work/video_grading.png",
             "https://images.unsplash.com/photo-1492288991661-058aa541ff43?auto=format&fit=crop&q=80&w=1600"
         ],
-        impactImage: "/images/work/video_hero.webp"
+        impactImage: "/images/work/video_hero.png"
     },
     {
         id: "print-design-identity",
@@ -636,28 +636,68 @@ export const projectsData = [
         title: "Print Design Portfolio",
         year: "2024",
         type: "Print & Branding",
-        isLocked: true,
-        isSimpleShowcase: true,
-        image: "/images/work/print_hero.webp",
+        isSimpleShowcase: false,
+        image: "/images/work/print_hero.png",
         client: "Pickcel",
         service: "Print Design, Brand Identity",
-        description: "A comprehensive brochure design for Pickcel, highlighting their digital signage solutions, global reach, and seamless integration partners.",
-        heroImage: "/images/work/print_hero.webp",
+        time: "4 Weeks",
+        category: "Print & Branding",
+        description: "A collection of premium print assets designed for Pickcel's global expo showcases, including a comprehensive trifold brand brochure and a minimalist square feature showcase. Both pieces were engineered to capture attention at high-traffic international trade shows while providing deep technical clarity.",
+        heroImage: "/images/work/print_hero.png",
         challenge: {
-            text: "Communicating complex digital solutions through a clean, tactile print medium.",
-            subtext: "The challenge was to balance technical information with high-end visual appeal."
+            text: "Translating a complex digital signage ecosystem into two distinct tactile formats: a high-info trifold and a visual-first square brochure.",
+            subtext: "Maintaining brand consistency across different layouts and paper sizes."
         },
         solution: {
-            text: "A structured tri-fold layout using Pickcel's signature red and clean architectural grids.",
-            subtext: "The design emphasizes global metrics and integration depth while maintaining white space for readability."
+            text: "Developed a modular grid system that adapts to both tri-fold and square formats, using bold typography and Pickcel's signature red to anchor the visual identity.",
+            subtext: "The trifold handles technical integration details, while the square brochure focuses on high-impact product photography."
         },
-        result: "The new brochure system improved sales handoff and became a staple at international tech expos.",
+        result: "The dual-brochure system provided a versatile toolset for both technical sales meetings and high-level brand awareness at international events.",
         gridImages: [
-            "/images/work/print_hero.webp"
+            "/images/work/print_hero.png",
+            "/images/work/print_detail_2.png"
         ],
         stackImages: [
-            "/images/work/print_hero.webp"
+            "/images/work/print_hero.png",
+            "/images/work/print_detail_2.png"
         ],
-        impactImage: "/images/work/print_hero.webp"
+        impactImage: "/images/work/print_hero.png",
+        caseStudy: {
+            goals: [
+                "Translate complex tech into accessible print formats",
+                "Create a premium, tactile brand experience",
+                "Design modular layouts for different brochure types",
+                "Maintain perfect color fidelity for Pickcel Red"
+            ],
+            targetUsers: [
+                "Enterprise decision-makers",
+                "Trade show attendees",
+                "Potential integration partners",
+                "Internal sales teams"
+            ],
+            solutions: [
+                {
+                    num: '1/2',
+                    title: 'The Pickcel Trifold Brochure',
+                    desc: 'Designed as a high-density information piece, the trifold brochure uses a structured 6-panel layout to guide users through Pickcel’s digital signage solutions, global statistics, and ecosystem partners.',
+                    tags: ['Information Architecture', 'Tri-fold Layout', 'Technical Print'],
+                    rationale: 'For enterprise sales, detail matters. The trifold format allowed us to group complex features into digestible panels while maintaining a professional aesthetic.',
+                    mockupBg: '#7A1C1C',
+                    mockupImg: '/images/work/print_hero.png',
+                    pdfLink: '/pdfs/pickcel-trifold-brochure.pdf'
+                },
+                {
+                    num: '2/2',
+                    title: 'The Minimalist Square Brochure',
+                    desc: 'Focusing on brand impact, the square brochure uses large-scale imagery and minimal typography to create a luxury feel. It highlights the core value propositions with maximum white space and architectural balance.',
+                    tags: ['Visual Impact', 'Minimalism', 'Luxury Print'],
+                    rationale: 'In high-level networking, first impressions are everything. The square format breaks away from standard paper sizes to immediately signal a premium product.',
+                    mockupBg: '#111',
+                    mockupImg: '/images/work/print_detail_2.png',
+                    pdfLink: '/pdfs/pickcel-square-brochure.pdf'
+                }
+            ],
+            finalOutcome: "The resulting print portfolio has become a cornerstone of Pickcel’s physical marketing strategy, praised for its clarity and premium feel by international partners and clients."
+        }
     }
 ];
