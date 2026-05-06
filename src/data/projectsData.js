@@ -226,17 +226,17 @@ export const projectsData = [
         client: "Pickcel",
         service: "Website Design, Strategy",
         time: "4 Weeks",
-        description: "Redesign of the Pickcel marketing website to improve clarity, conversion, and scalability. The old experience was content-heavy, visually inconsistent, and lacked a clear hierarchy. The new design focuses on simplifying messaging, guiding users, and reinforcing trust.",
+        description: "Pickcel is a cloud-based digital signage platform used by businesses to manage and display content across screens. The goal of this redesign was to modernize the marketing website, improve clarity, and create a stronger conversion-focused experience for enterprise users.\n\nThe previous website contained valuable information, but the experience felt visually crowded and difficult to navigate. Important messaging was buried under dense layouts, making it harder for users to quickly understand the product and its benefits.\n\nThe redesigned website focuses on simplicity, scalability, and trust — helping users understand the product faster while creating a cleaner and more modern brand experience.",
         heroImage: "/images/work/work3.jpg",
         challenge: {
-            text: "The previous website suffered from weak first impressions, visual clutter, and a fragmented storytelling approach that disconnected features from benefits.",
-            subtext: "Enterprise decision-makers found it difficult to scan and understand the core value proposition, leading to lower credibility and conversion."
+            text: "The old website faced multiple usability and communication issues. The hero section lacked a strong and immediate value proposition. Too much information competed for attention at the same time. Weak visual hierarchy made scanning difficult. CTAs were inconsistent and not strategically placed. Sections felt disconnected, reducing storytelling flow. The overall UI felt outdated for a modern SaaS product. Trust indicators such as enterprise adoption and certifications were not emphasized enough.",
+            subtext: "As a result, the experience created friction for users trying to evaluate the product quickly."
         },
         solution: {
-            text: "We implemented a strong hero section, improved content hierarchy, and a consistent design system focused on enterprise-ready visuals.",
-            subtext: "By simplifying the visual language and placing conversion-focused CTAs strategically, we created a path of least resistance for high-value leads."
+            text: "The redesign process focused on simplifying the experience without removing important information. Instead of overwhelming users with content-heavy sections, the new design introduces clearer spacing, stronger hierarchy, and focused messaging.",
+            subtext: "Every section was redesigned to answer a specific user question: What is the product? Why should businesses trust it? What problems does it solve? Which industries use it? How can users get started? This created a more guided and conversion-oriented journey."
         },
-        result: "The revamp led to higher trial/demo conversions, reduced bounce rates, and a significantly stronger brand perception among enterprise users.",
+        result: "The redesign transformed the website into a cleaner, more modern, and conversion-focused experience. The new design improved product clarity, visual consistency, user flow, trust perception, and overall usability.",
         caseStudy: {
             targetUsers: [
                 "Enterprise decision-makers (IT, Operations, Marketing)",
@@ -244,83 +244,68 @@ export const projectsData = [
                 "Agencies and system integrators"
             ],
             goals: [
-                "Communicate product value within the first 5 seconds",
-                "Improve content hierarchy and readability",
-                "Increase trial/demo conversions",
-                "Build trust with enterprise-focused visuals and data",
-                "Create a scalable design system for future growth"
+                "Improve first impressions and product understanding",
+                "Create a cleaner and more structured layout",
+                "Increase visibility of key actions such as free trial and demo booking",
+                "Build credibility for enterprise customers",
+                "Improve readability and visual consistency",
+                "Design a scalable system for future website growth"
             ],
             challengeBullets: [
-                { icon: "🛑", text: "Weak first impression: unclear value proposition above the fold" },
-                { icon: "🛑", text: "Visual clutter: too many sections competing for attention" },
-                { icon: "🛑", text: "Poor hierarchy: difficult to scan and understand key offerings" },
-                { icon: "🛑", text: "Low conversion focus: CTAs were inconsistent and not emphasized" },
-                { icon: "🛑", text: "Outdated UI patterns: reduced credibility for an enterprise product" },
-                { icon: "🛑", text: "Fragmented storytelling: features, solutions, and benefits felt disconnected" }
+                { icon: "🛑", text: "The hero section lacked a strong and immediate value proposition" },
+                { icon: "🛑", text: "Too much information competed for attention at the same time" },
+                { icon: "🛑", text: "Weak visual hierarchy made scanning difficult" },
+                { icon: "🛑", text: "CTAs were inconsistent and not strategically placed" },
+                { icon: "🛑", text: "Sections felt disconnected, reducing storytelling flow" },
+                { icon: "🛑", text: "The overall UI felt outdated for a modern SaaS product" },
+                { icon: "🛑", text: "Trust indicators such as enterprise adoption and certifications were not emphasized enough" }
             ],
             solutions: [
                 {
-                    num: '1/7',
-                    title: 'Strong Hero Section',
-                    desc: '“Simple, Safe, and Scalable Digital Signage Software” — Immediate CTAs for Free Trial and Demo. Cleaner layout with focused visual.',
+                    num: '1/4',
+                    title: 'Hero Section Redesign',
+                    desc: 'The old hero section lacked visual clarity and did not immediately communicate the product value. The new hero section introduces: A clear headline focused on scalability and simplicity, Strong primary and secondary CTAs, Cleaner composition with more whitespace, Product-focused visuals instead of cluttered elements.',
                     tags: ['Clarity', 'Action-Oriented', 'Value Prop'],
-                    rationale: 'Users instantly understand what the product does and what to do next, reducing initial bounce rates.',
+                    rationale: 'This helped create a stronger first impression and made the website easier to understand within seconds.',
                     mockupBg: '#7A1C1C',
-                    mockupImg: '/images/work/work3.jpg',
+                    mockupImg: '/images/work/hero-section-redesign.png',
+                    mockupCaption: 'The new hero section prioritizes clarity and immediate conversion.',
                 },
                 {
-                    num: '2/7',
-                    title: 'Improved Content Hierarchy',
-                    desc: 'Grouped content into logical sections: Value proposition, Features, Use cases, Social proof, and Integrations. Reduced cognitive load by removing redundant blocks.',
+                    num: '2/4',
+                    title: 'Improved Visual Hierarchy',
+                    desc: 'One of the biggest improvements was restructuring the content hierarchy. The old design contained several visually competing sections, making it difficult for users to identify what mattered most. The redesigned layout uses: Clear section separation, Better typography scaling, Consistent spacing, Simplified card layouts, Reduced visual noise.',
                     tags: ['Information Architecture', 'Readability'],
-                    rationale: 'Logical grouping allows for faster scanning and better comprehension for busy enterprise leads.',
+                    rationale: 'This improved scanability and made the content easier to consume.',
                     mockupBg: '#1B2B4E',
-                    mockupImg: '/images/work/work1.jpg',
+                    mockupImg: [
+                        '/images/work/improved-visual-hierarchy-old.png',
+                        '/images/work/improved-visual-hierarchy-new.png'
+                    ],
+                    mockupCaption: [
+                        'BEFORE: Cluttered layout with competing elements',
+                        'AFTER: Structured hierarchy with clear, breathable sections'
+                    ],
                 },
                 {
-                    num: '3/7',
-                    title: 'Visual Simplification',
-                    desc: 'Reduced noise with fewer icons and less decorative clutter. Consistent spacing and modern typography across all cards and sections.',
-                    tags: ['Enterprise-Ready', 'Minimalism'],
-                    rationale: 'A cleaner interface creates a more professional and reliable feel for enterprise-level clients.',
-                    mockupBg: '#2D1B4E',
-                    mockupImg: '/images/work/work2.jpg',
-                },
-                {
-                    num: '4/7',
-                    title: 'Conversion-Focused CTAs',
-                    desc: 'Persistent and repeated CTAs across sections with high-contrast primary red buttons. Contextual placement after key value sections.',
+                    num: '3/4',
+                    title: 'Conversion-Focused Experience',
+                    desc: 'The redesign placed stronger emphasis on conversion. In the old website, CTAs were less noticeable and inconsistently placed. The new experience introduces: Repeated high-visibility CTA buttons, Better CTA positioning after key sections, Clear user actions such as “Start Free Trial” and “Book Demo”, Stronger contrast using the brand color.',
                     tags: ['Conversion Rate Optimization', 'Visual Hierarchy'],
-                    rationale: 'Creating a clear conversion path ensures users always know the next step without searching.',
-                    mockupBg: '#1B3A2B',
-                    mockupImg: '/images/work/work4.jpg',
-                },
-                {
-                    num: '5/7',
-                    title: 'Trust & Credibility',
-                    desc: 'Highlighted customer logos early, added key performance metrics (users, screens, countries), and integrated enterprise security badges.',
-                    tags: ['Social Proof', 'Reliability'],
-                    rationale: 'Builds immediate confidence for high-value buyers by demonstrating scale and security.',
-                    mockupBg: '#1A1A1A',
-                    mockupImg: '/images/work/work5.jpg',
-                },
-                {
-                    num: '6/7',
-                    title: 'Feature Communication Upgrade',
-                    desc: 'Replaced generic blurbs with structured feature sections detailing specific benefits like content management and multi-device support.',
-                    tags: ['Benefit-Driven', 'Feature Showcase'],
-                    rationale: 'Tying features to real user value makes the product more relatable and desirable.',
+                    rationale: 'This created a more intentional conversion flow throughout the page.',
                     mockupBg: '#2D1B4E',
-                    mockupImg: '/images/work/work1.jpg',
+                    mockupImg: '/images/work/conversion-focused-experience.png',
+                    mockupCaption: 'Persistent, high-contrast CTAs integrated seamlessly into the product storytelling.',
                 },
                 {
-                    num: '7/7',
-                    title: 'Consistent Design System',
-                    desc: 'Defined standard color usage (primary red, neutral backgrounds) and reusable components like cards and layout patterns.',
-                    tags: ['Scalability', 'Maintenance'],
-                    rationale: 'Easier maintenance and faster expansion for future marketing landing pages.',
-                    mockupBg: '#1B2B4E',
-                    mockupImg: '/images/work/work2.jpg',
+                    num: '4/4',
+                    title: 'Trust & Credibility',
+                    desc: 'Since Pickcel serves enterprise customers, trust became a major focus of the redesign. The updated website highlights: Client logos, Usage statistics, Enterprise certifications, Testimonials, Industry-specific solutions.',
+                    tags: ['Social Proof', 'Reliability'],
+                    rationale: 'These elements were strategically moved higher in the page structure to reinforce credibility earlier in the user journey.',
+                    mockupBg: '#1B3A2B',
+                    mockupImg: '/images/work/trust-credibility.png',
+                    mockupCaption: 'Enterprise trust signals and usage metrics placed prominently to build credibility.',
                 }
             ],
             learnings: [
@@ -336,12 +321,14 @@ export const projectsData = [
                 "Personalize sections based on user type (SMB vs Enterprise)",
                 "Improve SEO structure for feature pages"
             ],
-            finalOutcome: "The redesign successfully transformed Pickcel’s marketing site into a powerful conversion tool, effectively bridging the gap between product capability and user understanding.",
+            finalOutcome: "The redesign transformed the website into a cleaner, more modern, and conversion-focused experience. The final result better reflects Pickcel’s position as a scalable enterprise digital signage platform while providing users with a more focused and intuitive browsing experience.",
             impactOnUsers: [
-                "Higher conversion rate (trial/demo clicks)",
-                "Reduced bounce rate from landing section",
-                "Improved time on page",
-                "Stronger brand perception for enterprise users"
+                "Product clarity",
+                "Visual consistency",
+                "User flow",
+                "Trust perception",
+                "CTA visibility",
+                "Overall usability"
             ]
         }
     },
@@ -855,5 +842,128 @@ export const projectsData = [
         service: "E-Commerce Design & Development",
         description: "A digital flagship for luxury ethnic wear, redefining the boutique experience through high-fidelity visuals and advanced interaction design. Currently in active development.",
         category: "E-Commerce"
+    },
+    {
+        id: "giftease-mobile-app",
+        slug: "giftease",
+        title: "Gift Ease",
+        year: "2024",
+        type: "Product Design",
+        isSimpleShowcase: false,
+        image: "/images/work/giftease.webp",
+        client: "Gift Ease",
+        service: "Mobile App Design, UX/UI",
+        time: "6 Weeks",
+        category: "Mobile Application",
+        description: "Gift Ease is a mobile application designed to simplify the process of finding meaningful gifts for friends, family, and loved ones. The project focused on solving decision fatigue by helping users discover personalized gift ideas based on occasions, interests, personality, and budget.",
+        heroImage: "/images/work/giftease.webp",
+        challenge: {
+            text: "Finding the right gift is often stressful and time-consuming. Users commonly face problems such as not knowing what to buy, spending too much time searching across platforms, and difficulty choosing gifts based on personality.",
+            subtext: "Most existing e-commerce platforms prioritize products instead of helping users make confident gifting decisions."
+        },
+        solution: {
+            text: "Gift Ease introduces a guided gifting experience that helps users discover suitable gifts quickly and confidently. The solution includes personalized gift suggestions, occasion-based browsing, and budget filtering.",
+            subtext: "Instead of overwhelming users with endless products, the app narrows choices intelligently and creates a smoother decision-making process."
+        },
+        result: "The final design created a more focused and enjoyable gifting experience by reducing complexity and improving personalization.",
+        caseStudy: {
+            goals: [
+                "Reduce decision fatigue",
+                "Simplify gift discovery",
+                "Provide personalized recommendations",
+                "Create a visually engaging browsing experience",
+                "Improve confidence in gift selection",
+                "Make gifting faster and more enjoyable"
+            ],
+            targetUsers: [
+                "People looking for personalized gift ideas",
+                "Busy individuals who want faster gifting solutions",
+                "Users who struggle with decision fatigue"
+            ],
+            challengeBullets: [
+                { icon: "🛑", text: "Not knowing what to buy" },
+                { icon: "⏳", text: "Spending too much time searching across platforms" },
+                { icon: "🤔", text: "Difficulty choosing gifts based on personality or interests" },
+                { icon: "😨", text: "Fear of selecting something irrelevant or repetitive" },
+                { icon: "📉", text: "Lack of personalized recommendations" }
+            ],
+            understandingUsers: [
+                "Users often struggle more with choosing gifts than purchasing them",
+                "People prefer curated recommendations instead of browsing large catalogs",
+                "Occasion-based navigation reduces confusion",
+                "Visual presentation strongly influences gift selection",
+                "Users want faster ways to discover thoughtful gift ideas"
+            ],
+            solutions: [
+                {
+                    num: '1/5',
+                    title: 'Personalized Recommendations',
+                    desc: 'Gift ideas based on interests, occasions, and preferences. The recommendation engine provides tailored suggestions to eliminate guesswork.',
+                    tags: ['Personalization', 'Discovery'],
+                    rationale: 'Curated suggestions reduce decision fatigue and improve confidence.',
+                    mockupBg: '#FFECE5',
+                    mockupImg: '/images/work/giftease.webp',
+                    mockupType: 'clay'
+                },
+                {
+                    num: '2/5',
+                    title: 'Occasion-Based Discovery',
+                    desc: 'Users can browse gifts for birthdays, anniversaries, festivals, and celebrations. Categories are organized by event rather than just product type.',
+                    tags: ['Navigation', 'User Flow'],
+                    rationale: 'Shopping by occasion matches the natural mental model of gifting.',
+                    mockupBg: '#E5F0FF',
+                    mockupImg: '/images/work/giftease.webp',
+                    mockupType: 'clay'
+                },
+                {
+                    num: '3/5',
+                    title: 'Budget Filtering',
+                    desc: 'Allows users to quickly find gifts within their preferred price range, ensuring suggestions are always relevant and accessible.',
+                    tags: ['Filtering', 'Utility'],
+                    rationale: 'Budget constraints are a primary factor in gifting decisions.',
+                    mockupBg: '#E5FFE9',
+                    mockupImg: '/images/work/giftease.webp',
+                    mockupType: 'clay'
+                },
+                {
+                    num: '4/5',
+                    title: 'Wishlist & Saved Items',
+                    desc: 'Users can save gift ideas for future occasions, building a personalized library of thoughtful options over time.',
+                    tags: ['Retention', 'Convenience'],
+                    rationale: 'Gifting is an ongoing process; saving items reduces future search time.',
+                    mockupBg: '#FFF3E5',
+                    mockupImg: '/images/work/giftease.webp',
+                    mockupType: 'clay'
+                },
+                {
+                    num: '5/5',
+                    title: 'Smooth Product Browsing',
+                    desc: 'Simple layouts and clean navigation improve product exploration. The visual direction focuses on warmth, simplicity, and celebration with soft gradients and modern colors.',
+                    tags: ['Visual Design', 'UI'],
+                    rationale: 'A visually rich, distraction-free layout creates a friendly and premium experience.',
+                    mockupBg: '#F5E5FF',
+                    mockupImg: '/images/work/giftease.webp',
+                    mockupType: 'clay'
+                }
+            ],
+            learnings: [
+                "User-centered problem solving",
+                "Mobile UX design thinking",
+                "Personalized recommendation flow design",
+                "Clean and scalable UI systems",
+                "Emotional product experience design"
+            ],
+            nextSteps: [
+                "Implement machine learning for better recommendations",
+                "Add social sharing and collaborative gifting",
+                "Integrate direct checkout with retail partners"
+            ],
+            finalOutcome: "The final design created a more focused and enjoyable gifting experience by reducing complexity and improving personalization.",
+            impactOnUsers: [
+                "Reduced time spent searching for gifts",
+                "Increased confidence in gift selection",
+                "Higher engagement with curated recommendations"
+            ]
+        }
     }
 ];
