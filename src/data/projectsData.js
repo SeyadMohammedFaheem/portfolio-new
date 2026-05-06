@@ -76,7 +76,7 @@ export const projectsData = [
                     desc: "Introduced folder-based media organization, a simplified 'Move Media' flow with drag-and-drop, and faster searching within the composition editor.",
                     rationale: "Faster media management with reduced organization time, improved discoverability, and a scalable system for large media libraries.",
                     mockupBg: "#1B2B4E",
-                    mockupImg: "/images/work/2.png",
+                    mockupImg: "/images/work/2.jpg",
                     mockupCaption: "Media Library with Folder Organization"
                 },
                 {
@@ -86,7 +86,7 @@ export const projectsData = [
                     rationale: "The live preview and logical grouping significantly reduced the complex and time-consuming setup process, increasing user confidence.",
                     mockupBg: "#2D1B4E",
                     mockupImg: [
-                        "/images/work/3.png",
+                        "/images/work/3.jpg",
                         "/images/work/4.jpg"
                     ],
                     mockupCaption: [
@@ -108,8 +108,9 @@ export const projectsData = [
         id: "pickcel-go-app-design",
         slug: "pickcel-go-app-design",
         title: "Pickcel Mobile Redesign",
-        year: "2024",
+        year: "2025",
         type: "Mobile App",
+        isSimpleShowcase: false,
         image: "/images/work/work2.jpg",
         client: "Pickcel",
         service: "Mobile UI/UX",
@@ -219,7 +220,8 @@ export const projectsData = [
         slug: "website-revamp",
         title: "Website Revamp",
         year: "2024",
-        type: "UI/UX & Strategy",
+        type: "Web & Strategy",
+        isSimpleShowcase: false,
         image: "/images/work/work3.jpg",
         client: "Pickcel",
         service: "Website Design, Strategy",
@@ -551,6 +553,7 @@ export const projectsData = [
         title: "Gift Suggestion App",
         year: "2026",
         type: "Mobile App",
+        isLocked: true,
         image: "/images/work/giftease.png",
         client: "Gift Ease",
         service: "Mobile App",
@@ -630,6 +633,75 @@ export const projectsData = [
         ],
         impactImage: "/images/work/video_hero.png"
     },
+     {
+        id: "thinkstack-core",
+        slug: "thinkstack",
+        title: "Thinkstack Digital Core",
+        year: "2024",
+        type: "Web & Strategy",
+        isLocked: true,
+        isSimpleShowcase: false,
+        image: "/images/work/thinkstack-web.png",
+        client: "Thinkstack",
+        service: "UX/UI Design, Web Development",
+        time: "6 Weeks",
+        category: "Web & Product",
+        description: "Designing and developing a high-performance digital presence for Thinkstack, focusing on technical authority, seamless navigation, and a future-ready architectural aesthetic.",
+        heroImage: "/images/work/thinkstack-web.png",
+        challenge: {
+            text: "Creating a web experience that balances complex technical infrastructure with human-centric usability.",
+            subtext: "The goal was to move away from generic corporate layouts toward a more cinematic, information-rich design system."
+        },
+        solution: {
+            text: "Developed a dark-themed, high-contrast interface using bold typography and fluid transitions to guide users through the technical ecosystem.",
+            subtext: "Leveraged modular components to ensure the site remains scalable as the product offering grows."
+        },
+        result: "A state-of-the-art corporate website that significantly increased lead generation and improved brand authority in the digital signage space.",
+        gridImages: [
+            "/images/work/launchkit.png",
+            "/images/work/design-system-2.png"
+        ],
+        stackImages: [
+            "/images/work/launchkit.png",
+            "/images/work/design-system-2.png"
+        ],
+        impactImage: "/images/work/launchkit.png",
+        caseStudy: {
+            goals: [
+                "Establish a strong technical visual identity",
+                "Optimize site performance and load times",
+                "Create a modular, scalable CMS structure",
+                "Enhance information architecture for complex products"
+            ],
+            targetUsers: [
+                "Enterprise IT Managers",
+                "Marketing Directors",
+                "Systems Integrators",
+                "Internal Stakeholders"
+            ],
+            solutions: [
+                {
+                    num: '1/2',
+                    title: 'The Digital Backbone',
+                    desc: 'A robust homepage architecture designed to explain complex infrastructure at a glance. We used a "Cinematic Scroll" approach to keep users engaged as they learn about the product.',
+                    tags: ['Interaction Design', 'Architecture', 'Web Performance'],
+                    rationale: 'Technical users value efficiency. The layout prioritizes data-heavy sections with clean, high-contrast visual hierarchies.',
+                    mockupBg: '#0A0A0A',
+                    mockupImg: '/images/work/launchkit.png'
+                },
+                {
+                    num: '2/2',
+                    title: 'Component Design System',
+                    desc: 'To ensure long-term consistency, we built a comprehensive library of UI components, from data tables to interactive maps, all adhering to the new Thinkstack core style.',
+                    tags: ['Design Systems', 'React', 'Consistency'],
+                    rationale: 'As a growing company, Thinkstack needed a system that non-designers could use to build new pages while maintaining the brand’s premium feel.',
+                    mockupBg: '#111',
+                    mockupImg: '/images/work/design-system-2.png'
+                }
+            ],
+            finalOutcome: "Thinkstack now possesses a digital platform that matches the sophistication of its technology, resulting in a 40% increase in average session duration."
+        }
+    },
     {
         id: "print-design-identity",
         slug: "print-design",
@@ -699,5 +771,89 @@ export const projectsData = [
             ],
             finalOutcome: "The resulting print portfolio has become a cornerstone of Pickcel’s physical marketing strategy, praised for its clarity and premium feel by international partners and clients."
         }
+    },
+   
+    {
+        id: "social-visual-ecosystem",
+        slug: "social-media",
+        title: "Social Visual Ecosystem",
+        year: "2024",
+        type: "Social Media",
+        isLocked: true,
+        isSimpleShowcase: false,
+        image: "/images/work/pickcel_collage.jpg",
+        client: "Pickcel",
+        service: "Social Media Strategy, Content Design",
+        time: "Ongoing",
+        category: "Branding & Content",
+        description: "Engineering a cohesive visual narrative across social platforms, transforming static updates into a dynamic brand ecosystem that drives community engagement.",
+        heroImage: "/images/work/pickcel_collage.jpg",
+        challenge: {
+            text: "Overcoming a fragmented social presence with inconsistent visuals and low engagement across LinkedIn and Instagram.",
+            subtext: "Designing a system that allows for rapid content creation without sacrificing high-end aesthetic quality."
+        },
+        solution: {
+            text: "Created a modular template system based on Pickcel's brand tokens, enabling a consistent look and feel across all social-first content.",
+            subtext: "Introduced cinematic motion graphics and bold typography to differentiate the brand from competitors."
+        },
+        result: "A 120% increase in social engagement and a unified brand presence that reflects Pickcel’s position as a market leader.",
+        gridImages: [
+            "/images/work/pickcel_collage.jpg",
+            "/images/work/google-ads-banner.png",
+            "/images/work/poster.jpg"
+        ],
+        stackImages: [
+            "/images/work/pickcel_collage.jpg",
+            "/images/work/google-ads-banner.png"
+        ],
+        impactImage: "/images/work/poster.jpg",
+        caseStudy: {
+            goals: [
+                "Unify visual identity across LinkedIn, Instagram, and X",
+                "Increase community engagement and interaction",
+                "Design scalable content templates",
+                "Establish a 'Premium-Tech' social aesthetic"
+            ],
+            targetUsers: [
+                "Industry professionals",
+                "Potential partners",
+                "Community followers",
+                "Recruiters and job seekers"
+            ],
+            solutions: [
+                {
+                    num: '1/2',
+                    title: 'The Content Grid System',
+                    desc: 'We developed a mathematical grid for social posts that ensures perfect alignment and hierarchy, whether the content is a technical whitepaper or a brand announcement.',
+                    tags: ['Grid Systems', 'Layout Design', 'Hierarchy'],
+                    rationale: 'Social feeds are noisy. A disciplined grid system creates a "pattern of recognition" for the audience, making Pickcel posts immediately identifiable.',
+                    mockupBg: '#7A1C1C',
+                    mockupImg: '/images/work/pickcel_collage.jpg'
+                },
+                {
+                    num: '2/2',
+                    title: 'Ad & Campaign Identity',
+                    desc: 'Designed a series of high-performance ad banners and campaign posters that translate complex digital signage benefits into simple, striking visuals.',
+                    tags: ['Campaign Design', 'Advertising', 'Visual Impact'],
+                    rationale: 'In advertising, you have seconds to capture attention. We used high-contrast colors and minimalist layouts to maximize click-through rates.',
+                    mockupBg: '#111',
+                    mockupImg: '/images/work/google-ads-banner.png'
+                }
+            ],
+            finalOutcome: "The social media ecosystem has successfully shifted public perception of the brand, moving it from a 'utility' to a 'premium technology leader'."
+        }
+    },
+    {
+        id: "ufbrand-salwar-ecommerce",
+        slug: "ufbrand-salwar",
+        title: "UF Brand: Heritage Couture",
+        year: "2025",
+        type: "Web & Strategy",
+        isLocked: true,
+        image: "/images/work/work3.jpg",
+        client: "UF Brand",
+        service: "E-Commerce Design & Development",
+        description: "A digital flagship for luxury ethnic wear, redefining the boutique experience through high-fidelity visuals and advanced interaction design. Currently in active development.",
+        category: "E-Commerce"
     }
 ];
