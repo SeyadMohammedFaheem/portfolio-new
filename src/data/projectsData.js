@@ -797,20 +797,6 @@ export const projectsData = [
                     ],
                     mockupLabels: ["EMPTY CART", "TRANSACTION DECLINED"],
                     mockupCaption: "Refined UI: Engaging error and empty state management"
-                },
-                {
-                    num: "9/9",
-                    title: "Illustration Iterations",
-                    desc: "The visual language of Gift Ease evolved through multiple rounds of sketching and refining. This iterative process ensured that the illustrations felt warm, approachable, and perfectly aligned with the brand's 'joy of giving' philosophy.",
-                    rationale: "Iterating on key visuals allowed us to find the perfect balance between playfulness and clarity, ensuring the storytelling remains effective at every touchpoint.",
-                    mockupType: "clay",
-                    mockupImg: [
-                        "/images/work/iteration 1.png",
-                        "/images/work/iteration 2.png",
-                        "/images/work/iteration 3.png"
-                    ],
-                    mockupLabels: ["ITERATION 01", "ITERATION 02", "ITERATION 03"],
-                    mockupCaption: "Evolution of the Gift Ease visual storytelling"
                 }
             ],
             impactOnUsers: [
@@ -891,73 +877,154 @@ export const projectsData = [
         ],
         impactImage: "/images/work/video_hero.png"
     },
-     {
+    {
         id: "thinkstack-core",
         slug: "thinkstack",
-        title: "Thinkstack Digital Core",
-        year: "2024",
-        type: "Web & Strategy",
-        isLocked: true,
+        title: "Thinkstack AI Platform",
+        year: "2025",
+        type: "Product & AI Design",
+        isLocked: false,
         isSimpleShowcase: false,
-        image: "/images/work/thinkstack-web.png",
+        image: "/images/work/thinkstack-web-card.png",
         client: "Thinkstack",
-        service: "UX/UI Design, Web Development",
-        time: "6 Weeks",
-        category: "Web & Product",
-        description: "Designing and developing a high-performance digital presence for Thinkstack, focusing on technical authority, seamless navigation, and a future-ready architectural aesthetic.",
+        service: "UX/UI Design, AI Strategy",
+        time: "8 Weeks",
+        category: "Web & AI Product",
+        description: "This project focused on designing a modern AI chatbot platform website that helps businesses create, train, and deploy AI-powered chatbots for customer support, automation, and engagement. The goal of the redesign was to create a visually modern, conversion-focused, and enterprise-ready experience while clearly communicating the platform’s capabilities and benefits.",
         heroImage: "/images/work/thinkstack-web.png",
         challenge: {
-            text: "Creating a web experience that balances complex technical infrastructure with human-centric usability.",
-            subtext: "The goal was to move away from generic corporate layouts toward a more cinematic, information-rich design system."
+            text: "Many AI product websites overwhelm users with technical information, unclear messaging, and complex feature explanations. This creates friction for businesses trying to quickly understand the platform and its value.",
+            subtext: "The existing experience lacked clear feature communication, strong visual hierarchy, enterprise trust signals, and a modern SaaS presentation."
         },
         solution: {
-            text: "Developed a dark-themed, high-contrast interface using bold typography and fluid transitions to guide users through the technical ecosystem.",
-            subtext: "Leveraged modular components to ensure the site remains scalable as the product offering grows."
+            text: "The redesign process focused on simplifying technical communication while maintaining a premium and futuristic visual identity. Instead of overwhelming users with dense AI terminology, the new design introduces a clear content hierarchy and modular layouts.",
+            subtext: "Every section was designed to answer a specific user question, creating a more guided and engaging browsing experience."
         },
-        result: "A state-of-the-art corporate website that significantly increased lead generation and improved brand authority in the digital signage space.",
-        gridImages: [
-            "/images/work/launchkit.png",
-            "/images/work/design-system-2.png"
-        ],
-        stackImages: [
-            "/images/work/launchkit.png",
-            "/images/work/design-system-2.png"
-        ],
-        impactImage: "/images/work/launchkit.png",
+        result: "The final design transformed the website into a cleaner, more modern, and conversion-focused experience, improving product clarity, user engagement, and enterprise trust perception.",
         caseStudy: {
             goals: [
-                "Establish a strong technical visual identity",
-                "Optimize site performance and load times",
-                "Create a modular, scalable CMS structure",
-                "Enhance information architecture for complex products"
+                "Improve product understanding",
+                "Create a modern AI-focused visual identity",
+                "Increase demo and signup conversions",
+                "Simplify complex feature communication",
+                "Build trust through security and analytics sections",
+                "Create a scalable SaaS design system"
             ],
             targetUsers: [
-                "Enterprise IT Managers",
-                "Marketing Directors",
-                "Systems Integrators",
-                "Internal Stakeholders"
+                "Enterprise Decision Makers",
+                "Business Operations Managers",
+                "Customer Support Leads",
+                "Technical Teams & Integrators"
             ],
             solutions: [
                 {
-                    num: '1/2',
-                    title: 'The Digital Backbone',
-                    desc: 'A robust homepage architecture designed to explain complex infrastructure at a glance. We used a "Cinematic Scroll" approach to keep users engaged as they learn about the product.',
-                    tags: ['Interaction Design', 'Architecture', 'Web Performance'],
-                    rationale: 'Technical users value efficiency. The layout prioritizes data-heavy sections with clean, high-contrast visual hierarchies.',
+                    num: '1/11',
+                    title: 'Hero Section',
+                    desc: 'Designed to create a strong first impression using bold typography, futuristic gradients, and clear messaging. The layout introduces a strong product headline, supporting description, and focused visual structure.',
+                    rationale: 'The dark visual theme combined with glowing gradient effects helps establish a premium AI-focused brand identity.',
                     mockupBg: '#0A0A0A',
-                    mockupImg: '/images/work/launchkit.png'
+                    mockupImg: '/images/work/thinkstack-web.png',
+                    mockupCaption: 'Hero section with premium AI branding and clear CTAs'
                 },
                 {
-                    num: '2/2',
-                    title: 'Component Design System',
-                    desc: 'To ensure long-term consistency, we built a comprehensive library of UI components, from data tables to interactive maps, all adhering to the new Thinkstack core style.',
-                    tags: ['Design Systems', 'React', 'Consistency'],
-                    rationale: 'As a growing company, Thinkstack needed a system that non-designers could use to build new pages while maintaining the brand’s premium feel.',
+                    num: '2/11',
+                    title: 'AI Training Section',
+                    desc: 'This section explains how businesses can train chatbots using their own content and data sources. The design focuses on simplifying technical concepts through clean layouts and supporting visuals.',
+                    rationale: 'Large spacing and minimal content structure improve readability and make the feature easier to understand.',
+                    mockupBg: '#0F0F0F',
+                    mockupImg: '/images/work/thinkstack-web.png',
+                    mockupCaption: 'Intuitive AI training interface for business data'
+                },
+                {
+                    num: '3/11',
+                    title: 'Integration Section',
+                    desc: 'Highlights compatibility with Shopify and multiple business platforms. A simple logo-based layout was used to improve scanability and quickly communicate ecosystem support.',
+                    rationale: 'Helps businesses understand that the platform can fit into their existing workflows without visual clutter.',
                     mockupBg: '#111',
-                    mockupImg: '/images/work/design-system-2.png'
+                    mockupImg: '/images/work/thinkstack-web.png',
+                    mockupCaption: 'Ecosystem support and platform integrations'
+                },
+                {
+                    num: '4/11',
+                    title: 'Conversational Experience Showcase',
+                    desc: 'Demonstrates how the chatbot interacts with customers across different touchpoints. Combines interface previews with content to help users visualize real-world AI conversations.',
+                    rationale: 'The section was designed to make the product feel interactive and approachable.',
+                    mockupBg: '#0D0D0D',
+                    mockupImg: '/images/work/thinkstack-web.png',
+                    mockupCaption: 'Real-world conversational interface preview'
+                },
+                {
+                    num: '5/11',
+                    title: 'Automation Features',
+                    desc: 'Highlights AI workflows, actions, and intelligent task handling. Dashboard previews and dark UI components were used to create a technical yet clean presentation style.',
+                    rationale: 'The goal was to communicate advanced functionality without overwhelming users.',
+                    mockupBg: '#0A0A15',
+                    mockupImg: '/images/work/thinkstack-web.png',
+                    mockupCaption: 'Advanced AI automation workflows'
+                },
+                {
+                    num: '6/11',
+                    title: 'Security & Trust',
+                    desc: 'Focuses on data protection, compliance certifications, and enterprise-level trust indicators. A minimal layout with certification badges reinforces reliability.',
+                    rationale: 'Security is a major focus for businesses trusting AI platforms with customer data.',
+                    mockupBg: '#050505',
+                    mockupImg: '/images/work/thinkstack-web.png',
+                    mockupCaption: 'Enterprise-grade security and compliance indicators'
+                },
+                {
+                    num: '7/11',
+                    title: 'Conversational Forms',
+                    desc: 'Introduces AI-powered conversational forms designed to improve engagement and lead collection. Uses interactive conversation-based inputs for smoother interactions.',
+                    rationale: 'Interactive inputs create a more natural and user-friendly experience compared to static forms.',
+                    mockupBg: '#0F0F0F',
+                    mockupImg: '/images/work/thinkstack-web.png',
+                    mockupCaption: 'Interactive conversational form experience'
+                },
+                {
+                    num: '8/11',
+                    title: 'Analytics Dashboard',
+                    desc: 'Showcases how businesses can monitor chatbot performance through sentiment analysis, channels, and support metrics using dashboard-style visualizations.',
+                    rationale: 'Makes the platform feel data-driven and enterprise-ready through clarity of performance insights.',
+                    mockupBg: '#0A0A0A',
+                    mockupImg: '/images/work/thinkstack-web.png',
+                    mockupCaption: 'Comprehensive AI performance analytics dashboard'
+                },
+                {
+                    num: '9/11',
+                    title: 'Branding & Customization',
+                    desc: 'Highlights chatbot customization features including themes, colors, and branding personalization. Focuses on flexibility and helping businesses maintain brand identity.',
+                    rationale: 'The clean modular structure improves readability while showcasing customization possibilities.',
+                    mockupBg: '#0F0F15',
+                    mockupImg: '/images/work/thinkstack-web.png',
+                    mockupCaption: 'Customization suite for brand alignment'
+                },
+                {
+                    num: '10/11',
+                    title: 'Industry Solutions',
+                    desc: 'Demonstrates how the platform can adapt to different business types and use cases using modular content layouts and product previews.',
+                    rationale: 'Communicates scalability and flexibility across industries such as e-commerce, support, and automation.',
+                    mockupBg: '#0D0D0D',
+                    mockupImg: '/images/work/thinkstack-web.png',
+                    mockupCaption: 'Scalable solutions for diverse industry needs'
+                },
+                {
+                    num: '11/11',
+                    title: 'FAQ Section',
+                    desc: 'Uses a simple accordion layout to improve readability and reduce visual clutter, allowing users to quickly access important information.',
+                    rationale: 'Allows information access without interrupting the browsing experience.',
+                    mockupBg: '#0A0A0A',
+                    mockupImg: '/images/work/thinkstack-web.png',
+                    mockupCaption: 'Streamlined FAQ experience'
                 }
             ],
-            finalOutcome: "Thinkstack now possesses a digital platform that matches the sophistication of its technology, resulting in a 40% increase in average session duration."
+            finalOutcome: "The final design transformed the website into a cleaner, more modern, and conversion-focused experience, successfully balancing premium AI branding with high-end usability.",
+            impactOnUsers: [
+                "Improved product clarity and understanding",
+                "Enhanced visual consistency across the platform",
+                "Increased user engagement and session duration",
+                "Strengthened enterprise trust and credibility",
+                "Better CTA visibility and conversion paths"
+            ]
         }
     },
     {
@@ -1037,15 +1104,23 @@ export const projectsData = [
         title: "Social Visual Ecosystem",
         year: "2024",
         type: "Social Media",
-        isLocked: true,
-        isSimpleShowcase: false,
-        image: "/images/work/pickcel_collage.jpg",
+        isLocked: false,
+        isSimpleShowcase: true,
+        image: "/images/work/social-media-1.png",
         client: "Pickcel",
         service: "Social Media Strategy, Content Design",
         time: "Ongoing",
         category: "Branding & Content",
         description: "Engineering a cohesive visual narrative across social platforms, transforming static updates into a dynamic brand ecosystem that drives community engagement.",
-        heroImage: "/images/work/pickcel_collage.jpg",
+        heroImage: "/images/work/social-media-1.png",
+        thinkStackNote: {
+            text: "I have been designing visuals for Pickcel and ThinkStack's social media, website assets, and motion works for the past 3 years. These projects represent a cohesive effort to elevate both brands through consistent storytelling and high-fidelity design.",
+            links: [
+                { text: "Visit Pickcel", url: "https://pickcel.com" },
+                { text: "Visit ThinkStack", url: "https://thinkstack.ai" },
+                { text: "Visit Edbrick", url: "https://edbrick.com" }
+            ]
+        },
         challenge: {
             text: "Overcoming a fragmented social presence with inconsistent visuals and low engagement across LinkedIn and Instagram.",
             subtext: "Designing a system that allows for rapid content creation without sacrificing high-end aesthetic quality."
@@ -1056,15 +1131,15 @@ export const projectsData = [
         },
         result: "A 120% increase in social engagement and a unified brand presence that reflects Pickcel’s position as a market leader.",
         gridImages: [
-            "/images/work/pickcel_collage.jpg",
-            "/images/work/google-ads-banner.png",
-            "/images/work/poster.jpg"
+            "/images/work/social-media/1751030302083.jfif",
+            "/images/work/social-media/1754028671646 (1).jfif",
+            "/images/work/social-media/1756258447715.jfif"
         ],
         stackImages: [
-            "/images/work/pickcel_collage.jpg",
-            "/images/work/google-ads-banner.png"
+            "/images/work/social-media/1756986527240.jfif",
+            "/images/work/social-media/1757049482644.jfif"
         ],
-        impactImage: "/images/work/poster.jpg",
+        impactImage: "/images/work/social-media/1757128325115 (1).jfif",
         caseStudy: {
             goals: [
                 "Unify visual identity across LinkedIn, Instagram, and X",
@@ -1078,6 +1153,56 @@ export const projectsData = [
                 "Community followers",
                 "Recruiters and job seekers"
             ],
+            designProcess: [
+                {
+                    heading: "Pickcel Social Ecosystem",
+                    gridStyle: 'compact',
+                    image: [
+                        "/images/work/social-media/1747305267971.jfif",
+                        "/images/work/social-media/1747640743082.jfif",
+                        "/images/work/social-media/1748338524126.jfif",
+                        "/images/work/social-media/1748497889300.jfif",
+                        "/images/work/social-media/1750486727570.jfif",
+                        "/images/work/social-media/1751030302083.jfif",
+                        "/images/work/social-media/1752576011327.jfif",
+                        "/images/work/social-media/1754028671646 (1).jfif",
+                        "/images/work/social-media/1755607587297.jfif",
+                        "/images/work/social-media/1756258447715.jfif",
+                        "/images/work/social-media/1756986527240.jfif",
+                        "/images/work/social-media/1757049482644.jfif",
+                        "/images/work/social-media/1757128325115 (1).jfif",
+                        "/images/work/social-media/1757312617585.jfif",
+                        "/images/work/social-media/1758271599702 (1).jfif",
+                        "/images/work/social-media/1759492526624.jfif",
+                        "/images/work/social-media/1760360021773.jfif",
+                        "/images/work/social-media/1764850017478.jfif",
+                        "/images/work/social-media/1769362309947.jfif",
+                        "/images/work/social-media/430216212_960340506097869_7975905213210617501_n..jpg",
+                        "/images/work/social-media/482995267_18260941426279004_3826225828098570805_n..jpg",
+                        "/images/work/social-media/483761676_18261201520279004_1843719382745376337_n..jpg",
+                        "/images/work/social-media/624086933_18111078979725112_761004495251575067_n..jpg",
+                        "/images/work/social-media/624726380_18087467666109790_6773935909898284250_n..jpg",
+                        "/images/work/social-media/624819098_18149084041445875_5272935466873360235_n..jpg",
+                        "/images/work/social-media/628631252_18454896793101583_1893209786886308446_n..jpg"
+                    ]
+                },
+                {
+                    heading: "ThinkStack Social Ecosystem",
+                    gridStyle: 'compact',
+                    image: [
+                        "/images/work/social-media/thinkstack/482969666_17848838994423973_4497820143798182367_n..jpg",
+                        "/images/work/social-media/thinkstack/483171448_17848832730423973_1861259376434438629_n..jpg",
+                        "/images/work/social-media/thinkstack/483213709_17848836015423973_981085596632410358_n..jpg",
+                        "/images/work/social-media/thinkstack/483267635_17848831614423973_5830870089893178689_n..jpg",
+                        "/images/work/social-media/thinkstack/483852845_17848836711423973_9215820291717547604_n..jpg",
+                        "/images/work/social-media/thinkstack/484108924_17848838715423973_3253649745432166913_n..jpg",
+                        "/images/work/social-media/thinkstack/491895448_17855093142423973_4706016227547484056_n..jpg",
+                        "/images/work/social-media/thinkstack/519484787_17865919767423973_5671857013837820699_n..jpg",
+                        "/images/work/social-media/thinkstack/528263938_17868605109423973_6125855976008464460_n..jpg",
+                        "/images/work/social-media/thinkstack/591162543_17883037761423973_1977079548995216034_n..jpg"
+                    ]
+                }
+            ],
             solutions: [
                 {
                     num: '1/2',
@@ -1086,7 +1211,7 @@ export const projectsData = [
                     tags: ['Grid Systems', 'Layout Design', 'Hierarchy'],
                     rationale: 'Social feeds are noisy. A disciplined grid system creates a "pattern of recognition" for the audience, making Pickcel posts immediately identifiable.',
                     mockupBg: '#7A1C1C',
-                    mockupImg: '/images/work/pickcel_collage.jpg'
+                    mockupImg: '/images/work/social-media/1755607587297.jfif'
                 },
                 {
                     num: '2/2',
@@ -1095,7 +1220,7 @@ export const projectsData = [
                     tags: ['Campaign Design', 'Advertising', 'Visual Impact'],
                     rationale: 'In advertising, you have seconds to capture attention. We used high-contrast colors and minimalist layouts to maximize click-through rates.',
                     mockupBg: '#111',
-                    mockupImg: '/images/work/google-ads-banner.png'
+                    mockupImg: '/images/work/social-media/1769362309947.jfif'
                 }
             ],
             finalOutcome: "The social media ecosystem has successfully shifted public perception of the brand, moving it from a 'utility' to a 'premium technology leader'."
