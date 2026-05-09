@@ -4014,10 +4014,21 @@ header.main-header {
 }
 
 .zc-val {
-    font-size: 1rem;
-    font-weight: 700;
-    color: var(--text-color);
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #fff;
+    margin-top: 4px;
 }
+
+.live-link-btn {
+    transition: all 0.3s ease;
+}
+
+.live-link-btn:hover {
+    color: #fff !important;
+    transform: translateX(3px);
+}
+
 
 /* Section blocks */
 .zc-section-block { margin: 120px 0; }
@@ -4793,7 +4804,7 @@ header.main-header {
 .zc-clay-container {
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start; /* Changed from center to top align phones */
     gap: 40px;
     margin: 60px 0;
     flex-wrap: wrap;
@@ -4837,6 +4848,7 @@ header.main-header {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: top; /* Ensure image content starts from top */
     display: block;
 }
 
@@ -4895,4 +4907,246 @@ header.main-header {
     opacity: 0.4;
     text-align: center;
 }
+
+/* ─── AUTO SCROLL MARQUEE ─── */
+.zc-auto-scroll-container {
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    overflow: hidden;
+    padding: 20px 0;
+    mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+}
+
+.zc-auto-scroll-track {
+    display: flex;
+    gap: 20px;
+    width: max-content;
+    animation: zc-marquee 40s linear infinite;
+}
+
+.zc-auto-scroll-track:hover {
+    animation-play-state: paused;
+}
+
+@keyframes zc-marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+.zc-scroll-img {
+    height: 450px;
+    width: auto;
+    border-radius: 12px;
+    border: 1px solid rgba(255,255,255,0.05);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    object-fit: contain;
+    transition: transform 0.3s ease;
+}
+
+.zc-scroll-img:hover {
+    transform: scale(1.05);
+}
+
+
+/* ─── COLOR PALETTE ─── */
+.zc-color-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+    margin-top: 20px;
+}
+
+.zc-color-chip {
+    flex: 1;
+    min-width: 120px;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.zc-color-chip:hover {
+    transform: translateY(-5px);
+}
+
+.zc-color-swatch {
+    height: 100px;
+    width: 100%;
+}
+
+.zc-color-info {
+    padding: 16px;
+}
+
+.zc-color-name {
+    font-size: 0.9rem;
+    font-weight: 700;
+    margin-bottom: 4px;
+    color: var(--text-color);
+}
+
+.zc-color-hex {
+    font-family: monospace;
+    font-size: 0.8rem;
+    color: rgba(255,255,255,0.5);
+    text-transform: uppercase;
+}
+
+/* ─── TYPOGRAPHY SHOWCASE ─── */
+.zc-typo-showcase {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 24px;
+    padding: 40px;
+    margin-top: 20px;
+}
+
+.zc-typo-main-info {
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    padding-bottom: 30px;
+    margin-bottom: 30px;
+}
+
+.zc-typo-family {
+    font-size: 3rem;
+    font-weight: 800;
+    letter-spacing: -0.04em;
+    margin-bottom: 8px;
+}
+
+.zc-typo-weights {
+    display: flex;
+    gap: 12px;
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.4);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+.zc-typo-example {
+    margin-bottom: 32px;
+}
+
+.zc-typo-example:last-child {
+    margin-bottom: 0;
+}
+
+.zc-typo-label {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: rgba(255,255,255,0.3);
+    margin-bottom: 12px;
+    display: block;
+}
+
+/* ─── ICON GRID ─── */
+.zc-icon-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.zc-icon-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    padding: 20px;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 16px;
+    transition: all 0.3s ease;
+}
+
+.zc-icon-item:hover {
+    background: rgba(255,255,255,0.06);
+    transform: translateY(-5px);
+}
+
+.zc-icon-wrapper {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.zc-icon-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    filter: brightness(0) invert(1); /* Make SVGs white */
+    opacity: 0.8;
+}
+
+.zc-icon-name {
+    font-size: 0.75rem;
+    color: rgba(255,255,255,0.5);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+/* ─── ILLUSTRATION LIBRARY ─── */
+.zc-illustration-library {
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+    margin-top: 40px;
+}
+
+.zc-illustration-group {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.zc-group-title {
+    font-size: 0.75rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--accent-color);
+    opacity: 0.6;
+}
+
+.zc-illustration-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.zc-illustration-item {
+    background: #ffffff; /* Solid white background */
+    border: 1px solid rgba(0, 0, 0, 0.05); /* Soft dark border */
+    border-radius: 24px; /* Slightly more rounded */
+    padding: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    aspect-ratio: 1 / 1;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+.zc-illustration-item:hover {
+    background: #ffffff;
+    border-color: var(--accent-color); /* Highlight border on hover */
+    transform: translateY(-8px);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+}
+
+.zc-illustration-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
 

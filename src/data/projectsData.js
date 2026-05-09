@@ -340,6 +340,7 @@ export const projectsData = [
         type: "Design System",
         image: "/images/work/work4.jpg",
         client: "OctaLume",
+        liveWebsiteLink: "https://octalume.vercel.app/",
         service: "UX Design, UI Design, Branding, Design System",
         category: "Smart Home Technology",
         time: "6 Weeks",
@@ -537,10 +538,9 @@ export const projectsData = [
     {
         id: "gift-ease-app",
         slug: "gift-ease",
-        title: "Gift Suggestion App",
+        title: "GiftEase-Gifting App",
         year: "2026",
         type: "Mobile App",
-        isLocked: true,
         image: "/images/work/giftease.png",
         client: "Gift Ease",
         service: "Mobile App",
@@ -555,6 +555,277 @@ export const projectsData = [
             subtext: "Incorporated a vibrant pink-themed UI to evoke the joyful nature of gifting."
         },
         result: "Gift Ease streamlined the gifting process and significantly reduced the time taken to find a perfect present.",
+        caseStudy: {
+            goals: [
+                "Eliminate decision fatigue through guided discovery",
+                "Create an emotionally engaging and joyful user experience",
+                "Provide highly personalized gift recommendations",
+                "Simplify the transition from discovery to purchase"
+            ],
+            targetUsers: [
+                "Busy professionals who value efficiency in gifting",
+                "Users struggling with 'Gift-Giver's block' or decision fatigue",
+                "Millennials and Gen Z looking for curated, non-generic ideas",
+                "People managing multiple special occasions simultaneously"
+            ],
+            understandingUsers: [
+                "Identified that users feel most stressed about the 'relevance' of a gift, not just the price.",
+                "Discovered that 70% of users prefer a guided experience over an open-ended search bar.",
+                "Learned that emotional connection is the primary driver for high-value gift purchases.",
+                "Observed that mobile-first speed is critical for last-minute gift shopping."
+            ],
+            designProcess: [
+                {
+                    heading: "1. Initial Ideations",
+                    desc: "The project began with rapid sketching and mind-mapping to explore different ways of categorization and recommendation logic. These rough ideas formed the foundation of the final product.",
+                    image: [
+                        "/images/work/iteration 1.png",
+                        "/images/work/iteration 2.png",
+                        "/images/work/iteration 3.png",
+                        "/images/work/iteration 4.png",
+                        "/images/work/iteration 5.png"
+                    ]
+                },
+                {
+                    heading: "2. Wireframes",
+                    desc: "Translating the rough sketches into low-fidelity wireframes to establish the user flow and information architecture, ensuring that the 'Personalized Quiz' and 'Discovery Hubs' felt intuitive.",
+                    scrollStyle: 'auto',
+                    image: [
+                        "/images/work/Onboarding-1.png",
+                        "/images/work/Onboarding-2.png",
+                        "/images/work/Onboarding-3.png",
+                        "/images/work/Home Page-4.png",
+                        "/images/work/Product Listing Page-5.png",
+                        "/images/work/Product Listing Page-6.png",
+                        "/images/work/Checkout-7.png",
+                        "/images/work/Payment option-8.png",
+                        "/images/work/Payment Successful-9.png"
+                    ]
+                },
+                {
+                    heading: "3. Typography",
+                    desc: "The typography system uses 'Inter' to ensure clean, high-legibility communication across all mobile screens. The hierarchy is carefully balanced to guide users from bold headings to digestible body content.",
+                    typography: {
+                        fontFamily: "Inter",
+                        weights: ["Regular", "Medium", "SemiBold", "Bold"],
+                        examples: [
+                            { label: "Heading H1", size: "28px", weight: "Bold", text: "Heading H1" },
+                            { label: "Heading H2", size: "24px", weight: "Bold", text: "Heading H2" },
+                            { label: "Heading H3", size: "18px", weight: "Bold", text: "Heading H3" },
+                            { label: "Heading H4", size: "16px", weight: "Bold", text: "Heading H4" },
+                            { label: "Paragraph Default", size: "14px", weight: "Medium", text: "Paragraph Default" },
+                            { label: "Paragraph Small", size: "12px", weight: "Medium", text: "Paragraph Small" },
+                            { label: "Paragraph Extra Small", size: "10px", weight: "Medium", text: "Paragraph Extra Small" }
+                        ]
+                    }
+                },
+                {
+                    heading: "4. Colors",
+                    desc: "A comprehensive color system featuring primary branding tones, feedback states, and a refined neutral palette for text and interactive elements.",
+                    colors: [
+                        // Row 1
+                        { name: "Primary", hex: "#D9416F", type: "Main" },
+                        { name: "Primary Dark", hex: "#9E2F51", type: "Main" },
+                        { name: "Secondary", hex: "#F6F6F6", type: "Main" },
+                        { name: "White", hex: "#FFFFFF", type: "Main" },
+                        { name: "Purple", hex: "#924FE9", type: "Main" },
+                        { name: "Light Purple", hex: "#EFE2FF", type: "Main" },
+                        { name: "Yellow", hex: "#F6CC3E", type: "Main" },
+                        { name: "Dark Grey", hex: "#BEBEBE", type: "Main" },
+                        // Row 2
+                        { name: "Success Bg", hex: "#CEFFE6", type: "Feedback" },
+                        { name: "Warning Bg", hex: "#FFE694", type: "Feedback" },
+                        { name: "Error Bg", hex: "#FFD8D8", type: "Feedback" },
+                        { name: "Grey Bg", hex: "#F6F6F6", type: "Feedback" },
+                        // Row 3
+                        { name: "Primary Text", hex: "#333333", type: "UI" },
+                        { name: "Secondary Text", hex: "#606060", type: "UI" },
+                        { name: "Placeholder", hex: "#858585", type: "UI" },
+                        { name: "Disabled Text", hex: "#ADADAD", type: "UI" },
+                        { name: "Success Text", hex: "#1C925C", type: "UI" },
+                        { name: "Warning Text", hex: "#E0B113", type: "UI" },
+                        { name: "Error Text", hex: "#CB3A3A", type: "UI" },
+                        { name: "Link Text", hex: "#4971FF", type: "UI" }
+                    ]
+                },
+                {
+                    heading: "5. Icons",
+                    desc: "Designed a custom set of line icons with a consistent stroke weight. These icons were crafted to be intuitive and visually light, complementing the 'Inter' typography and the rounded UI elements.",
+                    icons: [
+                        { name: "Home", path: "/images/work/icons/HouseLine.svg" },
+                        { name: "Search", path: "/images/work/icons/MagnifyingGlass.svg" },
+                        { name: "Gift", path: "/images/work/icons/Gift.svg" },
+                        { name: "Calendar", path: "/images/work/icons/CalendarBlank.svg" },
+                        { name: "Location", path: "/images/work/icons/MapPin.svg" },
+                        { name: "Clock", path: "/images/work/icons/Clock.svg" },
+                        { name: "Filter", path: "/images/work/icons/Sliders.svg" },
+                        { name: "Menu", path: "/images/work/icons/List.svg" },
+                        { name: "Payments", path: "/images/work/icons/Cards.svg" },
+                        { name: "Banking", path: "/images/work/icons/Bank.svg" },
+                        { name: "Lifestyle", path: "/images/work/icons/TShirt.svg" },
+                        { name: "Entertainment", path: "/images/work/icons/Ticket.svg" },
+                        { name: "Sports", path: "/images/work/icons/Volleyball.svg" },
+                        { name: "Education", path: "/images/work/icons/Books.svg" },
+                        { name: "Electronics", path: "/images/work/icons/Monitor.svg" },
+                        { name: "Back", path: "/images/work/icons/ArrowLeft.svg" }
+                    ]
+                },
+                {
+                    heading: "6. Onboarding Illustration",
+                    desc: "Engaging, story-driven illustrations that guide new users through the app's value proposition, making the first interaction feel warm and inviting. Each screen introduces a core benefit of the Gift Ease ecosystem.",
+                    gridStyle: 'compact',
+                    image: [
+                        "/images/work/app-onboarding-1.png",
+                        "/images/work/app-onboarding-2.png",
+                        "/images/work/app-onboarding-3.png",
+                        "/images/work/app-onboarding-4.png"
+                    ]
+                },
+                {
+                    heading: "7. Illustration Library",
+                    desc: "A comprehensive library of 18 custom SVG illustrations categorized into three distinct stylistic groups. This collection supports various app states, from promotional banners to error feedback, ensuring a cohesive and delightful user experience.",
+                    illustrationLibrary: [
+                        {
+                            title: "Style Group A",
+                            images: [
+                                "/images/work/Illustration/All gifts in one place.svg",
+                                "/images/work/Illustration/Discount Offers.svg",
+                                "/images/work/Illustration/Empty state - \u2028Add Products in Cart.svg",
+                                "/images/work/Illustration/Error state - Payment Failure.svg",
+                                "/images/work/Illustration/Gift for loved ones.svg",
+                                "/images/work/Illustration/On Time Delivery.svg"
+                            ]
+                        },
+                        {
+                            title: "Style Group B",
+                            images: [
+                                "/images/work/Illustration/All gifts in one place-1.svg",
+                                "/images/work/Illustration/Discount Offers-1.svg",
+                                "/images/work/Illustration/Empty state - \u2028Add Products in Cart-1.svg",
+                                "/images/work/Illustration/Error state - Payment Failure-1.svg",
+                                "/images/work/Illustration/Gift for loved ones-1.svg",
+                                "/images/work/Illustration/On Time Delivery-1.svg"
+                            ]
+                        },
+                        {
+                            title: "Style Group C",
+                            images: [
+                                "/images/work/Illustration/All gifts in one place-2.svg",
+                                "/images/work/Illustration/Discount Offers-2.svg",
+                                "/images/work/Illustration/Empty state - \u2028Add Products in Cart-2.svg",
+                                "/images/work/Illustration/Error state - Payment Failure-2.svg",
+                                "/images/work/Illustration/Gift for loved ones-2.svg",
+                                "/images/work/Illustration/On Time Delivery-2.svg"
+                            ]
+                        }
+                    ]
+                }
+            ],
+            solutions: [
+                {
+                    num: "1/8",
+                    title: "Personalized Gift Flow",
+                    desc: "A guided personalization flow was created to simplify gift selection. Users can choose preferences such as relationship, occasion, age group, interests, and budget to receive more relevant gift recommendations.",
+                    rationale: "Simplifying complex decision-making through progressive disclosure ensures users aren't overwhelmed by choice.",
+                    mockupType: "clay",
+                    mockupImg: "/images/work/personal-setting.png",
+                    mockupCaption: "Refined UI: Guided personalization flow"
+                },
+                {
+                    num: "2/8",
+                    title: "Home Screen",
+                    desc: "The home screen was designed to help users quickly discover gifts through categories, personalized recommendations, and special occasion collections. A clean layout, large product visuals, and a simple navigation system were used to create an easy and engaging browsing experience.",
+                    rationale: "Fast discovery is key to retention. The layout prioritizes high-intent actions while maintaining a joyful aesthetic.",
+                    mockupType: "clay",
+                    mockupImg: "/images/work/Home Page.png",
+                    mockupCaption: "Refined UI: Engaging and clean Home Screen layout"
+                },
+                {
+                    num: "3/8",
+                    title: "Product Listing Page",
+                    desc: "The product listing page uses a clean grid layout to improve product browsing and comparison. Each card displays the product image, name, price, and wishlist option for a simple shopping experience.",
+                    rationale: "Visual consistency in grids reduces cognitive load, allowing users to scan and compare items effortlessly.",
+                    mockupType: "clay",
+                    mockupImg: "/images/work/Product Listing Page.png",
+                    mockupCaption: "Refined UI: Optimized Product Listing Grid"
+                },
+                {
+                    num: "4/8",
+                    title: "Product Detail Page",
+                    desc: "The product detail page focuses on product visibility and clear information hierarchy. Large product images, descriptions, pricing, and similar product suggestions help users make quicker decisions.",
+                    rationale: "By prioritizing information hierarchy, we answer the user's most important questions first (Price, Details, Availability).",
+                    mockupType: "clay",
+                    mockupImg: "/images/work/Single product View.png",
+                    mockupCaption: "Refined UI: High-visibility Product Detail View"
+                },
+                {
+                    num: "5/8",
+                    title: "Checkout Experience",
+                    desc: "The checkout flow was designed to collect recipient details, delivery information, and personalized messages in a simple and organized way. Clear form sections improve readability and reduce friction during checkout.",
+                    rationale: "Reducing friction in the final steps is critical for conversion. Structured forms help users complete the process without errors.",
+                    mockupType: "clay",
+                    mockupImg: "/images/work/Checkout.png",
+                    mockupCaption: "Refined UI: Frictionless multi-step checkout experience"
+                },
+                {
+                    num: "6/8",
+                    title: "Payment Options",
+                    desc: "The payment screen provides a clean and familiar transaction experience with saved cards, offers, and multiple payment methods. The strong CTA improves visibility and guides users toward completing the purchase.",
+                    rationale: "Trust and clarity are paramount during payment. A familiar layout reduces anxiety and speeds up the transaction.",
+                    mockupType: "clay",
+                    mockupImg: "/images/work/Payment option.png",
+                    mockupCaption: "Refined UI: Secure and intuitive payment selection"
+                },
+                {
+                    num: "7/8",
+                    title: "Payment Success Screen",
+                    desc: "The payment success screen confirms the completed order with a success illustration, delivery information, and order summary. The layout was designed to create a positive and reassuring post-purchase experience.",
+                    rationale: "Confirmation is the peak of the user's emotional journey. Celebrating the success reinforces a positive brand association.",
+                    mockupType: "clay",
+                    mockupImg: "/images/work/Payment Successful.png",
+                    mockupCaption: "Refined UI: Celebratory and informative Success Screen"
+                },
+                {
+                    num: "8/9",
+                    title: "Empty & Error States",
+                    desc: "Custom empty state and error illustrations were designed to improve communication and maintain consistency across the application. These visuals help make the experience feel more engaging and user-friendly.",
+                    rationale: "Even negative paths should feel branded. Engaging illustrations prevent user frustration during errors or empty views.",
+                    mockupType: "clay",
+                    mockupImg: [
+                        "/images/work/empty Cart.png",
+                        "/images/work/Payment Declined.png"
+                    ],
+                    mockupLabels: ["EMPTY CART", "TRANSACTION DECLINED"],
+                    mockupCaption: "Refined UI: Engaging error and empty state management"
+                },
+                {
+                    num: "9/9",
+                    title: "Illustration Iterations",
+                    desc: "The visual language of Gift Ease evolved through multiple rounds of sketching and refining. This iterative process ensured that the illustrations felt warm, approachable, and perfectly aligned with the brand's 'joy of giving' philosophy.",
+                    rationale: "Iterating on key visuals allowed us to find the perfect balance between playfulness and clarity, ensuring the storytelling remains effective at every touchpoint.",
+                    mockupType: "clay",
+                    mockupImg: [
+                        "/images/work/iteration 1.png",
+                        "/images/work/iteration 2.png",
+                        "/images/work/iteration 3.png"
+                    ],
+                    mockupLabels: ["ITERATION 01", "ITERATION 02", "ITERATION 03"],
+                    mockupCaption: "Evolution of the Gift Ease visual storytelling"
+                }
+            ],
+            impactOnUsers: [
+                "Reduced average gift-searching time by over 50%",
+                "Increased user confidence in gift relevance",
+                "Higher conversion rates compared to traditional e-commerce",
+                "Improved emotional satisfaction during the gifting process"
+            ],
+            finalOutcome: "Gift Ease transformed a stressful chore into a joyful, efficient experience, bridging the gap between data-driven technology and human emotional connection.",
+            nextSteps: [
+                "Integrate social calendar syncing for automated reminders",
+                "Implement AR previews for physical gift scale",
+                "Expand into global gifting and group-buying features"
+            ]
+        },
         gridImages: [
             "/images/work/giftease.png",
             "https://images.unsplash.com/photo-1513885535751-8b9238bd345a?auto=format&fit=crop&q=80&w=1000"

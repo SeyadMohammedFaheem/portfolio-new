@@ -182,6 +182,30 @@ const ProjectDetail = () => {
                             <span className="zc-label">CATEGORY</span>
                             <span className="zc-val">{project.category || project.service}</span>
                         </div>
+                        {project.liveWebsiteLink && (
+                            <>
+                                <div className="zc-info-divider" />
+                                <div className="zc-info-col">
+                                    <span className="zc-label">WEBSITE</span>
+                                    <a 
+                                        href={project.liveWebsiteLink} 
+                                        target="_blank" 
+                                        rel="noopener noreferrer"
+                                        className="zc-val live-link-btn"
+                                        style={{ 
+                                            color: '#ff3e10', 
+                                            textDecoration: 'none', 
+                                            display: 'flex', 
+                                            alignItems: 'center', 
+                                            gap: '6px',
+                                            fontWeight: '700'
+                                        }}
+                                    >
+                                        Visit Live <span style={{ fontSize: '0.8rem' }}>↗</span>
+                                    </a>
+                                </div>
+                            </>
+                        )}
                     </div>
                 </section>
 
@@ -337,6 +361,130 @@ const ProjectDetail = () => {
                     </div>
                 ))}
 
+                {/* ─── DESIGN PROCESS SECTIONS (Ideations, Wireframes, etc.) ─── */}
+                {project.caseStudy?.designProcess && project.caseStudy.designProcess.map((ds, i) => (
+                    <div key={i} className="zc-content-col zc-animate" style={{ marginBottom: '120px' }}>
+                        <section className="zc-section-block" style={{ marginBottom: '40px' }}>
+                            <h2 className="zc-section-h2">{ds.heading}</h2>
+                            <p className="zc-section-desc">{ds.desc}</p>
+                        </section>
+                        {ds.typography && (
+                            <div className="zc-typo-showcase">
+                                <div className="zc-typo-main-info">
+                                    <div className="zc-typo-family" style={{ fontFamily: ds.typography.fontFamily }}>{ds.typography.fontFamily}</div>
+                                    <div className="zc-typo-weights">
+                                        {ds.typography.weights.map((w, idx) => (
+                                            <span key={idx}>{w}</span>
+                                        ))}
+                                    </div>
+                                </div>
+                                <div className="zc-typo-examples">
+                                    {ds.typography.examples.map((ex, idx) => (
+                                        <div key={idx} className="zc-typo-example">
+                                            <span className="zc-typo-label">{ex.label} — {ex.size} / {ex.weight}</span>
+                                            <div style={{ 
+                                                fontFamily: ds.typography.fontFamily, 
+                                                fontSize: ex.size, 
+                                                fontWeight: ex.weight === 'Bold' ? 700 : ex.weight === 'SemiBold' ? 600 : 500,
+                                                color: 'var(--text-color)',
+                                                lineHeight: 1.2
+                                            }}>
+                                                {ex.text}
+                                            </div>
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
+                        )}
+
+                        {ds.colors && (
+                            <div className="zc-color-grid">
+                                {ds.colors.map((c, idx) => (
+                                    <div key={idx} className="zc-color-chip">
+                                        <div className="zc-color-swatch" style={{ backgroundColor: c.hex }}></div>
+                                        <div className="zc-color-info">
+                                            <div className="zc-color-name">{c.name}</div>
+                                            <div className="zc-color-hex">{c.hex}</div>
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
+                        )}
+
+                        {ds.icons && (
+                            <div className="zc-icon-grid">
+                                {ds.icons.map((icon, idx) => (
+                                    <div key={idx} className="zc-icon-item">
+                                        <div className="zc-icon-wrapper">
+                                            <img src={icon.path} alt={icon.name} />
+                                        </div>
+                                        <span className="zc-icon-name">{icon.name}</span>
+                                    </div>
+                                ))}
+                            </div>
+                        )}
+
+                        {ds.illustrationLibrary && (
+                            <div className="zc-illustration-library">
+                                {ds.illustrationLibrary.map((group, idx) => (
+                                    <div key={idx} className="zc-illustration-group">
+                                        <h4 className="zc-group-title">{group.title}</h4>
+                                        <div className="zc-illustration-grid">
+                                            {group.images.map((img, i) => (
+                                                <div key={i} className="zc-illustration-item">
+                                                    <img src={img} alt={`${group.title} ${i}`} />
+                                                </div>
+                                            ))}
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
+                        )}
+
+                        {ds.image && (
+                            Array.isArray(ds.image) ? (
+                                ds.scrollStyle === 'auto' ? (
+                                    <div className="zc-auto-scroll-container">
+                                        <div className="zc-auto-scroll-track">
+                                            {[...ds.image, ...ds.image].map((img, idx) => (
+                                                <img 
+                                                    key={idx} 
+                                                    src={img} 
+                                                    alt={`${ds.heading} scroll ${idx}`} 
+                                                    className="zc-scroll-img"
+                                                />
+                                            ))}
+                                        </div>
+                                    </div>
+                                ) : (
+                                    <div className="zc-sketch-grid" style={{ 
+                                        display: 'grid', 
+                                        gridTemplateColumns: ds.gridStyle === 'compact' ? 'repeat(auto-fit, minmax(150px, 1fr))' : 'repeat(auto-fit, minmax(250px, 1fr))', 
+                                        gap: '20px',
+                                        width: '100%',
+                                        maxWidth: ds.gridStyle === 'compact' ? '1200px' : '1000px'
+                                    }}>
+                                        {ds.image.map((img, idx) => (
+                                            <img 
+                                                key={idx} 
+                                                src={img} 
+                                                alt={`${ds.heading} ${idx + 1}`} 
+                                                style={{ width: '100%', height: 'auto', borderRadius: '12px', border: '1px solid rgba(255,255,255,0.05)', boxShadow: '0 10px 30px rgba(0,0,0,0.3)' }} 
+                                            />
+                                        ))}
+                                    </div>
+                                )
+                            ) : (
+                                <img
+                                    src={ds.image}
+                                    alt={ds.heading}
+                                    style={{ width: '100%', height: 'auto', borderRadius: '24px', display: 'block', border: '1px solid rgba(255,255,255,0.07)', boxShadow: '0 24px 60px rgba(0,0,0,0.5)' }}
+                                />
+                            )
+                        )}
+                    </div>
+                ))}
+
                 {/* ─── SOLUTION BLOCKS ─── */}
                 {!project.isSimpleShowcase && solutionBlocks.map((sol, i) => (
                     <section key={i} className="zc-solution-block zc-animate">
@@ -389,8 +537,12 @@ const ProjectDetail = () => {
                                                     <img src={imgSrc} alt="iPhone 17 Mockup" />
                                                 </div>
                                             </div>
-                                            {arr.length === 2 && (
-                                                <span className="zc-mockup-label">{i2 === 0 ? 'BEFORE' : 'AFTER'}</span>
+                                            {sol.mockupLabels ? (
+                                                <span className="zc-mockup-label">{sol.mockupLabels[i2]}</span>
+                                            ) : (
+                                                arr.length === 2 && (
+                                                    <span className="zc-mockup-label">{i2 === 0 ? 'BEFORE' : 'AFTER'}</span>
+                                                )
                                             )}
                                         </div>
                                     ))}
