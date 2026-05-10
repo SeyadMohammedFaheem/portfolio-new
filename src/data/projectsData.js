@@ -1233,7 +1233,7 @@ export const projectsData = [
         year: "2025",
         type: "Web & Strategy",
         isLocked: true,
-        image: "/images/work/work3.jpg",
+        image: "/images/work/ufbrandsalwar.png",
         client: "UF Brand",
         service: "E-Commerce Design & Development",
         description: "A digital flagship for luxury ethnic wear, redefining the boutique experience through high-fidelity visuals and advanced interaction design. Currently in active development.",

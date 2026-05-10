@@ -239,43 +239,7 @@ const ProjectDetail = () => {
                         </section>
                     )}
 
-                    {project.thinkStackNote && (
-                        <section className="zc-section-block zc-animate" style={{ textAlign: 'center', marginTop: '80px' }}>
-                            <div className="zc-dark-card" style={{ padding: '48px', borderRadius: '32px', border: '1px solid rgba(255,255,255,0.08)' }}>
-                                <p className="zc-section-desc" style={{ margin: '0 auto 24px', maxWidth: '800px' }}>
-                                    {project.thinkStackNote.text}
-                                </p>
-                                <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '20px' }}>
-                                    {project.thinkStackNote.links ? (
-                                        project.thinkStackNote.links.map((link, idx) => (
-                                            <a 
-                                                key={idx}
-                                                href={link.url} 
-                                                target="_blank" 
-                                                rel="noopener noreferrer"
-                                                className="view-all-projects-btn"
-                                                style={{ display: 'inline-flex', alignItems: 'center', gap: '10px' }}
-                                            >
-                                                {link.text}
-                                                <span style={{ fontSize: '0.8rem' }}>↗</span>
-                                            </a>
-                                        ))
-                                    ) : (
-                                        <a 
-                                            href={project.thinkStackNote.link} 
-                                            target="_blank" 
-                                            rel="noopener noreferrer"
-                                            className="view-all-projects-btn"
-                                            style={{ display: 'inline-flex', alignItems: 'center', gap: '10px' }}
-                                        >
-                                            {project.thinkStackNote.linkText}
-                                            <span style={{ fontSize: '0.8rem' }}>↗</span>
-                                        </a>
-                                    )}
-                                </div>
-                            </div>
-                        </section>
-                    )}
+
 
                     {!project.isSimpleShowcase && (
                         <>
@@ -502,6 +466,44 @@ const ProjectDetail = () => {
                         )}
                     </div>
                 ))}
+
+                {project.thinkStackNote && (
+                    <section className="zc-section-block zc-animate" style={{ textAlign: 'center', marginTop: '80px' }}>
+                        <div className="zc-dark-card" style={{ padding: '48px', borderRadius: '32px', border: '1px solid rgba(255,255,255,0.08)' }}>
+                            <p className="zc-section-desc" style={{ margin: '0 auto 24px', maxWidth: '800px' }}>
+                                {project.thinkStackNote.text}
+                            </p>
+                            <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '20px' }}>
+                                {project.thinkStackNote.links ? (
+                                    project.thinkStackNote.links.map((link, idx) => (
+                                        <a 
+                                            key={idx}
+                                            href={link.url} 
+                                            target="_blank" 
+                                            rel="noopener noreferrer"
+                                            className="view-all-projects-btn"
+                                            style={{ display: 'inline-flex', alignItems: 'center', gap: '10px' }}
+                                        >
+                                            {link.text}
+                                            <span style={{ fontSize: '0.8rem' }}>↗</span>
+                                        </a>
+                                    ))
+                                ) : (
+                                    <a 
+                                        href={project.thinkStackNote.link} 
+                                        target="_blank" 
+                                        rel="noopener noreferrer"
+                                        className="view-all-projects-btn"
+                                        style={{ display: 'inline-flex', alignItems: 'center', gap: '10px' }}
+                                    >
+                                        {project.thinkStackNote.linkText}
+                                        <span style={{ fontSize: '0.8rem' }}>↗</span>
+                                    </a>
+                                )}
+                            </div>
+                        </div>
+                    </section>
+                )}
 
                 {/* ─── SOLUTION BLOCKS ─── */}
                 {!project.isSimpleShowcase && solutionBlocks.map((sol, i) => (
