@@ -110,13 +110,6 @@ const WorkList = () => {
             <div className="work-list-container">
                 <div className="work-header-custom">
                     <h2 className="work-title-giant">EXPERTISE</h2>
-                    <a href="#" className="view-all-btn-orange">
-                        <span>VIEW ALL SERVICES</span>
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
-                            <line x1="7" y1="17" x2="17" y2="7"></line>
-                            <polyline points="7 7 17 7 17 17"></polyline>
-                        </svg>
-                    </a>
                 </div>
                 {expertise.map((item, index) => (
                     <WorkItemRow key={index} item={item} index={index} />
