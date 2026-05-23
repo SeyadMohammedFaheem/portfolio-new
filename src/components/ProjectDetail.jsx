@@ -658,7 +658,7 @@ const ProjectDetail = () => {
                                     
                                     {/* Comp Highlight Image under the heading */}
                                     <div className="zc-animate" style={{ borderRadius: '24px', overflow: 'hidden', border: '1px solid rgba(255,255,255,0.08)', marginBottom: '60px' }}>
-                                        <img src="/images/work/comp-highlight.png" alt="System Detail" style={{ width: '100%', display: 'block' }} />
+                                        <img src="/images/work/comp-highlight.webp" alt="System Detail" style={{ width: '100%', display: 'block' }} />
                                     </div>
 
                                     {project.caseStudy.designSystemSection.tokenLayers.map((layer, idx) => (
@@ -701,7 +701,7 @@ const ProjectDetail = () => {
                                             {/* Laptop Image under Semantic Tokens */}
                                             {layer.title === "Semantic Tokens" && (
                                                 <div className="zc-animate" style={{ borderRadius: '24px', overflow: 'hidden', border: '1px solid rgba(255,255,255,0.08)', marginTop: '40px' }}>
-                                                    <img src="/images/work/laptop.png" alt="Laptop View" style={{ width: '100%', display: 'block' }} />
+                                                    <img src="/images/work/laptop.webp" alt="Laptop View" style={{ width: '100%', display: 'block' }} />
                                                 </div>
                                             )}
                                         </div>

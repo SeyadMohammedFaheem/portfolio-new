@@ -381,7 +381,7 @@
         "text": "Start with one workflow you repeatedly do (like accessibility-first flow design). Write the skill so the output is always structured, testable, accessible, and consistent. Then expand it over time."
       }
     ],
-    "image": "/images/blogs/create-uiux-skill-for-claude-anthropic.png"
+    "image": "/images/blogs/create-uiux-skill-for-claude-anthropic.webp"
   },
   {
     "id": "1e84f82a-5353-8086-8c4a-dd0893205489",
@@ -408,7 +408,7 @@
       },
       {
         "type": "img",
-        "url": "/images/work/warning-alert.png",
+        "url": "/images/work/warning-alert.webp",
         "caption": "Example of problematic destructive design: low contrast and vague labels."
       },
       {
@@ -457,7 +457,7 @@
       },
       {
         "type": "img",
-        "url": "/images/work/old_dashboard_ui.png",
+        "url": "/images/work/old_dashboard_ui.webp",
         "caption": "Legacy UI showing destructive actions lacking clear visual hierarchy."
       },
       {
@@ -565,7 +565,7 @@
       },
       {
         "type": "img",
-        "url": "/images/work/comp-highlight.png",
+        "url": "/images/work/comp-highlight.webp",
         "caption": "High-fidelity mockups of the updated destructive action components."
       },
       {
@@ -729,6 +729,6 @@
         "listType": "bullet"
       }
     ],
-    "image": "/images/blogs/delete-button-case-study.jpg"
+    "image": "/images/blogs/delete-button-case-study.webp"
   }
 ]

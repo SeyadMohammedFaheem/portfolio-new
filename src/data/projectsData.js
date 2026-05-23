@@ -7,11 +7,11 @@ export const projectsData = [
         type: "Product Design",
         time: "5 Weeks",
         category: "Product & UI/UX",
-        image: "/images/work/work1.jpg",
+        image: "/images/work/work1.webp",
         client: "Pickcel",
         service: "Product Redesign",
         description: "A redesign of the Pickcel console experience to improve clarity, usability, and efficiency in managing digital signage at scale.",
-        heroImage: "/images/work/work1.jpg",
+        heroImage: "/images/work/work1.webp",
         challenge: {
             text: "Users struggled to organize and update content efficiently.",
             subtext: "Key features like bulk actions and real-time previews were missing or hard to access, causing friction."
@@ -22,8 +22,8 @@ export const projectsData = [
         },
         result: "A streamlined console that reduces complexity and helps users focus on tasks rather than navigating.",
         gridImages: [
-            "/images/work/old_dashboard_ui.png",
-            "/images/work/work1.jpg"
+            "/images/work/old_dashboard_ui.webp",
+            "/images/work/work1.webp"
         ],
         stackImages: [
             "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&q=80&w=1600",
@@ -67,7 +67,7 @@ export const projectsData = [
                     desc: "Centralized view displaying total screens, active screens, storage usage, and schedules. Real-time analytics, an interactive map, and a personalized feedback module were added.",
                     rationale: "Increased visibility across all key metrics in a single view enables faster decision-making and simplified workflows through better data grouping.",
                     mockupBg: "#111",
-                    mockupImg: "/images/work/1.jpg",
+                    mockupImg: "/images/work/1.webp",
                     mockupCaption: "Dashboard Overview with Metrics & Analytics"
                 },
                 {
@@ -76,7 +76,7 @@ export const projectsData = [
                     desc: "Introduced folder-based media organization, a simplified 'Move Media' flow with drag-and-drop, and faster searching within the composition editor.",
                     rationale: "Faster media management with reduced organization time, improved discoverability, and a scalable system for large media libraries.",
                     mockupBg: "#1B2B4E",
-                    mockupImg: "/images/work/2.jpg",
+                    mockupImg: "/images/work/2.webp",
                     mockupCaption: "Media Library with Folder Organization"
                 },
                 {
@@ -86,8 +86,8 @@ export const projectsData = [
                     rationale: "The live preview and logical grouping significantly reduced the complex and time-consuming setup process, increasing user confidence.",
                     mockupBg: "#2D1B4E",
                     mockupImg: [
-                        "/images/work/3.jpg",
-                        "/images/work/4.jpg"
+                        "/images/work/3.webp",
+                        "/images/work/4.webp"
                     ],
                     mockupCaption: [
                         "Individual App Page Before",
@@ -111,11 +111,11 @@ export const projectsData = [
         year: "2025",
         type: "Mobile App",
         isSimpleShowcase: false,
-        image: "/images/work/work2.jpg",
+        image: "/images/work/work2.webp",
         client: "Pickcel",
         service: "Mobile UI/UX",
         description: "Redesigning the Pickcel mobile experience to make it modern, accessible, and truly usable for on-the-go management.\n\nThe existing mobile app felt outdated, visually heavy, and not optimized for mobile usage. It lacked clarity, accessibility, and critical functionality needed for real-time monitoring.",
-        heroImage: "/images/work/work2.jpg",
+        heroImage: "/images/work/work2.webp",
         gridImages: [
             "https://images.unsplash.com/photo-1523206489230-c012c64b2b48?auto=format&fit=crop&q=80&w=1000",
             "https://images.unsplash.com/photo-1551650975-87deedd944c3?auto=format&fit=crop&q=80&w=1000"
@@ -158,8 +158,8 @@ export const projectsData = [
                     rationale: "Designed with mobile-first accessibility in mind.",
                     mockupType: "clay",
                     mockupImg: [
-                        "/images/work/1-pickcel-go.png",
-                        "/images/work/media-list.jpg"
+                        "/images/work/1-pickcel-go.webp",
+                        "/images/work/media-list.webp"
                     ]
                 },
                 {
@@ -169,8 +169,8 @@ export const projectsData = [
                     rationale: "Immediate visibility of issues and system health.",
                     mockupType: "clay",
                     mockupImg: [
-                        "/images/work/screen-management.jpg",
-                        "/images/work/screen-list.jpg"
+                        "/images/work/screen-management.webp",
+                        "/images/work/screen-list.webp"
                     ]
                 },
                 {
@@ -180,7 +180,7 @@ export const projectsData = [
                     rationale: "Reduced uncertainty around content delivery.",
                     mockupType: "clay",
                     mockupImg: [
-                        "/images/work/composition-details.jpg"
+                        "/images/work/composition-details.webp"
                     ]
                 },
                 {
@@ -192,7 +192,7 @@ export const projectsData = [
                     isScrollable: true,
                     noHover: true,
                     mockupImg: [
-                        "/images/work/screen-details.jpg"
+                        "/images/work/screen-details.webp"
                     ]
                 },
 
@@ -222,12 +222,12 @@ export const projectsData = [
         year: "2024",
         type: "Web & Strategy",
         isSimpleShowcase: false,
-        image: "/images/work/work3.jpg",
+        image: "/images/work/work3.webp",
         client: "Pickcel",
         service: "Website Design, Strategy",
         time: "4 Weeks",
         description: "Pickcel is a cloud-based digital signage platform used by businesses to manage and display content across screens. The goal of this redesign was to modernize the marketing website, improve clarity, and create a stronger conversion-focused experience for enterprise users.\n\nThe previous website contained valuable information, but the experience felt visually crowded and difficult to navigate. Important messaging was buried under dense layouts, making it harder for users to quickly understand the product and its benefits.\n\nThe redesigned website focuses on simplicity, scalability, and trust — helping users understand the product faster while creating a cleaner and more modern brand experience.",
-        heroImage: "/images/work/work3.jpg",
+        heroImage: "/images/work/work3.webp",
         challenge: {
             text: "The old website faced multiple usability and communication issues. The hero section lacked a strong and immediate value proposition. Too much information competed for attention at the same time. Weak visual hierarchy made scanning difficult. CTAs were inconsistent and not strategically placed. Sections felt disconnected, reducing storytelling flow. The overall UI felt outdated for a modern SaaS product. Trust indicators such as enterprise adoption and certifications were not emphasized enough.",
             subtext: "As a result, the experience created friction for users trying to evaluate the product quickly."
@@ -268,7 +268,7 @@ export const projectsData = [
                     tags: ['Clarity', 'Action-Oriented', 'Value Prop'],
                     rationale: 'This helped create a stronger first impression and made the website easier to understand within seconds.',
                     mockupBg: '#7A1C1C',
-                    mockupImg: '/images/work/hero-section-redesign.png',
+                    mockupImg: '/images/work/hero-section-redesign.webp',
                     mockupCaption: 'The new hero section prioritizes clarity and immediate conversion.',
                 },
                 {
@@ -279,8 +279,8 @@ export const projectsData = [
                     rationale: 'This improved scanability and made the content easier to consume.',
                     mockupBg: '#1B2B4E',
                     mockupImg: [
-                        '/images/work/improved-visual-hierarchy-old.png',
-                        '/images/work/improved-visual-hierarchy-new.png'
+                        '/images/work/improved-visual-hierarchy-old.webp',
+                        '/images/work/improved-visual-hierarchy-new.webp'
                     ],
                     mockupCaption: [
                         'BEFORE: Cluttered layout with competing elements',
@@ -294,7 +294,7 @@ export const projectsData = [
                     tags: ['Conversion Rate Optimization', 'Visual Hierarchy'],
                     rationale: 'This created a more intentional conversion flow throughout the page.',
                     mockupBg: '#2D1B4E',
-                    mockupImg: '/images/work/conversion-focused-experience.png',
+                    mockupImg: '/images/work/conversion-focused-experience.webp',
                     mockupCaption: 'Persistent, high-contrast CTAs integrated seamlessly into the product storytelling.',
                 },
                 {
@@ -304,7 +304,7 @@ export const projectsData = [
                     tags: ['Social Proof', 'Reliability'],
                     rationale: 'These elements were strategically moved higher in the page structure to reinforce credibility earlier in the user journey.',
                     mockupBg: '#1B3A2B',
-                    mockupImg: '/images/work/trust-credibility.png',
+                    mockupImg: '/images/work/trust-credibility.webp',
                     mockupCaption: 'Enterprise trust signals and usage metrics placed prominently to build credibility.',
                 }
             ],
@@ -338,14 +338,14 @@ export const projectsData = [
         title: "OctaLume IoT Dashboard",
         year: "2024",
         type: "Design System",
-        image: "/images/work/work4.jpg",
+        image: "/images/work/work4.webp",
         client: "OctaLume",
         liveWebsiteLink: "https://octalume.vercel.app/",
         service: "UX Design, UI Design, Branding, Design System",
         category: "Smart Home Technology",
         time: "6 Weeks",
         description: "OctaLume is an AI-powered IoT management dashboard designed to provide real-time insights, intelligent alerting, and seamless device control — helping users monitor and optimize smart environments efficiently. IoT dashboards today fail at the basics: users are overwhelmed by excessive data, critical issues go unnoticed, and interfaces lack the clarity needed to act fast.",
-        heroImage: "/images/work/work4.jpg",
+        heroImage: "/images/work/work4.webp",
         backgroundImages: [
             {
                 heading: "Problems",
@@ -361,12 +361,12 @@ export const projectsData = [
             {
                 heading: "Branding & Logo",
                 desc: "Illuminating spaces with an 8-pointed star, Octalume combines Octa (eight points) and Lume (light) to symbolize smart, advanced lighting solutions.",
-                image: "/images/work/2.png"
+                image: "/images/work/2.webp"
             },
             {
                 heading: "Typography & Color",
                 desc: "Lufga is a modern sans-serif typeface designed with a clean, geometric, and minimalist style. It features rounded letterforms, giving it a friendly and approachable look.",
-                image: "/images/work/3.png"
+                image: "/images/work/3.webp"
             }
         ],
         challenge: {
@@ -379,14 +379,14 @@ export const projectsData = [
         },
         result: "The redesigned dashboard significantly reduced cognitive overload, enabled faster response to critical issues, improved usability across the system, and established a consistent, scalable UI architecture.",
         gridImages: [
-            "/images/work/work4.jpg",
-            "/images/work/work4.jpg"
+            "/images/work/work4.webp",
+            "/images/work/work4.webp"
         ],
         stackImages: [
-            "/images/work/work4.jpg",
-            "/images/work/work4.jpg"
+            "/images/work/work4.webp",
+            "/images/work/work4.webp"
         ],
-        impactImage: "/images/work/work4.jpg",
+        impactImage: "/images/work/work4.webp",
         caseStudy: {
             goals: [
                 "Simplify complex IoT data so users can scan and act quickly",
@@ -412,28 +412,28 @@ export const projectsData = [
                     title: "Navigation Simplified",
                     desc: "All elements are grouped logically by rooms and usage context, making navigation predictable and easy to scan.",
                     rationale: "This reduces cognitive load and helps users find what they need without friction.",
-                    mockupImg: "/images/work/nav-simplified.png"
+                    mockupImg: "/images/work/nav-simplified.webp"
                 },
                 {
                     num: "2/4",
                     title: "Warnings & Alerts",
                     desc: "A real-time alert system highlights critical issues instantly through notifications and a dedicated alert section.",
                     rationale: "This ensures users don’t miss important events and can take immediate action.",
-                    mockupImg: "/images/work/warning-alert.png"
+                    mockupImg: "/images/work/warning-alert.webp"
                 },
                 {
                     num: "3/4",
                     title: "Clear Typography & Better Hierarchy",
                     desc: "A strong visual hierarchy was established using typography, spacing, and contrast.",
                     rationale: "Important data stands out, allowing users to quickly understand insights without scanning the entire screen.",
-                    mockupImg: "/images/work/clear-typo.png"
+                    mockupImg: "/images/work/clear-typo.webp"
                 },
                 {
                     num: "4/4",
                     title: "Time-Sensitive Device Indicators",
                     desc: "Gradient progress bars and time-based indicators communicate device status and urgency.",
                     rationale: "This gives users immediate feedback on active processes and remaining time.",
-                    mockupImg: "/images/work/time-sensitve.png"
+                    mockupImg: "/images/work/time-sensitve.webp"
                 }
             ],
             designSystemSection: {
@@ -455,12 +455,12 @@ export const projectsData = [
                 colorLanguage: {
                     title: "Color Language",
                     desc: "Design tokens are the building blocks of a cohesive and scalable design system. In this project, I delve into the world of design tokens, exploring how they can streamline the design process and enhance consistency across various platforms.",
-                    image: "/images/work/3re.png"
+                    image: "/images/work/3re.webp"
                 },
                 architectureSection: {
                     title: "Design Token Architecture",
                     desc: "Design tokens are the building blocks of a cohesive and scalable design system. In this project, I delve into the world of design tokens, exploring how they can streamline the design process and enhance consistency across various platforms.",
-                    image: "/images/work/4re.png"
+                    image: "/images/work/4re.webp"
                 },
 
                 tokenLayers: [
@@ -478,8 +478,8 @@ export const projectsData = [
                     }
                 ],
                 systemImages: [
-                    "/images/work/laptop.png",
-                    "/images/work/comp-highlight.png"
+                    "/images/work/laptop.webp",
+                    "/images/work/comp-highlight.webp"
                 ],
                 handoffSection: {
                     title: "Token Integration",
@@ -523,14 +523,14 @@ export const projectsData = [
                 scalingSection: {
                     title: "How it Scales",
                     desc: "This token system is designed to be modular and easy to extend. By separating raw values (global), utility mappings (base), and context-specific meanings (semantic), updates can be made at any level without breaking visual consistency. As the product evolves, new components can be built quickly by referencing existing semantic tokens—ensuring a cohesive UI without adding visual debt.",
-                    images: ["/images/work/scaled.png"],
+                    images: ["/images/work/scaled.webp"],
                     bottomText: "I've updated the {primary-default:#00E5FF} {primary-container-bg:#1A1A1A} in design and i would refect on the code, See how easy and simple it is"
                 },
                 outcomeSection: {
                     title: "Outcome & Impact",
                     desc: "The final outcome is a production-ready UI system powered by design tokens — enabling fast, scalable, and consistent implementation across the interface. By abstracting styling logic into a flexible token structure, the product is now easier to maintain, expand, and evolve with minimal design debt.",
-                    topImage: "/images/work/octalume-dashboard.png",
-                    bottomImage: "/images/work/last.png"
+                    topImage: "/images/work/octalume-dashboard.webp",
+                    bottomImage: "/images/work/last.webp"
                 }
             }
         }
@@ -541,11 +541,11 @@ export const projectsData = [
         title: "GiftEase-Gifting App",
         year: "2026",
         type: "Mobile App",
-        image: "/images/work/giftease.png",
+        image: "/images/work/giftease.webp",
         client: "Gift Ease",
         service: "Mobile App",
         description: "A smart gifting app that curates personalized gift suggestions based on recipient preferences.",
-        heroImage: "/images/work/giftease.png",
+        heroImage: "/images/work/giftease.webp",
         challenge: {
             text: "Users often struggle to find meaningful gifts within short timeframes.",
             subtext: "The experience of navigating through endless e-commerce options is overwhelming."
@@ -579,11 +579,11 @@ export const projectsData = [
                     heading: "1. Initial Ideations",
                     desc: "The project began with rapid sketching and mind-mapping to explore different ways of categorization and recommendation logic. These rough ideas formed the foundation of the final product.",
                     image: [
-                        "/images/work/iteration 1.png",
-                        "/images/work/iteration 2.png",
-                        "/images/work/iteration 3.png",
-                        "/images/work/iteration 4.png",
-                        "/images/work/iteration 5.png"
+                        "/images/work/iteration 1.webp",
+                        "/images/work/iteration 2.webp",
+                        "/images/work/iteration 3.webp",
+                        "/images/work/iteration 4.webp",
+                        "/images/work/iteration 5.webp"
                     ]
                 },
                 {
@@ -591,15 +591,15 @@ export const projectsData = [
                     desc: "Translating the rough sketches into low-fidelity wireframes to establish the user flow and information architecture, ensuring that the 'Personalized Quiz' and 'Discovery Hubs' felt intuitive.",
                     scrollStyle: 'auto',
                     image: [
-                        "/images/work/Onboarding-1.png",
-                        "/images/work/Onboarding-2.png",
-                        "/images/work/Onboarding-3.png",
-                        "/images/work/Home Page-4.png",
-                        "/images/work/Product Listing Page-5.png",
-                        "/images/work/Product Listing Page-6.png",
-                        "/images/work/Checkout-7.png",
-                        "/images/work/Payment option-8.png",
-                        "/images/work/Payment Successful-9.png"
+                        "/images/work/Onboarding-1.webp",
+                        "/images/work/Onboarding-2.webp",
+                        "/images/work/Onboarding-3.webp",
+                        "/images/work/Home Page-4.webp",
+                        "/images/work/Product Listing Page-5.webp",
+                        "/images/work/Product Listing Page-6.webp",
+                        "/images/work/Checkout-7.webp",
+                        "/images/work/Payment option-8.webp",
+                        "/images/work/Payment Successful-9.webp"
                     ]
                 },
                 {
@@ -675,10 +675,10 @@ export const projectsData = [
                     desc: "Engaging, story-driven illustrations that guide new users through the app's value proposition, making the first interaction feel warm and inviting. Each screen introduces a core benefit of the Gift Ease ecosystem.",
                     gridStyle: 'compact',
                     image: [
-                        "/images/work/app-onboarding-1.png",
-                        "/images/work/app-onboarding-2.png",
-                        "/images/work/app-onboarding-3.png",
-                        "/images/work/app-onboarding-4.png"
+                        "/images/work/app-onboarding-1.webp",
+                        "/images/work/app-onboarding-2.webp",
+                        "/images/work/app-onboarding-3.webp",
+                        "/images/work/app-onboarding-4.webp"
                     ]
                 },
                 {
@@ -728,7 +728,7 @@ export const projectsData = [
                     desc: "A guided personalization flow was created to simplify gift selection. Users can choose preferences such as relationship, occasion, age group, interests, and budget to receive more relevant gift recommendations.",
                     rationale: "Simplifying complex decision-making through progressive disclosure ensures users aren't overwhelmed by choice.",
                     mockupType: "clay",
-                    mockupImg: "/images/work/personal-setting.png",
+                    mockupImg: "/images/work/personal-setting.webp",
                     mockupCaption: "Refined UI: Guided personalization flow"
                 },
                 {
@@ -737,7 +737,7 @@ export const projectsData = [
                     desc: "The home screen was designed to help users quickly discover gifts through categories, personalized recommendations, and special occasion collections. A clean layout, large product visuals, and a simple navigation system were used to create an easy and engaging browsing experience.",
                     rationale: "Fast discovery is key to retention. The layout prioritizes high-intent actions while maintaining a joyful aesthetic.",
                     mockupType: "clay",
-                    mockupImg: "/images/work/Home Page.png",
+                    mockupImg: "/images/work/Home Page.webp",
                     mockupCaption: "Refined UI: Engaging and clean Home Screen layout"
                 },
                 {
@@ -746,7 +746,7 @@ export const projectsData = [
                     desc: "The product listing page uses a clean grid layout to improve product browsing and comparison. Each card displays the product image, name, price, and wishlist option for a simple shopping experience.",
                     rationale: "Visual consistency in grids reduces cognitive load, allowing users to scan and compare items effortlessly.",
                     mockupType: "clay",
-                    mockupImg: "/images/work/Product Listing Page.png",
+                    mockupImg: "/images/work/Product Listing Page.webp",
                     mockupCaption: "Refined UI: Optimized Product Listing Grid"
                 },
                 {
@@ -755,7 +755,7 @@ export const projectsData = [
                     desc: "The product detail page focuses on product visibility and clear information hierarchy. Large product images, descriptions, pricing, and similar product suggestions help users make quicker decisions.",
                     rationale: "By prioritizing information hierarchy, we answer the user's most important questions first (Price, Details, Availability).",
                     mockupType: "clay",
-                    mockupImg: "/images/work/Single product View.png",
+                    mockupImg: "/images/work/Single product View.webp",
                     mockupCaption: "Refined UI: High-visibility Product Detail View"
                 },
                 {
@@ -764,7 +764,7 @@ export const projectsData = [
                     desc: "The checkout flow was designed to collect recipient details, delivery information, and personalized messages in a simple and organized way. Clear form sections improve readability and reduce friction during checkout.",
                     rationale: "Reducing friction in the final steps is critical for conversion. Structured forms help users complete the process without errors.",
                     mockupType: "clay",
-                    mockupImg: "/images/work/Checkout.png",
+                    mockupImg: "/images/work/Checkout.webp",
                     mockupCaption: "Refined UI: Frictionless multi-step checkout experience"
                 },
                 {
@@ -773,7 +773,7 @@ export const projectsData = [
                     desc: "The payment screen provides a clean and familiar transaction experience with saved cards, offers, and multiple payment methods. The strong CTA improves visibility and guides users toward completing the purchase.",
                     rationale: "Trust and clarity are paramount during payment. A familiar layout reduces anxiety and speeds up the transaction.",
                     mockupType: "clay",
-                    mockupImg: "/images/work/Payment option.png",
+                    mockupImg: "/images/work/Payment option.webp",
                     mockupCaption: "Refined UI: Secure and intuitive payment selection"
                 },
                 {
@@ -782,7 +782,7 @@ export const projectsData = [
                     desc: "The payment success screen confirms the completed order with a success illustration, delivery information, and order summary. The layout was designed to create a positive and reassuring post-purchase experience.",
                     rationale: "Confirmation is the peak of the user's emotional journey. Celebrating the success reinforces a positive brand association.",
                     mockupType: "clay",
-                    mockupImg: "/images/work/Payment Successful.png",
+                    mockupImg: "/images/work/Payment Successful.webp",
                     mockupCaption: "Refined UI: Celebratory and informative Success Screen"
                 },
                 {
@@ -792,8 +792,8 @@ export const projectsData = [
                     rationale: "Even negative paths should feel branded. Engaging illustrations prevent user frustration during errors or empty views.",
                     mockupType: "clay",
                     mockupImg: [
-                        "/images/work/empty Cart.png",
-                        "/images/work/Payment Declined.png"
+                        "/images/work/empty Cart.webp",
+                        "/images/work/Payment Declined.webp"
                     ],
                     mockupLabels: ["EMPTY CART", "TRANSACTION DECLINED"],
                     mockupCaption: "Refined UI: Engaging error and empty state management"
@@ -813,14 +813,14 @@ export const projectsData = [
             ]
         },
         gridImages: [
-            "/images/work/giftease.png",
+            "/images/work/giftease.webp",
             "https://images.unsplash.com/photo-1513885535751-8b9238bd345a?auto=format&fit=crop&q=80&w=1000"
         ],
         stackImages: [
-            "/images/work/giftease.png",
+            "/images/work/giftease.webp",
             "https://images.unsplash.com/photo-1540200049848-d9813ea0e120?auto=format&fit=crop&q=80&w=1600"
         ],
-        impactImage: "/images/work/giftease.png"
+        impactImage: "/images/work/giftease.webp"
     },
     {
         id: "video-editing-brand-film",
@@ -830,7 +830,7 @@ export const projectsData = [
         type: "Motion Design",
         time: "3 Years",
         isSimpleShowcase: true,
-        image: "/images/work/video_hero.png",
+        image: "/images/work/video_hero.webp",
         videoUrls: [
             "https://www.youtube.com/watch?v=TInIxaV14rY",
             "https://www.youtube.com/watch?v=QDYKB-7qx8g",
@@ -857,7 +857,7 @@ export const projectsData = [
             link: "https://www.youtube.com/@thinkstack_ai/videos",
             linkText: "View ThinkStack Videos"
         },
-        heroImage: "/images/work/video_hero.png",
+        heroImage: "/images/work/video_hero.webp",
         challenge: {
             text: "Capturing the essence of a heritage brand while appealing to a younger demographic.",
             subtext: "The challenge was to maintain luxury appeal while introducing dynamic, modern editing rhythms."
@@ -868,14 +868,14 @@ export const projectsData = [
         },
         result: "The brand film achieved over 1M views across social platforms and increased brand engagement by 45%.",
         gridImages: [
-            "/images/work/video_hero.png",
-            "/images/work/video_grading.png"
+            "/images/work/video_hero.webp",
+            "/images/work/video_grading.webp"
         ],
         stackImages: [
-            "/images/work/video_grading.png",
+            "/images/work/video_grading.webp",
             "https://images.unsplash.com/photo-1492288991661-058aa541ff43?auto=format&fit=crop&q=80&w=1600"
         ],
-        impactImage: "/images/work/video_hero.png"
+        impactImage: "/images/work/video_hero.webp"
     },
     {
         id: "thinkstack-core",
@@ -885,13 +885,13 @@ export const projectsData = [
         type: "Product & AI Design",
         isLocked: false,
         isSimpleShowcase: false,
-        image: "/images/work/thinkstack-web-card.png",
+        image: "/images/work/thinkstack-web-card.webp",
         client: "Thinkstack",
         service: "UX/UI Design, AI Strategy",
         time: "8 Weeks",
         category: "Web & AI Product",
         description: "This project focused on designing a modern AI chatbot platform website that helps businesses create, train, and deploy AI-powered chatbots for customer support, automation, and engagement. The goal of the redesign was to create a visually modern, conversion-focused, and enterprise-ready experience while clearly communicating the platform’s capabilities and benefits.",
-        heroImage: "/images/work/thinkstack-web.png",
+        heroImage: "/images/work/thinkstack-web.webp",
         challenge: {
             text: "Many AI product websites overwhelm users with technical information, unclear messaging, and complex feature explanations. This creates friction for businesses trying to quickly understand the platform and its value.",
             subtext: "The existing experience lacked clear feature communication, strong visual hierarchy, enterprise trust signals, and a modern SaaS presentation."
@@ -923,7 +923,7 @@ export const projectsData = [
                     desc: 'Designed to create a strong first impression using bold typography, futuristic gradients, and clear messaging. The layout introduces a strong product headline, supporting description, and focused visual structure.',
                     rationale: 'The dark visual theme combined with glowing gradient effects helps establish a premium AI-focused brand identity.',
                     mockupBg: '#0A0A0A',
-                    mockupImg: '/images/work/thinkstack-web.png',
+                    mockupImg: '/images/work/thinkstack-web.webp',
                     mockupCaption: 'Hero section with premium AI branding and clear CTAs'
                 },
                 {
@@ -932,7 +932,7 @@ export const projectsData = [
                     desc: 'This section explains how businesses can train chatbots using their own content and data sources. The design focuses on simplifying technical concepts through clean layouts and supporting visuals.',
                     rationale: 'Large spacing and minimal content structure improve readability and make the feature easier to understand.',
                     mockupBg: '#0F0F0F',
-                    mockupImg: '/images/work/thinkstack-web.png',
+                    mockupImg: '/images/work/thinkstack-web.webp',
                     mockupCaption: 'Intuitive AI training interface for business data'
                 },
                 {
@@ -941,7 +941,7 @@ export const projectsData = [
                     desc: 'Highlights compatibility with Shopify and multiple business platforms. A simple logo-based layout was used to improve scanability and quickly communicate ecosystem support.',
                     rationale: 'Helps businesses understand that the platform can fit into their existing workflows without visual clutter.',
                     mockupBg: '#111',
-                    mockupImg: '/images/work/thinkstack-web.png',
+                    mockupImg: '/images/work/thinkstack-web.webp',
                     mockupCaption: 'Ecosystem support and platform integrations'
                 },
                 {
@@ -950,7 +950,7 @@ export const projectsData = [
                     desc: 'Demonstrates how the chatbot interacts with customers across different touchpoints. Combines interface previews with content to help users visualize real-world AI conversations.',
                     rationale: 'The section was designed to make the product feel interactive and approachable.',
                     mockupBg: '#0D0D0D',
-                    mockupImg: '/images/work/thinkstack-web.png',
+                    mockupImg: '/images/work/thinkstack-web.webp',
                     mockupCaption: 'Real-world conversational interface preview'
                 },
                 {
@@ -959,7 +959,7 @@ export const projectsData = [
                     desc: 'Highlights AI workflows, actions, and intelligent task handling. Dashboard previews and dark UI components were used to create a technical yet clean presentation style.',
                     rationale: 'The goal was to communicate advanced functionality without overwhelming users.',
                     mockupBg: '#0A0A15',
-                    mockupImg: '/images/work/thinkstack-web.png',
+                    mockupImg: '/images/work/thinkstack-web.webp',
                     mockupCaption: 'Advanced AI automation workflows'
                 },
                 {
@@ -968,7 +968,7 @@ export const projectsData = [
                     desc: 'Focuses on data protection, compliance certifications, and enterprise-level trust indicators. A minimal layout with certification badges reinforces reliability.',
                     rationale: 'Security is a major focus for businesses trusting AI platforms with customer data.',
                     mockupBg: '#050505',
-                    mockupImg: '/images/work/thinkstack-web.png',
+                    mockupImg: '/images/work/thinkstack-web.webp',
                     mockupCaption: 'Enterprise-grade security and compliance indicators'
                 },
                 {
@@ -977,7 +977,7 @@ export const projectsData = [
                     desc: 'Introduces AI-powered conversational forms designed to improve engagement and lead collection. Uses interactive conversation-based inputs for smoother interactions.',
                     rationale: 'Interactive inputs create a more natural and user-friendly experience compared to static forms.',
                     mockupBg: '#0F0F0F',
-                    mockupImg: '/images/work/thinkstack-web.png',
+                    mockupImg: '/images/work/thinkstack-web.webp',
                     mockupCaption: 'Interactive conversational form experience'
                 },
                 {
@@ -986,7 +986,7 @@ export const projectsData = [
                     desc: 'Showcases how businesses can monitor chatbot performance through sentiment analysis, channels, and support metrics using dashboard-style visualizations.',
                     rationale: 'Makes the platform feel data-driven and enterprise-ready through clarity of performance insights.',
                     mockupBg: '#0A0A0A',
-                    mockupImg: '/images/work/thinkstack-web.png',
+                    mockupImg: '/images/work/thinkstack-web.webp',
                     mockupCaption: 'Comprehensive AI performance analytics dashboard'
                 },
                 {
@@ -995,7 +995,7 @@ export const projectsData = [
                     desc: 'Highlights chatbot customization features including themes, colors, and branding personalization. Focuses on flexibility and helping businesses maintain brand identity.',
                     rationale: 'The clean modular structure improves readability while showcasing customization possibilities.',
                     mockupBg: '#0F0F15',
-                    mockupImg: '/images/work/thinkstack-web.png',
+                    mockupImg: '/images/work/thinkstack-web.webp',
                     mockupCaption: 'Customization suite for brand alignment'
                 },
                 {
@@ -1004,7 +1004,7 @@ export const projectsData = [
                     desc: 'Demonstrates how the platform can adapt to different business types and use cases using modular content layouts and product previews.',
                     rationale: 'Communicates scalability and flexibility across industries such as e-commerce, support, and automation.',
                     mockupBg: '#0D0D0D',
-                    mockupImg: '/images/work/thinkstack-web.png',
+                    mockupImg: '/images/work/thinkstack-web.webp',
                     mockupCaption: 'Scalable solutions for diverse industry needs'
                 },
                 {
@@ -1013,7 +1013,7 @@ export const projectsData = [
                     desc: 'Uses a simple accordion layout to improve readability and reduce visual clutter, allowing users to quickly access important information.',
                     rationale: 'Allows information access without interrupting the browsing experience.',
                     mockupBg: '#0A0A0A',
-                    mockupImg: '/images/work/thinkstack-web.png',
+                    mockupImg: '/images/work/thinkstack-web.webp',
                     mockupCaption: 'Streamlined FAQ experience'
                 }
             ],
@@ -1034,13 +1034,13 @@ export const projectsData = [
         year: "2024",
         type: "Print & Branding",
         isSimpleShowcase: false,
-        image: "/images/work/print_hero.png",
+        image: "/images/work/print_hero.webp",
         client: "Pickcel",
         service: "Print Design, Brand Identity",
         time: "4 Weeks",
         category: "Print & Branding",
         description: "A collection of premium print assets designed for Pickcel's global expo showcases, including a comprehensive trifold brand brochure and a minimalist square feature showcase. Both pieces were engineered to capture attention at high-traffic international trade shows while providing deep technical clarity.",
-        heroImage: "/images/work/print_hero.png",
+        heroImage: "/images/work/print_hero.webp",
         challenge: {
             text: "Translating a complex digital signage ecosystem into two distinct tactile formats: a high-info trifold and a visual-first square brochure.",
             subtext: "Maintaining brand consistency across different layouts and paper sizes."
@@ -1051,14 +1051,14 @@ export const projectsData = [
         },
         result: "The dual-brochure system provided a versatile toolset for both technical sales meetings and high-level brand awareness at international events.",
         gridImages: [
-            "/images/work/print_hero.png",
-            "/images/work/print_detail_2.png"
+            "/images/work/print_hero.webp",
+            "/images/work/print_detail_2.webp"
         ],
         stackImages: [
-            "/images/work/print_hero.png",
-            "/images/work/print_detail_2.png"
+            "/images/work/print_hero.webp",
+            "/images/work/print_detail_2.webp"
         ],
-        impactImage: "/images/work/print_hero.png",
+        impactImage: "/images/work/print_hero.webp",
         caseStudy: {
             goals: [
                 "Translate complex tech into accessible print formats",
@@ -1080,7 +1080,7 @@ export const projectsData = [
                     tags: ['Information Architecture', 'Tri-fold Layout', 'Technical Print'],
                     rationale: 'For enterprise sales, detail matters. The trifold format allowed us to group complex features into digestible panels while maintaining a professional aesthetic.',
                     mockupBg: '#7A1C1C',
-                    mockupImg: '/images/work/print_hero.png',
+                    mockupImg: '/images/work/print_hero.webp',
                     pdfLink: '/pdfs/pickcel-trifold-brochure.pdf'
                 },
                 {
@@ -1090,7 +1090,7 @@ export const projectsData = [
                     tags: ['Visual Impact', 'Minimalism', 'Luxury Print'],
                     rationale: 'In high-level networking, first impressions are everything. The square format breaks away from standard paper sizes to immediately signal a premium product.',
                     mockupBg: '#111',
-                    mockupImg: '/images/work/print_detail_2.png',
+                    mockupImg: '/images/work/print_detail_2.webp',
                     pdfLink: '/pdfs/pickcel-square-brochure.pdf'
                 }
             ],
@@ -1106,13 +1106,13 @@ export const projectsData = [
         type: "Social Media",
         isLocked: false,
         isSimpleShowcase: true,
-        image: "/images/work/social-media-1.png",
+        image: "/images/work/social-media-1.webp",
         client: "Pickcel",
         service: "Social Media Strategy, Content Design",
         time: "Ongoing",
         category: "Branding & Content",
         description: "Engineering a cohesive visual narrative across social platforms, transforming static updates into a dynamic brand ecosystem that drives community engagement.",
-        heroImage: "/images/work/social-media-1.png",
+        heroImage: "/images/work/social-media-1.webp",
         thinkStackNote: {
             text: "I have been designing visuals for Pickcel and ThinkStack's social media, website assets, and motion works for the past 3 years. These projects represent a cohesive effort to elevate both brands through consistent storytelling and high-fidelity design.",
             links: [
@@ -1177,29 +1177,29 @@ export const projectsData = [
                         "/images/work/social-media/1760360021773.jfif",
                         "/images/work/social-media/1764850017478.jfif",
                         "/images/work/social-media/1769362309947.jfif",
-                        "/images/work/social-media/430216212_960340506097869_7975905213210617501_n..jpg",
-                        "/images/work/social-media/482995267_18260941426279004_3826225828098570805_n..jpg",
-                        "/images/work/social-media/483761676_18261201520279004_1843719382745376337_n..jpg",
-                        "/images/work/social-media/624086933_18111078979725112_761004495251575067_n..jpg",
-                        "/images/work/social-media/624726380_18087467666109790_6773935909898284250_n..jpg",
-                        "/images/work/social-media/624819098_18149084041445875_5272935466873360235_n..jpg",
-                        "/images/work/social-media/628631252_18454896793101583_1893209786886308446_n..jpg"
+                        "/images/work/social-media/430216212_960340506097869_7975905213210617501_n..webp",
+                        "/images/work/social-media/482995267_18260941426279004_3826225828098570805_n..webp",
+                        "/images/work/social-media/483761676_18261201520279004_1843719382745376337_n..webp",
+                        "/images/work/social-media/624086933_18111078979725112_761004495251575067_n..webp",
+                        "/images/work/social-media/624726380_18087467666109790_6773935909898284250_n..webp",
+                        "/images/work/social-media/624819098_18149084041445875_5272935466873360235_n..webp",
+                        "/images/work/social-media/628631252_18454896793101583_1893209786886308446_n..webp"
                     ]
                 },
                 {
                     heading: "ThinkStack Social Ecosystem",
                     gridStyle: 'compact',
                     image: [
-                        "/images/work/social-media/thinkstack/482969666_17848838994423973_4497820143798182367_n..jpg",
-                        "/images/work/social-media/thinkstack/483171448_17848832730423973_1861259376434438629_n..jpg",
-                        "/images/work/social-media/thinkstack/483213709_17848836015423973_981085596632410358_n..jpg",
-                        "/images/work/social-media/thinkstack/483267635_17848831614423973_5830870089893178689_n..jpg",
-                        "/images/work/social-media/thinkstack/483852845_17848836711423973_9215820291717547604_n..jpg",
-                        "/images/work/social-media/thinkstack/484108924_17848838715423973_3253649745432166913_n..jpg",
-                        "/images/work/social-media/thinkstack/491895448_17855093142423973_4706016227547484056_n..jpg",
-                        "/images/work/social-media/thinkstack/519484787_17865919767423973_5671857013837820699_n..jpg",
-                        "/images/work/social-media/thinkstack/528263938_17868605109423973_6125855976008464460_n..jpg",
-                        "/images/work/social-media/thinkstack/591162543_17883037761423973_1977079548995216034_n..jpg"
+                        "/images/work/social-media/thinkstack/482969666_17848838994423973_4497820143798182367_n..webp",
+                        "/images/work/social-media/thinkstack/483171448_17848832730423973_1861259376434438629_n..webp",
+                        "/images/work/social-media/thinkstack/483213709_17848836015423973_981085596632410358_n..webp",
+                        "/images/work/social-media/thinkstack/483267635_17848831614423973_5830870089893178689_n..webp",
+                        "/images/work/social-media/thinkstack/483852845_17848836711423973_9215820291717547604_n..webp",
+                        "/images/work/social-media/thinkstack/484108924_17848838715423973_3253649745432166913_n..webp",
+                        "/images/work/social-media/thinkstack/491895448_17855093142423973_4706016227547484056_n..webp",
+                        "/images/work/social-media/thinkstack/519484787_17865919767423973_5671857013837820699_n..webp",
+                        "/images/work/social-media/thinkstack/528263938_17868605109423973_6125855976008464460_n..webp",
+                        "/images/work/social-media/thinkstack/591162543_17883037761423973_1977079548995216034_n..webp"
                     ]
                 }
             ],
@@ -1233,7 +1233,7 @@ export const projectsData = [
         year: "2025",
         type: "Web & Strategy",
         isLocked: true,
-        image: "/images/work/ufbrandsalwar.png",
+        image: "/images/work/ufbrandsalwar.webp",
         client: "UF Brand",
         service: "E-Commerce Design & Development",
         description: "A digital flagship for luxury ethnic wear, redefining the boutique experience through high-fidelity visuals and advanced interaction design. Currently in active development.",
