@@ -112,6 +112,9 @@ const About = () => {
                             <img
                                 src={portraitImg}
                                 alt="Faheem"
+                                decoding="async"
+                                width="400"
+                                height="500"
                             />
                             <div className="about-img-badge">
                                 <span className="avail-dot-green"></span>

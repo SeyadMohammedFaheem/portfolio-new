@@ -69,6 +69,10 @@ const Insights = () => {
                                 <img 
                                     src={insight.image} 
                                     alt={insight.title} 
+                                    loading="lazy"
+                                    decoding="async"
+                                    width="800"
+                                    height="600"
                                     style={{ width: '100%', height: '100%', objectFit: 'cover', imageRendering: 'crisp-edges' }} 
                                 />
                             </div>

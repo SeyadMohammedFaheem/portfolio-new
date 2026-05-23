@@ -1,9 +1,22 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import { projectsData } from '../data/projectsData';
 
 const SelectedWork = () => {
     const projects = projectsData.slice(0, 4);
+
+    // Prefetch hero image for the project being hovered
+    const prefetchedImages = React.useRef(new Set());
+    const prefetchProject = useCallback((project) => {
+        const heroImg = project.heroImage || project.image;
+        if (prefetchedImages.current.has(heroImg)) return;
+        prefetchedImages.current.add(heroImg);
+        const link = document.createElement('link');
+        link.rel = 'prefetch';
+        link.as = 'image';
+        link.href = heroImg;
+        document.head.appendChild(link);
+    }, []);
 
     return (
         <section className="selected-work-section">
@@ -28,7 +41,7 @@ const SelectedWork = () => {
                         project.isLocked ? (
                             <div className="work-card-kanso is-locked" key={index}>
                                 <div className="work-img-wrapper">
-                                    <img src={project.image} alt={project.title} loading="lazy" width="800" height="600" />
+                                    <img src={project.image} alt={project.title} loading="lazy" decoding="async" width="800" height="600" />
                                     <div className="locked-overlay">
                                         <span>LOCKED
                                         </span>
@@ -45,9 +58,9 @@ const SelectedWork = () => {
                                 </div>
                             </div>
                         ) : (
-                            <Link to={`/project/${project.slug}`} className="work-card-kanso" key={index}>
+                            <Link to={`/project/${project.slug}`} className="work-card-kanso" key={index} onMouseEnter={() => prefetchProject(project)}>
                                 <div className="work-img-wrapper">
-                                    <img src={project.image} alt={project.title} loading="lazy" width="800" height="600" />
+                                    <img src={project.image} alt={project.title} loading="lazy" decoding="async" width="800" height="600" />
                                 </div>
                                 <div className="work-info">
                                     <div className="info-top">

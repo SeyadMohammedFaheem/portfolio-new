@@ -216,7 +216,7 @@ const ProjectDetail = () => {
                     ) : project.videoUrl ? (
                         <VideoEmbed id={getYouTubeID(project.videoUrl)} title={project.title} />
                     ) : (
-                        <img src={project.heroImage || project.image} alt={project.title} />
+                        <img src={project.heroImage || project.image} alt={project.title} decoding="async" />
                     )}
                 </div>
 
@@ -338,6 +338,8 @@ const ProjectDetail = () => {
                         <img
                             src={vs.image}
                             alt={vs.heading}
+                            loading="lazy"
+                            decoding="async"
                             style={{ width: '100%', height: 'auto', borderRadius: '24px', display: 'block', border: '1px solid rgba(255,255,255,0.07)', boxShadow: '0 24px 60px rgba(0,0,0,0.5)' }}
                         />
                     </div>
@@ -398,7 +400,7 @@ const ProjectDetail = () => {
                                 {ds.icons.map((icon, idx) => (
                                     <div key={idx} className="zc-icon-item">
                                         <div className="zc-icon-wrapper">
-                                            <img src={icon.path} alt={icon.name} />
+                                            <img src={icon.path} alt={icon.name} loading="lazy" decoding="async" />
                                         </div>
                                         <span className="zc-icon-name">{icon.name}</span>
                                     </div>
@@ -414,7 +416,7 @@ const ProjectDetail = () => {
                                         <div className="zc-illustration-grid">
                                             {group.images.map((img, i) => (
                                                 <div key={i} className="zc-illustration-item">
-                                                    <img src={img} alt={`${group.title} ${i}`} />
+                                                    <img src={img} alt={`${group.title} ${i}`} loading="lazy" decoding="async" />
                                                 </div>
                                             ))}
                                         </div>
@@ -434,6 +436,8 @@ const ProjectDetail = () => {
                                                     src={img} 
                                                     alt={`${ds.heading} scroll ${idx}`} 
                                                     className="zc-scroll-img"
+                                                    loading="lazy"
+                                                    decoding="async"
                                                 />
                                             ))}
                                         </div>
@@ -451,6 +455,8 @@ const ProjectDetail = () => {
                                                 key={idx} 
                                                 src={img} 
                                                 alt={`${ds.heading} ${idx + 1}`} 
+                                                loading="lazy"
+                                                decoding="async"
                                                 style={{ width: '100%', height: 'auto', borderRadius: '12px', border: '1px solid rgba(255,255,255,0.05)', boxShadow: '0 10px 30px rgba(0,0,0,0.3)' }} 
                                             />
                                         ))}
@@ -460,6 +466,8 @@ const ProjectDetail = () => {
                                 <img
                                     src={ds.image}
                                     alt={ds.heading}
+                                    loading="lazy"
+                                    decoding="async"
                                     style={{ width: '100%', height: 'auto', borderRadius: '24px', display: 'block', border: '1px solid rgba(255,255,255,0.07)', boxShadow: '0 24px 60px rgba(0,0,0,0.5)' }}
                                 />
                             )
@@ -554,7 +562,7 @@ const ProjectDetail = () => {
                                                 <div className="zc-clay-camera"></div>
                                                 <div className="zc-power-btn"></div>
                                                 <div className={`zc-clay-screen ${sol.isScrollable ? 'is-scrollable' : ''}`}>
-                                                    <img src={imgSrc} alt="iPhone 17 Mockup" />
+                                                    <img src={imgSrc} alt="iPhone 17 Mockup" loading="lazy" decoding="async" />
                                                 </div>
                                             </div>
                                             {sol.mockupLabels ? (
@@ -571,7 +579,7 @@ const ProjectDetail = () => {
                                 <div style={{ display: 'flex', flexDirection: 'column', gap: '40px', width: '100%' }}>
                                     {sol.mockupImg.map((imgSrc, j) => (
                                         <div key={j} style={{ width: '100%' }}>
-                                            <img src={imgSrc} alt={Array.isArray(sol.mockupCaption) ? sol.mockupCaption[j] : `Solution ${i + 1} mockup ${j + 1}`} />
+                                            <img src={imgSrc} alt={Array.isArray(sol.mockupCaption) ? sol.mockupCaption[j] : `Solution ${i + 1} mockup ${j + 1}`} loading="lazy" decoding="async" />
                                             {Array.isArray(sol.mockupCaption) && sol.mockupCaption[j] && (
                                                 <span className="zc-mockup-caption">{sol.mockupCaption[j]}</span>
                                             )}
@@ -580,7 +588,7 @@ const ProjectDetail = () => {
                                 </div>
                             ) : (
                                 <div style={{ width: '100%' }}>
-                                    <img src={sol.mockupImg} alt={sol.mockupCaption || `Solution ${i + 1} mockup`} />
+                                    <img src={sol.mockupImg} alt={sol.mockupCaption || `Solution ${i + 1} mockup`} loading="lazy" decoding="async" />
                                     {sol.mockupCaption && (
                                         <span className="zc-mockup-caption">{sol.mockupCaption}</span>
                                     )}
@@ -635,7 +643,7 @@ const ProjectDetail = () => {
                                     <h2 className="zc-section-h2">{project.caseStudy.designSystemSection.colorLanguage.title}</h2>
                                     <p className="zc-section-desc" style={{ marginBottom: '40px' }}>{project.caseStudy.designSystemSection.colorLanguage.desc}</p>
                                     <div className="zc-animate" style={{ borderRadius: '24px', overflow: 'hidden', border: '1px solid rgba(255,255,255,0.08)' }}>
-                                        <img src={project.caseStudy.designSystemSection.colorLanguage.image} alt="Color Language" style={{ width: '100%', display: 'block' }} />
+                                        <img src={project.caseStudy.designSystemSection.colorLanguage.image} alt="Color Language" loading="lazy" decoding="async" style={{ width: '100%', display: 'block' }} />
                                     </div>
                                 </div>
                             )}
@@ -645,7 +653,7 @@ const ProjectDetail = () => {
                                     <h2 className="zc-section-h2">{project.caseStudy.designSystemSection.architectureSection.title}</h2>
                                     <p className="zc-section-desc" style={{ marginBottom: '40px' }}>{project.caseStudy.designSystemSection.architectureSection.desc}</p>
                                     <div className="zc-animate" style={{ borderRadius: '24px', overflow: 'hidden', border: '1px solid rgba(255,255,255,0.08)' }}>
-                                        <img src={project.caseStudy.designSystemSection.architectureSection.image} alt="Design Token Architecture" style={{ width: '100%', display: 'block' }} />
+                                        <img src={project.caseStudy.designSystemSection.architectureSection.image} alt="Design Token Architecture" loading="lazy" decoding="async" style={{ width: '100%', display: 'block' }} />
                                     </div>
                                 </div>
                             )}
@@ -658,7 +666,7 @@ const ProjectDetail = () => {
                                     
                                     {/* Comp Highlight Image under the heading */}
                                     <div className="zc-animate" style={{ borderRadius: '24px', overflow: 'hidden', border: '1px solid rgba(255,255,255,0.08)', marginBottom: '60px' }}>
-                                        <img src="/images/work/comp-highlight.webp" alt="System Detail" style={{ width: '100%', display: 'block' }} />
+                                        <img src="/images/work/comp-highlight.webp" alt="System Detail" loading="lazy" decoding="async" style={{ width: '100%', display: 'block' }} />
                                     </div>
 
                                     {project.caseStudy.designSystemSection.tokenLayers.map((layer, idx) => (
@@ -701,7 +709,7 @@ const ProjectDetail = () => {
                                             {/* Laptop Image under Semantic Tokens */}
                                             {layer.title === "Semantic Tokens" && (
                                                 <div className="zc-animate" style={{ borderRadius: '24px', overflow: 'hidden', border: '1px solid rgba(255,255,255,0.08)', marginTop: '40px' }}>
-                                                    <img src="/images/work/laptop.webp" alt="Laptop View" style={{ width: '100%', display: 'block' }} />
+                                                    <img src="/images/work/laptop.webp" alt="Laptop View" loading="lazy" decoding="async" style={{ width: '100%', display: 'block' }} />
                                                 </div>
                                             )}
                                         </div>
@@ -771,7 +779,7 @@ const ProjectDetail = () => {
                                         }}>
                                             {project.caseStudy.designSystemSection.scalingSection.images.map((img, i) => (
                                                 <div key={i} className="zc-animate" style={{ borderRadius: '24px', overflow: 'hidden', border: '1px solid rgba(255,255,255,0.08)' }}>
-                                                    <img src={img} alt={`Scale detail ${i + 1}`} style={{ width: '100%', display: 'block' }} />
+                                                    <img src={img} alt={`Scale detail ${i + 1}`} loading="lazy" decoding="async" style={{ width: '100%', display: 'block' }} />
                                                 </div>
                                             ))}
                                         </div>
@@ -849,6 +857,8 @@ const ProjectDetail = () => {
                                         <img 
                                             src={project.caseStudy.designSystemSection.outcomeSection.bottomImage} 
                                             alt="Final Impact" 
+                                            loading="lazy"
+                                            decoding="async"
                                             style={{ width: '100%', display: 'block' }} 
                                         />
                                     </div>
@@ -888,7 +898,7 @@ const ProjectDetail = () => {
                                         <div className="zc-clay-camera"></div>
                                         <div className="zc-power-btn"></div>
                                         <div className="zc-clay-screen">
-                                            <img src={imgSrc} alt="Highlight Mockup" />
+                                            <img src={imgSrc} alt="Highlight Mockup" loading="lazy" decoding="async" />
                                         </div>
                                     </div>
                                     {arr.length === 2 && (
@@ -934,7 +944,7 @@ const ProjectDetail = () => {
                         {[nextProject, projectsData[(currentIndex + 2) % projectsData.length]].map((p, i) => (
                             <Link key={i} to={`/project/${p.slug}`} className="work-card-kanso">
                                 <div className="work-img-wrapper">
-                                    <img src={p.image} alt={p.title} />
+                                    <img src={p.image} alt={p.title} loading="lazy" decoding="async" />
                                 </div>
                                 <div className="work-info">
                                     <div className="info-top">

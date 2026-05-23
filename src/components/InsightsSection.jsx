@@ -36,6 +36,7 @@ const InsightsSection = () => {
                             alt={mainPost.title} 
                             className="insights-card-bg"
                             loading="lazy"
+                            decoding="async"
                         />
                         <div className="card-badge">{mainPost.category}</div>
                         
@@ -55,7 +56,7 @@ const InsightsSection = () => {
                 {sidePosts.map(post => (
                     <Link key={post.id} to={`/blog/${post.slug}`} className="insights-card standard">
                         <div className="img-container">
-                            <img src={post.image} alt={post.title} loading="lazy" />
+                            <img src={post.image} alt={post.title} loading="lazy" decoding="async" />
                             <div className="card-badge">{post.category}</div>
                         </div>
                         

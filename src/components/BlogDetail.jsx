@@ -40,7 +40,7 @@ const BlogDetail = () => {
                 </div>
 
                 <div className="blog-featured-image">
-                    <img src={post.image} alt={post.title} />
+                    <img src={post.image} alt={post.title} decoding="async" />
                 </div>
 
                 {/* ── DYNAMIC BLOG BODY (Notion Blocks) ── */}
@@ -58,7 +58,7 @@ const BlogDetail = () => {
                             case 'img':
                                 return (
                                     <div key={index} className="blog-img-full">
-                                        <img src={block.url} alt={block.caption || "Blog image"} />
+                                        <img src={block.url} alt={block.caption || "Blog image"} loading="lazy" decoding="async" />
                                         {block.caption && <span className="img-caption">{block.caption}</span>}
                                     </div>
                                 );
@@ -85,7 +85,7 @@ const BlogDetail = () => {
                         {blogsData.filter(b => b.id !== post.id).slice(0, 3).map(b => (
                             <Link key={b.id} to={`/blog/${b.slug}`} className="blog-next-card">
                                 <div className="blog-next-card-img">
-                                    <img src={b.image} alt={b.title} />
+                                    <img src={b.image} alt={b.title} loading="lazy" decoding="async" />
                                 </div>
                                 <span className="blog-next-card-cat">{b.category}</span>
                                 <h3 className="blog-next-card-title">{b.title}</h3>

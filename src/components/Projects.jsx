@@ -69,7 +69,7 @@ const Projects = () => {
                         project.isLocked ? (
                             <div className="work-card-kanso is-locked" key={`${project.id}-${index}`}>
                                 <div className="work-img-wrapper">
-                                    <img src={project.image} alt={project.title} />
+                                    <img src={project.image} alt={project.title} loading="lazy" decoding="async" width="800" height="600" />
                                     <div className="locked-overlay">
                                         <span>LOCKED</span>
                                     </div>
@@ -87,7 +87,7 @@ const Projects = () => {
                         ) : (
                             <Link to={`/project/${project.slug}`} className="work-card-kanso" key={`${project.id}-${index}`}>
                                 <div className="work-img-wrapper">
-                                    <img src={project.image} alt={project.title} />
+                                    <img src={project.image} alt={project.title} loading="lazy" decoding="async" width="800" height="600" />
                                 </div>
                                 <div className="work-info">
                                     <div className="info-top">

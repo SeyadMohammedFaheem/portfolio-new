@@ -42,7 +42,7 @@ const WorkItemRow = ({ item, index }) => {
                         className={`work-thumbnail ${isHovered && i !== activeIndex ? 'hidden-thumb' : ''}`}
                         key={i}
                     >
-                        <img src={img} alt={`${item.title} ${i}`} loading="lazy" />
+                        <img src={img} alt={`${item.title} ${i}`} loading="lazy" decoding="async" />
                     </div>
                 ))}
             </div>

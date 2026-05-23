@@ -1,6 +1,5 @@
 import React, { useEffect, useState, lazy, Suspense } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { Canvas } from '@react-three/fiber';
 import { ReactLenis } from 'lenis/react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -8,18 +7,35 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 // Always-present shell components (tiny, needed on every page)
 import Header from './components/Header';
 import Footer from './components/Footer';
-import TunnelBackground from './components/TunnelBackground';
+
+// Lazy-load the heavy 3D Canvas element so it is decoupled from the initial page rendering path
+const ThreeCanvas = lazy(() => import('./components/ThreeCanvas'));
 
 // Home is the most-visited page — keep it eager
 import Home from './components/Home';
 
 // Lazy-load every other route so their JS only downloads when needed
-const BlogDetail    = lazy(() => import('./components/BlogDetail'));
-const Projects      = lazy(() => import('./components/Projects'));
-const Insights      = lazy(() => import('./components/Insights'));
-const ProjectDetail = lazy(() => import('./components/ProjectDetail'));
-const About         = lazy(() => import('./components/About'));
-const Contact       = lazy(() => import('./components/Contact'));
+// Store the import functions so we can prefetch them on idle
+const lazyImports = {
+  BlogDetail:    () => import('./components/BlogDetail'),
+  Projects:      () => import('./components/Projects'),
+  Insights:      () => import('./components/Insights'),
+  ProjectDetail: () => import('./components/ProjectDetail'),
+  About:         () => import('./components/About'),
+  Contact:       () => import('./components/Contact'),
+};
+
+const BlogDetail    = lazy(lazyImports.BlogDetail);
+const Projects      = lazy(lazyImports.Projects);
+const Insights      = lazy(lazyImports.Insights);
+const ProjectDetail = lazy(lazyImports.ProjectDetail);
+const About         = lazy(lazyImports.About);
+const Contact       = lazy(lazyImports.Contact);
+
+// Prefetch all lazy route chunks during idle time so navigation is instant
+function prefetchRoutes() {
+  Object.values(lazyImports).forEach(importFn => importFn());
+}
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -46,6 +62,18 @@ export default function App() {
   const [videoElement, setVideoElement] = useState(null);
   const [progress, setProgress] = useState(0);
 
+  // Prefetch all lazy route chunks once the page is idle
+  useEffect(() => {
+    if ('requestIdleCallback' in window) {
+      const id = requestIdleCallback(() => prefetchRoutes());
+      return () => cancelIdleCallback(id);
+    } else {
+      // Fallback: prefetch after 2s
+      const t = setTimeout(prefetchRoutes, 2000);
+      return () => clearTimeout(t);
+    }
+  }, []);
+
   useEffect(() => {
     const video = document.createElement('video');
     video.src = '/aMrf9JGU3yYdb6750VEo3fjjEY.mp4';
@@ -68,8 +96,8 @@ export default function App() {
 
     video.addEventListener('loadedmetadata', handleLoadedMetadata);
 
-    // Fallback: reveal the site after 4 s regardless of video state
-    const timeout = setTimeout(() => setLoaded(true), 4000);
+    // Fallback: reveal the site after 2s (reduced from 4s) — don't let video block rendering
+    const timeout = setTimeout(() => setLoaded(true), 2000);
 
     return () => {
       video.removeEventListener('loadedmetadata', handleLoadedMetadata);
@@ -84,9 +112,9 @@ export default function App() {
         <Header />
 
         <div className="canvas-container">
-          <Canvas orthographic camera={{ zoom: 1, position: [0, 0, 1] }}>
-            <TunnelBackground video={videoElement} progress={progress} />
-          </Canvas>
+          <Suspense fallback={<div className="canvas-placeholder" />}>
+            <ThreeCanvas video={videoElement} progress={progress} />
+          </Suspense>
         </div>
 
         <Suspense fallback={<PageFallback />}>

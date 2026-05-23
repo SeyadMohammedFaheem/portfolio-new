@@ -9,7 +9,6 @@ export default function Hero({ videoElement, setProgress }) {
   useEffect(() => {
     if (!videoElement) return;
 
-    const scrub = { time: 0 };
     const trigger = ScrollTrigger.create({
       trigger: sectionRef.current,
       start: "top top",
@@ -17,16 +16,12 @@ export default function Hero({ videoElement, setProgress }) {
       scrub: 1,
       onUpdate: (self) => {
         setProgress(self.progress);
-        if (videoElement.duration) {
+        if (videoElement && videoElement.duration && !videoElement.seeking) {
           const targetTime = self.progress * videoElement.duration;
-          gsap.to(scrub, {
-            time: targetTime,
-            duration: 0.5,
-            ease: "power1.out",
-            onUpdate: () => {
-              videoElement.currentTime = scrub.time;
-            }
-          });
+          // Avoid seeking on tiny micro-changes to prevent layout thrashing
+          if (Math.abs(videoElement.currentTime - targetTime) > 0.03) {
+            videoElement.currentTime = targetTime;
+          }
         }
       }
     });
