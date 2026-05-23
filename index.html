@@ -11,16 +11,14 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
-    <!-- Google Fonts loaded asynchronously to eliminate render-blocking delivery -->
+    <!-- Google Fonts as <link> instead of CSS @import — non-render-blocking -->
     <link
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800;900&display=swap"
-      media="print"
-      onload="this.media='all'"
     />
 
     <!-- Preload the LCP hero image so it shows up instantly -->
-    <link rel="preload" as="image" href="/hero-runner.webp" fetchpriority="high" />
+    <link rel="preload" as="image" href="/hero-runner.webp" />
   </head>
   <body>
     <div id="root"></div>
