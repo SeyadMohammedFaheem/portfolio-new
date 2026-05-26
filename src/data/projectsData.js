@@ -882,7 +882,7 @@ export const projectsData = [
         slug: "thinkstack",
         title: "Thinkstack AI Platform",
         year: "2025",
-        type: "Product & AI Design",
+        type: "Web & Strategy",
         isLocked: false,
         isSimpleShowcase: false,
         image: "/images/work/thinkstack-web-card.webp",
@@ -1097,7 +1097,7 @@ export const projectsData = [
             finalOutcome: "The resulting print portfolio has become a cornerstone of Pickcel’s physical marketing strategy, praised for its clarity and premium feel by international partners and clients."
         }
     },
-   
+
     {
         id: "social-visual-ecosystem",
         slug: "social-media",
@@ -1229,15 +1229,243 @@ export const projectsData = [
     {
         id: "ufbrand-salwar-ecommerce",
         slug: "ufbrand-salwar",
-        title: "UF Brand: Heritage Couture",
+        title: "UF Brand - Design & Dev",
         year: "2025",
-        type: "Web & Strategy",
-        isLocked: true,
+        type: "Web & Strategy",                                 
+        category: "E-Commerce",
+        isLocked: false,
         image: "/images/work/ufbrandsalwar.webp",
         client: "UF Brand",
         service: "E-Commerce Design & Development",
-        description: "A digital flagship for luxury ethnic wear, redefining the boutique experience through high-fidelity visuals and advanced interaction design. Currently in active development.",
-        category: "E-Commerce"
-    },
-
+        description: "This project involved the complete design and development of a production-ready e-commerce platform for UF Brand, a women’s fashion business specializing in ethnic wear and wholesale clothing. The website was built to improve online shopping, product discovery, and social engagement while maintaining a seamless brand experience. UF Brand primarily showcases women’s clothing collections through Instagram and wholesale channels, making digital presence an important part of the business.\n\nUnlike a traditional e-commerce platform, the website was designed to automatically showcase fresh Instagram content directly on the website through a custom-built Instagram scraping system, eliminating the need for manual content management.\n\nThe project included both UI/UX design (35%) and full-stack development (65%), with a stronger focus on engineering, automation, and custom integrations.",
+        heroImage: "/images/work/ufbrandsalwar.webp",
+        challenge: {
+            text: "UF Brand heavily relies on Instagram for showcasing new arrivals, product styling, and customer engagement. However, this created a gap between social media content and the website experience. Customers had to switch between platforms to explore products and latest collections. Instagram also served as a key content source for product discovery and customer trust.",
+            subtext: "This created friction in the customer journey and reduced engagement with newly launched collections."
+        },
+        solution: {
+            text: "Automated Instagram Content Fetching System",
+            subtext: "One of the biggest highlights of this project was building a custom Instagram scraper from scratch. Instead of relying on expensive APIs, browser automation, or manual uploads, a custom scraping system was developed to fetch Instagram content and automatically display the latest posts inside the website."
+        },
+        result: "The final product successfully transformed UF Brand’s digital experience by combining fashion e-commerce with automated social content integration, creating a scalable, production-ready platform.",
+        gridImages: [
+            "https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?auto=format&fit=crop&q=80&w=1600",
+            "https://images.unsplash.com/photo-1607344645866-009c320c5ab8?auto=format&fit=crop&q=80&w=1600"
+        ],
+        stackImages: [
+            "https://images.unsplash.com/photo-1590073844006-33379778ae09?auto=format&fit=crop&q=80&w=1600",
+            "https://images.unsplash.com/photo-1509319117193-57bab727e09d?auto=format&fit=crop&q=80&w=1600"
+        ],
+        impactImage: "https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&q=80&w=2000",
+        caseStudy: {
+            goals: [
+                "Design a clean and modern e-commerce experience",
+                "Improve product discoverability",
+                "Connect Instagram content with shopping behavior",
+                "Automate social media content updates",
+                "Reduce manual content management",
+                "Build a scalable and responsive platform",
+                "Improve trust through real-time product visibility"
+            ],
+            targetUsers: [
+                "Fashion Buyers (Ethnic Wear Shoppers)",
+                "Wholesale Clothing Customers",
+                "Instagram Social Media Customers"
+            ],
+            challengeBullets: [
+                { icon: "❌", text: "Website content becoming outdated quickly" },
+                { icon: "❌", text: "Manual effort required to update social media sections" },
+                { icon: "❌", text: "Weak integration between Instagram and shopping experience" },
+                { icon: "❌", text: "Limited product discovery through the website" },
+                { icon: "❌", text: "Lack of real-time social proof" }
+            ],
+            solutions: [
+                {
+                    num: "1/3",
+                    title: "Challenge 1: Maintaining Updated Fashion Content",
+                    desc: "Fashion collections change frequently, making manual website updates inefficient.",
+                    rationale: "Solution: Built an automated Instagram content fetching system to continuously display new product posts.",
+                    mockupBg: "#0d0d0d",
+                    mockupImg: "https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?auto=format&fit=crop&q=80&w=1600"
+                },
+                {
+                    num: "2/3",
+                    title: "Challenge 2: Connecting Social Media With Shopping",
+                    desc: "Users often browse Instagram but do not convert on external websites.",
+                    rationale: "Solution: Integrated Instagram content directly into the shopping experience to create a smoother transition between discovery and purchase.",
+                    mockupBg: "#0d0d0d",
+                    mockupImg: "https://images.unsplash.com/photo-1607344645866-009c320c5ab8?auto=format&fit=crop&q=80&w=1600"
+                },
+                {
+                    num: "3/3",
+                    title: "Challenge 3: Performance Optimization",
+                    desc: "Dynamic content can affect loading speed and responsiveness.",
+                    rationale: "Solution: Optimized rendering and content loading to maintain fast performance across devices.",
+                    mockupBg: "#0d0d0d",
+                    mockupImg: "https://images.unsplash.com/photo-1590073844006-33379778ae09?auto=format&fit=crop&q=80&w=1600"
+                }
+            ],
+            designProcess: [
+                {
+                    heading: "Design Process (35%)",
+                    desc: "The design process focused on creating a mobile-friendly and product-first shopping experience for fashion buyers.\n\nThe interface was designed to prioritize:\n\n• Faster browsing experience\n• Product discoverability\n• Mobile responsiveness\n• Cleaner navigation\n• Instagram-inspired visual browsing\n\nSpecial attention was given to ensuring that Instagram content naturally blended into the shopping journey instead of feeling disconnected from the website.\n\nThe goal was to create a familiar browsing experience for customers already engaging with UF Brand through Instagram."
+                },
+                {
+                    heading: "Development Process (65%)",
+                    desc: "Development became the core focus of this project.\n\nThe platform was engineered to support dynamic product content while ensuring strong performance and scalability. Since the website required continuous content updates, automation became a key technical priority.\n\nThe development process included:\n\n• Frontend implementation\n• Backend architecture\n• Dynamic product rendering\n• State management\n• Performance optimization\n• Responsive implementation\n• Hosting and deployment\n\nThe architecture was designed to support future scalability and reduce manual maintenance."
+                },
+                {
+                    heading: "Custom Instagram Scraper",
+                    desc: "One of the biggest highlights of this project was building a custom Instagram scraper from scratch.\n\nInstead of relying on expensive APIs, browser automation, or manual uploads, a custom scraping system was developed to fetch Instagram content and automatically display the latest posts inside the website.\n\nFeatures of the scraper:\n\n• Automatic Instagram post fetching\n• Dynamic media rendering\n• Real-time content updates\n• Lightweight implementation\n• No manual uploads required\n• Social feed integration inside the website\n\nThis allowed UF Brand’s latest collections and product content to stay automatically updated without requiring manual intervention.\n\nThe scraper significantly improved content freshness, product visibility, social proof, customer trust, and website engagement."
+                },
+                {
+                    heading: "Key Features",
+                    desc: "• Fully responsive e-commerce website\n• Instagram-integrated product experience\n• Custom-built Instagram scraper\n• Automated social content updates\n• Dynamic product showcase\n• Mobile-first shopping experience\n• Performance-optimized architecture"
+                }
+            ],
+            finalOutcome: "The final product successfully transformed UF Brand’s digital experience by combining fashion e-commerce with automated social content integration.\n\nThe project demonstrates both design thinking and strong engineering capabilities, especially in solving real-world business problems through automation.\n\nThe result is a scalable, production-ready platform that keeps website content continuously updated while creating a more engaging shopping experience for customers."
+        }
+    }
+    // {
+    //     id: "octalume-iot-dashboard",
+    //     slug: "octalume-dashboard",
+    //     title: "OctaLume IoT Dashboard",
+    //     year: "2024",
+    //     type: "UX/UI Design & Design System",
+    //     category: "Smart Home Technology",
+    //     isLocked: true,
+    //     image: "https://images.unsplash.com/photo-1558002038-1055907df827?auto=format&fit=crop&q=80&w=1600",
+    //     client: "OctaLume",
+    //     service: "UX Design, UI Design, Branding, Design System",
+    //     time: "6 Weeks",
+    //     description: "OctaLume is an AI-powered IoT management dashboard designed to provide real-time insights, intelligent alerting, and seamless device control — helping users monitor and optimize smart environments efficiently.",
+    //     heroImage: "https://images.unsplash.com/photo-1558002038-1055907df827?auto=format&fit=crop&q=80&w=1600",
+    //     challenge: {
+    //         text: "IoT dashboards today fail at the basics: users are overwhelmed by excessive data, critical issues go unnoticed, and interfaces lack the clarity needed to act fast.",
+    //         subtext: "The key challenges included cognitive overload, passive notifications that bury critical issues, and a lack of proper visual contrast and hierarchy."
+    //     },
+    //     solution: {
+    //         text: "A room-based spatial navigation layout paired with a proactive, severe-alert system and a structured dark design language using scalable design tokens.",
+    //         subtext: "Reorganized the dashboard to mirror user mental models, prioritizing critical alerts and using highly visible semantic design tokens for instant readability."
+    //     },
+    //     result: "A dashboard designed for clarity, action, and real-time intelligence. OctaLume delivers a unified IoT management experience that eliminates the friction and confusion of legacy IoT UIs.",
+    //     gridImages: [
+    //         "https://images.unsplash.com/photo-1558002038-1055907df827?auto=format&fit=crop&q=80&w=1600",
+    //         "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=1600"
+    //     ],
+    //     stackImages: [
+    //         "https://images.unsplash.com/photo-1590073844006-33379778ae09?auto=format&fit=crop&q=80&w=1600",
+    //         "https://images.unsplash.com/photo-1509319117193-57bab727e09d?auto=format&fit=crop&q=80&w=1600"
+    //     ],
+    //     impactImage: "https://images.unsplash.com/photo-1558002038-1055907df827?auto=format&fit=crop&q=2000",
+    //     caseStudy: {
+    //         goals: [
+    //             "Simplify complex IoT data so users can scan and act quickly",
+    //             "Surface important alerts and insights instantly without noise",
+    //             "Establish a strong visual hierarchy for fast decision-making",
+    //             "Build a scalable design system that works across devices and teams"
+    //         ],
+    //         targetUsers: [
+    //             "Homeowners managing multiple smart devices across rooms",
+    //             "Facility managers monitoring energy and network systems",
+    //             "Tech enthusiasts exploring advanced smart home automation",
+    //             "Teams requiring consistent real-time device visibility",
+    //             "Users with varying levels of technical familiarity with IoT"
+    //         ],
+    //         understandingUsers: [
+    //             "Conducted user research to evaluate how people interact with legacy smart home and facility control centers.",
+    //             "Discovered that users naturally think in terms of physical spaces (rooms/zones) rather than abstract device types.",
+    //             "Identified that immediate alert visibility and accurate time-to-completion estimates were highly desired features."
+    //         ],
+    //         challengeBullets: [
+    //             { icon: "📊", text: "Overwhelmed by the sheer amount of information presented in default views." },
+    //             { icon: "🔔", text: "Failure to notify users of important events, anomalies, or device issues in a clear, severe-graded manner." },
+    //             { icon: "🎨", text: "IoT dashboards often lack proper contrast and hierarchy, making them hard to navigate under different light conditions." }
+    //         ],
+    //         solutions: [
+    //             {
+    //                 num: "1/5",
+    //                 title: "Solution 01 — Spatial Navigation & Room-Based Management",
+    //                 desc: "Organizing the dashboard by room mirrors the user's physical mental model, making navigation feel natural and dramatically reducing the time needed to locate any device or metric.",
+    //                 rationale: "Users think in terms of physical spaces, not device types. A room-centric hierarchy provides immediate spatial familiarity.",
+    //                 mockupBg: "#111",
+    //                 mockupImg: "https://images.unsplash.com/photo-1558002038-1055907df827?auto=format&fit=crop&q=80&w=1600",
+    //                 mockupCaption: "Room-based smart spatial dashboard overview"
+    //             },
+    //             {
+    //                 num: "2/5",
+    //                 title: "Solution 02 — Proactive Alert System & Contextual Notifications",
+    //                 desc: "A dedicated alerts section surfaces critical events instantly with contextual notifications — e.g. 'Windows are opened in kids room' or 'Water leaking has been found'. Alerts are prioritized by severity and displayed with clear, actionable language so users can respond immediately.",
+    //                 rationale: "Critical events in a smart home demand immediate attention. A passive notification model buries alerts in noise. A proactive, always-visible alert system ensures users never miss what matters most.",
+    //                 mockupBg: "#171717",
+    //                 mockupImg: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=1600",
+    //                 mockupCaption: "Proactive and contextual alert dashboard"
+    //             },
+    //             {
+    //                 num: "3/5",
+    //                 title: "Solution 03 — Visual Hierarchy & Scalable Design Language",
+    //                 desc: "A bold typographic scale (Heading: 46px, Subheading: 26px, Body: 17px) combined with the primary lime green (#DFFE52) on a deep neutral (#171717) creates instant readability and clear scanning paths. Every element is intentionally weighted to guide attention.",
+    //                 rationale: "The combination of Lufga typography, the lime green primary, and a structured dark neutral palette creates a premium, scannable interface where critical data rises to the top.",
+    //                 mockupBg: "#171717",
+    //                 mockupImg: "https://images.unsplash.com/photo-1590073844006-33379778ae09?auto=format&fit=crop&q=80&w=1600",
+    //                 mockupCaption: "Visual scanning paths and typographic layout hierarchy"
+    //             },
+    //             {
+    //                 num: "4/5",
+    //                 title: "Solution 04 — Time-Sensitive Indicators & Real-Time Device Feedback",
+    //                 desc: "Gradient progress bars and time-sensitive indicators (e.g. '08 min left' for active devices) provide live feedback on device status, energy usage, and task completion. Users always know what's running, for how long, and what needs attention.",
+    //                 rationale: "Visual time indicators transform passive data into actionable prompts, encouraging users to make decisions before issues escalate.",
+    //                 mockupBg: "#0e0e0e",
+    //                 mockupImg: "https://images.unsplash.com/photo-1509319117193-57bab727e09d?auto=format&fit=crop&q=80&w=1600",
+    //                 mockupCaption: "Time-sensitive device indicators and battery feedback graphs"
+    //             },
+    //             {
+    //                 num: "5/5",
+    //                 title: "Solution 05 — Real-Time Monitoring Dashboard with Scalable Design Tokens",
+    //                 desc: "Electricity consumption graphs and room-based energy analytics provide deep insights. The system uses a three-tier design token system (Global, Base, Semantic).",
+    //                 rationale: "Swapping theme values or migrating styles across platforms becomes instant, eliminating hardcoded values and reducing technical debt.",
+    //                 mockupBg: "#111",
+    //                 mockupImg: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=1600",
+    //                 mockupCaption: "Real-time energy consumption analytical dashboard"
+    //             }
+    //         ],
+    //         designProcess: [
+    //             {
+    //                 heading: "Branding & Star Iconography",
+    //                 desc: "Illuminating spaces with an 8-pointed star, Octalume combines Octa (eight points) and Lume (light) to symbolize smart, advanced lighting and spatial precision."
+    //             },
+    //             {
+    //                 heading: "Typography & Lufga Scale",
+    //                 desc: "Typography uses Lufga — a modern sans-serif typeface with a clean, geometric, and minimalist style. Rounded letterforms give it a friendly and approachable look.\n\nType Scale:\n• Heading: 46px\n• Subheading: 26px\n• Body: 17px"
+    //             }
+    //         ],
+    //         designSystemSection: {
+    //             heading: "Design Tokens & Design System",
+    //             why: "Design tokens were introduced to fix inconsistency and scaling issues across the OctaLume platform. They act as a bridge between design and development — a single source of truth that ensures every decision made in design is faithfully reflected in the product.\n\nKey Benefits:\n• Single source of truth — one change propagates everywhere\n• Scalable across platforms — web, mobile, tablet all stay consistent\n• Easier theming — swap a brand color and the entire UI updates instantly\n• Better collaboration — designers and developers speak the same token language",
+    //             colorLanguage: {
+    //                 title: "Palette & Visual Reading System",
+    //                 desc: "Primary lime green accent (#DFFE52) with structured dark neutrals (#171717) for dark UI readability, accompanied by feedback colors for Success (#4CAF50), Warning (#FFEB3B), and Danger (#FF4545).",
+    //                 image: "https://images.unsplash.com/photo-1590073844006-33379778ae09?auto=format&fit=crop&q=80&w=1600"
+    //             },
+    //             architectureSection: {
+    //                 title: "Token Architecture Scaling",
+    //                 desc: "Modular architecture — tokens are layered in a modular three-tier structure:\n1. Global Tokens (colors, spacing values)\n2. Base Tokens (contextual primary, secondary values)\n3. Semantic Tokens (functional success, danger states, readable typography tokens)",
+    //                 image: "https://images.unsplash.com/photo-1509319117193-57bab727e09d?auto=format&fit=crop&q=80&w=1600"
+    //             }
+    //         },
+    //         impactOnUsers: [
+    //             "Reduced cognitive overload — users can scan and act on critical data in seconds",
+    //             "Faster response to critical issues — real-time alerts ensure nothing is missed",
+    //             "Improved usability across the entire system — clarity and hierarchy guide every interaction",
+    //             "Consistent UI across all devices and teams — design tokens eliminate inconsistency"
+    //         ],
+    //         nextSteps: [
+    //             "Design Tokens Expansion",
+    //             "Dashboard Enhancements",
+    //             "Landing Page Setup",
+    //             "Responsive Layout System Integration"
+    //         ],
+    //         finalOutcome: "A dashboard designed for clarity, action, and real-time intelligence. OctaLume delivers a unified IoT management experience that transforms how users interact with their smart environments. By combining room-based navigation, an intelligent alert system, a bold visual hierarchy, and a scalable design token architecture, the dashboard eliminates the friction and confusion of legacy IoT UIs. The result is a product that feels as precise and illuminated as its name suggests — structured, smart, and always one step ahead."
+    //     }
+    // }
 ];
