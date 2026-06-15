@@ -41,7 +41,7 @@ const SelectedWork = () => {
                         project.isLocked ? (
                             <div className="work-card-kanso is-locked" key={index}>
                                 <div className="work-img-wrapper">
-                                    <img src={project.image} alt={project.title} loading={index < 2 ? "eager" : "lazy"} fetchpriority={index < 2 ? "high" : undefined} decoding={index < 2 ? "sync" : "async"} width="800" height="600" />
+                                    <img src={project.image} alt={project.title} loading="lazy" decoding="async" width="800" height="600" />
                                     <div className="locked-overlay">
                                         <span>LOCKED
                                         </span>
@@ -60,7 +60,7 @@ const SelectedWork = () => {
                         ) : (
                             <Link to={`/project/${project.slug}`} className="work-card-kanso" key={index} onMouseEnter={() => prefetchProject(project)}>
                                 <div className="work-img-wrapper">
-                                    <img src={project.image} alt={project.title} loading={index < 2 ? "eager" : "lazy"} fetchpriority={index < 2 ? "high" : undefined} decoding={index < 2 ? "sync" : "async"} width="800" height="600" />
+                                    <img src={project.image} alt={project.title} loading="lazy" decoding="async" width="800" height="600" />
                                 </div>
                                 <div className="work-info">
                                     <div className="info-top">
