@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 export default function Footer() {
   const [email, setEmail] = useState('');
@@ -53,10 +54,10 @@ export default function Footer() {
 
           <div className="n-footer-column">
             <span className="n-footer-column-title">(LINKS)</span>
-            <a href="#" className="n-footer-link">Home</a>
-            <a href="#" className="n-footer-link">About</a>
-            <a href="#" className="n-footer-link">Works</a>
-            <a href="#" className="n-footer-link">Contact</a>
+            <Link to="/" className="n-footer-link">Home</Link>
+            <Link to="/about" className="n-footer-link">About</Link>
+            <Link to="/projects" className="n-footer-link">Works</Link>
+            <Link to="/contact" className="n-footer-link">Contact</Link>
           </div>
 
           <div className="n-footer-column">

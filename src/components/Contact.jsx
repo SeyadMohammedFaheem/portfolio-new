@@ -2,10 +2,9 @@ import React, { useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 
 const socials = [
-    { name: "LinkedIn", url: "#", arrow: "↗" },
-    { name: "Twitter / X", url: "#", arrow: "↗" },
-    { name: "Dribbble", url: "#", arrow: "↗" },
-    { name: "Instagram", url: "#", arrow: "↗" },
+    { name: "LinkedIn", url: "https://www.linkedin.com/in/seyad-mohammed-faheem/", arrow: "↗" },
+    { name: "Behance", url: "https://www.behance.net/faheemseyadmd", arrow: "↗" },
+    { name: "Dribbble", url: "https://dribbble.com/Faheemmeehaf", arrow: "↗" },
 ];
 
 const Contact = () => {
