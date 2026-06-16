@@ -1,7 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import blogsData from '../data/blogsData.json';
+
+gsap.registerPlugin(ScrollTrigger);
 
 const Insights = () => {
     const [activeFilter, setActiveFilter] = useState("All insights");
@@ -23,14 +26,23 @@ const Insights = () => {
             ease: "power4.out"
         });
 
-        gsap.from(".work-card-kanso", {
-            y: 100,
-            opacity: 0,
-            duration: 1,
-            stagger: 0.1,
-            ease: "power4.out",
-            delay: 0.2
+        // Animate each card only when it scrolls into view
+        gsap.utils.toArray(".work-card-kanso").forEach((card, i) => {
+            gsap.from(card, {
+                y: 60,
+                opacity: 0,
+                duration: 0.8,
+                ease: "power4.out",
+                delay: i * 0.05,
+                scrollTrigger: {
+                    trigger: card,
+                    start: "top 90%",
+                    toggleActions: "play none none none"
+                }
+            });
         });
+
+        return () => ScrollTrigger.getAll().forEach(t => t.kill());
     }, []);
 
     // Re-trigger animation when filter changes

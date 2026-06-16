@@ -1,5 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger);
 
 const socials = [
     { name: "LinkedIn", url: "https://www.linkedin.com/in/seyad-mohammed-faheem/", arrow: "↗" },
@@ -15,12 +18,26 @@ const Contact = () => {
     useEffect(() => {
         window.scrollTo(0, 0);
 
+        // Above-fold hero animations — fire on mount
         gsap.from(".contact-hero-eyebrow", { y: 20, opacity: 0, duration: 0.7, ease: "power4.out", delay: 0.1 });
         gsap.from(".contact-hero-title", { y: 70, opacity: 0, duration: 1.1, ease: "power4.out", delay: 0.2 });
         gsap.from(".contact-hero-sub", { y: 40, opacity: 0, duration: 0.9, ease: "power3.out", delay: 0.4 });
         gsap.from(".contact-email-giant", { y: 50, opacity: 0, duration: 1.0, ease: "power3.out", delay: 0.35 });
-        gsap.from(".contact-form-section", { y: 60, opacity: 0, duration: 0.9, ease: "power3.out", delay: 0.5 });
-        gsap.from(".contact-info-grid > *", { y: 30, opacity: 0, duration: 0.7, ease: "power3.out", stagger: 0.1, delay: 0.6 });
+
+        // Below-fold — animate when scrolled into view
+        gsap.from(".contact-form-section", {
+            y: 60, opacity: 0, duration: 0.9, ease: "power3.out",
+            scrollTrigger: { trigger: ".contact-form-section", start: "top 88%", toggleActions: "play none none none" }
+        });
+
+        gsap.utils.toArray(".contact-info-grid > *").forEach((el, i) => {
+            gsap.from(el, {
+                y: 30, opacity: 0, duration: 0.7, ease: "power3.out", delay: i * 0.1,
+                scrollTrigger: { trigger: el, start: "top 90%", toggleActions: "play none none none" }
+            });
+        });
+
+        return () => ScrollTrigger.getAll().forEach(t => t.kill());
     }, []);
 
     const handleChange = (e) => {

@@ -89,8 +89,8 @@ const WorkList = () => {
             description: "Motion-rich edits that tell your story with impact — from brand reels to product demos and social-first short form content.",
             skills: ["Brand Reels", "Short-Form Content", "Motion Graphics", "Color Grading"],
             images: [
-                "/images/video-editing2.gif",
-                "/images/video-editing.gif",
+                "/images/video-editing2.webp",
+                "/images/video-editing.webp",
             ]
         },
         {

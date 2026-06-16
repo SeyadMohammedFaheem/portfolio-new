@@ -77,7 +77,7 @@ export default function App() {
   useEffect(() => {
     const video = document.createElement('video');
     video.src = '/aMrf9JGU3yYdb6750VEo3fjjEY.mp4';
-    video.preload = 'auto';
+    video.preload = 'metadata';
     video.muted = true;
     video.loop = true;
     video.playsInline = true;
