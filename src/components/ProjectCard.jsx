@@ -1,5 +1,6 @@
 import React, { useRef, useEffect } from 'react';
 import { gsap } from 'gsap';
+import ProgressiveImage from './ProgressiveImage';
 
 export default function ProjectCard({ project, index }) {
   const cardRef = useRef();
@@ -39,7 +40,7 @@ export default function ProjectCard({ project, index }) {
       ref={cardRef}
     >
       <div className="project-image-wrap">
-        <img
+        <ProgressiveImage
           ref={imageRef}
           src={project.image}
           alt={project.title}
