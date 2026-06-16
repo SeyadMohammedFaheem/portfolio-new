@@ -40,7 +40,7 @@ const BlogDetail = () => {
                 </div>
 
                 <div className="blog-featured-image">
-                    <img src={post.image} alt={post.title} decoding="async" />
+                    <img src={post.image} alt={post.title} fetchpriority="high" loading="eager" decoding="async" />
                 </div>
 
                 {/* ── DYNAMIC BLOG BODY (Notion Blocks) ── */}

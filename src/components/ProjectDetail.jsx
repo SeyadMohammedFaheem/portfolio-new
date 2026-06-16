@@ -35,7 +35,7 @@ const ProjectDetail = () => {
                 className={`zc-video-thumbnail-container ${isSmall ? 'small' : ''}`}
                 onClick={() => setIsPlaying(true)}
             >
-                <img src={`https://img.youtube.com/vi/${id}/maxresdefault.jpg`} alt={title} />
+                <img src={`https://img.youtube.com/vi/${id}/maxresdefault.jpg`} alt={title} loading="lazy" decoding="async" width="1280" height="720" />
                 <div className="zc-play-button">
                     <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
                 </div>
@@ -216,7 +216,7 @@ const ProjectDetail = () => {
                     ) : project.videoUrl ? (
                         <VideoEmbed id={getYouTubeID(project.videoUrl)} title={project.title} />
                     ) : (
-                        <img src={project.heroImage || project.image} alt={project.title} decoding="async" />
+                        <img src={project.heroImage || project.image} alt={project.title} fetchpriority="high" loading="eager" decoding="async" width="1600" height="900" />
                     )}
                 </div>
 
