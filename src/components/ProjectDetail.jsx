@@ -350,7 +350,29 @@ const ProjectDetail = () => {
                     <div key={i} className="zc-content-col zc-animate" style={{ marginBottom: '120px' }}>
                         <section className="zc-section-block" style={{ marginBottom: '40px' }}>
                             <h2 className="zc-section-h2">{ds.heading}</h2>
-                            <p className="zc-section-desc">{ds.desc}</p>
+                            <p className="zc-section-desc" style={{ whiteSpace: 'pre-line' }}>{ds.desc}</p>
+                            {ds.highlights && (
+                                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(360px, 1fr))', gap: '24px', marginTop: '40px' }}>
+                                    {ds.highlights.map((hl, hlIdx) => (
+                                        <div key={hlIdx} style={{ backgroundColor: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: '16px', padding: '24px', display: 'flex', flexDirection: 'column' }}>
+                                            <h4 style={{ color: '#fff', fontSize: '1.1rem', marginBottom: '12px', fontWeight: '500', letterSpacing: '-0.01em' }}>{hl.title}</h4>
+                                            <p style={{ color: 'rgba(255,255,255,0.6)', fontSize: '0.95rem', lineHeight: '1.6', margin: 0 }}>{hl.text}</p>
+                                        </div>
+                                    ))}
+                                </div>
+                            )}
+                            {ds.techStack && (
+                                <div style={{ marginTop: '40px' }}>
+                                    <h3 style={{ color: '#fff', fontSize: '1.2rem', marginBottom: '20px', fontWeight: '500', letterSpacing: '-0.01em' }}>Technologies Used</h3>
+                                    <div style={{ display: 'flex', flexWrap: 'wrap', gap: '16px' }}>
+                                        {ds.techStack.map((tech, tIdx) => (
+                                            <div key={tIdx} style={{ backgroundColor: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '12px', padding: '12px 24px', color: '#fff', fontSize: '0.95rem', fontWeight: '500' }}>
+                                                {tech}
+                                            </div>
+                                        ))}
+                                    </div>
+                                </div>
+                            )}
                         </section>
                         {ds.typography && (
                             <div className="zc-typo-showcase">
@@ -586,14 +608,14 @@ const ProjectDetail = () => {
                                         </div>
                                     ))}
                                 </div>
-                            ) : (
+                            ) : sol.mockupImg ? (
                                 <div style={{ width: '100%' }}>
                                     <img src={sol.mockupImg} alt={sol.mockupCaption || `Solution ${i + 1} mockup`} loading="lazy" decoding="async" />
                                     {sol.mockupCaption && (
                                         <span className="zc-mockup-caption">{sol.mockupCaption}</span>
                                     )}
                                 </div>
-                            )}
+                            ) : null}
                         </div>
                     </section>
                 ))}

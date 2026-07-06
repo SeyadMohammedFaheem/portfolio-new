@@ -883,24 +883,24 @@ export const projectsData = [
         title: "Thinkstack AI Platform",
         year: "2025",
         type: "Web & Strategy",
-        isLocked: true,
+        isLocked: false,
         isSimpleShowcase: false,
         image: "/images/work/thinkstack-web-card.webp",
         client: "Thinkstack",
         service: "UX/UI Design, AI Strategy",
         time: "8 Weeks",
         category: "Web & AI Product",
-        description: "This project focused on designing a modern AI chatbot platform website that helps businesses create, train, and deploy AI-powered chatbots for customer support, automation, and engagement. The goal of the redesign was to create a visually modern, conversion-focused, and enterprise-ready experience while clearly communicating the platform’s capabilities and benefits.",
+        description: "ThinkStack is a next-generation AI chatbot platform empowering businesses to effortlessly create, train, and deploy intelligent agents. I spearheaded the complete UI/UX redesign of their marketing website, shifting the brand from a highly technical tool to an intuitive, enterprise-grade SaaS platform. The new digital presence prioritizes clarity, conversion, and a premium aesthetic to elevate ThinkStack's market positioning.",
         heroImage: "/images/work/thinkstack-web.webp",
         challenge: {
-            text: "Many AI product websites overwhelm users with technical information, unclear messaging, and complex feature explanations. This creates friction for businesses trying to quickly understand the platform and its value.",
-            subtext: "The existing experience lacked clear feature communication, strong visual hierarchy, enterprise trust signals, and a modern SaaS presentation."
+            text: "The AI software landscape is often cluttered with dense jargon and overwhelming technical interfaces. ThinkStack's original website struggled to distill its powerful capabilities into an approachable narrative, resulting in high cognitive load and missed conversion opportunities.",
+            subtext: "Key hurdles included fragmented messaging, a lack of enterprise-level trust signals, and a visual hierarchy that didn't effectively guide the user journey."
         },
         solution: {
-            text: "The redesign process focused on simplifying technical communication while maintaining a premium and futuristic visual identity. Instead of overwhelming users with dense AI terminology, the new design introduces a clear content hierarchy and modular layouts.",
-            subtext: "Every section was designed to answer a specific user question, creating a more guided and engaging browsing experience."
+            text: "I engineered a streamlined, conversion-optimized interface that translates complex AI concepts into clear, value-driven modular layouts. By introducing a sleek, futuristic visual language and a strategic content hierarchy, I demystified the product offering.",
+            subtext: "Each page was intentionally mapped to anticipate user questions, offering a frictionless, engaging narrative that seamlessly drives product discovery and sign-ups."
         },
-        result: "The final design transformed the website into a cleaner, more modern, and conversion-focused experience, improving product clarity, user engagement, and enterprise trust perception.",
+        result: "The redesigned platform delivers a bold, modern, and highly legible SaaS experience. It successfully elevates ThinkStack’s brand authority, enhances user engagement metrics, and accelerates enterprise adoption through strengthened trust and clarity.",
         caseStudy: {
             goals: [
                 "Improve product understanding",
@@ -918,103 +918,85 @@ export const projectsData = [
             ],
             solutions: [
                 {
-                    num: '1/11',
-                    title: 'Hero Section',
+                    num: '1/9',
+                    title: 'Establishing Brand Authority',
                     desc: 'Designed to create a strong first impression using bold typography, futuristic gradients, and clear messaging. The layout introduces a strong product headline, supporting description, and focused visual structure.',
                     rationale: 'The dark visual theme combined with glowing gradient effects helps establish a premium AI-focused brand identity.',
                     mockupBg: '#0A0A0A',
-                    mockupImg: '/images/work/thinkstack-web.webp',
+                    mockupImg: '/images/work/hero-section.png',
                     mockupCaption: 'Hero section with premium AI branding and clear CTAs'
                 },
                 {
-                    num: '2/11',
-                    title: 'AI Training Section',
+                    num: '2/9',
+                    title: 'Demystifying Technical Concepts',
                     desc: 'This section explains how businesses can train chatbots using their own content and data sources. The design focuses on simplifying technical concepts through clean layouts and supporting visuals.',
                     rationale: 'Large spacing and minimal content structure improve readability and make the feature easier to understand.',
                     mockupBg: '#0F0F0F',
-                    mockupImg: '/images/work/thinkstack-web.webp',
+                    mockupImg: '/images/work/ai-training-section.png',
                     mockupCaption: 'Intuitive AI training interface for business data'
                 },
                 {
-                    num: '3/11',
-                    title: 'Integration Section',
+                    num: '3/9',
+                    title: 'Visualizing Seamless Workflows',
                     desc: 'Highlights compatibility with Shopify and multiple business platforms. A simple logo-based layout was used to improve scanability and quickly communicate ecosystem support.',
                     rationale: 'Helps businesses understand that the platform can fit into their existing workflows without visual clutter.',
                     mockupBg: '#111',
-                    mockupImg: '/images/work/thinkstack-web.webp',
+                    mockupImg: '/images/work/integration-section.png',
                     mockupCaption: 'Ecosystem support and platform integrations'
                 },
                 {
-                    num: '4/11',
-                    title: 'Conversational Experience Showcase',
-                    desc: 'Demonstrates how the chatbot interacts with customers across different touchpoints. Combines interface previews with content to help users visualize real-world AI conversations.',
-                    rationale: 'The section was designed to make the product feel interactive and approachable.',
-                    mockupBg: '#0D0D0D',
-                    mockupImg: '/images/work/thinkstack-web.webp',
-                    mockupCaption: 'Real-world conversational interface preview'
-                },
-                {
-                    num: '5/11',
-                    title: 'Automation Features',
-                    desc: 'Highlights AI workflows, actions, and intelligent task handling. Dashboard previews and dark UI components were used to create a technical yet clean presentation style.',
-                    rationale: 'The goal was to communicate advanced functionality without overwhelming users.',
+                    num: '4/9',
+                    title: 'Simplifying Complex Capabilities',
+                    desc: 'Designed an elegant, staggered layout to showcase the platform\'s "Endless Possibilities". This highlights core features like automated workflows, deep integrations, and seamless human handoff in a scannable, visual format.',
+                    rationale: 'By breaking down complex AI capabilities into digestible blocks, users can quickly grasp the platform’s immense value without feeling intimidated by technical density.',
                     mockupBg: '#0A0A15',
-                    mockupImg: '/images/work/thinkstack-web.webp',
-                    mockupCaption: 'Advanced AI automation workflows'
+                    mockupImg: '/images/work/one-ai-chatbot-endless-possibilities.png',
+                    mockupCaption: 'Interactive automation capabilities showcase'
                 },
                 {
-                    num: '6/11',
-                    title: 'Security & Trust',
+                    num: '5/9',
+                    title: 'Building Enterprise Trust',
                     desc: 'Focuses on data protection, compliance certifications, and enterprise-level trust indicators. A minimal layout with certification badges reinforces reliability.',
                     rationale: 'Security is a major focus for businesses trusting AI platforms with customer data.',
                     mockupBg: '#050505',
-                    mockupImg: '/images/work/thinkstack-web.webp',
+                    mockupImg: '/images/work/security-trust.png',
                     mockupCaption: 'Enterprise-grade security and compliance indicators'
                 },
                 {
-                    num: '7/11',
-                    title: 'Conversational Forms',
+                    num: '6/9',
+                    title: 'Fostering Natural Interactions',
                     desc: 'Introduces AI-powered conversational forms designed to improve engagement and lead collection. Uses interactive conversation-based inputs for smoother interactions.',
                     rationale: 'Interactive inputs create a more natural and user-friendly experience compared to static forms.',
                     mockupBg: '#0F0F0F',
-                    mockupImg: '/images/work/thinkstack-web.webp',
+                    mockupImg: '/images/work/conversational-forms.png',
                     mockupCaption: 'Interactive conversational form experience'
                 },
                 {
-                    num: '8/11',
-                    title: 'Analytics Dashboard',
+                    num: '7/9',
+                    title: 'Designing for Data Clarity',
                     desc: 'Showcases how businesses can monitor chatbot performance through sentiment analysis, channels, and support metrics using dashboard-style visualizations.',
                     rationale: 'Makes the platform feel data-driven and enterprise-ready through clarity of performance insights.',
                     mockupBg: '#0A0A0A',
-                    mockupImg: '/images/work/thinkstack-web.webp',
+                    mockupImg: '/images/work/analytics-dashboard.png',
                     mockupCaption: 'Comprehensive AI performance analytics dashboard'
                 },
                 {
-                    num: '9/11',
-                    title: 'Branding & Customization',
+                    num: '8/9',
+                    title: 'Structuring Customization Options',
                     desc: 'Highlights chatbot customization features including themes, colors, and branding personalization. Focuses on flexibility and helping businesses maintain brand identity.',
                     rationale: 'The clean modular structure improves readability while showcasing customization possibilities.',
                     mockupBg: '#0F0F15',
-                    mockupImg: '/images/work/thinkstack-web.webp',
+                    mockupImg: '/images/work/branding-customization.png',
                     mockupCaption: 'Customization suite for brand alignment'
                 },
                 {
-                    num: '10/11',
-                    title: 'Industry Solutions',
+                    num: '9/9',
+                    title: 'Communicating Platform Scalability',
                     desc: 'Demonstrates how the platform can adapt to different business types and use cases using modular content layouts and product previews.',
                     rationale: 'Communicates scalability and flexibility across industries such as e-commerce, support, and automation.',
                     mockupBg: '#0D0D0D',
-                    mockupImg: '/images/work/thinkstack-web.webp',
+                    mockupImg: '/images/work/industry-solutions.png',
                     mockupCaption: 'Scalable solutions for diverse industry needs'
-                },
-                {
-                    num: '11/11',
-                    title: 'FAQ Section',
-                    desc: 'Uses a simple accordion layout to improve readability and reduce visual clutter, allowing users to quickly access important information.',
-                    rationale: 'Allows information access without interrupting the browsing experience.',
-                    mockupBg: '#0A0A0A',
-                    mockupImg: '/images/work/thinkstack-web.webp',
-                    mockupCaption: 'Streamlined FAQ experience'
                 }
             ],
             finalOutcome: "The final design transformed the website into a cleaner, more modern, and conversion-focused experience, successfully balancing premium AI branding with high-end usability.",
@@ -1233,21 +1215,21 @@ export const projectsData = [
         year: "2025",
         type: "Web & Strategy",                                 
         category: "E-Commerce",
-        isLocked: true,
+        isLocked: false,
         image: "/images/work/ufbrandsalwar.webp",
         client: "UF Brand",
         service: "E-Commerce Design & Development",
-        description: "This project involved the complete design and development of a production-ready e-commerce platform for UF Brand, a women’s fashion business specializing in ethnic wear and wholesale clothing. The website was built to improve online shopping, product discovery, and social engagement while maintaining a seamless brand experience. UF Brand primarily showcases women’s clothing collections through Instagram and wholesale channels, making digital presence an important part of the business.\n\nUnlike a traditional e-commerce platform, the website was designed to automatically showcase fresh Instagram content directly on the website through a custom-built Instagram scraping system, eliminating the need for manual content management.\n\nThe project included both UI/UX design (35%) and full-stack development (65%), with a stronger focus on engineering, automation, and custom integrations.",
+        description: "UF Brand is a premier women's ethnic wear and wholesale fashion label with a massive, highly-engaged Instagram audience. I led the end-to-end design and full-stack development of their bespoke e-commerce platform. Instead of a rigid, traditional storefront, I engineered a dynamic ecosystem that bridges the gap between social commerce and online retail, featuring a custom-built Instagram integration engine that automates content curation and drives real-time product discovery.",
         heroImage: "/images/work/ufbrandsalwar.webp",
         challenge: {
-            text: "UF Brand heavily relies on Instagram for showcasing new arrivals, product styling, and customer engagement. However, this created a gap between social media content and the website experience. Customers had to switch between platforms to explore products and latest collections. Instagram also served as a key content source for product discovery and customer trust.",
-            subtext: "This created friction in the customer journey and reduced engagement with newly launched collections."
+            text: "While UF Brand thrived on Instagram, their digital storefront felt disconnected from their vibrant social presence. Shoppers experienced significant friction, forced to toggle between Instagram for inspiration and the website for purchasing, resulting in a fragmented customer journey.",
+            subtext: "This disconnect stifled conversion rates and made it impossible to leverage their rich, real-time social proof directly at the point of sale."
         },
         solution: {
-            text: "Automated Instagram Content Fetching System",
-            subtext: "One of the biggest highlights of this project was building a custom Instagram scraper from scratch. Instead of relying on expensive APIs, browser automation, or manual uploads, a custom scraping system was developed to fetch Instagram content and automatically display the latest posts inside the website."
+            text: "A Seamless Social-Commerce Ecosystem",
+            subtext: "To bridge this gap, I designed a mobile-first shopping experience and engineered a bespoke, lightweight Instagram scraping architecture from scratch. This custom solution bypasses expensive APIs and manual updates, autonomously pulling fresh social content directly into the storefront."
         },
-        result: "The final product successfully transformed UF Brand’s digital experience by combining fashion e-commerce with automated social content integration, creating a scalable, production-ready platform.",
+        result: "The new platform delivers a highly engaging, automated, and scalable e-commerce experience. By intertwining social discovery with frictionless purchasing, UF Brand significantly boosted customer retention and streamlined their operational workflow.",
         gridImages: [
             "https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?auto=format&fit=crop&q=80&w=1600",
             "https://images.unsplash.com/photo-1607344645866-009c320c5ab8?auto=format&fit=crop&q=80&w=1600"
@@ -1273,57 +1255,78 @@ export const projectsData = [
                 "Instagram Social Media Customers"
             ],
             challengeBullets: [
-                { icon: "❌", text: "Website content becoming outdated quickly" },
-                { icon: "❌", text: "Manual effort required to update social media sections" },
-                { icon: "❌", text: "Weak integration between Instagram and shopping experience" },
-                { icon: "❌", text: "Limited product discovery through the website" },
-                { icon: "❌", text: "Lack of real-time social proof" }
+                { icon: "❌", text: "Stale website content due to rapid inventory changes" },
+                { icon: "❌", text: "Labor-intensive manual updates for social feeds" },
+                { icon: "❌", text: "Fragmented journey between social inspiration and checkout" },
+                { icon: "❌", text: "High friction in discovering newly launched collections" },
+                { icon: "❌", text: "Absence of real-time, dynamic social proof on product pages" }
             ],
             solutions: [
                 {
                     num: "1/3",
-                    title: "Challenge 1: Maintaining Updated Fashion Content",
-                    desc: "Fashion collections change frequently, making manual website updates inefficient.",
-                    rationale: "Solution: Built an automated Instagram content fetching system to continuously display new product posts.",
-                    mockupBg: "#0d0d0d",
-                    mockupImg: "https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?auto=format&fit=crop&q=80&w=1600"
+                    title: "Automating Content Freshness",
+                    desc: "Frequent collection drops made manual website updates an unsustainable operational bottleneck.",
+                    rationale: "Solution: Engineered a bespoke Instagram integration engine to autonomously fetch and display real-time visual content, eliminating manual upkeep.",
+                    mockupBg: "#0d0d0d"
                 },
                 {
                     num: "2/3",
-                    title: "Challenge 2: Connecting Social Media With Shopping",
-                    desc: "Users often browse Instagram but do not convert on external websites.",
-                    rationale: "Solution: Integrated Instagram content directly into the shopping experience to create a smoother transition between discovery and purchase.",
-                    mockupBg: "#0d0d0d",
-                    mockupImg: "https://images.unsplash.com/photo-1607344645866-009c320c5ab8?auto=format&fit=crop&q=80&w=1600"
+                    title: "Unifying Social & Commerce",
+                    desc: "Users were highly engaged on Instagram but encountered friction when transitioning to the standard e-commerce flow.",
+                    rationale: "Solution: Designed an Instagram-inspired visual browsing experience that embeds social content directly into the shopping journey, driving higher conversion rates.",
+                    mockupBg: "#0d0d0d"
                 },
                 {
                     num: "3/3",
-                    title: "Challenge 3: Performance Optimization",
-                    desc: "Dynamic content can affect loading speed and responsiveness.",
-                    rationale: "Solution: Optimized rendering and content loading to maintain fast performance across devices.",
-                    mockupBg: "#0d0d0d",
-                    mockupImg: "https://images.unsplash.com/photo-1590073844006-33379778ae09?auto=format&fit=crop&q=80&w=1600"
+                    title: "Architecting for Scale & Speed",
+                    desc: "Injecting rich, dynamic media across the storefront threatened to degrade page load times and mobile performance.",
+                    rationale: "Solution: Implemented aggressive rendering optimizations, state management, and lightweight DOM updates to guarantee a blazing-fast experience across all devices.",
+                    mockupBg: "#0d0d0d"
                 }
             ],
             designProcess: [
                 {
-                    heading: "Design Process (35%)",
-                    desc: "The design process focused on creating a mobile-friendly and product-first shopping experience for fashion buyers.\n\nThe interface was designed to prioritize:\n\n• Faster browsing experience\n• Product discoverability\n• Mobile responsiveness\n• Cleaner navigation\n• Instagram-inspired visual browsing\n\nSpecial attention was given to ensuring that Instagram content naturally blended into the shopping journey instead of feeling disconnected from the website.\n\nThe goal was to create a familiar browsing experience for customers already engaging with UF Brand through Instagram."
+                    heading: "Design Section",
+                    desc: "The UX strategy centered on crafting a product-first, mobile-optimized experience tailored specifically for fashion consumers. Because UF Brand's audience is highly visual and heavily active on Instagram, the interface was designed to mimic the fluid, engaging nature of social media scrolling while maintaining the robust functionality of an e-commerce platform.\n\nThe design architecture prioritized:",
+                    highlights: [
+                        { title: "An Instagram-inspired Visual Language", text: "Merging social media aesthetics with high-converting shopping flows." },
+                        { title: "Frictionless Product Discoverability", text: "Large, high-quality imagery and intuitive categorization to reduce the steps to purchase." },
+                        { title: "Gesture-Friendly Navigation", text: "Optimizing touch targets and swipe interactions for a seamless mobile experience." },
+                        { title: "Fluid Responsiveness", text: "Ensuring the visual hierarchy remains intact and beautiful across all device sizes." }
+                    ],
+                    image: "/images/work/design-section.png"
                 },
                 {
-                    heading: "Development Process (65%)",
-                    desc: "Development became the core focus of this project.\n\nThe platform was engineered to support dynamic product content while ensuring strong performance and scalability. Since the website required continuous content updates, automation became a key technical priority.\n\nThe development process included:\n\n• Frontend implementation\n• Backend architecture\n• Dynamic product rendering\n• State management\n• Performance optimization\n• Responsive implementation\n• Hosting and deployment\n\nThe architecture was designed to support future scalability and reduce manual maintenance."
+                    heading: "Development Section",
+                    desc: "The engineering phase was driven by the need for automation, robust performance, and a scalable technical foundation. Given the highly dynamic nature of fashion inventory and the constant influx of new social content, building a system that could handle real-time updates without degrading performance was critical.\n\nTo achieve this, the architecture prioritized:",
+                    highlights: [
+                        { title: "Advanced Frontend State Management", text: "Ensuring that dynamic inventory and social content render instantly without jarring page loads." },
+                        { title: "Lightweight Backend Data Fetching", text: "Structuring API calls to fetch data efficiently, minimizing server load." },
+                        { title: "Aggressive Performance Optimization", text: "Implementing lazy loading for heavy media assets to guarantee lightning-fast load times." },
+                        { title: "Scalable E-commerce Architecture", text: "Building a modular codebase that can easily adapt to future inventory systems." }
+                    ],
+                    techStack: [
+                        "React",
+                        "Next.js",
+                        "Tailwind CSS",
+                        "Vercel",
+                        "Lucide Icons",
+                        "Firebase"
+                    ]
                 },
                 {
-                    heading: "Custom Instagram Scraper",
-                    desc: "One of the biggest highlights of this project was building a custom Instagram scraper from scratch.\n\nInstead of relying on expensive APIs, browser automation, or manual uploads, a custom scraping system was developed to fetch Instagram content and automatically display the latest posts inside the website.\n\nFeatures of the scraper:\n\n• Automatic Instagram post fetching\n• Dynamic media rendering\n• Real-time content updates\n• Lightweight implementation\n• No manual uploads required\n• Social feed integration inside the website\n\nThis allowed UF Brand’s latest collections and product content to stay automatically updated without requiring manual intervention.\n\nThe scraper significantly improved content freshness, product visibility, social proof, customer trust, and website engagement."
-                },
-                {
-                    heading: "Key Features",
-                    desc: "• Fully responsive e-commerce website\n• Instagram-integrated product experience\n• Custom-built Instagram scraper\n• Automated social content updates\n• Dynamic product showcase\n• Mobile-first shopping experience\n• Performance-optimized architecture"
+                    heading: "Custom Built API to Scrape Instagram Posts",
+                    desc: "The defining technical achievement of this project was the development of a bespoke, proprietary Instagram integration engine built entirely from scratch. Traditional methods relied on expensive, rate-limited third-party APIs or tedious manual uploads, both of which created unacceptable bottlenecks for a fast-moving fashion brand.\n\nTo solve this, I engineered a custom scraping API that autonomously pulls the latest social posts directly into the storefront.\n\nKey technical highlights include:",
+                    highlights: [
+                        { title: "Autonomous Real-Time Fetching", text: "The system continuously monitors the Instagram feed and updates the website automatically." },
+                        { title: "Resilient, Lightweight Execution", text: "Bypassing complex browser automation in favor of a lean, highly reliable scraping architecture." },
+                        { title: "Dynamic Media Parsing", text: "Automatically formatting and optimizing fetched images and videos for web display." },
+                        { title: "Zero Manual Intervention", text: "Completely removing the need for the client to manually sync their social media with their website." }
+                    ],
+                    image: "/images/work/custom-build-api.png"
                 }
             ],
-            finalOutcome: "The final product successfully transformed UF Brand’s digital experience by combining fashion e-commerce with automated social content integration.\n\nThe project demonstrates both design thinking and strong engineering capabilities, especially in solving real-world business problems through automation.\n\nThe result is a scalable, production-ready platform that keeps website content continuously updated while creating a more engaging shopping experience for customers."
+            finalOutcome: "This project successfully bridged the gap between social engagement and commercial conversion. By combining elevated design aesthetics with robust, automated engineering, the new UF Brand platform delivers a highly dynamic, scalable, and frictionless shopping experience that drives tangible business growth."
         }
     }
     // {
