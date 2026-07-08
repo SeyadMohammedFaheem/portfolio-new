@@ -830,7 +830,7 @@ export const projectsData = [
         type: "Motion Design",
         time: "3 Years",
         isSimpleShowcase: true,
-        image: "/images/work/video_hero.webp",
+        image: "/images/work/video_hero-updated.jpg",
         videoUrls: [
             "https://www.youtube.com/watch?v=TInIxaV14rY",
             "https://www.youtube.com/watch?v=QDYKB-7qx8g",
@@ -857,7 +857,7 @@ export const projectsData = [
             link: "https://www.youtube.com/@thinkstack_ai/videos",
             linkText: "View ThinkStack Videos"
         },
-        heroImage: "/images/work/video_hero.webp",
+        heroImage: "/images/work/video_hero-updated.jpg",
         challenge: {
             text: "Capturing the essence of a heritage brand while appealing to a younger demographic.",
             subtext: "The challenge was to maintain luxury appeal while introducing dynamic, modern editing rhythms."
@@ -868,14 +868,14 @@ export const projectsData = [
         },
         result: "The brand film achieved over 1M views across social platforms and increased brand engagement by 45%.",
         gridImages: [
-            "/images/work/video_hero.webp",
+            "/images/work/video_hero-updated.jpg",
             "/images/work/video_grading.webp"
         ],
         stackImages: [
             "/images/work/video_grading.webp",
             "https://images.unsplash.com/photo-1492288991661-058aa541ff43?auto=format&fit=crop&q=80&w=1600"
         ],
-        impactImage: "/images/work/video_hero.webp"
+        impactImage: "/images/work/video_hero-updated.jpg"
     },
     {
         id: "thinkstack-core",
@@ -1328,7 +1328,7 @@ export const projectsData = [
             ],
             finalOutcome: "This project successfully bridged the gap between social engagement and commercial conversion. By combining elevated design aesthetics with robust, automated engineering, the new UF Brand platform delivers a highly dynamic, scalable, and frictionless shopping experience that drives tangible business growth."
         }
-    }
+    },
     // {
     //     id: "octalume-iot-dashboard",
     //     slug: "octalume-dashboard",
@@ -1470,5 +1470,99 @@ export const projectsData = [
     //         ],
     //         finalOutcome: "A dashboard designed for clarity, action, and real-time intelligence. OctaLume delivers a unified IoT management experience that transforms how users interact with their smart environments. By combining room-based navigation, an intelligent alert system, a bold visual hierarchy, and a scalable design token architecture, the dashboard eliminates the friction and confusion of legacy IoT UIs. The result is a product that feels as precise and illuminated as its name suggests — structured, smart, and always one step ahead."
     //     }
-    // }
+    // },
+    {
+        id: "multi-city-travel-planner",
+        slug: "multi-city-travel-planner",
+        title: "Multi-City Travel Planner",
+        year: "2026",
+        type: "App Design",
+        category: "UI/UX",
+        isLocked: false,
+        image: "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&q=80&w=1600",
+        client: "Concept / Case Study",
+        service: "UX Research & UI Design",
+        description: "Designing a comprehensive mobile application that simplifies the logistical nightmare of planning multi-city international trips. The goal was to consolidate flights, accommodations, and daily itineraries into a single, highly visual, and intuitive interface.",
+        heroImage: "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&q=80&w=1600",
+        challenge: {
+            text: "Planning a multi-city trip usually involves juggling dozens of browser tabs, spreadsheets, and confirmation emails.",
+            subtext: "Travelers struggle to visualize their timeline across different time zones, leading to missed connections, booking errors, and high cognitive load before the trip even begins."
+        },
+        solution: {
+            text: "A Unified Visual Timeline",
+            subtext: "I designed a drag-and-drop chronological timeline that acts as the single source of truth for the entire journey, automatically syncing with emails to pull in bookings and alerting users to any logistical gaps."
+        },
+        result: "The resulting prototype demonstrated a 60% reduction in time spent organizing itineraries during user testing, delivering a frictionless, anxiety-free travel planning experience.",
+        gridImages: [
+            "https://images.unsplash.com/photo-1512428559087-560fa5ceab42?auto=format&fit=crop&q=80&w=1600",
+            "https://images.unsplash.com/photo-1503220317375-aaad61436b1b?auto=format&fit=crop&q=80&w=1600"
+        ],
+        stackImages: [
+            "https://images.unsplash.com/photo-1488646953014-85cb44e25828?auto=format&fit=crop&q=80&w=1600",
+            "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?auto=format&fit=crop&q=80&w=1600"
+        ],
+        impactImage: "https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?auto=format&fit=crop&q=80&w=2000",
+        caseStudy: {
+            goals: [
+                "Consolidate bookings into one platform",
+                "Visualize cross-timezone travel",
+                "Collaborative trip planning",
+                "Automate itinerary generation from emails",
+                "Provide offline access to critical documents"
+            ],
+            targetUsers: [
+                "Frequent International Travelers",
+                "Group Trip Organizers",
+                "Digital Nomads"
+            ],
+            challengeBullets: [
+                { icon: "❌", text: "Spreadsheet fatigue when organizing dates and times" },
+                { icon: "❌", text: "Timezone confusion causing missed flights" },
+                { icon: "❌", text: "Fragmented communication in group chats" }
+            ],
+            solutions: [
+                {
+                    num: "1/3",
+                    title: "Smart Timeline UI",
+                    desc: "A vertical, scrollable timeline that automatically adjusts for timezones and highlights gaps in the itinerary where accommodation or transport is missing.",
+                    rationale: "By visualizing the trip chronologically, users can instantly spot logistical errors that a spreadsheet would hide.",
+                    mockupBg: "#0d0d0d",
+                    mockupImg: "https://images.unsplash.com/photo-1512428559087-560fa5ceab42?auto=format&fit=crop&q=80&w=1600"
+                },
+                {
+                    num: "2/3",
+                    title: "Collaborative Board",
+                    desc: "A shared workspace where all travelers in a group can upvote activities, suggest restaurants, and split costs in real-time.",
+                    rationale: "Removing the friction of switching between a planning app and a messaging app keeps everyone aligned and engaged.",
+                    mockupBg: "#0d0d0d",
+                    mockupImg: "https://images.unsplash.com/photo-1503220317375-aaad61436b1b?auto=format&fit=crop&q=80&w=1600"
+                },
+                {
+                    num: "3/3",
+                    title: "Offline Vault",
+                    desc: "An auto-downloading secure vault for boarding passes, visas, and hotel confirmations accessible without internet.",
+                    rationale: "Travelers frequently lose data roaming when landing in a new country. The offline vault eliminates airport panic.",
+                    mockupBg: "#0d0d0d",
+                    mockupImg: "https://images.unsplash.com/photo-1488646953014-85cb44e25828?auto=format&fit=crop&q=80&w=1600"
+                }
+            ],
+            designProcess: [
+                {
+                    heading: "Design System & Typography",
+                    desc: "To evoke a sense of calm and clarity, I selected 'Inter' for its highly legible geometric sans-serif properties. The UI relies heavily on whitespace and subtle shadows to create depth without clutter.",
+                    highlights: [
+                        { title: "Typography", text: "Inter - Clean, readable, and perfectly suited for dense data interfaces." },
+                        { title: "Color Palette", text: "Ocean Blue primary (#0A84FF) paired with crisp whites and soft grays to reduce cognitive load." },
+                        { title: "Iconography", text: "Rounded, friendly line icons that maintain legibility at small sizes." }
+                    ]
+                }
+            ],
+            impactOnUsers: [
+                "Drastically reduced the cognitive load of trip planning.",
+                "Eliminated the need for third-party spreadsheets and notes apps.",
+                "Provided peace of mind through offline accessibility."
+            ],
+            finalOutcome: "The Multi-City Travel Planner concept proves that complex data doesn't require a complicated interface. By focusing on chronology and collaboration, the design transforms a stressful chore into an exciting pre-trip experience."
+        }
+    }
 ];

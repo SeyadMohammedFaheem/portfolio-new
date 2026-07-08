@@ -61,8 +61,8 @@ const ProgressiveImage = forwardRef(({
       style={{
         position: 'relative',
         overflow: 'hidden',
-        width: width ? (typeof width === 'number' ? `${width}px` : width) : '100%',
-        height: height ? (typeof height === 'number' ? `${height}px` : height) : '100%',
+        width: '100%',
+        height: '100%',
         ...style
       }}
     >
