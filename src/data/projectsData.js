@@ -1479,11 +1479,11 @@ export const projectsData = [
         type: "App Design",
         category: "UI/UX",
         isLocked: false,
-        image: "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&q=80&w=1600",
+        image: "/images/work/multi-city-planner.png",
         client: "Concept / Case Study",
         service: "UX Research & UI Design",
         description: "Designing a comprehensive mobile application that simplifies the logistical nightmare of planning multi-city international trips. The goal was to consolidate flights, accommodations, and daily itineraries into a single, highly visual, and intuitive interface.",
-        heroImage: "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&q=80&w=1600",
+        heroImage: "/images/work/multi-city-planner.png",
         challenge: {
             text: "Planning a multi-city trip usually involves juggling dozens of browser tabs, spreadsheets, and confirmation emails.",
             subtext: "Travelers struggle to visualize their timeline across different time zones, leading to missed connections, booking errors, and high cognitive load before the trip even begins."
