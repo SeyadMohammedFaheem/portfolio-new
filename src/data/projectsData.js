@@ -830,7 +830,7 @@ export const projectsData = [
         type: "Motion Design",
         time: "3 Years",
         isSimpleShowcase: true,
-        image: "/images/work/video_hero-updated.jpg",
+        image: "/images/work/video_hero-updated.webp",
         videoUrls: [
             "https://www.youtube.com/watch?v=TInIxaV14rY",
             "https://www.youtube.com/watch?v=QDYKB-7qx8g",
@@ -857,7 +857,7 @@ export const projectsData = [
             link: "https://www.youtube.com/@thinkstack_ai/videos",
             linkText: "View ThinkStack Videos"
         },
-        heroImage: "/images/work/video_hero-updated.jpg",
+        heroImage: "/images/work/video_hero-updated.webp",
         challenge: {
             text: "Capturing the essence of a heritage brand while appealing to a younger demographic.",
             subtext: "The challenge was to maintain luxury appeal while introducing dynamic, modern editing rhythms."
@@ -868,14 +868,14 @@ export const projectsData = [
         },
         result: "The brand film achieved over 1M views across social platforms and increased brand engagement by 45%.",
         gridImages: [
-            "/images/work/video_hero-updated.jpg",
+            "/images/work/video_hero-updated.webp",
             "/images/work/video_grading.webp"
         ],
         stackImages: [
             "/images/work/video_grading.webp",
             "https://images.unsplash.com/photo-1492288991661-058aa541ff43?auto=format&fit=crop&q=80&w=1600"
         ],
-        impactImage: "/images/work/video_hero-updated.jpg"
+        impactImage: "/images/work/video_hero-updated.webp"
     },
     {
         id: "thinkstack-core",
@@ -923,7 +923,7 @@ export const projectsData = [
                     desc: 'Designed to create a strong first impression using bold typography, futuristic gradients, and clear messaging. The layout introduces a strong product headline, supporting description, and focused visual structure.',
                     rationale: 'The dark visual theme combined with glowing gradient effects helps establish a premium AI-focused brand identity.',
                     mockupBg: '#0A0A0A',
-                    mockupImg: '/images/work/hero-section.png',
+                    mockupImg: '/images/work/hero-section.webp',
                     mockupCaption: 'Hero section with premium AI branding and clear CTAs'
                 },
                 {
@@ -932,7 +932,7 @@ export const projectsData = [
                     desc: 'This section explains how businesses can train chatbots using their own content and data sources. The design focuses on simplifying technical concepts through clean layouts and supporting visuals.',
                     rationale: 'Large spacing and minimal content structure improve readability and make the feature easier to understand.',
                     mockupBg: '#0F0F0F',
-                    mockupImg: '/images/work/ai-training-section.png',
+                    mockupImg: '/images/work/ai-training-section.webp',
                     mockupCaption: 'Intuitive AI training interface for business data'
                 },
                 {
@@ -941,7 +941,7 @@ export const projectsData = [
                     desc: 'Highlights compatibility with Shopify and multiple business platforms. A simple logo-based layout was used to improve scanability and quickly communicate ecosystem support.',
                     rationale: 'Helps businesses understand that the platform can fit into their existing workflows without visual clutter.',
                     mockupBg: '#111',
-                    mockupImg: '/images/work/integration-section.png',
+                    mockupImg: '/images/work/integration-section.webp',
                     mockupCaption: 'Ecosystem support and platform integrations'
                 },
                 {
@@ -950,7 +950,7 @@ export const projectsData = [
                     desc: 'Designed an elegant, staggered layout to showcase the platform\'s "Endless Possibilities". This highlights core features like automated workflows, deep integrations, and seamless human handoff in a scannable, visual format.',
                     rationale: 'By breaking down complex AI capabilities into digestible blocks, users can quickly grasp the platform’s immense value without feeling intimidated by technical density.',
                     mockupBg: '#0A0A15',
-                    mockupImg: '/images/work/one-ai-chatbot-endless-possibilities.png',
+                    mockupImg: '/images/work/one-ai-chatbot-endless-possibilities.webp',
                     mockupCaption: 'Interactive automation capabilities showcase'
                 },
                 {
@@ -959,7 +959,7 @@ export const projectsData = [
                     desc: 'Focuses on data protection, compliance certifications, and enterprise-level trust indicators. A minimal layout with certification badges reinforces reliability.',
                     rationale: 'Security is a major focus for businesses trusting AI platforms with customer data.',
                     mockupBg: '#050505',
-                    mockupImg: '/images/work/security-trust.png',
+                    mockupImg: '/images/work/security-trust.webp',
                     mockupCaption: 'Enterprise-grade security and compliance indicators'
                 },
                 {
@@ -968,7 +968,7 @@ export const projectsData = [
                     desc: 'Introduces AI-powered conversational forms designed to improve engagement and lead collection. Uses interactive conversation-based inputs for smoother interactions.',
                     rationale: 'Interactive inputs create a more natural and user-friendly experience compared to static forms.',
                     mockupBg: '#0F0F0F',
-                    mockupImg: '/images/work/conversational-forms.png',
+                    mockupImg: '/images/work/conversational-forms.webp',
                     mockupCaption: 'Interactive conversational form experience'
                 },
                 {
@@ -977,7 +977,7 @@ export const projectsData = [
                     desc: 'Showcases how businesses can monitor chatbot performance through sentiment analysis, channels, and support metrics using dashboard-style visualizations.',
                     rationale: 'Makes the platform feel data-driven and enterprise-ready through clarity of performance insights.',
                     mockupBg: '#0A0A0A',
-                    mockupImg: '/images/work/analytics-dashboard.png',
+                    mockupImg: '/images/work/analytics-dashboard.webp',
                     mockupCaption: 'Comprehensive AI performance analytics dashboard'
                 },
                 {
@@ -986,7 +986,7 @@ export const projectsData = [
                     desc: 'Highlights chatbot customization features including themes, colors, and branding personalization. Focuses on flexibility and helping businesses maintain brand identity.',
                     rationale: 'The clean modular structure improves readability while showcasing customization possibilities.',
                     mockupBg: '#0F0F15',
-                    mockupImg: '/images/work/branding-customization.png',
+                    mockupImg: '/images/work/branding-customization.webp',
                     mockupCaption: 'Customization suite for brand alignment'
                 },
                 {
@@ -995,7 +995,7 @@ export const projectsData = [
                     desc: 'Demonstrates how the platform can adapt to different business types and use cases using modular content layouts and product previews.',
                     rationale: 'Communicates scalability and flexibility across industries such as e-commerce, support, and automation.',
                     mockupBg: '#0D0D0D',
-                    mockupImg: '/images/work/industry-solutions.png',
+                    mockupImg: '/images/work/industry-solutions.webp',
                     mockupCaption: 'Scalable solutions for diverse industry needs'
                 }
             ],
@@ -1294,7 +1294,7 @@ export const projectsData = [
                         { title: "Gesture-Friendly Navigation", text: "Optimizing touch targets and swipe interactions for a seamless mobile experience." },
                         { title: "Fluid Responsiveness", text: "Ensuring the visual hierarchy remains intact and beautiful across all device sizes." }
                     ],
-                    image: "/images/work/design-section.png"
+                    image: "/images/work/design-section.webp"
                 },
                 {
                     heading: "Development Section",
@@ -1323,7 +1323,7 @@ export const projectsData = [
                         { title: "Dynamic Media Parsing", text: "Automatically formatting and optimizing fetched images and videos for web display." },
                         { title: "Zero Manual Intervention", text: "Completely removing the need for the client to manually sync their social media with their website." }
                     ],
-                    image: "/images/work/custom-build-api.png"
+                    image: "/images/work/custom-build-api.webp"
                 }
             ],
             finalOutcome: "This project successfully bridged the gap between social engagement and commercial conversion. By combining elevated design aesthetics with robust, automated engineering, the new UF Brand platform delivers a highly dynamic, scalable, and frictionless shopping experience that drives tangible business growth."
@@ -1479,11 +1479,11 @@ export const projectsData = [
         type: "App Design",
         category: "UI/UX",
         isLocked: false,
-        image: "/images/work/multi-city-planner.png",
+        image: "/images/work/multi-city-planner.webp",
         client: "Concept / Case Study",
         service: "UX Research & UI Design",
         description: "Designing a comprehensive mobile application that simplifies the logistical nightmare of planning multi-city international trips. The goal was to consolidate flights, accommodations, and daily itineraries into a single, highly visual, and intuitive interface.",
-        heroImage: "/images/work/multi-city-planner.png",
+        heroImage: "/images/work/multi-city-planner.webp",
         challenge: {
             text: "Planning a multi-city trip usually involves juggling dozens of browser tabs, spreadsheets, and confirmation emails.",
             subtext: "Travelers struggle to visualize their timeline across different time zones, leading to missed connections, booking errors, and high cognitive load before the trip even begins."
