@@ -7,6 +7,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 // Always-present shell components (tiny, needed on every page)
 import Header from './components/Header';
 import Footer from './components/Footer';
+import ReferralPopup from './components/ReferralPopup';
 
 // Lazy-load the heavy 3D Canvas element so it is decoupled from the initial page rendering path
 const ThreeCanvas = lazy(() => import('./components/ThreeCanvas'));
@@ -130,6 +131,8 @@ export default function App() {
         </Suspense>
 
         <div className="viewport-top-blur"></div>
+
+        <ReferralPopup />
 
         <Footer />
       </ReactLenis>
