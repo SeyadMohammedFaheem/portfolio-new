@@ -4,6 +4,7 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { projectsData } from '../data/projectsData';
 import ProgressiveImage from './ProgressiveImage';
+import ProjectBadge from './ProjectBadge';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -23,46 +24,43 @@ const Projects = () => {
         window.scrollTo(0, 0);
 
         gsap.from(".kanso-projects-title", {
-            y: 50,
+            y: 40,
             opacity: 0,
-            duration: 1,
-            ease: "power4.out"
+            duration: 1.2,
+            ease: "power3.out"
         });
 
         // Animate each card only when it scrolls into view (not all at once)
         gsap.utils.toArray(".work-card-kanso").forEach((card, i) => {
             gsap.from(card, {
-                y: 60,
-                opacity: 0,
-                duration: 0.8,
-                ease: "power4.out",
-                delay: i * 0.05,
                 scrollTrigger: {
                     trigger: card,
-                    start: "top 90%",
-                    toggleActions: "play none none none"
-                }
+                    start: "top bottom-=80px",
+                    toggleActions: "play none none reverse"
+                },
+                y: 50,
+                opacity: 0,
+                duration: 1,
+                ease: "power3.out"
             });
         });
 
         return () => ScrollTrigger.getAll().forEach(t => t.kill());
     }, []);
 
-    // Re-trigger animation when filter changes
+    // Re-trigger reveal animation on filter change
     useEffect(() => {
-        gsap.fromTo(".work-card-kanso",
-            { y: 50, opacity: 0 },
-            { y: 0, opacity: 1, duration: 0.6, stagger: 0.1, ease: "power3.out" }
+        gsap.fromTo(".work-card-kanso", 
+            { y: 30, opacity: 0 },
+            { y: 0, opacity: 1, duration: 0.6, stagger: 0.1, ease: "power2.out" }
         );
     }, [activeFilter]);
 
     return (
         <div className="projects-page">
             <div className="projects-container">
-                <div className="section-header">
-                    <div className="header-left">
-                        <h2 className="section-title">My Works</h2>
-                    </div>
+                <div className="kanso-projects-hero">
+                    <h1 className="kanso-projects-title">PROJECTS</h1>
                 </div>
 
                 <div className="projects-filter">
@@ -82,6 +80,7 @@ const Projects = () => {
                         project.isLocked ? (
                             <div className="work-card-kanso is-locked" key={`${project.id}-${index}`}>
                                 <div className="work-img-wrapper">
+                                    <ProjectBadge project={project} />
                                     <ProgressiveImage src={project.image} alt={project.title} loading="lazy" decoding="async" width="800" height="600" />
                                     <div className="locked-overlay">
                                         <span>LOCKED</span>
@@ -100,6 +99,7 @@ const Projects = () => {
                         ) : (
                             <Link to={`/project/${project.slug}`} className="work-card-kanso" key={`${project.id}-${index}`}>
                                 <div className="work-img-wrapper">
+                                    <ProjectBadge project={project} />
                                     <ProgressiveImage src={project.image} alt={project.title} loading="lazy" decoding="async" width="800" height="600" />
                                 </div>
                                 <div className="work-info">

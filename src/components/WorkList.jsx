@@ -100,7 +100,7 @@ const WorkList = () => {
             skills: ["Front-end Development", "React.js", "Creative Coding", "Performance Optimization"],
             images: [
                 "/images/octalume.webp",
-                "/images/launchkit.webp",
+                "/images/work/multi-city-planner.webp",
             ]
         }
     ];

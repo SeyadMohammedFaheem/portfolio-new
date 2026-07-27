@@ -483,6 +483,7 @@ header.main-header {
     overflow: hidden;
     margin-bottom: 2rem;
     background-color: #111;
+    position: relative;
 }
 
 .work-img-wrapper img {
@@ -494,6 +495,47 @@ header.main-header {
 
 .work-card-kanso:hover .work-img-wrapper img {
     transform: scale(1.05);
+}
+
+/* Designed & Developed Ultra-Sleek Pill Badge */
+.project-badge-pill {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    z-index: 10;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 13px 18px;
+    background: rgba(10, 11, 14, 0.72);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 100px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    pointer-events: none;
+    user-select: none;
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.work-card-kanso:hover .project-badge-pill {
+    border-color: rgba(255, 77, 18, 0.4);
+    box-shadow: 0 12px 36px rgba(0, 0, 0, 0.5), 0 0 20px rgba(255, 77, 18, 0.15);
+    transform: translateY(-1px);
+}
+
+.badge-bolt-icon {
+    flex-shrink: 0;
+    filter: drop-shadow(0 0 6px rgba(255, 77, 18, 0.6));
+}
+
+.badge-text {
+    color: #ffffff;
+    font-size: 0.76rem;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    line-height: 1;
+    white-space: nowrap;
 }
 
 .work-info {

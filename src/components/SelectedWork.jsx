@@ -2,6 +2,7 @@ import React, { useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import { projectsData } from '../data/projectsData';
 import ProgressiveImage from './ProgressiveImage';
+import ProjectBadge from './ProjectBadge';
 
 const SelectedWork = () => {
     const projects = projectsData.slice(0, 4);
@@ -42,6 +43,7 @@ const SelectedWork = () => {
                         project.isLocked ? (
                             <div className="work-card-kanso is-locked" key={index}>
                                 <div className="work-img-wrapper">
+                                    <ProjectBadge project={project} />
                                     <ProgressiveImage src={project.image} alt={project.title} loading="lazy" decoding="async" width="800" height="600" />
                                     <div className="locked-overlay">
                                         <span>LOCKED
@@ -61,6 +63,7 @@ const SelectedWork = () => {
                         ) : (
                             <Link to={`/project/${project.slug}`} className="work-card-kanso" key={index} onMouseEnter={() => prefetchProject(project)}>
                                 <div className="work-img-wrapper">
+                                    <ProjectBadge project={project} />
                                     <ProgressiveImage src={project.image} alt={project.title} loading="lazy" decoding="async" width="800" height="600" />
                                 </div>
                                 <div className="work-info">

@@ -4,6 +4,7 @@ import { Link, useParams, Navigate, useNavigate } from 'react-router-dom';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { projectsData } from '../data/projectsData';
+import ProjectBadge from './ProjectBadge';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -966,6 +967,7 @@ const ProjectDetail = () => {
                         {[nextProject, projectsData[(currentIndex + 2) % projectsData.length]].map((p, i) => (
                             <Link key={i} to={`/project/${p.slug}`} className="work-card-kanso">
                                 <div className="work-img-wrapper">
+                                    <ProjectBadge project={p} />
                                     <img src={p.image} alt={p.title} loading="lazy" decoding="async" />
                                 </div>
                                 <div className="work-info">
