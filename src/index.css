@@ -5472,4 +5472,16 @@ header.main-header {
     box-shadow: 0 6px 20px rgba(255, 77, 18, 0.5);
 }
 
+.referral-phone-highlight {
+    color: #ff4d12;
+    font-weight: 600;
+    text-decoration: none;
+    transition: color 0.2s ease, text-decoration 0.2s ease;
+}
+
+.referral-phone-highlight:hover {
+    color: #ff6026;
+    text-decoration: underline;
+}
+
 

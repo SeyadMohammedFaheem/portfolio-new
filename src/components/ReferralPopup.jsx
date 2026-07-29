@@ -86,6 +86,10 @@ const ReferralPopup = () => {
                         <span className="arrow">→</span>
                         <span><strong>Locations:</strong> Bangalore, Chennai, MENA (UAE, Saudi Arabia, Qatar)</span>
                     </div>
+                    <div className="referral-bullet-item">
+                        <span className="arrow">→</span>
+                        <span><strong>Phone / WhatsApp:</strong> <a href="tel:+916379439162" className="referral-phone-highlight">+91 6379439162</a></span>
+                    </div>
                 </div>
 
                 {/* Divider */}
@@ -98,8 +102,10 @@ const ReferralPopup = () => {
 
                 {/* Footer Links & Actions */}
                 <div className="referral-footer">
-                    <div className="referral-portfolio-tag">
-                        <span>Portfolio:</span> <strong>faheem.work</strong>
+                    <div className="referral-footer-left">
+                        <div className="referral-portfolio-tag">
+                            <span>Portfolio:</span> <strong>faheem.work</strong>
+                        </div>
                     </div>
                     <a
                         href="https://linkedin.com/in/seyad-mohammed-faheem"
