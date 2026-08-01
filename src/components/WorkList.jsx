@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-const WorkItemRow = ({ item, index }) => {
+const WorkItemRow = ({ item, index, isOpen, onToggle }) => {
     const [activeIndex, setActiveIndex] = useState(0);
     const [isHovered, setIsHovered] = useState(false);
 
@@ -18,16 +18,20 @@ const WorkItemRow = ({ item, index }) => {
 
     return (
         <div
-            className="work-item"
+            className={`work-item ${isOpen ? 'is-open' : ''}`}
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
+            onClick={onToggle}
         >
             <div className="work-item-year">
-                {item.year}<span className="orange-dot"></span>
+                {item.year}
             </div>
 
             <div className="work-item-content">
-                <div className="work-item-title">{item.title}</div>
+                <div className="work-item-title">
+                    <span>{item.title}</span>
+                    <span className="mobile-accordion-icon">{isOpen ? '−' : '+'}</span>
+                </div>
                 <p className="work-item-desc">{item.description}</p>
                 <div className="work-item-skills">
                     {item.skills?.map((skill, si) => (
@@ -51,6 +55,12 @@ const WorkItemRow = ({ item, index }) => {
 };
 
 const WorkList = () => {
+    const [openIndex, setOpenIndex] = useState(null);
+
+    const handleToggle = (index) => {
+        setOpenIndex((prev) => (prev === index ? null : index));
+    };
+
     const expertise = [
         {
             year: "01",
@@ -112,7 +122,13 @@ const WorkList = () => {
                     <h2 className="work-title-giant">EXPERTISE</h2>
                 </div>
                 {expertise.map((item, index) => (
-                    <WorkItemRow key={index} item={item} index={index} />
+                    <WorkItemRow
+                        key={index}
+                        item={item}
+                        index={index}
+                        isOpen={openIndex === index}
+                        onToggle={() => handleToggle(index)}
+                    />
                 ))}
             </div>
         </section>
