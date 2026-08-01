@@ -40,20 +40,20 @@ export default function Header() {
   }, []);
 
   return (
-    <header className="main-header">
-      <Link to="/" className="header-logo" onClick={closeMenu}>FAHEEM</Link>
+    <header className="main-header" role="banner" data-agent="header">
+      <Link to="/" className="header-logo" onClick={closeMenu} aria-label="Faheem Home" data-agent="header-logo">FAHEEM</Link>
       
-      <button className={`hamburger-btn ${isMenuOpen ? 'open' : ''}`} onClick={toggleMenu} aria-label="Toggle menu">
+      <button className={`hamburger-btn ${isMenuOpen ? 'open' : ''}`} onClick={toggleMenu} aria-label="Toggle navigation menu" aria-expanded={isMenuOpen} data-agent="menu-toggle">
         <span></span>
         <span></span>
         <span></span>
       </button>
 
-      <nav className={`header-nav ${isMenuOpen ? 'nav-open' : ''}`}>
-        <Link to="/projects" className="nav-item" onClick={closeMenu} onMouseEnter={() => handlePrefetch('/projects')}>
+      <nav className={`header-nav ${isMenuOpen ? 'nav-open' : ''}`} role="navigation" aria-label="Primary Navigation" data-agent="header-nav">
+        <Link to="/projects" className="nav-item" onClick={closeMenu} onMouseEnter={() => handlePrefetch('/projects')} data-agent="nav-work">
           <span>01 /</span> WORK
         </Link>
-        <Link to="/about" className="nav-item" onClick={closeMenu} onMouseEnter={() => handlePrefetch('/about')}>
+        <Link to="/about" className="nav-item" onClick={closeMenu} onMouseEnter={() => handlePrefetch('/about')} data-agent="nav-about">
           <span>02 /</span> ABOUT
         </Link>
         <a 
@@ -61,6 +61,7 @@ export default function Header() {
           download="Resume - Faheem Product Designer.pdf"
           className="nav-item" 
           onClick={closeMenu}
+          data-agent="nav-resume"
         >
           <span>03 /</span> RESUME
         </a>

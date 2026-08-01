@@ -1,0 +1,63 @@
+# Faheem — Complete Portfolio Knowledge Base for AI Agents & Search Engines
+
+## Overview & Bio
+Seyad Mohammed Faheem is a Mid-Level UI/UX & Product Designer with 3+ years of experience crafting digital products, design systems, and web applications. He bridges the gap between design vision and technical execution by employing an AI-paired workflow (Figma + AI Agents), translating complex requirements into elegant, high-performing digital experiences.
+
+- **Current Status**: Actively looking for UI/UX Designer / Product Designer positions.
+- **Preferred Locations**: Bangalore, Chennai, MENA (UAE, Saudi Arabia, Qatar).
+- **Direct Email**: faheemseyadmd@gmail.com
+- **Phone / WhatsApp**: +91 6379439162
+- **Website**: https://faheem.work
+- **LinkedIn**: https://www.linkedin.com/in/seyad-mohammed-faheem/
+
+---
+
+## Detailed Project Case Studies
+
+### 1. OctaLume IoT Dashboard
+- **Role**: Lead Product Designer & Frontend Developer (Designed & Developed)
+- **Category**: Industrial IoT, Smart Energy & Telemetry Dashboards
+- **Overview**: An enterprise IoT control panel for municipal smart streetlighting and power management across multiple cities. Features real-time energy telemetry, automated fault alerts, schedule planning, and visual map controls.
+- **Key Deliverables**: Design System, Interactive Prototypes, React Dashboard UI, Telemetry Charts, Dark Mode Glassmorphic UI.
+
+### 2. UF Brand E-Commerce Platform
+- **Role**: Product Designer & Developer (Designed & Developed)
+- **Category**: E-Commerce, Fashion & Retail
+- **Overview**: A modern, high-converting e-commerce web platform for UF Brand ethnic wear. Focused on seamless product discovery, editorial visuals, mobile-first responsive shopping, and frictionless checkout.
+- **Key Deliverables**: UX Research, Information Architecture, E-Commerce UI Components, Product Catalog, Responsive Front-End.
+
+### 3. Multi-City Travel Planner
+- **Role**: UI/UX Designer & Developer (Designed & Developed)
+- **Category**: Travel Tech, Web App & Productivity
+- **Overview**: An intuitive travel planning web application that allows users to plan multi-city itineraries, organize day-by-day activities, track transit logistics, and collaborate in real-time.
+- **Key Deliverables**: User Flow Diagrams, Interactive Maps & Timeline Controls, Component Architecture, Responsive Web App.
+
+### 4. Pickcel Marketing Website & Console Redesign
+- **Role**: Lead UI/UX Designer & Frontend Strategist (Designed & Developed)
+- **Category**: SaaS, Marketing Website & Enterprise Cloud Software
+- **Overview**: Redesign of Pickcel's cloud digital signage platform website and SaaS management console. Modernized the brand identity, simplified navigation, and created conversion-focused landing pages.
+- **Key Deliverables**: Landing Page Redesign, SaaS Dashboard UI, Design Tokens, Interactive Demos.
+
+### 5. ThinkStack AI Platform
+- **Role**: Product Designer & Frontend Engineer (Designed & Developed)
+- **Category**: Artificial Intelligence, AI Orchestration & Developer Tools
+- **Overview**: An enterprise AI platform interface for orchestrating LLM agents, monitoring API performance, and building automated AI workflows.
+- **Key Deliverables**: Developer Console UI, Flow Graph Canvas, Dark Mode UI Components, Design System Documentation.
+
+---
+
+## Core Expertise & Technical Capabilities
+
+- **Product Design**: User Research, User Journeys, Wireframing, High-Fidelity UI, Interactive Prototyping, Usability Testing.
+- **Design Systems**: Token Architecture, Figma Variants, Reusable React Component Libraries, Style Guides, Auto-Layout Systems.
+- **Frontend Development**: React.js, Vanilla JS, HTML5, Vanilla CSS, Webpack/Vite, Responsive Layouts.
+- **Motion & Interactions**: GSAP (GreenSock), Lenis Smooth Scroll, CSS Animations, WebGL 3D (Three.js).
+- **AI-Paired Workflow**: Leveraging Figma + AI Agents to accelerate prototyping, code implementation, and iteration cycles.
+
+---
+
+## Contact & Hire Information
+- **Email**: faheemseyadmd@gmail.com
+- **Phone**: +91 6379439162
+- **Website**: https://faheem.work
+- **LinkedIn**: https://www.linkedin.com/in/seyad-mohammed-faheem/

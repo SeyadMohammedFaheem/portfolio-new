@@ -1,0 +1,32 @@
+# Faheem — Mid-Level UI/UX & Product Designer
+
+> Mid-level Product Designer with 3+ years of experience building cinematic digital experiences, scalable token-based design systems, data-heavy IoT dashboards, and conversion-focused SaaS web applications. AI-paired workflow (Figma + Agents).
+
+## Primary Details
+- **Full Name**: Seyad Mohammed Faheem
+- **Title**: Mid-Level UI/UX & Product Designer (3+ Yrs Experience)
+- **Status**: Actively looking for UI/UX Designer / Product Designer roles
+- **Target Locations**: Bangalore, Chennai, MENA (UAE, Saudi Arabia, Qatar)
+- **Email**: faheemseyadmd@gmail.com
+- **Phone / WhatsApp**: +91 6379439162
+- **Portfolio Website**: https://faheem.work
+- **LinkedIn**: https://www.linkedin.com/in/seyad-mohammed-faheem/
+- **Behance**: https://www.behance.net/faheemseyadmd
+- **Dribbble**: https://dribbble.com/Faheemmeehaf
+- **Awwwards**: https://www.awwwards.com/jury-member/Faheemmeehaf
+
+## Key Case Studies & Projects (Designed & Developed)
+- [OctaLume IoT Dashboard](https://faheem.work/project/octalume-dashboard): Industrial IoT monitoring platform for multi-city smart streetlights and energy grids. Designed & Developed by Faheem.
+- [UF Brand E-Commerce](https://faheem.work/project/ufbrand-salwar): High-converting e-commerce web platform for ethnic fashion brand. Designed & Developed by Faheem.
+- [Multi-City Travel Planner](https://faheem.work/project/multi-city-travel-planner): Intelligent itinerary builder and multi-destination travel planning dashboard. Designed & Developed by Faheem.
+- [Pickcel Website Redesign](https://faheem.work/project/website-revamp): Enterprise digital signage marketing website and cloud console UI redesign. Designed & Developed by Faheem.
+- [ThinkStack AI Platform](https://faheem.work/project/thinkstack-core): Enterprise AI orchestration platform and developer console UI. Designed & Developed by Faheem.
+
+## Core Capabilities & Services
+1. **Product Design (UX/UI)**: End-to-end discovery, user research, wireframing, high-fidelity interactive prototyping, usability testing, and developer handoff.
+2. **Design Systems**: Scalable, token-based component libraries in Figma and code that help engineering teams ship faster without sacrificing visual quality.
+3. **Frontend Development**: React.js, HTML5, Vanilla CSS, Motion Graphics (GSAP, Lenis), 3D WebGL (Three.js), and Creative Coding.
+4. **Complex Dashboards**: Data-heavy telemetry interfaces, IoT controls, and enterprise analytics platforms.
+
+## Full Machine-Readable Knowledge
+- [Full Text Context Document](https://faheem.work/llms-full.txt): Comprehensive text breakdown of all project case studies, process, skills, and background for AI agents and LLMs.
