@@ -1,12 +1,51 @@
 import React, { useState, useRef, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import portraitImg from '../assets/faheem-portrait.webp';
+import { projectsData } from '../data/projectsData';
 
-const QUICK_PROMPTS = [
+const BASE_QUICK_PROMPTS = [
     { label: "Download Resume", query: "Can I download your resume?" },
     { label: "Open to work roles?", query: "What roles are you looking for?" },
     { label: "Top projects?", query: "Tell me about your top featured projects" },
     { label: "How to contact?", query: "How can I contact or hire Faheem?" },
 ];
+
+const getCurrentProject = (pathname) => {
+    if (!pathname || !pathname.startsWith('/project/')) return null;
+    const slug = pathname.replace('/project/', '').trim();
+    return projectsData.find(p => p.slug === slug || p.id === slug) || null;
+};
+
+const isThisProjectQuery = (q) => {
+    const keywords = ["this project", "about this", "tell me about this", "explain this", "what is this project", "what did faheem do here", "project details", "this case study", "about the project", "what is this"];
+    return keywords.some(kw => q.includes(kw));
+};
+
+const buildProjectSummary = (project) => {
+    let text = `Here is a breakdown of **${project.title}** (${project.type} · ${project.year}):\n\n`;
+    
+    if (project.description) {
+        text += `• **Overview**: ${project.description}\n`;
+    }
+    if (project.client) {
+        text += `• **Client / Brand**: ${project.client}\n`;
+    }
+    if (project.service || project.category) {
+        text += `• **Scope**: ${project.service || project.category}\n`;
+    }
+    if (project.challenge?.text) {
+        text += `• **The Challenge**: ${project.challenge.text}\n`;
+    }
+    if (project.solution?.text) {
+        text += `• **The Solution**: ${project.solution.text}\n`;
+    }
+    if (project.result) {
+        text += `• **Key Impact**: ${project.result}\n`;
+    }
+
+    text += `\nFeel free to ask me anything specific about Faheem's role, process, or results for this project!`;
+    return { text };
+};
 
 const SYSTEM_PROMPT = `
 You are Faheem AI, the intelligent portfolio assistant for Seyad Mohammed Faheem.
@@ -19,7 +58,7 @@ If a user asks an off-topic or general question, politely decline with:
 "I am specifically trained to answer questions about Faheem, his product design work, case studies, and availability. Feel free to ask about his projects, skills, resume, or how to contact him."
 
 Key Details about Faheem:
-- **Status**: Actively looking for Product Designer & UI/UX Designer roles.
+- **Status**: Actively open to Product Designer & UI/UX Designer roles and can join immediately.
 - **Preferred Locations**: Bangalore, Chennai, MENA (UAE, Saudi Arabia, Qatar).
 - **Direct Contact**: Email: [faheemseyadmd@gmail.com](mailto:faheemseyadmd@gmail.com) | Phone/WhatsApp: +91 6379439162 | LinkedIn: [linkedin.com/in/seyad-mohammed-faheem](https://www.linkedin.com/in/seyad-mohammed-faheem/)
 - **Featured Case Studies (Designed & Developed)**:
@@ -155,8 +194,19 @@ const renderFormattedText = (text) => {
     });
 };
 
-const findBestAnswer = (userQuery) => {
+const findBestAnswer = (userQuery, activeProject) => {
     const q = userQuery.toLowerCase().trim();
+
+    // Check if query is about the current active project
+    if (isThisProjectQuery(q)) {
+        if (activeProject) {
+            return buildProjectSummary(activeProject);
+        } else {
+            return {
+                text: "You are currently on the main portfolio page! Navigate to any featured case study (such as OctaLume, UF Brand, Multi-City, Pickcel, or ThinkStack) and ask me about it to get a deep dive summary!"
+            };
+        }
+    }
 
     // Resume request check
     if (q.includes("resume") || q.includes("cv")) {
@@ -183,17 +233,22 @@ const findBestAnswer = (userQuery) => {
     }
 
     return {
-        text: "I am specifically trained to answer questions about Faheem, his product design work, case studies, and availability! Feel free to ask about his projects, skills, resume, or how to contact him."
+        text: "I am specifically trained to answer questions about Faheem, his product design work, case studies, and availability. Feel free to ask about his projects, skills, resume, or how to contact him."
     };
 };
 
-const fetchLLMResponse = async (userQuery, conversationHistory) => {
+const fetchLLMResponse = async (userQuery, conversationHistory, activeProject) => {
     const groqKey = import.meta.env.VITE_GROQ_API_KEY;
     const openaiKey = import.meta.env.VITE_OPENAI_API_KEY;
     const q = userQuery.toLowerCase().trim();
 
-    // Always append download button if query is for resume
     const isResumeQuery = q.includes("resume") || q.includes("cv");
+
+    // Dynamic System Prompt with active page project context
+    let dynamicSystemPrompt = SYSTEM_PROMPT;
+    if (activeProject) {
+        dynamicSystemPrompt += `\nCURRENT PAGE CONTEXT: The user is currently viewing the case study for "${activeProject.title}".\n- Description: ${activeProject.description}\n- Challenge: ${activeProject.challenge?.text || ''}\n- Solution: ${activeProject.solution?.text || ''}\n- Result: ${activeProject.result || ''}\nIf the user asks "tell me about this project" or asks questions about the current page, answer specifically using this case study data.`;
+    }
 
     if (groqKey) {
         try {
@@ -206,7 +261,7 @@ const fetchLLMResponse = async (userQuery, conversationHistory) => {
                 body: JSON.stringify({
                     model: "llama-3.3-70b-versatile",
                     messages: [
-                        { role: "system", content: SYSTEM_PROMPT },
+                        { role: "system", content: dynamicSystemPrompt },
                         ...conversationHistory.slice(-4).map(m => ({
                             role: m.sender === "bot" ? "assistant" : "user",
                             content: m.text
@@ -214,7 +269,7 @@ const fetchLLMResponse = async (userQuery, conversationHistory) => {
                         { role: "user", content: userQuery }
                     ],
                     temperature: 0.5,
-                    max_tokens: 300
+                    max_tokens: 350
                 })
             });
             const data = await res.json();
@@ -243,7 +298,7 @@ const fetchLLMResponse = async (userQuery, conversationHistory) => {
                 body: JSON.stringify({
                     model: "gpt-4o-mini",
                     messages: [
-                        { role: "system", content: SYSTEM_PROMPT },
+                        { role: "system", content: dynamicSystemPrompt },
                         ...conversationHistory.slice(-4).map(m => ({
                             role: m.sender === "bot" ? "assistant" : "user",
                             content: m.text
@@ -251,7 +306,7 @@ const fetchLLMResponse = async (userQuery, conversationHistory) => {
                         { role: "user", content: userQuery }
                     ],
                     temperature: 0.5,
-                    max_tokens: 300
+                    max_tokens: 350
                 })
             });
             const data = await res.json();
@@ -271,10 +326,13 @@ const fetchLLMResponse = async (userQuery, conversationHistory) => {
         }
     }
 
-    return findBestAnswer(userQuery);
+    return findBestAnswer(userQuery, activeProject);
 };
 
 const Chatbot = () => {
+    const location = useLocation();
+    const activeProject = getCurrentProject(location.pathname);
+
     const [isOpen, setIsOpen] = useState(false);
     const [messages, setMessages] = useState([
         {
@@ -285,6 +343,11 @@ const Chatbot = () => {
     const [inputValue, setInputValue] = useState('');
     const [isTyping, setIsTyping] = useState(false);
     const messagesEndRef = useRef(null);
+
+    const quickPrompts = activeProject ? [
+        { label: `About this project (${activeProject.title})`, query: "Tell me about this project" },
+        ...BASE_QUICK_PROMPTS
+    ] : BASE_QUICK_PROMPTS;
 
     const scrollToBottom = () => {
         messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
@@ -305,7 +368,7 @@ const Chatbot = () => {
         setInputValue('');
         setIsTyping(true);
 
-        const botAnswer = await fetchLLMResponse(text, messages);
+        const botAnswer = await fetchLLMResponse(text, messages, activeProject);
         setMessages((prev) => [...prev, { sender: 'bot', text: botAnswer.text, action: botAnswer.action }]);
         setIsTyping(false);
     };
@@ -349,7 +412,9 @@ const Chatbot = () => {
                             </div>
                             <div className="header-text">
                                 <h4 className="header-title">Ask AI</h4>
-                                <span className="header-status">Available to join immediately · Online</span>
+                                <span className="header-status">
+                                    {activeProject ? `Viewing: ${activeProject.title}` : "Available to join immediately · Online"}
+                                </span>
                             </div>
                         </div>
                         <button
@@ -409,7 +474,7 @@ const Chatbot = () => {
 
                     {/* Quick Prompts */}
                     <div className="chatbot-quick-prompts" data-lenis-prevent>
-                        {QUICK_PROMPTS.map((p, idx) => (
+                        {quickPrompts.map((p, idx) => (
                             <button
                                 key={idx}
                                 className="quick-prompt-btn"
@@ -424,7 +489,7 @@ const Chatbot = () => {
                     <div className="chatbot-footer">
                         <input
                             type="text"
-                            placeholder="Ask me anything about Faheem..."
+                            placeholder={activeProject ? `Ask about ${activeProject.title}...` : "Ask me anything about Faheem..."}
                             className="chatbot-input"
                             value={inputValue}
                             onChange={(e) => setInputValue(e.target.value)}
