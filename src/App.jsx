@@ -8,6 +8,8 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import ReferralPopup from './components/ReferralPopup';
+import { Analytics } from '@vercel/analytics/react';
+import { SpeedInsights } from '@vercel/speed-insights/react';
 
 // Lazy-load the heavy 3D Canvas element so it is decoupled from the initial page rendering path
 const ThreeCanvas = lazy(() => import('./components/ThreeCanvas'));
@@ -135,6 +137,8 @@ export default function App() {
         <ReferralPopup />
 
         <Footer />
+        <Analytics />
+        <SpeedInsights />
       </ReactLenis>
     </BrowserRouter>
   );
