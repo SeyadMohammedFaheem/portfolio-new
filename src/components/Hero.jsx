@@ -54,7 +54,6 @@ export default function Hero({ videoElement, setProgress }) {
         <p className="hero-desc">
           Building cinematic digital experiences with a focus on motion, code, and editorial design.
         </p>
-        <div className="hero-badge">©2026 FAHEEM</div>
       </div>
     </section>
   );
