@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { ReactLenis } from 'lenis/react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { Analytics } from '@vercel/analytics/react';
 
 // Always-present shell components (tiny, needed on every page)
 import Header from './components/Header';
@@ -135,6 +136,8 @@ export default function App() {
         <ReferralPopup />
 
         <Footer />
+
+        <Analytics />
       </ReactLenis>
     </BrowserRouter>
   );
