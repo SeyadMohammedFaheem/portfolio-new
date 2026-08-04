@@ -57,8 +57,8 @@ export default function Header() {
           <span>02 /</span> ABOUT
         </Link>
         <a 
-          href="/assets/Resume - Faheem Product Designer.pdf" 
-          download="Resume - Faheem Product Designer.pdf"
+          href="/assets/Faheem - Product Designer Resume.pdf" 
+          download="Faheem - Product Designer Resume.pdf"
           className="nav-item" 
           onClick={closeMenu}
           data-agent="nav-resume"

@@ -83,8 +83,8 @@ const FAHEEM_KNOWLEDGE_BASE = [
         action: {
             type: "download",
             label: "Download Resume (PDF)",
-            url: "/assets/Resume - Faheem Product Designer.pdf",
-            filename: "Resume - Faheem Product Designer.pdf"
+            url: "/assets/Faheem - Product Designer Resume.pdf",
+            filename: "Faheem - Product Designer Resume.pdf"
         }
     },
     {
@@ -215,8 +215,8 @@ const findBestAnswer = (userQuery, activeProject) => {
             action: {
                 type: "download",
                 label: "Download Resume (PDF)",
-                url: "/assets/Resume - Faheem Product Designer.pdf",
-                filename: "Resume - Faheem Product Designer.pdf"
+                url: "/assets/Faheem - Product Designer Resume.pdf",
+                filename: "Faheem - Product Designer Resume.pdf"
             }
         };
     }
@@ -279,8 +279,8 @@ const fetchLLMResponse = async (userQuery, conversationHistory, activeProject) =
                     action: isResumeQuery ? {
                         type: "download",
                         label: "Download Resume (PDF)",
-                        url: "/assets/Resume - Faheem Product Designer.pdf",
-                        filename: "Resume - Faheem Product Designer.pdf"
+                        url: "/assets/Faheem - Product Designer Resume.pdf",
+                        filename: "Faheem - Product Designer Resume.pdf"
                     } : null
                 };
             }
@@ -316,8 +316,8 @@ const fetchLLMResponse = async (userQuery, conversationHistory, activeProject) =
                     action: isResumeQuery ? {
                         type: "download",
                         label: "Download Resume (PDF)",
-                        url: "/assets/Resume - Faheem Product Designer.pdf",
-                        filename: "Resume - Faheem Product Designer.pdf"
+                        url: "/assets/Faheem - Product Designer Resume.pdf",
+                        filename: "Faheem - Product Designer Resume.pdf"
                     } : null
                 };
             }
