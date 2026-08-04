@@ -5812,7 +5812,9 @@ header.main-header {
     max-width: calc(100vw - 32px);
     height: 520px;
     max-height: 80vh;
-    background: radial-gradient(circle at 90% 10%, rgba(255, 77, 18, 0.35) 0%, rgba(13, 14, 18, 0.98) 60%), #0c0d10;
+    background: radial-gradient(circle at 15% 0%, rgba(255, 255, 255, 0.16) 0%, transparent 45%),
+                radial-gradient(circle at 90% 10%, rgba(255, 77, 18, 0.35) 0%, rgba(13, 14, 18, 0.98) 60%),
+                #0c0d10;
     border: 1px solid rgba(255, 255, 255, 0.16);
     border-radius: 24px;
     display: flex;
@@ -5838,8 +5840,10 @@ header.main-header {
     align-items: center;
     justify-content: space-between;
     padding: 16px 20px;
-    background: rgba(255, 255, 255, 0.03);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .chatbot-header-profile {
@@ -5927,6 +5931,8 @@ header.main-header {
     gap: 12px;
     -ms-overflow-style: none;
     scrollbar-width: none;
+    -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 14px, black calc(100% - 14px), transparent 100%);
+    mask-image: linear-gradient(to bottom, transparent 0%, black 14px, black calc(100% - 14px), transparent 100%);
 }
 
 .chatbot-body::-webkit-scrollbar {
