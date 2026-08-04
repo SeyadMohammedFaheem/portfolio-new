@@ -5708,26 +5708,59 @@ header.main-header {
     font-family: var(--font-main);
 }
 
+@property --glow-angle {
+    syntax: '<angle>';
+    initial-value: 0deg;
+    inherits: false;
+}
+
+@keyframes rotateGlow {
+    0% { --glow-angle: 0deg; }
+    100% { --glow-angle: 360deg; }
+}
+
 .chatbot-trigger-btn {
+    position: relative;
     display: inline-flex;
     align-items: center;
     gap: 10px;
     padding: 8px 18px 8px 8px;
-    background: rgba(13, 14, 18, 0.85);
+    background: rgba(13, 14, 18, 0.92);
     backdrop-filter: blur(20px) saturate(180%);
     -webkit-backdrop-filter: blur(20px) saturate(180%);
-    border: 1px solid rgba(255, 255, 255, 0.14);
     border-radius: 100px;
     color: #ffffff;
     cursor: pointer;
-    box-shadow: 0 12px 36px rgba(0, 0, 0, 0.6), 0 0 24px rgba(255, 77, 18, 0.25);
+    border: none;
+    box-shadow: 0 12px 36px rgba(0, 0, 0, 0.7);
     transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    z-index: 1;
+}
+
+.chatbot-trigger-btn::before {
+    content: '';
+    position: absolute;
+    inset: -1.5px;
+    border-radius: 100px;
+    padding: 1.5px;
+    background: conic-gradient(
+        from var(--glow-angle, 0deg),
+        #ff4d12 0%,
+        #ff8c00 25%,
+        rgba(255, 77, 18, 0.15) 50%,
+        #ff4d12 75%,
+        #ff8c00 100%
+    );
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    animation: rotateGlow 3.5s linear infinite;
+    pointer-events: none;
+    z-index: 2;
 }
 
 .chatbot-trigger-btn:hover {
-    transform: translateY(-2px) scale(1.03);
-    border-color: rgba(255, 77, 18, 0.5);
-    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.7), 0 0 30px rgba(255, 77, 18, 0.4);
+    transform: translateY(-2px) scale(1.04);
 }
 
 .trigger-avatar-wrapper {
