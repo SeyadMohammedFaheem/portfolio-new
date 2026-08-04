@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import portraitImg from '../assets/faheem-portrait.webp';
 import { projectsData } from '../data/projectsData';
 
@@ -19,6 +19,40 @@ const getCurrentProject = (pathname) => {
 const isThisProjectQuery = (q) => {
     const keywords = ["this project", "about this", "tell me about this", "explain this", "what is this project", "what did faheem do here", "project details", "this case study", "about the project", "what is this"];
     return keywords.some(kw => q.includes(kw));
+};
+
+const detectMentionedProjects = (text, activeProject) => {
+    if (!text) return [];
+    const lower = text.toLowerCase();
+    const matched = [];
+
+    if (activeProject && (lower.includes("this project") || lower.includes("breakdown of") || lower.includes(activeProject.title.toLowerCase()))) {
+        return [activeProject];
+    }
+
+    projectsData.forEach(p => {
+        const titleLower = p.title.toLowerCase();
+        const clientLower = p.client ? p.client.toLowerCase() : '';
+        const slugLower = p.slug.toLowerCase();
+
+        if (
+            lower.includes(titleLower) ||
+            (clientLower && lower.includes(clientLower)) ||
+            lower.includes(slugLower) ||
+            (slugLower === "octalume-dashboard" && lower.includes("octalume")) ||
+            (slugLower === "ufbrand-salwar" && (lower.includes("uf brand") || lower.includes("ethnic"))) ||
+            (slugLower === "multi-city-travel-planner" && (lower.includes("multi-city") || lower.includes("travel planner"))) ||
+            (slugLower === "dashboard-design" && lower.includes("console ui")) ||
+            (slugLower === "website-revamp" && lower.includes("pickcel")) ||
+            (slugLower === "thinkstack-core" && lower.includes("thinkstack"))
+        ) {
+            if (!matched.some(m => m.slug === p.slug)) {
+                matched.push(p);
+            }
+        }
+    });
+
+    return matched;
 };
 
 const buildProjectSummary = (project) => {
@@ -60,7 +94,7 @@ If a user asks an off-topic or general question, politely decline with:
 Key Details about Faheem:
 - **Status**: Actively open to Product Designer & UI/UX Designer roles and can join immediately.
 - **Preferred Locations**: Bangalore, Chennai, MENA (UAE, Saudi Arabia, Qatar).
-- **Direct Contact**: Email: [faheemseyadmd@gmail.com](mailto:faheemseyadmd@gmail.com) | Phone/WhatsApp: +91 6379439162 | LinkedIn: [linkedin.com/in/seyad-mohammed-faheem](https://www.linkedin.com/in/seyad-mohammed-faheem/)
+- **Direct Contact**: Phone/WhatsApp: +91 6379439162. (Email and LinkedIn will be provided via CTAs).
 - **Featured Case Studies (Designed & Developed)**:
   1. OctaLume IoT Dashboard: Industrial smart streetlight telemetry & energy control platform.
   2. UF Brand E-Commerce: High-converting ethnic fashion web store.
@@ -71,7 +105,7 @@ Key Details about Faheem:
 
 Instructions:
 Be polite, professional, articulate, and concise. Format lists with clean Markdown bullet points. Do NOT use emojis in your responses.
-Always format email addresses, LinkedIn, and websites as markdown links like [faheemseyadmd@gmail.com](mailto:faheemseyadmd@gmail.com) or [LinkedIn](https://www.linkedin.com/in/seyad-mohammed-faheem/).
+NEVER type out raw email addresses or LinkedIn URLs in text. Instead, say "You can contact Faheem directly using the buttons below."
 If the user says a simple greeting like "hi", "hello", or "hey", respond with: "Hi there! Great to meet you. What would you like to know about Faheem's work, experience, or availability?"
 If the user asks for a resume or CV, mention that they can download the PDF directly using the download button in the chat.
 `;
@@ -93,7 +127,12 @@ const FAHEEM_KNOWLEDGE_BASE = [
     },
     {
         keywords: ["thanks", "thank you", "bye", "goodbye", "cool", "awesome", "great"],
-        response: "You're very welcome! Feel free to ask if you need anything else, or reach out to Faheem directly at [faheemseyadmd@gmail.com](mailto:faheemseyadmd@gmail.com)."
+        response: "You're very welcome! Feel free to ask if you need anything else, or reach out to Faheem directly using the buttons below:",
+        action: {
+            type: "contact_ctas",
+            primary: { label: "Send Email", url: "mailto:faheemseyadmd@gmail.com" },
+            secondary: { label: "LinkedIn Profile", url: "https://www.linkedin.com/in/seyad-mohammed-faheem/" }
+        }
     },
     {
         keywords: ["roles", "looking for", "job", "hiring", "hire", "position", "location", "locations", "open to work"],
@@ -101,7 +140,7 @@ const FAHEEM_KNOWLEDGE_BASE = [
     },
     {
         keywords: ["projects", "project", "work", "portfolio", "featured", "octalume", "uf brand", "pickcel", "thinkstack", "multi-city"],
-        response: "My top featured projects (all Designed & Developed by me) include:\n\n1. **[OctaLume IoT Dashboard](/project/octalume-dashboard)**: Industrial smart streetlight telemetry platform.\n2. **[UF Brand E-Commerce](/project/ufbrand-salwar)**: High-converting ethnic fashion web store.\n3. **[Multi-City Travel Planner](/project/multi-city-travel-planner)**: Intelligent multi-destination itinerary builder.\n4. **[Pickcel Website Redesign](/project/website-revamp)**: Enterprise digital signage platform & cloud console UI.\n5. **[ThinkStack AI Platform](/project/thinkstack-core)**: Enterprise AI orchestration console."
+        response: "My top featured projects (all Designed & Developed by me) include:\n\n1. **OctaLume IoT Dashboard**: Industrial smart streetlight telemetry platform.\n2. **UF Brand E-Commerce**: High-converting ethnic fashion web store.\n3. **Multi-City Travel Planner**: Intelligent multi-destination itinerary builder.\n4. **Pickcel Website Redesign**: Enterprise digital signage platform & cloud console UI.\n5. **ThinkStack AI Platform**: Enterprise AI orchestration console."
     },
     {
         keywords: ["stack", "skills", "tools", "tech", "figma", "react", "design system", "coding", "agents"],
@@ -109,7 +148,12 @@ const FAHEEM_KNOWLEDGE_BASE = [
     },
     {
         keywords: ["contact", "email", "phone", "whatsapp", "reach", "hire", "referral", "linkedin"],
-        response: "You can reach me directly via:\n\n• **Email**: [faheemseyadmd@gmail.com](mailto:faheemseyadmd@gmail.com)\n• **Phone / WhatsApp**: +91 6379439162\n• **LinkedIn**: [linkedin.com/in/seyad-mohammed-faheem](https://www.linkedin.com/in/seyad-mohammed-faheem/)\n• **Portfolio**: [faheem.work](https://faheem.work)"
+        response: "You can reach Faheem directly using the contact buttons below:\n\n• Phone / WhatsApp: +91 6379439162",
+        action: {
+            type: "contact_ctas",
+            primary: { label: "Send Email", url: "mailto:faheemseyadmd@gmail.com" },
+            secondary: { label: "LinkedIn Profile", url: "https://www.linkedin.com/in/seyad-mohammed-faheem/" }
+        }
     },
     {
         keywords: ["experience", "years", "background", "who are you", "about"],
@@ -194,10 +238,120 @@ const renderFormattedText = (text) => {
     });
 };
 
+const ChatProjectCard = ({ project, onNavigate }) => {
+    return (
+        <div 
+            className="chat-project-card"
+            onClick={() => onNavigate && onNavigate(`/project/${project.slug}`)}
+        >
+            <div className="chat-card-media">
+                <img src={project.heroImage || project.image} alt={project.title} loading="lazy" />
+                <span className="chat-card-tag">{project.type || project.category || "Case Study"}</span>
+            </div>
+            <div className="chat-card-content">
+                <div className="chat-card-header">
+                    <h5 className="chat-card-title">{project.title}</h5>
+                    <span className="chat-card-year">{project.year}</span>
+                </div>
+                <p className="chat-card-desc">{project.description}</p>
+                <div className="chat-card-action">
+                    <span>View Case Study</span>
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                        <polyline points="12 5 19 12 12 19"></polyline>
+                    </svg>
+                </div>
+            </div>
+        </div>
+    );
+};
+
+const AnimatedMessageBubble = ({ text, action, isLatestBot, scrollToBottom, activeProject, onNavigate }) => {
+    const lines = text.split('\n');
+    const [visibleCount, setVisibleCount] = useState(isLatestBot ? 1 : lines.length);
+
+    useEffect(() => {
+        if (!isLatestBot || visibleCount >= lines.length) return;
+
+        const timer = setTimeout(() => {
+            setVisibleCount((prev) => prev + 1);
+            if (scrollToBottom) scrollToBottom();
+        }, 130);
+
+        return () => clearTimeout(timer);
+    }, [visibleCount, lines.length, isLatestBot, scrollToBottom]);
+
+    const animatedText = lines.slice(0, visibleCount).join('\n');
+    const isFullyRevealed = visibleCount >= lines.length;
+    const mentionedProjects = isFullyRevealed ? detectMentionedProjects(text, activeProject) : [];
+
+    return (
+        <div className="bot-message-content">
+            <div className="message-bubble">
+                {renderFormattedText(animatedText)}
+            </div>
+
+            {isFullyRevealed && mentionedProjects.length > 0 && (
+                <div className="chat-project-cards-container" data-lenis-prevent>
+                    {mentionedProjects.map((proj) => (
+                        <ChatProjectCard key={proj.slug || proj.id} project={proj} onNavigate={onNavigate} />
+                    ))}
+                </div>
+            )}
+
+            {isFullyRevealed && action?.type === 'download' && (
+                <a
+                    href={action.url}
+                    download={action.filename}
+                    className="chat-download-btn"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                        <polyline points="7 10 12 15 17 10"></polyline>
+                        <line x1="12" y1="15" x2="12" y2="3"></line>
+                    </svg>
+                    <span>{action.label}</span>
+                </a>
+            )}
+
+            {isFullyRevealed && action?.type === 'contact_ctas' && (
+                <div className="chat-cta-row">
+                    <a
+                        href={action.primary.url}
+                        className="chat-cta-btn primary"
+                        style={{ color: '#ffffff', textDecoration: 'none' }}
+                    >
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#ffffff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                            <polyline points="22,6 12,13 2,6"></polyline>
+                        </svg>
+                        <span style={{ color: '#ffffff', textDecoration: 'none' }}>{action.primary.label}</span>
+                    </a>
+                    <a
+                        href={action.secondary.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="chat-cta-btn secondary"
+                        style={{ color: '#ffffff', textDecoration: 'none' }}
+                    >
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#ffffff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                            <rect x="2" y="9" width="4" height="12"></rect>
+                            <circle cx="4" cy="4" r="2"></circle>
+                        </svg>
+                        <span style={{ color: '#ffffff', textDecoration: 'none' }}>{action.secondary.label}</span>
+                    </a>
+                </div>
+            )}
+        </div>
+    );
+};
+
 const findBestAnswer = (userQuery, activeProject) => {
     const q = userQuery.toLowerCase().trim();
 
-    // Check if query is about the current active project
     if (isThisProjectQuery(q)) {
         if (activeProject) {
             return buildProjectSummary(activeProject);
@@ -208,7 +362,6 @@ const findBestAnswer = (userQuery, activeProject) => {
         }
     }
 
-    // Resume request check
     if (q.includes("resume") || q.includes("cv")) {
         return {
             text: "Here is Faheem's official Product Designer resume. You can download the PDF directly using the button below:",
@@ -221,7 +374,6 @@ const findBestAnswer = (userQuery, activeProject) => {
         };
     }
 
-    // Direct greeting match
     if (["hi", "hello", "hey", "hola", "sup"].includes(q)) {
         return { text: "Hi there! Great to meet you. What would you like to know about Faheem's work, experience, or availability?" };
     }
@@ -237,14 +389,56 @@ const findBestAnswer = (userQuery, activeProject) => {
     };
 };
 
+const sanitizeBotText = (rawText, isContactQuery) => {
+    if (!rawText) return { cleanText: rawText, hasContactMention: false };
+
+    let text = rawText;
+    let hasContactMention = isContactQuery || text.includes("faheemseyadmd@gmail.com") || text.includes("linkedin.com");
+
+    // Replace markdown email and raw email
+    text = text.replace(/\[?faheemseyadmd@gmail\.com\]?(\(mailto:faheemseyadmd@gmail\.com\))?/gi, "");
+    text = text.replace(/[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}/gi, "");
+
+    // Replace markdown linkedin and raw linkedin
+    text = text.replace(/\[?[^\]]*linkedin[^\]]*\]?\(https?:\/\/[^\s)]+\)/gi, "");
+    text = text.replace(/https?:\/\/(www\.)?linkedin\.com\/in\/[^\s.)]+/gi, "");
+
+    // Clean up trailing connect text or orphan words
+    text = text.replace(/contact Faheem directly through\s*\.?/gi, "contact Faheem directly using the buttons below.");
+    text = text.replace(/reach out to Faheem directly at\s*\.?/gi, "reach out to Faheem directly using the buttons below.");
+    text = text.replace(/reach out directly via\s*\.?/gi, "reach out directly using the buttons below.");
+    text = text.replace(/\s{2,}/g, " ").trim();
+
+    return { cleanText: text, hasContactMention };
+};
+
 const fetchLLMResponse = async (userQuery, conversationHistory, activeProject) => {
     const groqKey = import.meta.env.VITE_GROQ_API_KEY;
     const openaiKey = import.meta.env.VITE_OPENAI_API_KEY;
     const q = userQuery.toLowerCase().trim();
 
     const isResumeQuery = q.includes("resume") || q.includes("cv");
+    const isContactQuery = q.includes("contact") || q.includes("email") || q.includes("hire") || q.includes("reach") || q.includes("linkedin");
 
-    // Dynamic System Prompt with active page project context
+    const getAction = (hasContact) => {
+        if (isResumeQuery) {
+            return {
+                type: "download",
+                label: "Download Resume (PDF)",
+                url: "/assets/Faheem - Product Designer Resume.pdf",
+                filename: "Faheem - Product Designer Resume.pdf"
+            };
+        }
+        if (isContactQuery || hasContact) {
+            return {
+                type: "contact_ctas",
+                primary: { label: "Send Email", url: "mailto:faheemseyadmd@gmail.com" },
+                secondary: { label: "LinkedIn Profile", url: "https://www.linkedin.com/in/seyad-mohammed-faheem/" }
+            };
+        }
+        return null;
+    };
+
     let dynamicSystemPrompt = SYSTEM_PROMPT;
     if (activeProject) {
         dynamicSystemPrompt += `\nCURRENT PAGE CONTEXT: The user is currently viewing the case study for "${activeProject.title}".\n- Description: ${activeProject.description}\n- Challenge: ${activeProject.challenge?.text || ''}\n- Solution: ${activeProject.solution?.text || ''}\n- Result: ${activeProject.result || ''}\nIf the user asks "tell me about this project" or asks questions about the current page, answer specifically using this case study data.`;
@@ -274,14 +468,10 @@ const fetchLLMResponse = async (userQuery, conversationHistory, activeProject) =
             });
             const data = await res.json();
             if (data.choices?.[0]?.message?.content) {
+                const { cleanText, hasContactMention } = sanitizeBotText(data.choices[0].message.content, isContactQuery);
                 return {
-                    text: data.choices[0].message.content,
-                    action: isResumeQuery ? {
-                        type: "download",
-                        label: "Download Resume (PDF)",
-                        url: "/assets/Faheem - Product Designer Resume.pdf",
-                        filename: "Faheem - Product Designer Resume.pdf"
-                    } : null
+                    text: cleanText,
+                    action: getAction(hasContactMention)
                 };
             }
         } catch (err) {
@@ -311,14 +501,10 @@ const fetchLLMResponse = async (userQuery, conversationHistory, activeProject) =
             });
             const data = await res.json();
             if (data.choices?.[0]?.message?.content) {
+                const { cleanText, hasContactMention } = sanitizeBotText(data.choices[0].message.content, isContactQuery);
                 return {
-                    text: data.choices[0].message.content,
-                    action: isResumeQuery ? {
-                        type: "download",
-                        label: "Download Resume (PDF)",
-                        url: "/assets/Faheem - Product Designer Resume.pdf",
-                        filename: "Faheem - Product Designer Resume.pdf"
-                    } : null
+                    text: cleanText,
+                    action: getAction(hasContactMention)
                 };
             }
         } catch (err) {
@@ -329,8 +515,15 @@ const fetchLLMResponse = async (userQuery, conversationHistory, activeProject) =
     return findBestAnswer(userQuery, activeProject);
 };
 
+const ChatbotSvgIcon = ({ size = 20 }) => (
+    <svg width={size} height={size} viewBox="0 0 60 61" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ display: 'block', flexShrink: 0 }}>
+        <path d="M22.9101 60.9524L24.2328 40.4762L7.08995 51.9577L0 39.4709L18.4656 30.4762L0 21.4815L7.08995 8.99471L24.2328 20.4762L22.9101 0H37.1429L35.7672 20.4762L52.9101 8.99471L60 21.4815L41.5873 30.4762L60 39.4709L52.9101 51.9577L35.7672 40.4762L37.1429 60.9524H22.9101Z" fill="#FF4D12" />
+    </svg>
+);
+
 const Chatbot = () => {
     const location = useLocation();
+    const navigate = useNavigate();
     const activeProject = getCurrentProject(location.pathname);
 
     const [isOpen, setIsOpen] = useState(false);
@@ -394,9 +587,6 @@ const Chatbot = () => {
                         <span className="online-indicator"></span>
                     </div>
                     <span className="trigger-label">Ask AI</span>
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="trigger-spark-icon">
-                        <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
-                    </svg>
                 </button>
             )}
 
@@ -431,32 +621,31 @@ const Chatbot = () => {
 
                     {/* Messages Body */}
                     <div className="chatbot-body" data-lenis-prevent>
-                        {messages.map((msg, i) => (
-                            <div key={i} className={`chat-message ${msg.sender}`}>
-                                {msg.sender === 'bot' && (
-                                    <img src={portraitImg} alt="AI" className="message-avatar" />
-                                )}
-                                <div className="message-bubble">
-                                    {renderFormattedText(msg.text)}
-                                    {msg.action?.type === 'download' && (
-                                        <a
-                                            href={msg.action.url}
-                                            download={msg.action.filename}
-                                            className="chat-download-btn"
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                        >
-                                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-                                                <polyline points="7 10 12 15 17 10"></polyline>
-                                                <line x1="12" y1="15" x2="12" y2="3"></line>
-                                            </svg>
-                                            <span>{msg.action.label}</span>
-                                        </a>
+                        {messages.map((msg, i) => {
+                            const hasCards = msg.sender === 'bot' && detectMentionedProjects(msg.text, activeProject).length > 0;
+                            return (
+                                <div key={i} className={`chat-message ${msg.sender} ${hasCards ? 'has-cards' : ''}`}>
+                                    {msg.sender === 'bot' && (
+                                        <img src={portraitImg} alt="AI" className="message-avatar" />
+                                    )}
+                                    {msg.sender === 'bot' ? (
+                                        <AnimatedMessageBubble
+                                            key={`${i}-${msg.text.length}`}
+                                            text={msg.text}
+                                            action={msg.action}
+                                            isLatestBot={i === messages.length - 1}
+                                            scrollToBottom={scrollToBottom}
+                                            activeProject={activeProject}
+                                            onNavigate={navigate}
+                                        />
+                                    ) : (
+                                        <div className="message-bubble">
+                                            {renderFormattedText(msg.text)}
+                                        </div>
                                     )}
                                 </div>
-                            </div>
-                        ))}
+                            );
+                        })}
 
                         {isTyping && (
                             <div className="chat-message bot typing">
@@ -486,26 +675,31 @@ const Chatbot = () => {
                     </div>
 
                     {/* Input Footer */}
-                    <div className="chatbot-footer">
-                        <input
-                            type="text"
-                            placeholder={activeProject ? `Ask about ${activeProject.title}...` : "Ask me anything about Faheem..."}
-                            className="chatbot-input"
-                            value={inputValue}
-                            onChange={(e) => setInputValue(e.target.value)}
-                            onKeyDown={handleKeyDown}
-                        />
-                        <button
-                            className="chatbot-send-btn"
-                            onClick={() => handleSendMessage()}
-                            disabled={!inputValue.trim()}
-                            aria-label="Send message"
-                        >
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                                <line x1="22" y1="2" x2="11" y2="13"></line>
-                                <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
-                            </svg>
-                        </button>
+                    <div className="chatbot-footer-container">
+                        <div className="chatbot-footer">
+                            <input
+                                type="text"
+                                placeholder={activeProject ? `Ask about ${activeProject.title}...` : "Ask me anything about Faheem..."}
+                                className="chatbot-input"
+                                value={inputValue}
+                                onChange={(e) => setInputValue(e.target.value)}
+                                onKeyDown={handleKeyDown}
+                            />
+                            <button
+                                className="chatbot-send-btn"
+                                onClick={() => handleSendMessage()}
+                                disabled={!inputValue.trim()}
+                                aria-label="Send message"
+                            >
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                                    <line x1="22" y1="2" x2="11" y2="13"></line>
+                                    <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                                </svg>
+                            </button>
+                        </div>
+                        <div className="chatbot-branding">
+                            <span>Designed & Developed by <strong>Faheem</strong></span>
+                        </div>
                     </div>
                 </div>
             )}
