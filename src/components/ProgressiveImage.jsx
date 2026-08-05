@@ -63,6 +63,7 @@ const ProgressiveImage = forwardRef(({
         overflow: 'hidden',
         width: '100%',
         height: '100%',
+        ...(width && height ? { aspectRatio: `${width} / ${height}` } : {}),
         ...style
       }}
     >
@@ -71,6 +72,9 @@ const ProgressiveImage = forwardRef(({
         src={currentSrc}
         alt={alt}
         loading={loading}
+        decoding="async"
+        width={width}
+        height={height}
         style={{
           width: '100%',
           height: '100%',

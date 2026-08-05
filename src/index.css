@@ -332,6 +332,7 @@ header.main-header {
 /* Hero Section */
 .hero {
     height: 100vh;
+    min-height: 600px;
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -339,6 +340,7 @@ header.main-header {
     padding: 3rem;
     position: relative;
     overflow: hidden;
+    contain: layout paint;
 }
 
 .hero-bg-image {
@@ -350,7 +352,7 @@ header.main-header {
     z-index: 0;
     pointer-events: none;
     opacity: 0.4;
-    /* Blend with the video background */
+    contain: strict;
 }
 
 .hero-bg-image img {

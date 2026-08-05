@@ -42,7 +42,7 @@ export default function Hero({ videoElement, setProgress }) {
   return (
     <section ref={sectionRef} className="hero">
       <div className="hero-bg-image">
-        <img src="/hero-runner.webp" alt="Runner" fetchpriority="high" loading="eager" />
+        <img src="/hero-runner.webp" alt="Runner" fetchpriority="high" loading="eager" decoding="async" width="1920" height="1080" />
       </div>
       
       <div className="hero-main-title" ref={titleRef}>

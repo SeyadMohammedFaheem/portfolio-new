@@ -22,7 +22,7 @@ const Capabilities = () => {
                     </div>
                     <div className="fc-visual aww-visual">
                         <div className="fc-inner-mockup">
-                            <img src="/images/awwwards-cert.webp" alt="Awwwards Young Jury Faheem Certificate" loading="lazy" decoding="async" style={{ objectFit: 'cover' }} />
+                            <img src="/images/awwwards-cert.webp" alt="Awwwards Young Jury Faheem Certificate" loading="lazy" decoding="async" width="800" height="600" style={{ objectFit: 'cover' }} />
                             <a
                                 className="aww-hover-btn"
                                 href="https://www.awwwards.com/jury-member/Faheemmeehaf"
@@ -49,7 +49,7 @@ const Capabilities = () => {
                     <p className="fintech-quote-text">
                         Faheem has a strong eye for detail and focuses on creating seamless user experiences. He iterates and refines designs based on feedback, understands development constraints, contributes ideas, and adapts quickly.                    </p>
                     <div className="fintech-author-pill">
-                        <img src="/images/vamsi.webp" alt="Vamsi" loading="lazy" decoding="async" />
+                        <img src="/images/vamsi.webp" alt="Vamsi" loading="lazy" decoding="async" width="80" height="80" />
                         <div className="fintech-author-info">
                             <strong>Vamsi</strong>
                             <span>Project Manager, Pickcel</span>
@@ -59,7 +59,7 @@ const Capabilities = () => {
 
                 {/* Card 3: Faheem Aesthetic Image */}
                 <div className="finance-card kanso-image-card">
-                    <img className="kanso-bg-img" src="/images/orange-abstract-bg.webp" alt="Faheem minimal aesthetic" loading="lazy" decoding="async" />
+                    <img className="kanso-bg-img" src="/images/orange-abstract-bg.webp" alt="Faheem minimal aesthetic" loading="lazy" decoding="async" width="800" height="600" />
                     <div className="kanso-overlay"></div>
                     <div className="kanso-top-brand">FAHEEM</div>
                     <div className="kanso-bottom-text">

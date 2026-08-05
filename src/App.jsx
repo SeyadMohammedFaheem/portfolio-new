@@ -3,23 +3,22 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { ReactLenis } from 'lenis/react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-
-// Always-present shell components (tiny, needed on every page)
-import Header from './components/Header';
-import Footer from './components/Footer';
-import ReferralPopup from './components/ReferralPopup';
-import Chatbot from './components/Chatbot';
 import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/react';
 
-// Lazy-load the heavy 3D Canvas element so it is decoupled from the initial page rendering path
-const ThreeCanvas = lazy(() => import('./components/ThreeCanvas'));
-
-// Home is the most-visited page — keep it eager
+// Always-present shell components
+import Header from './components/Header';
+import Footer from './components/Footer';
 import Home from './components/Home';
 
-// Lazy-load every other route so their JS only downloads when needed
-// Store the import functions so we can prefetch them on idle
+// Lazy-load the heavy 3D Canvas element
+const ThreeCanvas = lazy(() => import('./components/ThreeCanvas'));
+
+// Lazy-load non-critical floating UI so they don't block initial paint & hydration
+const ReferralPopup = lazy(() => import('./components/ReferralPopup'));
+const Chatbot       = lazy(() => import('./components/Chatbot'));
+
+// Lazy-load routes
 const lazyImports = {
   BlogDetail:    () => import('./components/BlogDetail'),
   Projects:      () => import('./components/Projects'),
@@ -36,14 +35,12 @@ const ProjectDetail = lazy(lazyImports.ProjectDetail);
 const About         = lazy(lazyImports.About);
 const Contact       = lazy(lazyImports.Contact);
 
-// Prefetch all lazy route chunks during idle time so navigation is instant
 function prefetchRoutes() {
   Object.values(lazyImports).forEach(importFn => importFn());
 }
 
 gsap.registerPlugin(ScrollTrigger);
 
-// Simple fallback shown while a lazy chunk is downloading
 function PageFallback() {
   return (
     <div style={{
@@ -65,15 +62,19 @@ export default function App() {
   const [loaded, setLoaded] = useState(false);
   const [videoElement, setVideoElement] = useState(null);
   const [progress, setProgress] = useState(0);
+  const [mountDeferredUI, setMountDeferredUI] = useState(false);
 
-  // Prefetch all lazy route chunks once the page is idle
   useEffect(() => {
+    const deferTask = () => {
+      setMountDeferredUI(true);
+      prefetchRoutes();
+    };
+
     if ('requestIdleCallback' in window) {
-      const id = requestIdleCallback(() => prefetchRoutes());
+      const id = requestIdleCallback(deferTask);
       return () => cancelIdleCallback(id);
     } else {
-      // Fallback: prefetch after 2s
-      const t = setTimeout(prefetchRoutes, 2000);
+      const t = setTimeout(deferTask, 1000);
       return () => clearTimeout(t);
     }
   }, []);
@@ -99,14 +100,12 @@ export default function App() {
     };
 
     video.addEventListener('loadedmetadata', handleLoadedMetadata);
-
-    // Fallback: reveal the site after 2s (reduced from 4s) — don't let video block rendering
-    const timeout = setTimeout(() => setLoaded(true), 2000);
+    const timeout = setTimeout(() => setLoaded(true), 1500);
 
     return () => {
       video.removeEventListener('loadedmetadata', handleLoadedMetadata);
       clearTimeout(timeout);
-    }
+    };
   }, []);
 
   return (
@@ -115,8 +114,8 @@ export default function App() {
 
         <Header />
 
-        <div className="canvas-container">
-          <Suspense fallback={<div className="canvas-placeholder" />}>
+        <div className="canvas-container" style={{ position: 'fixed', top: 0, left: 0, width: '100vw', height: '100vh', pointerEvents: 'none', zIndex: -1 }}>
+          <Suspense fallback={<div className="canvas-placeholder" style={{ position: 'fixed', top: 0, left: 0, width: '100vw', height: '100vh', background: '#0a0a0a', pointerEvents: 'none', zIndex: -1 }} />}>
             <ThreeCanvas video={videoElement} progress={progress} />
           </Suspense>
         </div>
@@ -135,9 +134,12 @@ export default function App() {
 
         <div className="viewport-top-blur"></div>
 
-        <ReferralPopup />
-
-        <Chatbot />
+        {mountDeferredUI && (
+          <Suspense fallback={null}>
+            <ReferralPopup />
+            <Chatbot />
+          </Suspense>
+        )}
 
         <Footer />
         <Analytics />

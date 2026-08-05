@@ -583,7 +583,7 @@ const Chatbot = () => {
                     aria-label="Open Faheem AI Chatbot"
                 >
                     <div className="trigger-avatar-wrapper">
-                        <img src={portraitImg} alt="Faheem AI" className="trigger-avatar" />
+                        <img src={portraitImg} alt="Faheem AI" className="trigger-avatar" width="36" height="36" decoding="async" />
                         <span className="online-indicator"></span>
                     </div>
                     <span className="trigger-label">Ask AI</span>
@@ -597,7 +597,7 @@ const Chatbot = () => {
                     <div className="chatbot-header">
                         <div className="chatbot-header-profile">
                             <div className="header-avatar-container">
-                                <img src={portraitImg} alt="Faheem" className="header-avatar" />
+                                <img src={portraitImg} alt="Faheem" className="header-avatar" width="38" height="38" decoding="async" />
                                 <span className="header-online-dot"></span>
                             </div>
                             <div className="header-text">
@@ -626,7 +626,7 @@ const Chatbot = () => {
                             return (
                                 <div key={i} className={`chat-message ${msg.sender} ${hasCards ? 'has-cards' : ''}`}>
                                     {msg.sender === 'bot' && (
-                                        <img src={portraitImg} alt="AI" className="message-avatar" />
+                                        <img src={portraitImg} alt="AI" className="message-avatar" width="28" height="28" decoding="async" />
                                     )}
                                     {msg.sender === 'bot' ? (
                                         <AnimatedMessageBubble
@@ -649,7 +649,7 @@ const Chatbot = () => {
 
                         {isTyping && (
                             <div className="chat-message bot typing">
-                                <img src={portraitImg} alt="AI" className="message-avatar" />
+                                <img src={portraitImg} alt="AI" className="message-avatar" width="28" height="28" decoding="async" />
                                 <div className="message-bubble typing-dots">
                                     <span></span>
                                     <span></span>

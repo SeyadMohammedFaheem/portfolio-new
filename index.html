@@ -76,6 +76,10 @@
     <!-- Preload local fonts for instant text display without layout shifts -->
     <link rel="preload" href="/assets/fonts/inter/inter-normal-400.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="preload" href="/assets/fonts/inter/inter-normal-500.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/assets/fonts/inter/inter-normal-700.woff2" as="font" type="font/woff2" crossorigin />
+
+    <!-- Preload the LCP hero image with high priority for faster LCP/FCP -->
+    <link rel="preload" as="image" href="/hero-runner.webp" fetchpriority="high" />
 
     <!-- Inline Critical Above-the-Fold CSS -->
     <style id="critical-css">
