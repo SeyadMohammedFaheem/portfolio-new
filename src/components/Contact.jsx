@@ -154,7 +154,7 @@ const Contact = () => {
                             <div className="contact-info-block">
                                 <h3>Location</h3>
                                 <p className="contact-info-text">India</p>
-                                <p className="contact-info-muted">Remote-friendly worldwide.</p>
+                                <p className="contact-info-muted">Based in India · Available globally.</p>
                             </div>
 
                             <div className="contact-info-block">
