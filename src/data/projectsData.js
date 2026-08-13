@@ -1494,14 +1494,14 @@ export const projectsData = [
         },
         result: "The resulting prototype demonstrated a 60% reduction in time spent organizing itineraries during user testing, delivering a frictionless, anxiety-free travel planning experience.",
         gridImages: [
-            "https://images.unsplash.com/photo-1512428559087-560fa5ceab42?auto=format&fit=crop&q=80&w=1600",
-            "https://images.unsplash.com/photo-1503220317375-aaad61436b1b?auto=format&fit=crop&q=80&w=1600"
+            "/images/work/routee/Home.png",
+            "/images/work/routee/location details.png"
         ],
         stackImages: [
-            "https://images.unsplash.com/photo-1488646953014-85cb44e25828?auto=format&fit=crop&q=80&w=1600",
-            "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?auto=format&fit=crop&q=80&w=1600"
+            "/images/work/routee/my trips.png",
+            "/images/work/routee/Planning.png"
         ],
-        impactImage: "https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?auto=format&fit=crop&q=80&w=2000",
+        impactImage: "/images/work/routee/Story.png",
         caseStudy: {
             goals: [
                 "Consolidate bookings into one platform",
@@ -1520,47 +1520,156 @@ export const projectsData = [
                 { icon: "❌", text: "Timezone confusion causing missed flights" },
                 { icon: "❌", text: "Fragmented communication in group chats" }
             ],
-            solutions: [
-                {
-                    num: "1/3",
-                    title: "Smart Timeline UI",
-                    desc: "A vertical, scrollable timeline that automatically adjusts for timezones and highlights gaps in the itinerary where accommodation or transport is missing.",
-                    rationale: "By visualizing the trip chronologically, users can instantly spot logistical errors that a spreadsheet would hide.",
-                    mockupBg: "#0d0d0d",
-                    mockupImg: "https://images.unsplash.com/photo-1512428559087-560fa5ceab42?auto=format&fit=crop&q=80&w=1600"
-                },
-                {
-                    num: "2/3",
-                    title: "Collaborative Board",
-                    desc: "A shared workspace where all travelers in a group can upvote activities, suggest restaurants, and split costs in real-time.",
-                    rationale: "Removing the friction of switching between a planning app and a messaging app keeps everyone aligned and engaged.",
-                    mockupBg: "#0d0d0d",
-                    mockupImg: "https://images.unsplash.com/photo-1503220317375-aaad61436b1b?auto=format&fit=crop&q=80&w=1600"
-                },
-                {
-                    num: "3/3",
-                    title: "Offline Vault",
-                    desc: "An auto-downloading secure vault for boarding passes, visas, and hotel confirmations accessible without internet.",
-                    rationale: "Travelers frequently lose data roaming when landing in a new country. The offline vault eliminates airport panic.",
-                    mockupBg: "#0d0d0d",
-                    mockupImg: "https://images.unsplash.com/photo-1488646953014-85cb44e25828?auto=format&fit=crop&q=80&w=1600"
-                }
-            ],
             designProcess: [
                 {
-                    heading: "Design System & Typography",
-                    desc: "To evoke a sense of calm and clarity, I selected 'Inter' for its highly legible geometric sans-serif properties. The UI relies heavily on whitespace and subtle shadows to create depth without clutter.",
-                    highlights: [
-                        { title: "Typography", text: "Inter - Clean, readable, and perfectly suited for dense data interfaces." },
-                        { title: "Color Palette", text: "Ocean Blue primary (#0A84FF) paired with crisp whites and soft grays to reduce cognitive load." },
-                        { title: "Iconography", text: "Rounded, friendly line icons that maintain legibility at small sizes." }
+                    heading: "1. Onboarding Flow",
+                    desc: "A warm, guided onboarding experience that introduces users to the multi-city planning concept through visually engaging screens. Each step communicates a core value proposition — deeper travel clarity, smarter planning, and collaborative journeys.",
+                    scrollStyle: 'auto',
+                    image: [
+                        "/images/work/routee/splash.png",
+                        "/images/work/routee/onboardin1.png",
+                        "/images/work/routee/onboardin2.png",
+                        "/images/work/routee/onboardin3.png",
+                        "/images/work/routee/Login.png"
                     ]
+                },
+                {
+                    heading: "2. Typography & Colors",
+                    desc: "Plus Jakarta Sans was chosen for its modern, geometric feel with softened terminals — giving the UI a warm yet professional tone. Its excellent legibility at small sizes makes it ideal for dense travel data. A vibrant blue (#3366FF) anchors the brand identity.",
+                    typography: {
+                        fontFamily: "Plus Jakarta Sans",
+                        weights: ["Regular", "Medium", "SemiBold", "Bold"],
+                        examples: [
+                            { label: "Heading H1", size: "28px", weight: "Bold", text: "Heading H1" },
+                            { label: "Heading H2", size: "24px", weight: "Bold", text: "Heading H2" },
+                            { label: "Heading H3", size: "18px", weight: "SemiBold", text: "Heading H3" },
+                            { label: "Paragraph Default", size: "14px", weight: "Medium", text: "Paragraph Default" },
+                            { label: "Paragraph Small", size: "12px", weight: "Regular", text: "Paragraph Small" }
+                        ]
+                    }
+                },
+                {
+                    heading: "3. Colors",
+                    desc: "A focused, accessible color system featuring a vibrant blue primary, clean neutrals, and purposeful feedback states designed for travel context — where clarity and trust are paramount.",
+                    colors: [
+                        { name: "Primary Blue", hex: "#3366FF", type: "Main" },
+                        { name: "Primary Dark", hex: "#1A3DD1", type: "Main" },
+                        { name: "Surface", hex: "#F8F9FA", type: "Main" },
+                        { name: "White", hex: "#FFFFFF", type: "Main" },
+                        { name: "Success", hex: "#22C55E", type: "Feedback" },
+                        { name: "Warning", hex: "#F59E0B", type: "Feedback" },
+                        { name: "Error", hex: "#EF4444", type: "Feedback" },
+                        { name: "Primary Text", hex: "#1A1A1A", type: "UI" },
+                        { name: "Secondary Text", hex: "#6B7280", type: "UI" },
+                        { name: "Placeholder", hex: "#9CA3AF", type: "UI" },
+                        { name: "Border", hex: "#E5E7EB", type: "UI" }
+                    ]
+                }
+            ],
+            solutions: [
+                {
+                    num: "1/8",
+                    title: "Home & Explore",
+                    desc: "The home screen surfaces personalized destination recommendations, quick multi-city planning entry, and upcoming trip summaries — all accessible within a thumb's reach. The explore tab helps users discover trending destinations with ratings and pricing at a glance.",
+                    rationale: "A well-designed home screen reduces time-to-action. By surfacing the 'Plan Multi-City' CTA prominently, we eliminate the friction of navigating to the core feature.",
+                    mockupType: "clay",
+                    mockupImg: [
+                        "/images/work/routee/Home.png",
+                        "/images/work/routee/location details.png"
+                    ],
+                    mockupLabels: ["HOME", "LOCATION DETAILS"]
+                },
+                {
+                    num: "2/8",
+                    title: "Location Selection",
+                    desc: "A clean location selection interface where users can search and pick from popular Indian destinations. The search experience supports free-text and shows curated suggestions, making city selection feel effortless.",
+                    rationale: "Reducing the number of taps to select a destination directly impacts completion rates in multi-step booking flows.",
+                    mockupType: "clay",
+                    mockupImg: [
+                        "/images/work/routee/location selection.png",
+                        "/images/work/routee/planner.png"
+                    ],
+                    mockupLabels: ["SEARCH", "ROUTE BUILDER"]
+                },
+                {
+                    num: "3/8",
+                    title: "Smart Timeline & Night Planner",
+                    desc: "A vertical, scrollable timeline that automatically adjusts for timezones and highlights gaps in the itinerary. Users can configure nights per stop, reorder cities, and view the entire route at a glance through the bottom progress bar.",
+                    rationale: "By visualizing the trip chronologically with per-city night counts, users can instantly spot logistical errors that a spreadsheet would hide.",
+                    mockupType: "clay",
+                    mockupImg: [
+                        "/images/work/routee/Planning.png",
+                        "/images/work/routee/Booking.png"
+                    ],
+                    mockupLabels: ["NIGHT PLANNER", "FLIGHT SEARCH"]
+                },
+                {
+                    num: "4/8",
+                    title: "Review & Confirmation",
+                    desc: "A comprehensive review screen that consolidates the entire multi-leg journey into a scannable summary — all legs, airlines, timings, and a full price breakdown before the final 'Confirm & Pay' action.",
+                    rationale: "Providing a complete overview before payment reduces abandonment anxiety and builds trust in the booking system.",
+                    mockupType: "clay",
+                    mockupImg: [
+                        "/images/work/routee/Review.png",
+                        "/images/work/routee/All set.png"
+                    ],
+                    mockupLabels: ["REVIEW", "CONFIRMATION"]
+                },
+                {
+                    num: "5/8",
+                    title: "My Trips & Planner",
+                    desc: "A central hub to manage all trips — confirmed, in-progress, and drafts. Each trip card shows the route, dates, leg count, and status at a glance. Users can quickly resume planning incomplete trips or view details of confirmed bookings.",
+                    rationale: "Returning users need to quickly find and manage their trips. Visual trip cards with status badges eliminate unnecessary navigation.",
+                    mockupType: "clay",
+                    mockupImg: [
+                        "/images/work/routee/my trips.png",
+                        "/images/work/routee/planner index.png"
+                    ],
+                    mockupLabels: ["MY TRIPS", "PLANNER"]
+                },
+                {
+                    num: "6/8",
+                    title: "Share & Social",
+                    desc: "A sharing experience that lets travelers share their trip details via WhatsApp, Instagram, Telegram, or direct link. The shareable card shows the full route, dates, and duration in a visually appealing format.",
+                    rationale: "Social sharing is a key growth driver. By making trip cards inherently shareable, each booking becomes organic marketing.",
+                    mockupType: "clay",
+                    mockupImg: [
+                        "/images/work/routee/Share.png",
+                        "/images/work/routee/Story.png"
+                    ],
+                    isScrollable: true,
+                    mockupLabels: ["SHARE SHEET", "TRIP STORY"]
+                },
+                {
+                    num: "7/8",
+                    title: "Notifications & Alerts",
+                    desc: "A contextual notification system that keeps travelers informed about price drops, booking confirmations, flight changes, and trip reminders. Notifications are grouped by trip and prioritized by urgency.",
+                    rationale: "Proactive alerts reduce the anxiety of travel planning and position the app as a trusted travel companion rather than just a booking tool.",
+                    mockupType: "clay",
+                    mockupImg: [
+                        "/images/work/routee/Notification.png",
+                        "/images/work/routee/Notification-1.png"
+                    ],
+                    mockupLabels: ["NOTIFICATIONS", "ALERT DETAIL"]
+                },
+                {
+                    num: "8/8",
+                    title: "Profile & Empty States",
+                    desc: "A clean profile section with trip stats, account management, and preference settings. Empty states use clear messaging and primary CTAs to guide first-time users toward planning their first trip.",
+                    rationale: "Well-designed empty states are conversion opportunities. They transform a 'nothing here' moment into an invitation to explore.",
+                    mockupType: "clay",
+                    mockupImg: [
+                        "/images/work/routee/profile.png",
+                        "/images/work/routee/planner-empty state.png"
+                    ],
+                    mockupLabels: ["PROFILE", "EMPTY STATE"]
                 }
             ],
             impactOnUsers: [
                 "Drastically reduced the cognitive load of trip planning.",
                 "Eliminated the need for third-party spreadsheets and notes apps.",
-                "Provided peace of mind through offline accessibility."
+                "Provided peace of mind through offline accessibility.",
+                "Streamlined multi-city flight search into a single intuitive flow."
             ],
             finalOutcome: "The Multi-City Travel Planner concept proves that complex data doesn't require a complicated interface. By focusing on chronology and collaboration, the design transforms a stressful chore into an exciting pre-trip experience."
         }
