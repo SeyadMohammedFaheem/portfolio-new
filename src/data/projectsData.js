@@ -1673,5 +1673,25 @@ export const projectsData = [
             ],
             finalOutcome: "The Multi-City Travel Planner concept proves that complex data doesn't require a complicated interface. By focusing on chronology and collaboration, the design transforms a stressful chore into an exciting pre-trip experience."
         }
+    },
+    {
+        id: "kilonovae",
+        slug: "kilonovae",
+        title: "Kilonovae",
+        year: "2026",
+        type: "Web Design & E-commerce",
+        category: "E-commerce",
+        isLocked: true,
+        description: "Tee shirt e-commerce website."
+    },
+    {
+        id: "olfacta",
+        slug: "olfacta",
+        title: "Olfacta",
+        year: "2026",
+        type: "Product Design & ERP",
+        category: "Enterprise Software",
+        isLocked: true,
+        description: "ERP for perfume industries."
     }
 ];
