@@ -1693,6 +1693,7 @@ export const projectsData = [
         type: "Product Design",
         category: "Enterprise Software",
         isLocked: true,
+        image: "/assets/images/projects/olfacta.png",
         description: "ERP for perfume industries."
     }
 ];
