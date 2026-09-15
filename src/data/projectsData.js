@@ -1688,12 +1688,112 @@ export const projectsData = [
     {
         id: "olfacta",
         slug: "olfacta",
-        title: "Olfacta",
+        title: "Olfacta — ERP Workspace",
         year: "2026",
-        type: "Product Design",
+        type: "Enterprise ERP & SaaS",
         category: "Enterprise Software",
         isLocked: true,
         image: "/assets/images/projects/olfacta.png",
-        description: "ERP for perfume industries."
+        heroImage: "/images/work/olfacta-hero.jpg",
+        client: "Perfume Manufacturing Company",
+        liveWebsiteLink: "https://olfacta-amber.vercel.app/dashboard",
+        service: "UX/UI Design, Product Strategy & System Architecture",
+        time: "6 Weeks",
+        description: "Olfacta is a specialized enterprise ERP and formulation workspace designed for the global fragrance and perfume industry. It empowers perfumers, chemical engineers, and regulatory compliance teams to create formulas, validate IFRA safety compliance in real-time, manage raw material inventory, version trial iterations, and scale seamlessly from lab bench experiments to industrial production.",
+        challenge: {
+            text: "Perfume formulation requires balancing complex chemical ratios, strict global IFRA compliance guidelines, allergen thresholds, and volatile raw material inventory costs.",
+            subtext: "Fragrance laboratories traditional rely on fragmented spreadsheets, paper notebooks, and manual compliance verifications, leading to costly batch errors, untracked trial revisions, and unexpected production budget overruns."
+        },
+        solution: {
+            text: "A Digital Formulation Laboratory & Enterprise Resource System",
+            subtext: "I designed a unified digital workspace featuring real-time automated IFRA safety limit calculations, dynamic cost-per-kilogram estimation, snapshot trial versioning, and automated industrial batch scaling for manufacturing."
+        },
+        result: "Olfacta transforms complex chemical engineering workflows into a seamless digital experience — eliminating manual compliance errors, accelerating trial iteration speed by 45%, and providing complete traceability from lab trials to commercial production.",
+        gridImages: [
+            "/assets/images/projects/olfacta.png",
+            "/images/work/olfacta-hero.jpg"
+        ],
+        stackImages: [
+            "/images/work/olfacta-hero.jpg",
+            "/assets/images/projects/olfacta.png"
+        ],
+        impactImage: "/assets/images/projects/olfacta.png",
+        caseStudy: {
+            goals: [
+                "Automate real-time IFRA regulatory compliance and allergen validation",
+                "Enable seamless fragrance formula versioning and trial tracking",
+                "Provide instant cost-per-kg calculations during raw material blending",
+                "Streamline batch scaling from micro lab samples to industrial production",
+                "Unify ingredient stock with live concentration limits and warehouse management"
+            ],
+            targetUsers: [
+                "Master Perfumers & Fragrance Chemists",
+                "Regulatory & Quality Compliance Officers",
+                "Cosmetic & Fragrance Operations Managers",
+                "Industrial Chemical Batch Producers"
+            ],
+            challengeBullets: [
+                { icon: "⚠️", text: "Manual IFRA compliance checks risk severe regulatory non-compliance penalties and product recalls." },
+                { icon: "🧪", text: "Trial history and iteration notes get lost across paper lab books and disconnected spreadsheets." },
+                { icon: "📉", text: "Lack of real-time raw material costing leads to budget overruns before commercial manufacturing." },
+                { icon: "⚖️", text: "Scaling lab grams to multi-ton industrial batches introduces mathematical errors and scent profile drift." }
+            ],
+            solutions: [
+                {
+                    num: "1/4",
+                    title: "Real-Time IFRA Safety & Allergen Engine",
+                    desc: "Automated real-time safety limit checks as raw materials are added, alerting perfumers to restricted chemical substances and allergen concentration thresholds instantly.",
+                    rationale: "Eliminates post-creation compliance failures and accelerates formula validation before physical trials.",
+                    mockupBg: "#0F172A",
+                    mockupImg: "/assets/images/projects/olfacta.png",
+                    mockupCaption: "Live IFRA Safety & Regulatory Compliance Validation"
+                },
+                {
+                    num: "2/4",
+                    title: "Smart Formulation Workspace & Trial Logs",
+                    desc: "An intuitive Workbench for structuring top, heart, and base notes with dynamic concentration percentages, solvent dilution tracking, and version snapshotting.",
+                    rationale: "Empowers perfumers to experiment creatively while maintaining complete historical audit trails.",
+                    mockupBg: "#111827",
+                    mockupImg: "/images/work/olfacta-hero.jpg",
+                    mockupCaption: "Fragrance Olfactory Pyramid & Formula Workbench"
+                },
+                {
+                    num: "3/4",
+                    title: "Live Cost Dynamics & Inventory Sync",
+                    desc: "Instant cost-per-unit metrics updated dynamically as ingredient ratios change, synchronized directly with raw material warehouse inventory.",
+                    rationale: "Delivers complete financial transparency and profit margin control during initial creative formulation.",
+                    mockupBg: "#1E293B",
+                    mockupImg: "/assets/images/projects/olfacta.png",
+                    mockupCaption: "Real-Time Formula Cost Estimation & Raw Material Management"
+                },
+                {
+                    num: "4/4",
+                    title: "Industrial Batch Scaling & Production Control",
+                    desc: "One-click conversion of lab formulas into large-scale industrial batch execution sheets with precise weight breakdowns for compounding teams.",
+                    rationale: "Guarantees flawless consistency when transitioning from small lab trials to large-scale commercial manufacturing.",
+                    mockupBg: "#1E1E24",
+                    mockupImg: "/images/work/olfacta-hero.jpg",
+                    mockupCaption: "Precision Industrial Batch Scaling & Factory Handoff"
+                }
+            ],
+            impactOnUsers: [
+                "Reduced formula compliance verification from days to instantaneous automated checks.",
+                "Eliminated manual calculation errors across complex chemical concentration ratios.",
+                "Seamlessly aligned creative perfumers with regulatory and production teams.",
+                "Provided full cost transparency and profit margin optimization from trial one."
+            ],
+            finalOutcome: "Olfacta establishes a modern digital benchmark for the fragrance industry, successfully bridging the gap between artistic creation, chemical precision, and enterprise resource planning."
+        }
+    },
+    {
+        id: "interaction-exploration",
+        slug: "interaction-exploration",
+        title: "Interaction Exploration",
+        year: "2026",
+        type: "Interaction Design",
+        category: "UI/UX & Micro-interactions",
+        isLocked: true,
+        image: "/assets/images/projects/animation.png",
+        description: "Micro-interactions, UI motion, and prototype explorations."
     }
 ];
