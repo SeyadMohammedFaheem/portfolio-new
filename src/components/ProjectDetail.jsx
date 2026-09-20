@@ -6,13 +6,51 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { projectsData } from '../data/projectsData';
 import ProjectBadge from './ProjectBadge';
 
+// SwiftUI Animation Components
+import StepperMorph from './interaction/StepperMorph';
+import SetStatusMorph from './interaction/SetStatusMorph';
+import AnimatedTagGrid from './interaction/AnimatedTagGrid';
+import CarouselSliderMorph from './interaction/CarouselSliderMorph';
+import ExpandableFabMorph from './interaction/ExpandableFabMorph';
+import LicenseKeyMorph from './interaction/LicenseKeyMorph';
+import RulerPickerMorph from './interaction/RulerPickerMorph';
+import PrivacyToggleMorph from './interaction/PrivacyToggleMorph';
+import CommentThreadMorph from './interaction/CommentThreadMorph';
+import NewProjectMorph from './interaction/NewProjectMorph';
+import ChromaticThinkingMorph from './interaction/ChromaticThinkingMorph';
+import ShareSheetMorph from './interaction/ShareSheetMorph';
+import ViewOnMapMorph from './interaction/ViewOnMapMorph';
+import VoiceChatMorph from './interaction/VoiceChatMorph';
+
+const ANIMATION_COMPONENTS = {
+    stepper: StepperMorph,
+    setStatus: SetStatusMorph,
+    tagGrid: AnimatedTagGrid,
+    carouselSlider: CarouselSliderMorph,
+    expandableFab: ExpandableFabMorph,
+    licenseKey: LicenseKeyMorph,
+    rulerPicker: RulerPickerMorph,
+    privacyToggle: PrivacyToggleMorph,
+    commentThread: CommentThreadMorph,
+    newProject: NewProjectMorph,
+    chromaticThinking: ChromaticThinkingMorph,
+    shareSheet: ShareSheetMorph,
+    viewOnMap: ViewOnMapMorph,
+    voiceChat: VoiceChatMorph
+};
+
 gsap.registerPlugin(ScrollTrigger);
 
 const ProjectDetail = () => {
     const { slug } = useParams();
     const navigate = useNavigate();
-    const project = projectsData.find(p => p.slug === slug);
-    const currentIndex = projectsData.findIndex(p => p.slug === slug);
+    const [previewModalComponent, setPreviewModalComponent] = React.useState(null);
+    const project = projectsData.find(p => 
+        p.slug === slug || 
+        (slug === 'interaction-design' && (p.slug === 'interaction-exploration' || p.id === 'interaction-exploration')) ||
+        (slug === 'interaction-exploration' && (p.slug === 'interaction-design' || p.id === 'interaction-exploration'))
+    );
+    const currentIndex = projectsData.findIndex(p => p.slug === (project ? project.slug : slug));
     const nextProject = projectsData[(currentIndex + 1) % projectsData.length];
 
     const VideoEmbed = ({ id, title, isSmall }) => {
@@ -211,15 +249,82 @@ const ProjectDetail = () => {
                 </section>
 
                 {/* ─── HERO THUMBNAIL (WIDER) ─── */}
-                <div className="zc-hero-thumb zc-animate">
-                    {project.videoUrls ? (
-                        <VideoEmbed id={getYouTubeID(project.videoUrls[0])} title={project.title} />
-                    ) : project.videoUrl ? (
-                        <VideoEmbed id={getYouTubeID(project.videoUrl)} title={project.title} />
-                    ) : (
-                        <img src={project.heroImage || project.image} alt={project.title} fetchpriority="high" loading="eager" decoding="async" width="1600" height="900" />
-                    )}
-                </div>
+                {!project.hideHeroImage && (project.videoUrls || project.videoUrl || project.heroImage || project.image) && (
+                    <div className="zc-hero-thumb zc-animate">
+                        {project.videoUrls ? (
+                            <VideoEmbed id={getYouTubeID(project.videoUrls[0])} title={project.title} />
+                        ) : project.videoUrl ? (
+                            <VideoEmbed id={getYouTubeID(project.videoUrl)} title={project.title} />
+                        ) : (
+                            <img src={project.heroImage || project.image} alt={project.title} fetchpriority="high" loading="eager" decoding="async" width="1600" height="900" />
+                        )}
+                    </div>
+                )}
+
+                {/* ─── INTERACTIVE SHOWCASE (3 CARDS IN A ROW) ─── */}
+                {(project.cards || project.slug === 'interaction-exploration') && (
+                    <section className="zc-interactive-showcase zc-animate">
+                        <div className="zc-cards-row-grid">
+                            {(project.cards || [
+                                { id: 'stepper', title: 'Continuous Stepper', component: 'stepper' },
+                                { id: 'setStatus', title: 'Set Status Morph', component: 'setStatus' },
+                                { id: 'tagGrid', title: 'Animated Tag Selector', component: 'tagGrid' }
+                            ]).map((card) => {
+                                const compKey = card.component || (card.id === 'stepper' || card.id === 1 ? 'stepper' : card.id === 'setStatus' || card.id === 2 ? 'setStatus' : 'tagGrid');
+                                const LiveComp = ANIMATION_COMPONENTS[compKey];
+
+                                return (
+                                    <div key={card.id} className="zc-preview-card">
+                                        <div className="zc-preview-card-header">
+                                            <h3 className="zc-preview-card-title">{card.title}</h3>
+                                            <div className="zc-preview-card-actions">
+                                                <button 
+                                                    className="zc-btn-open" 
+                                                    type="button"
+                                                    onClick={() => setPreviewModalComponent({ title: card.title, compKey })}
+                                                >
+                                                    Open ↗
+                                                </button>
+                                            </div>
+                                        </div>
+                                        <div className="zc-preview-card-body">
+                                            {LiveComp ? <LiveComp /> : null}
+                                        </div>
+                                    </div>
+                                );
+                            })}
+                        </div>
+
+                        {/* ─── CREDITS & INSPIRATION CARD ─── */}
+                        {(project.creditNote || project.slug === 'interaction-exploration') && (
+                            <div className="zc-credit-card-wrap zc-animate">
+                                <div className="zc-credit-card">
+                                    <div className="zc-credit-left">
+                                        <div className="zc-credit-icon-badge">
+                                            <span>✦</span>
+                                        </div>
+                                        <div className="zc-credit-text-content">
+                                            <span className="zc-credit-label">INSPIRATION &amp; CREDITS</span>
+                                            <h4 className="zc-credit-title">{project.creditNote?.title || "Interactions Inspired by Nitish Khagwal"}</h4>
+                                            <p className="zc-credit-desc">
+                                                {project.creditNote?.text || "These micro-interactions, motion physics, and prototype explorations were inspired by the work of Nitish Khagwal."}
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <a 
+                                        href={project.creditNote?.url || "https://khagwal.com/interactions/"} 
+                                        target="_blank" 
+                                        rel="noopener noreferrer"
+                                        className="zc-credit-btn"
+                                    >
+                                        <span>{project.creditNote?.linkText || "Visit khagwal.com/interactions"}</span>
+                                        <span className="zc-credit-arrow">↗</span>
+                                    </a>
+                                </div>
+                            </div>
+                        )}
+                    </section>
+                )}
 
                 <div className="zc-content-col">
                     {/* ─── VIDEO GRID (If multiple videos) ─── */}
@@ -956,6 +1061,24 @@ const ProjectDetail = () => {
                         </section>
                     )}
                 </div>
+
+                {/* ─── LIVE COMPONENT PREVIEW MODAL ─── */}
+                {previewModalComponent && (
+                    <div className="zc-preview-modal-overlay" onClick={() => setPreviewModalComponent(null)}>
+                        <div className="zc-preview-modal-box" onClick={(e) => e.stopPropagation()}>
+                            <div className="zc-preview-modal-header">
+                                <h3 className="zc-preview-modal-title">{previewModalComponent.title}</h3>
+                                <button className="zc-preview-modal-close" type="button" onClick={() => setPreviewModalComponent(null)}>✕</button>
+                            </div>
+                            <div className="zc-preview-modal-body">
+                                {(() => {
+                                    const ModalComp = ANIMATION_COMPONENTS[previewModalComponent.compKey];
+                                    return ModalComp ? <ModalComp /> : null;
+                                })()}
+                            </div>
+                        </div>
+                    </div>
+                )}
 
             </main>
 

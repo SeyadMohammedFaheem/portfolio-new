@@ -6404,3 +6404,316 @@ header.main-header {
 .chat-project-card:hover .chat-card-action svg {
     transform: translateX(3px);
 }
+
+/* ════════════════════════════════════════
+   INTERACTIVE SHOWCASE 3-CARD ROW
+════════════════════════════════════════ */
+
+.zc-interactive-showcase {
+    width: 100%;
+    max-width: 1600px;
+    margin: 0 auto 120px;
+    position: relative;
+}
+
+/* 3 Cards In A Row Grid */
+.zc-cards-row-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    width: 100%;
+}
+
+@media (max-width: 1100px) {
+    .zc-cards-row-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .zc-cards-row-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+}
+
+/* Individual Preview Card matching screenshot */
+.zc-preview-card,
+.zc-preview-card *,
+.zc-preview-modal-box,
+.zc-preview-modal-box * {
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif !important;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.zc-preview-card {
+    background: #ffffff;
+    border-radius: 24px;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08), 0 2px 6px rgba(0, 0, 0, 0.04);
+    padding: 24px 28px;
+    height: 600px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+    box-sizing: border-box;
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
+}
+
+.zc-preview-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 24px 50px rgba(0, 0, 0, 0.15);
+}
+
+.zc-preview-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 24px;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.zc-preview-card-title {
+    font-size: 14px;
+    font-weight: 800;
+    color: #1e293b;
+    margin: 0;
+    letter-spacing: -0.01em;
+}
+
+.zc-preview-card-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.zc-btn-open {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 5px 12px;
+    border-radius: 999px;
+    border: none;
+    background: #0f172a;
+    color: #ffffff;
+    font-size: 12px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    outline: none;
+}
+
+.zc-btn-open:hover {
+    background: #1e293b;
+    transform: translateY(-1px);
+}
+
+.zc-preview-card-body {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-height: 380px;
+    padding: 12px;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+/* Modal for Open button preview */
+.zc-preview-modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.75);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+}
+
+.zc-preview-modal-box {
+    background: #ffffff;
+    border-radius: 28px;
+    width: 100%;
+    max-width: 800px;
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+    position: relative;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.zc-preview-modal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 28px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.zc-preview-modal-title {
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: #0f172a;
+    margin: 0;
+}
+
+.zc-preview-modal-close {
+    background: #f1f5f9;
+    border: none;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    font-size: 16px;
+    font-weight: 700;
+    color: #475569;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+}
+
+.zc-preview-modal-close:hover {
+    background: #e2e8f0;
+    color: #0f172a;
+}
+
+.zc-preview-modal-body {
+    padding: 48px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 420px;
+    overflow: hidden;
+}
+
+/* Credits & Inspiration Card */
+.zc-credit-card-wrap {
+    width: 100%;
+    margin-top: 48px;
+}
+
+.zc-credit-card {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.04) 0%, rgba(255, 255, 255, 0.015) 100%);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 28px;
+    padding: 32px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 32px;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+    transition: border-color 0.3s ease, transform 0.3s ease;
+}
+
+.zc-credit-card:hover {
+    border-color: rgba(255, 255, 255, 0.16);
+    transform: translateY(-2px);
+}
+
+.zc-credit-left {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
+
+.zc-credit-icon-badge {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    color: #ff4d12;
+    font-size: 1.1rem;
+}
+
+.zc-credit-text-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.zc-credit-label {
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    color: #ff4d12;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+    font-family: var(--font-mono, monospace);
+}
+
+.zc-credit-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin: 0 0 6px 0;
+    letter-spacing: -0.02em;
+}
+
+.zc-credit-desc {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.65);
+    margin: 0;
+    max-width: 720px;
+}
+
+.zc-credit-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 24px;
+    border-radius: 999px;
+    background: #ffffff;
+    color: #0f172a;
+    font-weight: 700;
+    font-size: 0.85rem;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: all 0.2s ease;
+    flex-shrink: 0;
+}
+
+.zc-credit-btn:hover {
+    background: #f1f5f9;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 24px rgba(255, 255, 255, 0.12);
+}
+
+.zc-credit-arrow {
+    transition: transform 0.2s ease;
+    font-size: 0.9rem;
+}
+
+.zc-credit-btn:hover .zc-credit-arrow {
+    transform: translate(2px, -2px);
+}
+
+@media (max-width: 860px) {
+    .zc-credit-card {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 24px 28px;
+        gap: 20px;
+    }
+    .zc-credit-left {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+    }
+}
+
+
+
