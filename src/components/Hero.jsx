@@ -1,10 +1,13 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 export default function Hero({ videoElement, setProgress }) {
   const sectionRef = useRef();
   const titleRef = useRef();
+
+  // A/B hero background — randomly pick image or video on each visit
+  const [showVideo] = useState(() => Math.random() > 0.5);
 
   useEffect(() => {
     if (!videoElement) return;
@@ -41,9 +44,22 @@ export default function Hero({ videoElement, setProgress }) {
 
   return (
     <section ref={sectionRef} className="hero">
-      <div className="hero-bg-image">
-        <img src="/hero-runner.webp" alt="Runner" fetchpriority="high" loading="eager" decoding="async" width="1920" height="1080" />
-      </div>
+      {showVideo ? (
+        <div className="hero-bg-video">
+          <video
+            src="/hero-bg-video.mp4"
+            autoPlay
+            loop
+            muted
+            playsInline
+            preload="auto"
+          />
+        </div>
+      ) : (
+        <div className="hero-bg-image">
+          <img src="/hero-runner.webp" alt="Runner" fetchpriority="high" loading="eager" decoding="async" width="1920" height="1080" />
+        </div>
+      )}
       
       <div className="hero-main-title" ref={titleRef}>
         <div>PRODUCT</div>

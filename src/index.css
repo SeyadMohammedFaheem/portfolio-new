@@ -341,6 +341,25 @@ header.main-header {
     position: relative;
     overflow: hidden;
     contain: layout paint;
+    background-color: #0a0a0a;
+    color: #f5f5f5;
+}
+
+.hero-bg-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.hero-bg-video video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 .hero-bg-image {
@@ -371,6 +390,7 @@ header.main-header {
     margin-bottom: 2rem;
     position: relative;
     z-index: 10;
+    color: #f5f5f5;
 }
 
 .hero-main-title .accent {
@@ -389,8 +409,9 @@ header.main-header {
 .hero-desc {
     font-size: 1.1rem;
     max-width: 400px;
-    opacity: 0.8;
+    opacity: 0.7;
     line-height: 1.4;
+    color: #f5f5f5;
 }
 
 .hero-badge {
@@ -400,6 +421,7 @@ header.main-header {
     font-size: 0.7rem;
     text-transform: uppercase;
     letter-spacing: 0.1em;
+    color: #f5f5f5;
 }
 
 /* Kanso Selected Work Section */
