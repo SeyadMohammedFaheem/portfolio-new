@@ -45,11 +45,7 @@ const ProjectDetail = () => {
     const { slug } = useParams();
     const navigate = useNavigate();
     const [previewModalComponent, setPreviewModalComponent] = React.useState(null);
-    const project = projectsData.find(p => 
-        p.slug === slug || 
-        (slug === 'interaction-design' && (p.slug === 'interaction-exploration' || p.id === 'interaction-exploration')) ||
-        (slug === 'interaction-exploration' && (p.slug === 'interaction-design' || p.id === 'interaction-exploration'))
-    );
+    const project = projectsData.find(p => p.slug === slug);
     const currentIndex = projectsData.findIndex(p => p.slug === (project ? project.slug : slug));
     const nextProject = projectsData[(currentIndex + 1) % projectsData.length];
 
@@ -262,14 +258,10 @@ const ProjectDetail = () => {
                 )}
 
                 {/* ─── INTERACTIVE SHOWCASE (3 CARDS IN A ROW) ─── */}
-                {(project.cards || project.slug === 'interaction-exploration') && (
+                {project.cards && (
                     <section className="zc-interactive-showcase zc-animate">
                         <div className="zc-cards-row-grid">
-                            {(project.cards || [
-                                { id: 'stepper', title: 'Continuous Stepper', component: 'stepper' },
-                                { id: 'setStatus', title: 'Set Status Morph', component: 'setStatus' },
-                                { id: 'tagGrid', title: 'Animated Tag Selector', component: 'tagGrid' }
-                            ]).map((card) => {
+                            {project.cards.map((card) => {
                                 const compKey = card.component || (card.id === 'stepper' || card.id === 1 ? 'stepper' : card.id === 'setStatus' || card.id === 2 ? 'setStatus' : 'tagGrid');
                                 const LiveComp = ANIMATION_COMPONENTS[compKey];
 
@@ -296,7 +288,7 @@ const ProjectDetail = () => {
                         </div>
 
                         {/* ─── CREDITS & INSPIRATION CARD ─── */}
-                        {(project.creditNote || project.slug === 'interaction-exploration') && (
+                        {project.creditNote && (
                             <div className="zc-credit-card-wrap zc-animate">
                                 <div className="zc-credit-card">
                                     <div className="zc-credit-left">

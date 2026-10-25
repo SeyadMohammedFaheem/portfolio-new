@@ -58,6 +58,7 @@ export default function Footer() {
             <Link to="/about" className="n-footer-link">About</Link>
             <Link to="/projects" className="n-footer-link">Works</Link>
             <Link to="/contact" className="n-footer-link">Contact</Link>
+            <a href="https://repo.faheem.work/" target="_blank" rel="noopener noreferrer" className="n-footer-link">Playground</a>
           </div>
 
           <div className="n-footer-column">

@@ -65,6 +65,16 @@ export default function Header() {
         >
           <span>03 /</span> RESUME
         </a>
+        <a 
+          href="https://repo.faheem.work/" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          className="nav-item" 
+          onClick={closeMenu}
+          data-agent="nav-playground"
+        >
+          <span>04 /</span> PLAYGROUND
+        </a>
       </nav>
     </header>
   );

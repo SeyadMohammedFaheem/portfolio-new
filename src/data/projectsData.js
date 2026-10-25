@@ -117,41 +117,6 @@ export const projectsData = [
         }
     },
     {
-        id: "interaction-exploration",
-        slug: "interaction-exploration",
-        title: "Interaction Exploration",
-        client: "Self Exploration",
-        year: "2026",
-        type: "Motion & Interaction Design",
-        category: "UI/UX & Micro-interactions",
-        isSimpleShowcase: true,
-        hideHeroImage: true,
-        image: "/assets/images/projects/animation.png",
-        description: "Micro-interactions, UI motion, and prototype explorations.",
-        cards: [
-            { id: "stepper", title: "Continuous Stepper", component: "stepper" },
-            { id: "setStatus", title: "Set Status Morph", component: "setStatus" },
-            { id: "tagGrid", title: "Animated Tag Selector", component: "tagGrid" },
-            { id: "expandableFab", title: "Expandable FAB Arc Menu", component: "expandableFab" },
-            { id: "chromaticThinking", title: "Chromatic Thinking Morph", component: "chromaticThinking" },
-            { id: "shareSheet", title: "Share Sheet Morph", component: "shareSheet" },
-            { id: "carouselSlider", title: "Carousel Orbit Slider", component: "carouselSlider" },
-            { id: "commentThread", title: "Comment Thread Morph", component: "commentThread" },
-            { id: "voiceChat", title: "Voice Chat Morph", component: "voiceChat" },
-            { id: "licenseKey", title: "License Key Morph", component: "licenseKey" },
-            { id: "rulerPicker", title: "Ruler Picker Morph", component: "rulerPicker" },
-            { id: "newProject", title: "New Project Morph", component: "newProject" },
-            { id: "privacyToggle", title: "Privacy Toggle Morph", component: "privacyToggle" },
-            { id: "viewOnMap", title: "View on Map Morph", component: "viewOnMap" }
-        ],
-        creditNote: {
-            title: "Interactions Inspired by Nitish Khagwal",
-            text: "These micro-interactions, motion physics, and prototype explorations were inspired by the work of Nitish Khagwal.",
-            url: "https://khagwal.com/interactions/",
-            linkText: "Visit khagwal.com/interactions"
-        }
-    },
-    {
         id: "multi-city-travel-planner",
         slug: "multi-city-travel-planner",
         title: "Multi-City Travel Planner",
