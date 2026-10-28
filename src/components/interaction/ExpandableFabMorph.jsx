@@ -254,7 +254,7 @@ const styles = {
     borderRadius: '24px',
     overflow: 'hidden',
     userSelect: 'none',
-    fontFamily: "'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif"
+    fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, sans-serif"
   },
   backdrop: {
     position: 'absolute',

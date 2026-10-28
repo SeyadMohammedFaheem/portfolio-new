@@ -200,7 +200,7 @@ const styles = {
     justifyContent: 'center',
     minHeight: 'auto',
     background: '#ffffff',
-    fontFamily: "'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif",
+    fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, sans-serif",
     userSelect: 'none',
     padding: '12px'
   },

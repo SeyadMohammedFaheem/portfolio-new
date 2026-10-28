@@ -216,7 +216,7 @@ const styles = {
     justifyContent: 'center',
     minHeight: '100vh',
     background: '#ffffff',
-    fontFamily: "'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif",
+    fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, sans-serif",
     userSelect: 'none'
   },
   stage: {

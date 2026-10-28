@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useState } from 'react';
+import React, { useRef, useEffect } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
@@ -6,10 +6,19 @@ export default function Hero({ videoElement, setProgress }) {
   const sectionRef = useRef();
   const titleRef = useRef();
 
-  // A/B hero background — randomly pick image or video on each visit
-  const [showVideo] = useState(() => Math.random() > 0.5);
-
   useEffect(() => {
+    // Reveal animation
+    if (titleRef.current) {
+      gsap.from(titleRef.current.children, {
+        y: 100,
+        opacity: 0,
+        duration: 1.5,
+        ease: "power4.out",
+        stagger: 0.1,
+        delay: 0.5
+      });
+    }
+
     if (!videoElement) return;
 
     const trigger = ScrollTrigger.create({
@@ -18,7 +27,7 @@ export default function Hero({ videoElement, setProgress }) {
       end: "bottom top",
       scrub: 1,
       onUpdate: (self) => {
-        setProgress(self.progress);
+        if (setProgress) setProgress(self.progress);
         if (videoElement && videoElement.duration && !videoElement.seeking) {
           const targetTime = self.progress * videoElement.duration;
           // Avoid seeking on tiny micro-changes to prevent layout thrashing
@@ -29,37 +38,14 @@ export default function Hero({ videoElement, setProgress }) {
       }
     });
 
-    // Reveal animation
-    gsap.from(titleRef.current.children, {
-      y: 100,
-      opacity: 0,
-      duration: 1.5,
-      ease: "power4.out",
-      stagger: 0.1,
-      delay: 0.5
-    });
-
     return () => trigger.kill();
   }, [videoElement, setProgress]);
 
   return (
     <section ref={sectionRef} className="hero">
-      {showVideo ? (
-        <div className="hero-bg-video">
-          <video
-            src="/hero-bg-video.mp4"
-            autoPlay
-            loop
-            muted
-            playsInline
-            preload="auto"
-          />
-        </div>
-      ) : (
-        <div className="hero-bg-image">
-          <img src="/hero-runner.webp" alt="Runner" fetchpriority="high" loading="eager" decoding="async" width="1920" height="1080" />
-        </div>
-      )}
+      <div className="hero-bg-image">
+        <img src="/hero-runner.webp" alt="Runner" fetchpriority="high" loading="eager" decoding="async" width="1920" height="1080" />
+      </div>
       
       <div className="hero-main-title" ref={titleRef}>
         <div>PRODUCT</div>
@@ -74,3 +60,4 @@ export default function Hero({ videoElement, setProgress }) {
     </section>
   );
 }
+

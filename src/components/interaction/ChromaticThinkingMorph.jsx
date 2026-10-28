@@ -165,7 +165,7 @@ const styles = {
     width: '100%',
     minHeight: 'auto',
     background: '#ffffff',
-    fontFamily: "'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif",
+    fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, sans-serif",
     userSelect: 'none',
     padding: '24px 0'
   },

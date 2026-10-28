@@ -299,7 +299,7 @@ const styles = {
     minHeight: 'auto',
     background: '#ffffff',
     overflow: 'hidden',
-    fontFamily: "'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif"
+    fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, sans-serif"
   },
   backdrop: {
     position: 'fixed',
