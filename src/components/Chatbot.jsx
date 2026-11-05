@@ -638,7 +638,7 @@ const fetchLLMResponse = async (userQuery, conversationHistory, activeProject) =
 
     const dynamicSystemPrompt = buildComprehensivePortfolioPrompt(activeProject);
 
-    // 1. Google Gemini API (gemini-2.5-flash with fallback to gemini-flash-latest)
+    // 1. Google Gemini API (gemini-2.0-flash with resilient fallback)
     if (geminiKey && geminiKey.trim()) {
         try {
             const historyParts = conversationHistory.slice(-6).map(m => ({
@@ -662,18 +662,28 @@ const fetchLLMResponse = async (userQuery, conversationHistory, activeProject) =
                 });
             };
 
-            let res = await makeGeminiCall("gemini-2.5-flash");
-            if (!res.ok) {
-                res = await makeGeminiCall("gemini-flash-latest");
+            const candidateModels = [
+                import.meta.env.GEMINI_MODEL || "gemini-2.0-flash",
+                "gemini-2.0-flash",
+                "gemini-3.5-flash",
+                "gemini-3.8-flash",
+                "gemini-2.5-flash",
+                "gemini-flash-latest"
+            ].filter((v, i, a) => a.indexOf(v) === i);
+
+            let res = null;
+            for (const m of candidateModels) {
+                res = await makeGeminiCall(m);
+                if (res.ok) break;
             }
 
-            if (res.ok) {
+            if (res && res.ok) {
                 const data = await res.json();
                 if (data.candidates?.[0]?.content?.parts?.[0]?.text) {
                     const { cleanText, hasContactMention } = sanitizeBotText(data.candidates[0].content.parts[0].text, isContactQuery);
                     return { text: cleanText, action: getAction(hasContactMention) };
                 }
-            } else {
+            } else if (res) {
                 const errData = await res.json().catch(() => ({}));
                 console.warn("Gemini API non-ok status:", res.status, errData);
             }
@@ -1055,7 +1065,7 @@ const Chatbot = () => {
                             />
 
                             <div className="input-right-actions">
-                                <div className="input-auto-badge" title="Model: Gemini 2.5 Flash">
+                                <div className="input-auto-badge" title="Model: Gemini 2.0 Flash">
                                     <span>Auto</span>
                                     <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                                         <polyline points="6 9 12 15 18 9"></polyline>
