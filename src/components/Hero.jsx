@@ -4,21 +4,9 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 export default function Hero({ videoElement, setProgress }) {
   const sectionRef = useRef();
-  const titleRef = useRef();
 
+  // ScrollTrigger for background video sync
   useEffect(() => {
-    // Reveal animation
-    if (titleRef.current) {
-      gsap.from(titleRef.current.children, {
-        y: 100,
-        opacity: 0,
-        duration: 1.5,
-        ease: "power4.out",
-        stagger: 0.1,
-        delay: 0.5
-      });
-    }
-
     if (!videoElement) return;
 
     const trigger = ScrollTrigger.create({
@@ -47,7 +35,7 @@ export default function Hero({ videoElement, setProgress }) {
         <img src="/hero-runner.webp" alt="Runner" fetchpriority="high" loading="eager" decoding="async" width="1920" height="1080" />
       </div>
       
-      <div className="hero-main-title" ref={titleRef}>
+      <div className="hero-main-title">
         <div>PRODUCT</div>
         <div>DESIGNER<span className="accent">*</span></div>
       </div>

@@ -2,11 +2,17 @@ import React, { useState, useRef, useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import portraitImg from '../assets/faheem-portrait.webp';
 import { projectsData } from '../data/projectsData';
+import blogsData from '../data/blogsData.json';
+
+const GEMINI_QUICK_PROMPTS = [
+    { label: "List Faheem's core design expertise", query: "List Faheem's core design expertise" },
+    { label: "Compare Product Design and Development roles", query: "Compare Product Design and Development roles" },
+    { label: "Explain Faheem's professional background", query: "Explain Faheem's professional background" },
+];
 
 const BASE_QUICK_PROMPTS = [
+    ...GEMINI_QUICK_PROMPTS,
     { label: "Download Resume", query: "Can I download your resume?" },
-    { label: "Open to work roles?", query: "What roles are you looking for?" },
-    { label: "Top projects?", query: "Tell me about your top featured projects" },
     { label: "How to contact?", query: "How can I contact or hire Faheem?" },
 ];
 
@@ -21,69 +27,104 @@ const isThisProjectQuery = (q) => {
     return keywords.some(kw => q.includes(kw));
 };
 
-const detectMentionedProjects = (text, activeProject) => {
-    if (!text) return [];
-    const lower = text.toLowerCase();
-    const matched = [];
+const detectSingleRelatedProject = (text, activeProject = null) => {
+    if (!text) return null;
+    const lower = text.toLowerCase().trim();
 
-    if (activeProject && (lower.includes("this project") || lower.includes("breakdown of") || lower.includes(activeProject.title.toLowerCase()))) {
-        return [activeProject];
+    // Do not show cards on plain greetings or thank-you acknowledgements
+    if (
+        lower.startsWith("hi there!") || lower.startsWith("hi!") || 
+        lower.startsWith("hello") || lower.startsWith("you're welcome") ||
+        lower.startsWith("great to meet you")
+    ) {
+        return null;
     }
 
-    projectsData.forEach(p => {
+    // 1. If currently on a project page and user/answer refers to it
+    if (activeProject && (
+        lower.includes("this project") || 
+        lower.includes(activeProject.title.toLowerCase()) ||
+        lower.includes(activeProject.slug.toLowerCase())
+    )) {
+        return activeProject;
+    }
+
+    // 2. Specific project matching (check title, slug, keywords)
+    for (const p of projectsData) {
         const titleLower = p.title.toLowerCase();
-        const clientLower = p.client ? p.client.toLowerCase() : '';
         const slugLower = p.slug.toLowerCase();
+        const clientLower = (p.client || '').toLowerCase();
 
-        if (
-            lower.includes(titleLower) ||
-            (clientLower && lower.includes(clientLower)) ||
-            lower.includes(slugLower) ||
-            (slugLower === "octalume-dashboard" && lower.includes("octalume")) ||
-            (slugLower === "ufbrand-salwar" && (lower.includes("uf brand") || lower.includes("ethnic"))) ||
-            (slugLower === "multi-city-travel-planner" && (lower.includes("multi-city") || lower.includes("travel planner"))) ||
-            (slugLower === "dashboard-design" && lower.includes("console ui")) ||
-            (slugLower === "website-revamp" && lower.includes("pickcel")) ||
-            (slugLower === "thinkstack-core" && lower.includes("thinkstack"))
-        ) {
-            if (!matched.some(m => m.slug === p.slug)) {
-                matched.push(p);
-            }
+        if (lower.includes(titleLower) || lower.includes(slugLower)) {
+            return p;
         }
-    });
+        if (slugLower === "olfacta" && (lower.includes("olfacta") || lower.includes("fragrance") || lower.includes("formulation") || lower.includes("chemical") || lower.includes("lab"))) {
+            return p;
+        }
+        if (slugLower === "octalume-dashboard" && (lower.includes("octalume") || lower.includes("iot") || lower.includes("streetlight") || lower.includes("telemetry") || lower.includes("lighting"))) {
+            return p;
+        }
+        if (slugLower === "ufbrand-salwar" && (lower.includes("uf brand") || lower.includes("salwar") || lower.includes("ethnic") || lower.includes("fashion") || lower.includes("ecommerce") || lower.includes("e-commerce"))) {
+            return p;
+        }
+        if (slugLower === "multi-city-travel-planner" && (lower.includes("travel") || lower.includes("itinerary") || lower.includes("multi-city"))) {
+            return p;
+        }
+        if (slugLower === "dashboard-design" && (lower.includes("console ui") || lower.includes("cloud console"))) {
+            return p;
+        }
+        if (slugLower === "website-revamp" && (lower.includes("pickcel") || lower.includes("digital signage") || lower.includes("revamp"))) {
+            return p;
+        }
+        if (slugLower === "thinkstack-core" && (lower.includes("thinkstack") || lower.includes("ai platform") || lower.includes("orchestration"))) {
+            return p;
+        }
+        if (clientLower && clientLower.length > 3 && lower.includes(clientLower)) {
+            return p;
+        }
+    }
 
-    return matched;
+    // 3. If query or answer relates to projects, work, design, portfolio, roles, or hiring, show flagship project
+    const workKeywords = [
+        "project", "work", "portfolio", "case study", "hire", "experience", "skill", 
+        "design", "figma", "code", "react", "dashboard", "product designer", "platform", "process"
+    ];
+    if (workKeywords.some(kw => lower.includes(kw))) {
+        return activeProject || projectsData.find(p => p.slug === "olfacta") || projectsData[0];
+    }
+
+    return null;
 };
 
 const buildProjectSummary = (project) => {
-    let text = `Here is a breakdown of **${project.title}** (${project.type} · ${project.year}):\n\n`;
-    
-    if (project.description) {
-        text += `• **Overview**: ${project.description}\n`;
-    }
-    if (project.client) {
-        text += `• **Client / Brand**: ${project.client}\n`;
-    }
-    if (project.service || project.category) {
-        text += `• **Scope**: ${project.service || project.category}\n`;
-    }
-    if (project.challenge?.text) {
-        text += `• **The Challenge**: ${project.challenge.text}\n`;
-    }
-    if (project.solution?.text) {
-        text += `• **The Solution**: ${project.solution.text}\n`;
-    }
-    if (project.result) {
-        text += `• **Key Impact**: ${project.result}\n`;
-    }
-
-    text += `\nFeel free to ask me anything specific about Faheem's role, process, or results for this project!`;
+    const desc = project.description || project.solution?.text || project.result || '';
+    const metric = project.result ? ` Key impact: ${project.result}` : '';
+    const text = `**${project.title}** (${project.year}): ${desc}${metric}`;
     return { text };
 };
 
-const SYSTEM_PROMPT = `
-You are Faheem AI, the intelligent portfolio assistant for Seyad Mohammed Faheem.
+const buildComprehensivePortfolioPrompt = (activeProject) => {
+    const projectSummaries = projectsData.map((p, idx) => {
+        const parts = [];
+        parts.push(`### ${idx + 1}. ${p.title} (${p.year} · ${p.type || p.category || 'Product Design'}${p.client ? ` · Client: ${p.client}` : ''})`);
+        if (p.liveWebsiteLink) parts.push(`- **Live App / Demo**: ${p.liveWebsiteLink}`);
+        if (p.service) parts.push(`- **Scope**: ${p.service}`);
+        if (p.description) parts.push(`- **Overview**: ${p.description}`);
+        if (p.challenge?.text) parts.push(`- **Challenge**: ${p.challenge.text} ${p.challenge.subtext || ''}`);
+        if (p.solution?.text) parts.push(`- **Solution**: ${p.solution.text} ${p.solution.subtext || ''}`);
+        if (p.result) parts.push(`- **Business Impact & Metrics**: ${p.result}`);
+        if (p.caseStudy?.goals) parts.push(`- **Goals**: ${p.caseStudy.goals.join('; ')}`);
+        if (p.caseStudy?.solutions) parts.push(`- **Key Modules Built**: ${p.caseStudy.solutions.map(s => s.title).join('; ')}`);
+        return parts.join('\n');
+    }).join('\n\n');
+
+    const blogSummaries = (Array.isArray(blogsData) ? blogsData.slice(0, 5) : []).map((b) => {
+        return `- "${b.title}" (${b.date || ''}): ${b.category || 'Design & AI'}`;
+    }).join('\n');
+
+    let prompt = `You are Faheem AI, the intelligent portfolio assistant for Seyad Mohammed Faheem.
 Faheem is a Mid-Level UI/UX & Product Designer with 3+ years of experience based in India.
+You speak directly as Faheem's intelligent AI representative. You know his entire portfolio, all his 13 projects, design philosophy, case study metrics, technical skills, and hiring availability in depth.
 
 CRITICAL SCOPE & GUARDRAILS:
 You MUST ONLY answer questions directly related to Seyad Mohammed Faheem, his portfolio, design projects, background, resume, skills, experience, target locations, and contact details.
@@ -92,28 +133,51 @@ If a user asks an off-topic or general question, politely decline with:
 "I am specifically trained to answer questions about Faheem, his product design work, case studies, and availability. Feel free to ask about his projects, skills, resume, or how to contact him."
 
 Key Details about Faheem:
-- **Status**: Actively open to Product Designer & UI/UX Designer roles and can join immediately.
-- **Preferred Locations**: Bangalore, Chennai, MENA (UAE, Saudi Arabia, Qatar).
-- **Direct Contact**: Phone/WhatsApp: +91 6379439162. (Email and LinkedIn will be provided via CTAs).
-- **Featured Case Studies (Designed & Developed)**:
-  1. OctaLume IoT Dashboard: Industrial smart streetlight telemetry & energy control platform.
-  2. UF Brand E-Commerce: High-converting ethnic fashion web store.
-  3. Multi-City Travel Planner: Intelligent multi-destination itinerary builder.
-  4. Pickcel Website Redesign: Enterprise digital signage marketing site & cloud console UI.
-  5. ThinkStack AI Platform: Enterprise AI orchestration & developer console UI.
-- **Capabilities & Stack**: Product Design (UX Research, Wireframing, Figma Systems, Prototyping), Frontend (React.js, Vanilla CSS, GSAP, Lenis, Three.js), AI-Paired Workflow (Figma + AI Agents).
+- **Status**: Actively open to Product Designer & UI/UX Designer roles and can join immediately (0 days notice).
+- **Target Roles**: Product Designer, UI/UX Designer, Senior UI/UX Designer, Design Technologist.
+- **Preferred Locations**: Bangalore, Chennai, MENA (Dubai, Abu Dhabi, Saudi Arabia, Qatar) or Global Remote. Fully open to relocation.
+- **Direct Contact**: Phone/WhatsApp: +91 6379439162 | Email: faheemseyadmd@gmail.com | LinkedIn: linkedin.com/in/seyad-mohammed-faheem/
+- **Superpower / Unique Edge**: Bridges design vision and frontend code execution. He writes production React, modern CSS, GSAP animations, and Three.js 3D canvas, ensuring zero translation loss during developer handoff.
+- **Capabilities & Stack**:
+  - *Product Design*: UX Research, Information Architecture, Wireframing, Figma (Auto-Layout 5.0, Variables, Design Tokens), Interactive Prototyping, Usability Testing.
+  - *Frontend & Motion*: React.js, Vanilla CSS, GSAP, Lenis Smooth Scroll, Three.js, Vite, Git.
+  - *AI-Paired Workflow*: AI Agent orchestration, Figma AI plugins, modern cursor/agentic design sprints.
+
+COMPLETE PORTFOLIO PROJECTS (ALL 13 PROJECTS DESIGNED & DEVELOPED BY FAHEEM):
+${projectSummaries}
+
+WRITINGS & NOTION INSIGHTS:
+${blogSummaries || 'Articles on UI/UX AI Agent workflows and design systems'}
 
 Instructions:
-Be polite, professional, articulate, and concise. Format lists with clean Markdown bullet points. Do NOT use emojis in your responses.
-NEVER type out raw email addresses or LinkedIn URLs in text. Instead, say "You can contact Faheem directly using the buttons below."
-If the user says a simple greeting like "hi", "hello", or "hey", respond with: "Hi there! Great to meet you. What would you like to know about Faheem's work, experience, or availability?"
-If the user asks for a resume or CV, mention that they can download the PDF directly using the download button in the chat.
-`;
+CRITICAL ANSWER LENGTH & FORMAT RULES:
+1. ALWAYS give SIMPLE, SHORT, and DIRECT answers: exactly 1 to 2 concise sentences (strictly under 35 words).
+2. NEVER output long paragraphs, long lists, bullet point essays, or multi-step explanations.
+3. An interactive showcase card for the related project will automatically be shown directly below your message bubble in the UI, so only provide the direct answer.
+4. Speak with confidence, precision, and professional clarity. Do NOT use emojis.
+5. NEVER type out raw email addresses or LinkedIn URLs in plain text; say "You can contact Faheem directly using the buttons below."
+6. If the user asks for a resume or CV, mention that they can download the PDF directly using the download button in the chat.`;
+
+    if (activeProject) {
+        prompt += `\n\nCURRENT PAGE CONTEXT:
+The user is currently viewing the case study for "${activeProject.title}".
+- Description: ${activeProject.description || ''}
+- Client: ${activeProject.client || 'N/A'}
+- Challenge: ${activeProject.challenge?.text || ''} ${activeProject.challenge?.subtext || ''}
+- Solution: ${activeProject.solution?.text || ''} ${activeProject.solution?.subtext || ''}
+- Result: ${activeProject.result || ''}
+If the user asks "tell me about this project", "explain this case study", or has questions about the current page, answer in 1 to 2 punchy sentences using this project data.`;
+    }
+
+    return prompt;
+};
+
+const SYSTEM_PROMPT = buildComprehensivePortfolioPrompt(null);
 
 const FAHEEM_KNOWLEDGE_BASE = [
     {
         keywords: ["resume", "cv", "download resume", "faheem resume", "get resume", "resume pdf"],
-        response: "Here is Faheem's official Product Designer resume. You can download the PDF directly using the button below:",
+        response: "Here is Faheem's official Product Designer resume (PDF). You can download it directly using the button below:",
         action: {
             type: "download",
             label: "Download Resume (PDF)",
@@ -123,11 +187,11 @@ const FAHEEM_KNOWLEDGE_BASE = [
     },
     {
         keywords: ["hi", "hello", "hey", "hola", "sup", "greetings", "good morning", "good evening", "good afternoon"],
-        response: "Hi there! Great to meet you. What would you like to know about Faheem's work, experience, or availability?"
+        response: "Hi there! I'm Faheem's AI assistant. Ask me anything about his product design work, case studies, or hiring availability."
     },
     {
         keywords: ["thanks", "thank you", "bye", "goodbye", "cool", "awesome", "great"],
-        response: "You're very welcome! Feel free to ask if you need anything else, or reach out to Faheem directly using the buttons below:",
+        response: "You're welcome! Feel free to connect with Faheem directly using the buttons below:",
         action: {
             type: "contact_ctas",
             primary: { label: "Send Email", url: "mailto:faheemseyadmd@gmail.com" },
@@ -135,20 +199,20 @@ const FAHEEM_KNOWLEDGE_BASE = [
         }
     },
     {
-        keywords: ["roles", "looking for", "job", "hiring", "hire", "position", "location", "locations", "open to work"],
-        response: "I'm actively looking for UI/UX Designer & Product Designer roles! Preferred locations include Bangalore, Chennai, and MENA (UAE, Saudi Arabia, Qatar). I bring 3+ years of experience across product design, design systems, and data-heavy dashboards."
+        keywords: ["roles", "looking for", "job", "hiring", "hire", "position", "location", "locations", "open to work", "notice period"],
+        response: "Faheem is actively open to Product Designer & UI/UX Designer roles across Bangalore, Chennai, MENA, or Remote, and can join immediately."
     },
     {
-        keywords: ["projects", "project", "work", "portfolio", "featured", "octalume", "uf brand", "pickcel", "thinkstack", "multi-city"],
-        response: "My top featured projects (all Designed & Developed by me) include:\n\n1. **OctaLume IoT Dashboard**: Industrial smart streetlight telemetry platform.\n2. **UF Brand E-Commerce**: High-converting ethnic fashion web store.\n3. **Multi-City Travel Planner**: Intelligent multi-destination itinerary builder.\n4. **Pickcel Website Redesign**: Enterprise digital signage platform & cloud console UI.\n5. **ThinkStack AI Platform**: Enterprise AI orchestration console."
+        keywords: ["projects", "project", "work", "portfolio", "featured", "octalume", "uf brand", "pickcel", "thinkstack", "multi-city", "olfacta"],
+        response: "Faheem has designed 13 products, leading flagship work across Olfacta ERP, OctaLume IoT, and UF Brand."
     },
     {
         keywords: ["stack", "skills", "tools", "tech", "figma", "react", "design system", "coding", "agents"],
-        response: "My core capabilities include:\n\n• **Product Design**: UX Research, Wireframing, High-Fidelity UI, Interactive Prototyping, Usability Testing.\n• **Design Systems**: Token Architecture, Figma Libraries, Reusable Components.\n• **Frontend & Motion**: React.js, HTML5, Vanilla CSS, GSAP, Lenis Smooth Scroll, Three.js.\n• **Workflow**: AI-paired design & dev workflow (Figma + AI Agents)."
+        response: "Faheem specializes in end-to-end product design, token-based Figma systems, and frontend execution with React, CSS, and GSAP."
     },
     {
         keywords: ["contact", "email", "phone", "whatsapp", "reach", "hire", "referral", "linkedin"],
-        response: "You can reach Faheem directly using the contact buttons below:\n\n• Phone / WhatsApp: +91 6379439162",
+        response: "Faheem is ready to connect. You can reach out directly via email or LinkedIn using the buttons below:",
         action: {
             type: "contact_ctas",
             primary: { label: "Send Email", url: "mailto:faheemseyadmd@gmail.com" },
@@ -156,8 +220,16 @@ const FAHEEM_KNOWLEDGE_BASE = [
         }
     },
     {
-        keywords: ["experience", "years", "background", "who are you", "about"],
-        response: "I'm Faheem, a Mid-Level UI/UX & Product Designer with 3+ years of experience crafting digital products, design systems, and web applications. I bridge design vision and code execution to build cinematic, functional user experiences."
+        keywords: ["experience", "years", "background", "who are you", "about", "professional background"],
+        response: "Faheem is a Product Designer with 3+ years of experience crafting complex enterprise SaaS, scalable design systems, and web applications."
+    },
+    {
+        keywords: ["core design expertise", "design expertise", "expertise", "core expertise"],
+        response: "Faheem's core expertise spans UX research, token-based Figma design systems, and frontend execution with React and GSAP."
+    },
+    {
+        keywords: ["compare product design and development roles", "compare product design", "product design and development"],
+        response: "Product design shapes UX strategy, workflows, and visual systems in Figma, while development executes them in production code — Faheem bridges both seamlessly."
     }
 ];
 
@@ -276,14 +348,23 @@ const AnimatedMessageBubble = ({ text, action, isLatestBot, scrollToBottom, acti
         const timer = setTimeout(() => {
             setVisibleCount((prev) => prev + 1);
             if (scrollToBottom) scrollToBottom();
-        }, 130);
+        }, 100);
 
         return () => clearTimeout(timer);
     }, [visibleCount, lines.length, isLatestBot, scrollToBottom]);
 
     const animatedText = lines.slice(0, visibleCount).join('\n');
     const isFullyRevealed = visibleCount >= lines.length;
-    const mentionedProjects = isFullyRevealed ? detectMentionedProjects(text, activeProject) : [];
+    const relatedProject = isFullyRevealed && action?.type !== 'download' ? detectSingleRelatedProject(text, activeProject) : null;
+
+    useEffect(() => {
+        if (isFullyRevealed && scrollToBottom) {
+            const scrollTimer = setTimeout(() => {
+                scrollToBottom();
+            }, 60);
+            return () => clearTimeout(scrollTimer);
+        }
+    }, [isFullyRevealed, scrollToBottom]);
 
     return (
         <div className="bot-message-content">
@@ -291,11 +372,9 @@ const AnimatedMessageBubble = ({ text, action, isLatestBot, scrollToBottom, acti
                 {renderFormattedText(animatedText)}
             </div>
 
-            {isFullyRevealed && mentionedProjects.length > 0 && (
-                <div className="chat-project-cards-container" data-lenis-prevent>
-                    {mentionedProjects.map((proj) => (
-                        <ChatProjectCard key={proj.slug || proj.id} project={proj} onNavigate={onNavigate} />
-                    ))}
+            {isFullyRevealed && relatedProject && (
+                <div className="chat-single-card-container">
+                    <ChatProjectCard project={relatedProject} onNavigate={onNavigate} />
                 </div>
             )}
 
@@ -352,19 +431,10 @@ const AnimatedMessageBubble = ({ text, action, isLatestBot, scrollToBottom, acti
 const findBestAnswer = (userQuery, activeProject) => {
     const q = userQuery.toLowerCase().trim();
 
-    if (isThisProjectQuery(q)) {
-        if (activeProject) {
-            return buildProjectSummary(activeProject);
-        } else {
-            return {
-                text: "You are currently on the main portfolio page! Navigate to any featured case study (such as OctaLume, UF Brand, Multi-City, Pickcel, or ThinkStack) and ask me about it to get a deep dive summary!"
-            };
-        }
-    }
-
-    if (q.includes("resume") || q.includes("cv")) {
+    // 1. Resume / CV Query
+    if (q.includes("resume") || q.includes("cv") || q.includes("curriculum vitae") || q.includes("download resume")) {
         return {
-            text: "Here is Faheem's official Product Designer resume. You can download the PDF directly using the button below:",
+            text: "Here is Faheem's official Product Designer resume (PDF). You can download it directly below:",
             action: {
                 type: "download",
                 label: "Download Resume (PDF)",
@@ -374,18 +444,144 @@ const findBestAnswer = (userQuery, activeProject) => {
         };
     }
 
-    if (["hi", "hello", "hey", "hola", "sup"].includes(q)) {
-        return { text: "Hi there! Great to meet you. What would you like to know about Faheem's work, experience, or availability?" };
+    // 2. Contact / Hiring / Availability / Phone / WhatsApp
+    if (
+        q.includes("contact") || q.includes("email") || q.includes("hire") || q.includes("reach") || 
+        q.includes("phone") || q.includes("whatsapp") || q.includes("interview") || q.includes("schedule") ||
+        q.includes("call") || q.includes("touch") || q.includes("message") || q.includes("get in touch")
+    ) {
+        return {
+            text: "Faheem is actively open to Product Designer & UI/UX Designer roles and can join immediately. You can reach out directly via email or LinkedIn below:",
+            action: {
+                type: "contact_ctas",
+                primary: { label: "Send Email", url: "mailto:faheemseyadmd@gmail.com" },
+                secondary: { label: "LinkedIn Profile", url: "https://www.linkedin.com/in/seyad-mohammed-faheem/" }
+            }
+        };
     }
-    
+
+    // 3. Why Hire Faheem / Value Proposition / Strengths
+    if (
+        q.includes("why hire") || q.includes("why should") || q.includes("hire faheem") || 
+        q.includes("stand out") || q.includes("strengths") || q.includes("strength") || 
+        q.includes("value") || q.includes("best fit") || q.includes("why choose") ||
+        q.includes("superpower") || q.includes("unique")
+    ) {
+        return {
+            text: "Faheem bridges design and production code, crafting complex enterprise platforms in Figma while shipping clean React, GSAP, and design systems with measurable business impact."
+        };
+    }
+
+    // 4. Design Process / Methodology / Approach
+    if (
+        q.includes("process") || q.includes("methodology") || q.includes("workflow") || 
+        q.includes("how do you design") || q.includes("approach") || q.includes("how do you work") ||
+        q.includes("design framework") || q.includes("steps")
+    ) {
+        return {
+            text: "Faheem pairs deep user research and token-based Figma design systems with interactive prototyping and seamless frontend engineering."
+        };
+    }
+
+    // 5. Coding & Frontend Abilities
+    if (
+        q.includes("code") || q.includes("coding") || q.includes("frontend") || q.includes("developer") || 
+        q.includes("react") || q.includes("technical") || q.includes("programming") || q.includes("three.js") || 
+        q.includes("gsap") || q.includes("css") || q.includes("html")
+    ) {
+        return {
+            text: "Yes, Faheem is code-fluent in React, modern CSS, GSAP, and Three.js — in fact, this entire portfolio was designed and built by him from scratch."
+        };
+    }
+
+    // 6. Tools, Design Software & Design Systems
+    if (
+        q.includes("tools") || q.includes("software") || q.includes("figma") || q.includes("design system") || 
+        q.includes("tokens") || q.includes("stack") || q.includes("tech stack")
+    ) {
+        return {
+            text: "Faheem's core toolkit centers on Figma (variables, tokens, auto-layout), FigJam, and Protopie, paired with React, GSAP, and AI-assisted workflows."
+        };
+    }
+
+    // 7. Roles, Availability & Locations
+    if (
+        q.includes("role") || q.includes("roles") || q.includes("looking for") || q.includes("job") || 
+        q.includes("position") || q.includes("location") || q.includes("locations") || q.includes("relocate") || 
+        q.includes("relocation") || q.includes("bangalore") || q.includes("chennai") || q.includes("dubai") || 
+        q.includes("mena") || q.includes("saudi") || q.includes("remote") || q.includes("when can you start") ||
+        q.includes("notice period") || q.includes("availability")
+    ) {
+        return {
+            text: "Faheem is seeking Product Designer & UI/UX Designer roles across Bangalore, Chennai, MENA, or Remote, and is available to join immediately."
+        };
+    }
+
+    // 8. Experience / Background / Bio / About Faheem
+    if (
+        q.includes("experience") || q.includes("background") || q.includes("who is faheem") || 
+        q.includes("about faheem") || q.includes("bio") || q.includes("tell me about yourself") || 
+        q.includes("years of experience") || q.includes("seniority")
+    ) {
+        return {
+            text: "Faheem has 3+ years of experience designing complex B2B enterprise software, design systems, and conversion-focused web products."
+        };
+    }
+
+    // 9. Current Active Page Query or Specific Project Deep-Dive
+    if (isThisProjectQuery(q)) {
+        if (activeProject) {
+            return buildProjectSummary(activeProject);
+        } else {
+            return {
+                text: "Explore Faheem's featured case studies below to see his end-to-end design and engineering work."
+            };
+        }
+    }
+
+    // Check if query specifically mentions any project
+    const specificProject = projectsData.find(p => {
+        const titleLower = p.title.toLowerCase();
+        const slugWords = p.slug.toLowerCase().replace(/-/g, ' ');
+        const idLower = p.id ? p.id.toLowerCase() : '';
+        return q.includes(titleLower) || (slugWords.length > 3 && q.includes(slugWords)) || (idLower && q.includes(idLower));
+    });
+
+    if (specificProject) {
+        return buildProjectSummary(specificProject);
+    }
+
+    // 10. General Projects / Portfolio Overview
+    if (
+        q.includes("projects") || q.includes("project") || q.includes("portfolio") || 
+        q.includes("case studies") || q.includes("case study") || q.includes("work") || q.includes("show me")
+    ) {
+        return {
+            text: "Faheem has designed 13 products, leading flagship work across Olfacta ERP, OctaLume IoT, and UF Brand."
+        };
+    }
+
+    // 11. Friendly Greetings
+    if (["hi", "hello", "hey", "hola", "sup", "greetings", "good morning", "good evening", "good afternoon"].includes(q) || q === "hi" || q === "hello") {
+        return {
+            text: "Hi there! I'm Faheem's AI assistant. Ask me anything about his product design work, case studies, or hiring availability."
+        };
+    }
+
     for (const entry of FAHEEM_KNOWLEDGE_BASE) {
         if (entry.keywords.some((kw) => q.includes(kw))) {
             return { text: entry.response, action: entry.action };
         }
     }
 
+    // 12. Smart Contextual Fallback
     return {
-        text: "I am specifically trained to answer questions about Faheem, his product design work, case studies, and availability. Feel free to ask about his projects, skills, resume, or how to contact him."
+        text: "Faheem is a Product Designer with 3+ years of experience in enterprise B2B SaaS, scalable design systems, and frontend engineering.",
+        action: {
+            type: "contact_ctas",
+            primary: { label: "Send Email", url: "mailto:faheemseyadmd@gmail.com" },
+            secondary: { label: "LinkedIn Profile", url: "https://www.linkedin.com/in/seyad-mohammed-faheem/" }
+        }
     };
 };
 
@@ -413,12 +609,13 @@ const sanitizeBotText = (rawText, isContactQuery) => {
 };
 
 const fetchLLMResponse = async (userQuery, conversationHistory, activeProject) => {
+    const geminiKey = import.meta.env.VITE_GEMINI_API_KEY;
     const groqKey = import.meta.env.VITE_GROQ_API_KEY;
     const openaiKey = import.meta.env.VITE_OPENAI_API_KEY;
     const q = userQuery.toLowerCase().trim();
 
     const isResumeQuery = q.includes("resume") || q.includes("cv");
-    const isContactQuery = q.includes("contact") || q.includes("email") || q.includes("hire") || q.includes("reach") || q.includes("linkedin");
+    const isContactQuery = q.includes("contact") || q.includes("email") || q.includes("hire") || q.includes("reach") || q.includes("linkedin") || q.includes("interview");
 
     const getAction = (hasContact) => {
         if (isResumeQuery) {
@@ -439,18 +636,60 @@ const fetchLLMResponse = async (userQuery, conversationHistory, activeProject) =
         return null;
     };
 
-    let dynamicSystemPrompt = SYSTEM_PROMPT;
-    if (activeProject) {
-        dynamicSystemPrompt += `\nCURRENT PAGE CONTEXT: The user is currently viewing the case study for "${activeProject.title}".\n- Description: ${activeProject.description}\n- Challenge: ${activeProject.challenge?.text || ''}\n- Solution: ${activeProject.solution?.text || ''}\n- Result: ${activeProject.result || ''}\nIf the user asks "tell me about this project" or asks questions about the current page, answer specifically using this case study data.`;
+    const dynamicSystemPrompt = buildComprehensivePortfolioPrompt(activeProject);
+
+    // 1. Google Gemini API (gemini-2.5-flash with fallback to gemini-flash-latest)
+    if (geminiKey && geminiKey.trim()) {
+        try {
+            const historyParts = conversationHistory.slice(-6).map(m => ({
+                role: m.sender === 'bot' ? 'model' : 'user',
+                parts: [{ text: m.text }]
+            }));
+
+            const makeGeminiCall = async (modelName) => {
+                return await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${modelName}:generateContent?key=${geminiKey.trim()}`, {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({
+                        system_instruction: { parts: [{ text: dynamicSystemPrompt }] },
+                        contents: [...historyParts, { role: "user", parts: [{ text: userQuery }] }],
+                        generationConfig: { 
+                            temperature: 0.5, 
+                            maxOutputTokens: 500,
+                            thinkingConfig: { thinkingBudget: 0 }
+                        }
+                    })
+                });
+            };
+
+            let res = await makeGeminiCall("gemini-2.5-flash");
+            if (!res.ok) {
+                res = await makeGeminiCall("gemini-flash-latest");
+            }
+
+            if (res.ok) {
+                const data = await res.json();
+                if (data.candidates?.[0]?.content?.parts?.[0]?.text) {
+                    const { cleanText, hasContactMention } = sanitizeBotText(data.candidates[0].content.parts[0].text, isContactQuery);
+                    return { text: cleanText, action: getAction(hasContactMention) };
+                }
+            } else {
+                const errData = await res.json().catch(() => ({}));
+                console.warn("Gemini API non-ok status:", res.status, errData);
+            }
+        } catch (err) {
+            console.warn("Gemini API call error:", err);
+        }
     }
 
-    if (groqKey) {
+    // 2. Groq API
+    if (groqKey && groqKey.trim()) {
         try {
             const res = await fetch("https://api.groq.com/openai/v1/chat/completions", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
-                    "Authorization": `Bearer ${groqKey}`
+                    "Authorization": `Bearer ${groqKey.trim()}`
                 },
                 body: JSON.stringify({
                     model: "llama-3.3-70b-versatile",
@@ -463,7 +702,7 @@ const fetchLLMResponse = async (userQuery, conversationHistory, activeProject) =
                         { role: "user", content: userQuery }
                     ],
                     temperature: 0.5,
-                    max_tokens: 350
+                    max_tokens: 450
                 })
             });
             const data = await res.json();
@@ -477,13 +716,16 @@ const fetchLLMResponse = async (userQuery, conversationHistory, activeProject) =
         } catch (err) {
             console.warn("Groq API fallback:", err);
         }
-    } else if (openaiKey) {
+    }
+
+    // 3. OpenAI API
+    if (openaiKey && openaiKey.trim()) {
         try {
             const res = await fetch("https://api.openai.com/v1/chat/completions", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
-                    "Authorization": `Bearer ${openaiKey}`
+                    "Authorization": `Bearer ${openaiKey.trim()}`
                 },
                 body: JSON.stringify({
                     model: "gpt-4o-mini",
@@ -496,7 +738,7 @@ const fetchLLMResponse = async (userQuery, conversationHistory, activeProject) =
                         { role: "user", content: userQuery }
                     ],
                     temperature: 0.5,
-                    max_tokens: 350
+                    max_tokens: 450
                 })
             });
             const data = await res.json();
@@ -512,7 +754,12 @@ const fetchLLMResponse = async (userQuery, conversationHistory, activeProject) =
         }
     }
 
-    return findBestAnswer(userQuery, activeProject);
+    // Deep Semantic Context Engine fallback
+    const best = findBestAnswer(userQuery, activeProject);
+    return {
+        text: best.text,
+        action: best.action || getAction(false)
+    };
 };
 
 const ChatbotSvgIcon = ({ size = 20 }) => (
@@ -527,30 +774,40 @@ const Chatbot = () => {
     const activeProject = getCurrentProject(location.pathname);
 
     const [isOpen, setIsOpen] = useState(false);
-    const [messages, setMessages] = useState([
-        {
-            sender: 'bot',
-            text: "Hi there! I'm Faheem's AI Assistant. Faheem is actively open to Product Designer & UI/UX roles and can join immediately. How can I help you explore his work, experience, or availability?"
-        }
-    ]);
+    const [messages, setMessages] = useState([]);
     const [inputValue, setInputValue] = useState('');
     const [isTyping, setIsTyping] = useState(false);
+    const [showMenu, setShowMenu] = useState(false);
+    const [showContextChip, setShowContextChip] = useState(true);
+    const menuRef = useRef(null);
     const messagesEndRef = useRef(null);
 
     const quickPrompts = activeProject ? [
-        { label: `About this project (${activeProject.title})`, query: "Tell me about this project" },
-        ...BASE_QUICK_PROMPTS
-    ] : BASE_QUICK_PROMPTS;
+        { label: `Tell me about this project (${activeProject.title})`, query: "Tell me about this project" },
+        ...GEMINI_QUICK_PROMPTS
+    ] : GEMINI_QUICK_PROMPTS;
 
     const scrollToBottom = () => {
         messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
     };
 
     useEffect(() => {
-        if (isOpen) {
+        if (isOpen && messages.length > 0) {
             scrollToBottom();
         }
     }, [messages, isTyping, isOpen]);
+
+    useEffect(() => {
+        const handleOutsideClick = (e) => {
+            if (menuRef.current && !menuRef.current.contains(e.target)) {
+                setShowMenu(false);
+            }
+        };
+        if (showMenu) {
+            document.addEventListener('mousedown', handleOutsideClick);
+        }
+        return () => document.removeEventListener('mousedown', handleOutsideClick);
+    }, [showMenu]);
 
     const handleSendMessage = async (textToSend) => {
         const text = textToSend || inputValue;
@@ -573,6 +830,11 @@ const Chatbot = () => {
         }
     };
 
+    const handleResetChat = () => {
+        setMessages([]);
+        setShowMenu(false);
+    };
+
     return (
         <div className="chatbot-wrapper">
             {/* Floating Chat Trigger Button */}
@@ -590,115 +852,235 @@ const Chatbot = () => {
                 </button>
             )}
 
-            {/* Chatbot Window */}
+            {/* Chatbot Window (Gemini Dark & Orange Theme) */}
             {isOpen && (
-                <div className="chatbot-window" data-lenis-prevent onWheel={(e) => e.stopPropagation()}>
-                    {/* Header */}
-                    <div className="chatbot-header">
-                        <div className="chatbot-header-profile">
-                            <div className="header-avatar-container">
-                                <img src={portraitImg} alt="Faheem" className="header-avatar" width="38" height="38" decoding="async" />
-                                <span className="header-online-dot"></span>
-                            </div>
-                            <div className="header-text">
-                                <h4 className="header-title">Ask AI</h4>
-                                <span className="header-status">
-                                    {activeProject ? `Viewing: ${activeProject.title}` : "Available to join immediately · Online"}
-                                </span>
-                            </div>
+                <div className="chatbot-window gemini-theme" data-lenis-prevent onWheel={(e) => e.stopPropagation()}>
+                    {/* Minimal Top Header */}
+                    <div className="gemini-header">
+                        <div className="gemini-header-left">
+                            {/* Subtle minimal header */}
                         </div>
-                        <button
-                            className="chatbot-close-btn"
-                            onClick={() => setIsOpen(false)}
-                            aria-label="Close Chat"
-                        >
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                                <line x1="18" y1="6" x2="6" y2="18"></line>
-                                <line x1="6" y1="6" x2="18" y2="18"></line>
-                            </svg>
-                        </button>
+                        <div className="gemini-header-actions">
+                            <div className="gemini-menu-wrapper" ref={menuRef}>
+                                <button
+                                    className="gemini-icon-btn"
+                                    onClick={() => setShowMenu((prev) => !prev)}
+                                    aria-label="Chat options"
+                                    title="Options"
+                                >
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                                        <circle cx="12" cy="5" r="2" />
+                                        <circle cx="12" cy="12" r="2" />
+                                        <circle cx="12" cy="19" r="2" />
+                                    </svg>
+                                </button>
+                                {showMenu && (
+                                    <div className="gemini-dropdown-menu">
+                                        <button onClick={handleResetChat} className="gemini-dropdown-item">
+                                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                                                <path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8" />
+                                                <path d="M21 3v5h-5" />
+                                                <path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16" />
+                                                <path d="M8 16H3v5" />
+                                            </svg>
+                                            <span>New conversation</span>
+                                        </button>
+                                        <button
+                                            onClick={() => {
+                                                handleSendMessage("Can I download your resume?");
+                                                setShowMenu(false);
+                                            }}
+                                            className="gemini-dropdown-item"
+                                        >
+                                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                                                <polyline points="7 10 12 15 17 10" />
+                                                <line x1="12" y1="15" x2="12" y2="3" />
+                                            </svg>
+                                            <span>Download Resume</span>
+                                        </button>
+                                    </div>
+                                )}
+                            </div>
+                            <button
+                                className="gemini-icon-btn close"
+                                onClick={() => setIsOpen(false)}
+                                aria-label="Close Chat"
+                                title="Close"
+                            >
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                                </svg>
+                            </button>
+                        </div>
                     </div>
 
-                    {/* Messages Body */}
-                    <div className="chatbot-body" data-lenis-prevent>
-                        {messages.map((msg, i) => {
-                            const hasCards = msg.sender === 'bot' && detectMentionedProjects(msg.text, activeProject).length > 0;
-                            return (
-                                <div key={i} className={`chat-message ${msg.sender} ${hasCards ? 'has-cards' : ''}`}>
-                                    {msg.sender === 'bot' && (
-                                        <img src={portraitImg} alt="AI" className="message-avatar" width="28" height="28" decoding="async" />
-                                    )}
-                                    {msg.sender === 'bot' ? (
-                                        <AnimatedMessageBubble
-                                            key={`${i}-${msg.text.length}`}
-                                            text={msg.text}
-                                            action={msg.action}
-                                            isLatestBot={i === messages.length - 1}
-                                            scrollToBottom={scrollToBottom}
-                                            activeProject={activeProject}
-                                            onNavigate={navigate}
-                                        />
-                                    ) : (
-                                        <div className="message-bubble">
-                                            {renderFormattedText(msg.text)}
-                                        </div>
-                                    )}
+                    {/* Body Area */}
+                    {messages.length === 0 ? (
+                        /* Initial Gemini Greeting View (exact match to screenshot) */
+                        <div className="gemini-empty-state">
+                            <div className="gemini-hero-center">
+                                <div className="gemini-sparkle-icon">
+                                    <svg width="36" height="36" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M12 2L14.4 9.6L22 12L14.4 14.4L12 22L9.6 14.4L2 12L9.6 9.6L12 2Z" fill="url(#orangeSparkleGrad)" />
+                                        <defs>
+                                            <linearGradient id="orangeSparkleGrad" x1="2" y1="2" x2="22" y2="22" gradientUnits="userSpaceOnUse">
+                                                <stop offset="0%" stopColor="#ffb03a" />
+                                                <stop offset="45%" stopColor="#ff4d12" />
+                                                <stop offset="100%" stopColor="#d32f00" />
+                                            </linearGradient>
+                                        </defs>
+                                    </svg>
                                 </div>
-                            );
-                        })}
+                                <h2 className="gemini-headline">What can I help with, FAHEEM?</h2>
+                            </div>
 
-                        {isTyping && (
-                            <div className="chat-message bot typing">
-                                <img src={portraitImg} alt="AI" className="message-avatar" width="28" height="28" decoding="async" />
-                                <div className="message-bubble typing-dots">
-                                    <span></span>
-                                    <span></span>
-                                    <span></span>
+                            <div className="gemini-prompts-stack">
+                                {quickPrompts.map((p, idx) => (
+                                    <button
+                                        key={idx}
+                                        className="gemini-prompt-pill"
+                                        onClick={() => handleSendMessage(p.query)}
+                                    >
+                                        {p.label}
+                                    </button>
+                                ))}
+                            </div>
+                        </div>
+                    ) : (
+                        /* Messages Conversation Stream */
+                        <div className="chatbot-body" data-lenis-prevent>
+                            {messages.map((msg, i) => {
+                                const hasCard = msg.sender === 'bot' && !!detectSingleRelatedProject(msg.text, activeProject);
+                                return (
+                                    <div key={i} className={`chat-message ${msg.sender} ${hasCard ? 'has-single-card' : ''}`}>
+                                        {msg.sender === 'bot' && (
+                                            <div className="gemini-bot-avatar">
+                                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                                                    <path d="M12 2L14.4 9.6L22 12L14.4 14.4L12 22L9.6 14.4L2 12L9.6 9.6L12 2Z" fill="url(#geminiBotGrad)" />
+                                                    <defs>
+                                                        <linearGradient id="geminiBotGrad" x1="2" y1="2" x2="22" y2="22" gradientUnits="userSpaceOnUse">
+                                                            <stop offset="0%" stopColor="#ff9f43" />
+                                                            <stop offset="100%" stopColor="#ff4d12" />
+                                                        </linearGradient>
+                                                    </defs>
+                                                </svg>
+                                            </div>
+                                        )}
+                                        {msg.sender === 'bot' ? (
+                                            <AnimatedMessageBubble
+                                                key={`${i}-${msg.text.length}`}
+                                                text={msg.text}
+                                                action={msg.action}
+                                                isLatestBot={i === messages.length - 1}
+                                                scrollToBottom={scrollToBottom}
+                                                activeProject={activeProject}
+                                                onNavigate={navigate}
+                                            />
+                                        ) : (
+                                            <div className="message-bubble">
+                                                {renderFormattedText(msg.text)}
+                                            </div>
+                                        )}
+                                    </div>
+                                );
+                            })}
+
+                            {isTyping && (
+                                <div className="chat-message bot typing">
+                                    <div className="gemini-bot-avatar">
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                                            <path d="M12 2L14.4 9.6L22 12L14.4 14.4L12 22L9.6 14.4L2 12L9.6 9.6L12 2Z" fill="#ff4d12" />
+                                        </svg>
+                                    </div>
+                                    <div className="message-bubble typing-dots">
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                    </div>
                                 </div>
+                            )}
+
+                            <div ref={messagesEndRef} />
+                        </div>
+                    )}
+
+                    {/* Floating 2-Tier Input Card (matching screenshot) */}
+                    <div className="chatbot-input-card">
+                        {/* Tier 1: Context Chip */}
+                        {showContextChip && (
+                            <div className="chatbot-context-bar">
+                                <div className="context-left">
+                                    <div className="context-f-badge">F</div>
+                                    <span className="context-text">
+                                        Sharing "{activeProject ? `${activeProject.title} | Case Study` : 'Faheem | Product Designer'}"
+                                    </span>
+                                </div>
+                                <button
+                                    className="context-close-btn"
+                                    onClick={() => setShowContextChip(false)}
+                                    aria-label="Dismiss context"
+                                    title="Dismiss context"
+                                >
+                                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                                    </svg>
+                                </button>
                             </div>
                         )}
 
-                        <div ref={messagesEndRef} />
-                    </div>
-
-                    {/* Quick Prompts */}
-                    <div className="chatbot-quick-prompts" data-lenis-prevent>
-                        {quickPrompts.map((p, idx) => (
+                        {/* Tier 2: Input Bar */}
+                        <div className="chatbot-input-row">
                             <button
-                                key={idx}
-                                className="quick-prompt-btn"
-                                onClick={() => handleSendMessage(p.query)}
+                                className="input-plus-btn"
+                                onClick={() => handleSendMessage("Tell me about your top featured projects")}
+                                aria-label="Explore Projects & Skills"
+                                title="Explore Projects & Skills"
                             >
-                                {p.label}
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                                    <line x1="12" y1="5" x2="12" y2="19"></line>
+                                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                                </svg>
                             </button>
-                        ))}
-                    </div>
 
-                    {/* Input Footer */}
-                    <div className="chatbot-footer-container">
-                        <div className="chatbot-footer">
                             <input
                                 type="text"
-                                placeholder={activeProject ? `Ask about ${activeProject.title}...` : "Ask me anything about Faheem..."}
-                                className="chatbot-input"
+                                placeholder="Type / to use skills"
+                                className="chatbot-main-input"
                                 value={inputValue}
                                 onChange={(e) => setInputValue(e.target.value)}
                                 onKeyDown={handleKeyDown}
                             />
-                            <button
-                                className="chatbot-send-btn"
-                                onClick={() => handleSendMessage()}
-                                disabled={!inputValue.trim()}
-                                aria-label="Send message"
-                            >
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                                    <line x1="22" y1="2" x2="11" y2="13"></line>
-                                    <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
-                                </svg>
-                            </button>
-                        </div>
-                        <div className="chatbot-branding">
-                            <span>Designed & Developed by <strong>Faheem</strong></span>
+
+                            <div className="input-right-actions">
+                                <div className="input-auto-badge" title="Model: Gemini 2.5 Flash">
+                                    <span>Auto</span>
+                                    <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                                        <polyline points="6 9 12 15 18 9"></polyline>
+                                    </svg>
+                                </div>
+
+                                {inputValue.trim() ? (
+                                    <button
+                                        className="input-send-icon-btn"
+                                        onClick={() => handleSendMessage()}
+                                        aria-label="Send message"
+                                    >
+                                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                                            <line x1="22" y1="2" x2="11" y2="13"></line>
+                                            <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                                        </svg>
+                                    </button>
+                                ) : (
+                                    <div className="input-waveform-display" title="Voice / Audio ready">
+                                        <span className="waveform-bar"></span>
+                                        <span className="waveform-bar orange-center"></span>
+                                        <span className="waveform-bar"></span>
+                                    </div>
+                                )}
+                            </div>
                         </div>
                     </div>
                 </div>
