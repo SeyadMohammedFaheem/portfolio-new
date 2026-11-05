@@ -638,7 +638,7 @@ const fetchLLMResponse = async (userQuery, conversationHistory, activeProject) =
 
     const dynamicSystemPrompt = buildComprehensivePortfolioPrompt(activeProject);
 
-    // 1. Google Gemini API (gemini-2.0-flash with resilient fallback)
+    // 1. Google Gemini API (gemini-3.5-flash-lite with resilient fallback)
     if (geminiKey && geminiKey.trim()) {
         try {
             const historyParts = conversationHistory.slice(-6).map(m => ({
@@ -663,8 +663,8 @@ const fetchLLMResponse = async (userQuery, conversationHistory, activeProject) =
             };
 
             const candidateModels = [
-                import.meta.env.GEMINI_MODEL || "gemini-2.0-flash",
-                "gemini-2.0-flash",
+                import.meta.env.GEMINI_MODEL || "gemini-3.5-flash-lite",
+                "gemini-3.5-flash-lite",
                 "gemini-3.5-flash",
                 "gemini-3.8-flash",
                 "gemini-2.5-flash",
@@ -1065,7 +1065,7 @@ const Chatbot = () => {
                             />
 
                             <div className="input-right-actions">
-                                <div className="input-auto-badge" title="Model: Gemini 2.0 Flash">
+                                <div className="input-auto-badge" title="Model: Gemini 3.5 Flash Lite">
                                     <span>Auto</span>
                                     <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                                         <polyline points="6 9 12 15 18 9"></polyline>
