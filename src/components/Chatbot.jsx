@@ -609,7 +609,7 @@ const sanitizeBotText = (rawText, isContactQuery) => {
 };
 
 const fetchLLMResponse = async (userQuery, conversationHistory, activeProject) => {
-    const geminiKey = import.meta.env.VITE_GEMINI_API_KEY;
+    const geminiKey = import.meta.env.GEMINI_API_KEY || import.meta.env.VITE_GEMINI_API_KEY;
     const groqKey = import.meta.env.VITE_GROQ_API_KEY;
     const openaiKey = import.meta.env.VITE_OPENAI_API_KEY;
     const q = userQuery.toLowerCase().trim();

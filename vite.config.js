@@ -19,6 +19,7 @@ function asyncCSSPlugin() {
 
 // https://vite.dev/config/
 export default defineConfig({
+  envPrefix: ['VITE_', 'GEMINI_'],
   plugins: [react(), asyncCSSPlugin()],
   build: {
     // Increase chunk warning limit (three.js + react-three are large by nature)
