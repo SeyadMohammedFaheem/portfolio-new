@@ -641,10 +641,13 @@ const fetchLLMResponse = async (userQuery, conversationHistory, activeProject) =
     // 1. Google Gemini API (gemini-3.5-flash-lite with resilient fallback)
     if (geminiKey && geminiKey.trim()) {
         try {
-            const historyParts = conversationHistory.slice(-6).map(m => ({
-                role: m.sender === 'bot' ? 'model' : 'user',
-                parts: [{ text: m.text }]
-            }));
+            const historyParts = conversationHistory
+                .slice(-6)
+                .filter(m => m.text && m.text.trim().length > 0)
+                .map(m => ({
+                    role: m.sender === 'bot' ? 'model' : 'user',
+                    parts: [{ text: m.text.trim() }]
+                }));
 
             const makeGeminiCall = async (modelName) => {
                 return await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${modelName}:generateContent?key=${geminiKey.trim()}`, {
@@ -655,8 +658,7 @@ const fetchLLMResponse = async (userQuery, conversationHistory, activeProject) =
                         contents: [...historyParts, { role: "user", parts: [{ text: userQuery }] }],
                         generationConfig: { 
                             temperature: 0.5, 
-                            maxOutputTokens: 500,
-                            thinkingConfig: { thinkingBudget: 0 }
+                            maxOutputTokens: 500
                         }
                     })
                 });
