@@ -933,7 +933,7 @@ const Chatbot = () => {
                                         </defs>
                                     </svg>
                                 </div>
-                                <h2 className="gemini-headline">What can I help with, FAHEEM?</h2>
+                                <h2 className="gemini-headline">What can I help with?</h2>
                             </div>
 
                             <div className="gemini-prompts-stack">
