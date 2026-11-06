@@ -6016,18 +6016,35 @@ header.main-header {
     box-shadow: 0 4px 16px rgba(255, 77, 18, 0.2);
 }
 
-/* Gemini Bot Avatar Icon */
+/* Gemini Bot Avatar Icon with Faheem Portrait */
 .gemini-bot-avatar {
+    position: relative;
     width: 28px;
     height: 28px;
     border-radius: 50%;
-    background: rgba(255, 77, 18, 0.15);
-    border: 1px solid rgba(255, 77, 18, 0.35);
-    display: flex;
-    align-items: center;
-    justify-content: center;
     flex-shrink: 0;
     margin-top: 2px;
+}
+
+.gemini-bot-avatar-img {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 1.5px solid rgba(255, 77, 18, 0.6);
+    display: block;
+    box-shadow: 0 0 8px rgba(255, 77, 18, 0.3);
+}
+
+.gemini-bot-online-dot {
+    position: absolute;
+    bottom: -1px;
+    right: -1px;
+    width: 8px;
+    height: 8px;
+    background: #10b981;
+    border-radius: 50%;
+    border: 1.5px solid #0d0d0f;
 }
 
 /* Floating Input Card (2 Tiers matching screenshot) */

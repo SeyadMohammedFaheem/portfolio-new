@@ -969,15 +969,8 @@ const Chatbot = () => {
                                     <div key={i} className={`chat-message ${msg.sender} ${hasCard ? 'has-single-card' : ''}`}>
                                         {msg.sender === 'bot' && (
                                             <div className="gemini-bot-avatar">
-                                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-                                                    <path d="M12 2L14.4 9.6L22 12L14.4 14.4L12 22L9.6 14.4L2 12L9.6 9.6L12 2Z" fill="url(#geminiBotGrad)" />
-                                                    <defs>
-                                                        <linearGradient id="geminiBotGrad" x1="2" y1="2" x2="22" y2="22" gradientUnits="userSpaceOnUse">
-                                                            <stop offset="0%" stopColor="#ff9f43" />
-                                                            <stop offset="100%" stopColor="#ff4d12" />
-                                                        </linearGradient>
-                                                    </defs>
-                                                </svg>
+                                                <img src={portraitImg} alt="Faheem AI" className="gemini-bot-avatar-img" width="28" height="28" decoding="async" />
+                                                <span className="gemini-bot-online-dot"></span>
                                             </div>
                                         )}
                                         {msg.sender === 'bot' ? (
@@ -1002,9 +995,8 @@ const Chatbot = () => {
                             {isTyping && (
                                 <div className="chat-message bot typing">
                                     <div className="gemini-bot-avatar">
-                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-                                            <path d="M12 2L14.4 9.6L22 12L14.4 14.4L12 22L9.6 14.4L2 12L9.6 9.6L12 2Z" fill="#ff4d12" />
-                                        </svg>
+                                        <img src={portraitImg} alt="Faheem AI" className="gemini-bot-avatar-img" width="28" height="28" decoding="async" />
+                                        <span className="gemini-bot-online-dot"></span>
                                     </div>
                                     <div className="message-bubble typing-dots">
                                         <span></span>
