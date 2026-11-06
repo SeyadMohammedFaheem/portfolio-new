@@ -6217,9 +6217,18 @@ header.main-header {
     box-shadow: 0 2px 10px rgba(255, 77, 18, 0.4);
 }
 
-.input-send-icon-btn:hover {
+.input-send-icon-btn:hover:not(:disabled) {
     background: #ff6026;
     transform: scale(1.06);
+}
+
+.input-send-icon-btn:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+    background: rgba(255, 255, 255, 0.08);
+    color: rgba(255, 255, 255, 0.35);
+    box-shadow: none;
+    transform: none;
 }
 
 /* Chat Messages */

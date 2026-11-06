@@ -1045,54 +1045,26 @@ const Chatbot = () => {
 
                         {/* Tier 2: Input Bar */}
                         <div className="chatbot-input-row">
-                            <button
-                                className="input-plus-btn"
-                                onClick={() => handleSendMessage("Tell me about your top featured projects")}
-                                aria-label="Explore Projects & Skills"
-                                title="Explore Projects & Skills"
-                            >
-                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                                    <line x1="12" y1="5" x2="12" y2="19"></line>
-                                    <line x1="5" y1="12" x2="19" y2="12"></line>
-                                </svg>
-                            </button>
-
                             <input
                                 type="text"
-                                placeholder="Type / to use skills"
+                                placeholder={activeProject ? `Ask about ${activeProject.title}...` : "Ask me anything about Faheem..."}
                                 className="chatbot-main-input"
                                 value={inputValue}
                                 onChange={(e) => setInputValue(e.target.value)}
                                 onKeyDown={handleKeyDown}
                             />
 
-                            <div className="input-right-actions">
-                                <div className="input-auto-badge" title="Model: Gemini 3.5 Flash Lite">
-                                    <span>Auto</span>
-                                    <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                                        <polyline points="6 9 12 15 18 9"></polyline>
-                                    </svg>
-                                </div>
-
-                                {inputValue.trim() ? (
-                                    <button
-                                        className="input-send-icon-btn"
-                                        onClick={() => handleSendMessage()}
-                                        aria-label="Send message"
-                                    >
-                                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                                            <line x1="22" y1="2" x2="11" y2="13"></line>
-                                            <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
-                                        </svg>
-                                    </button>
-                                ) : (
-                                    <div className="input-waveform-display" title="Voice / Audio ready">
-                                        <span className="waveform-bar"></span>
-                                        <span className="waveform-bar orange-center"></span>
-                                        <span className="waveform-bar"></span>
-                                    </div>
-                                )}
-                            </div>
+                            <button
+                                className="input-send-icon-btn"
+                                onClick={() => handleSendMessage()}
+                                disabled={!inputValue.trim() || isTyping}
+                                aria-label="Send message"
+                            >
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                                    <line x1="22" y1="2" x2="11" y2="13"></line>
+                                    <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                                </svg>
+                            </button>
                         </div>
                     </div>
                 </div>
