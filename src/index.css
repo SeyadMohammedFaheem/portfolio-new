@@ -6510,9 +6510,9 @@ header.main-header {
 
 .chat-single-card-container .chat-project-card {
     flex: unset !important;
-    width: 100% !important;
-    min-width: 100% !important;
-    max-width: 100% !important;
+    width: 70% !important;
+    min-width: 70% !important;
+    max-width: 70% !important;
     background: rgba(255, 255, 255, 0.04);
     border: 1px solid rgba(255, 255, 255, 0.12);
     border-radius: 14px;
