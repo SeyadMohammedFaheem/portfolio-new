@@ -1,11 +1,27 @@
-import React, { useCallback } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { Link } from 'react-router-dom';
+import { gsap } from 'gsap';
 import { projectsData } from '../data/projectsData';
 import ProgressiveImage from './ProgressiveImage';
 import ProjectBadge from './ProjectBadge';
 
+const categories = ["All projects", ...new Set(projectsData.map(p => p.type))];
+
 const SelectedWork = () => {
-    const projects = projectsData.slice(0, 4);
+    const [activeFilter, setActiveFilter] = useState("All projects");
+
+    // Display top 4 featured projects on "All projects", and all matching projects when a category is selected
+    const displayedProjects = activeFilter === "All projects"
+        ? projectsData.slice(0, 4)
+        : projectsData.filter(p => p.type === activeFilter);
+
+    // Smooth reveal animation on filter change
+    useEffect(() => {
+        gsap.fromTo(".selected-work-section .work-card-kanso", 
+            { y: 24, opacity: 0 },
+            { y: 0, opacity: 1, duration: 0.45, stagger: 0.08, ease: "power2.out" }
+        );
+    }, [activeFilter]);
 
     // Prefetch hero image for the project being hovered
     const prefetchedImages = React.useRef(new Set());
@@ -38,16 +54,27 @@ const SelectedWork = () => {
                     </div>
                 </div>
 
+                <div className="projects-filter selected-work-filter">
+                    {categories.map((cat) => (
+                        <button
+                            key={cat}
+                            className={`filter-btn ${activeFilter === cat ? 'active' : ''}`}
+                            onClick={() => setActiveFilter(cat)}
+                        >
+                            <span className="filter-slash">/</span> {cat}
+                        </button>
+                    ))}
+                </div>
+
                 <div className="work-grid-kanso">
-                    {projects.map((project, index) => (
+                    {displayedProjects.map((project, index) => (
                         project.isLocked ? (
-                            <div className="work-card-kanso is-locked" key={index}>
+                            <div className="work-card-kanso is-locked" key={project.id || project.slug || index}>
                                 <div className="work-img-wrapper">
                                     <ProjectBadge project={project} />
                                     <ProgressiveImage src={project.image} alt={project.title} loading="lazy" decoding="async" width="800" height="600" />
                                     <div className="locked-overlay">
-                                        <span>LOCKED
-                                        </span>
+                                        <span>LOCKED</span>
                                     </div>
                                 </div>
                                 <div className="work-info">
@@ -61,7 +88,7 @@ const SelectedWork = () => {
                                 </div>
                             </div>
                         ) : (
-                            <Link to={`/project/${project.slug}`} className="work-card-kanso" key={index} onMouseEnter={() => prefetchProject(project)}>
+                            <Link to={`/project/${project.slug}`} className="work-card-kanso" key={project.id || project.slug || index} onMouseEnter={() => prefetchProject(project)}>
                                 <div className="work-img-wrapper">
                                     <ProjectBadge project={project} />
                                     <ProgressiveImage src={project.image} alt={project.title} loading="lazy" decoding="async" width="800" height="600" />

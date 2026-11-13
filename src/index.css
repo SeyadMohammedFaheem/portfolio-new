@@ -3836,6 +3836,14 @@ header.main-header {
     margin-bottom: 5rem;
 }
 
+.selected-work-section .section-header {
+    margin-bottom: 2.2rem;
+}
+
+.selected-work-filter {
+    margin-bottom: 4rem;
+}
+
 .filter-btn {
     background: transparent;
     border: none;
@@ -3851,13 +3859,27 @@ header.main-header {
     gap: 0.3rem;
 }
 
+.filter-slash {
+    opacity: 0.6;
+    margin-right: 0.15rem;
+    transition: opacity 0.3s ease;
+}
+
 .filter-btn:hover {
-    color: rgba(255, 255, 255, 0.8);
+    color: rgba(255, 255, 255, 0.85);
+}
+
+.filter-btn:hover .filter-slash {
+    opacity: 0.85;
 }
 
 .filter-btn.active {
     color: #fff;
     font-weight: 600;
+}
+
+.filter-btn.active .filter-slash {
+    opacity: 1;
 }
 
 .projects-grid-full {
