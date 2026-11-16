@@ -2,12 +2,12 @@ export const projectsData = [
     {
         id: "synthio",
         slug: "synthio",
-        title: "Synthio — AI Agent Platform",
+        title: "Synthio — Angular JS Website",
         year: "2026",
         type: "Web & Strategy",
         category: "AI SaaS & Web Application",
-        image: "/images/work/synthio/synthio-card.webp",
-        heroImage: "/images/work/synthio/synthio-hero.webp",
+        image: "/assets/images/projects/synthia.png",
+        heroImage: "/assets/images/projects/synthia.png",
         client: "Synthio AI",
         liveWebsiteLink: "https://synthio-website-angular.vercel.app/",
         service: "Angular Development, UI/UX Design & Architecture",
@@ -23,14 +23,14 @@ export const projectsData = [
         },
         result: "Synthio enables enterprise customer operations to resolve 72% of calls and tickets autonomously, achieve 3x faster issue resolution, and eliminate customer hold queues with human-grade AI conversations.",
         gridImages: [
-            "/images/work/synthio/synthio-card.webp",
-            "/images/work/synthio/synthio-hero.webp"
+            "/assets/images/projects/synthia.png",
+            "/assets/images/full-design.png"
         ],
         stackImages: [
             "/images/work/synthio/synthio-logo.png",
             "/images/work/synthio/synthio-mark.png"
         ],
-        impactImage: "/images/work/synthio/synthio-hero.webp",
+        impactImage: "/assets/images/full-design.png",
         caseStudy: {
             goals: [
                 "Engineer a high-performance marketing and product platform using modern Angular",
@@ -58,17 +58,17 @@ export const projectsData = [
                     desc: "An ultra-low latency voice agent that handles inbound phone calls with natural interruption handling, sentiment detection, and zero customer hold time.",
                     rationale: "Resolves front-line customer issues instantly while maintaining a friendly, human-grade conversational tone.",
                     mockupBg: "#0F172A",
-                    mockupImg: "/images/work/synthio/synthio-hero.webp",
+                    mockupImg: "/assets/images/projects/synthia.png",
                     mockupCaption: "Autonomous voice agent interface with real-time call handling and speaker detection"
                 },
                 {
                     num: "2/4",
-                    title: "Unified Omnichannel Inbox",
-                    desc: "A centralized command center consolidating Voice, Email, WhatsApp, Slack, and Stripe customer interactions with SLA tracking.",
+                    title: "Unified Omnichannel Inbox & Full Web Experience",
+                    desc: "A centralized command center consolidating Voice, Email, WhatsApp, Slack, and Stripe customer interactions with SLA tracking, presented on a comprehensive modern web layout.",
                     rationale: "Gives support leads full situational context without switching between separate browser tabs.",
                     mockupBg: "#111827",
-                    mockupImg: "/images/work/synthio/synthio-card.webp",
-                    mockupCaption: "Omnichannel inbox with multi-channel routing, ticket priorities, and customer timeline"
+                    mockupImg: "/assets/images/full-design.png",
+                    mockupCaption: "Complete responsive Angular landing experience with omnichannel inbox and agent workflows"
                 },
                 {
                     num: "3/4",
@@ -85,8 +85,8 @@ export const projectsData = [
                     desc: "Built with standalone components, signal-based state, optimized preloading, and responsive CSS custom properties for snappy transitions.",
                     rationale: "Delivers enterprise-grade performance, sub-second load times, and an uncompromising developer experience.",
                     mockupBg: "#18181B",
-                    mockupImg: "/images/work/synthio/synthio-card.webp",
-                    mockupCaption: "Modular Angular component architecture with reactive state and dynamic tier calculations"
+                    mockupImg: "/assets/images/full-design.png",
+                    mockupCaption: "Modular Angular component architecture with reactive state, full design systems, and dynamic tier calculations"
                 }
             ],
             impactOnUsers: [

@@ -58,7 +58,7 @@ const detectSingleRelatedProject = (text, activeProject = null) => {
         if (lower.includes(titleLower) || lower.includes(slugLower)) {
             return p;
         }
-        if (slugLower === "synthio" && (lower.includes("synthio") || lower.includes("angular") || lower.includes("voice agent") || lower.includes("ai agent") || lower.includes("call center"))) {
+        if (slugLower === "synthio" && (lower.includes("synthio") || lower.includes("angular") || lower.includes("angular js") || lower.includes("angularjs") || lower.includes("voice agent") || lower.includes("ai agent") || lower.includes("call center"))) {
             return p;
         }
         if (slugLower === "olfacta" && (lower.includes("olfacta") || lower.includes("fragrance") || lower.includes("formulation") || lower.includes("chemical") || lower.includes("lab"))) {
