@@ -1,6 +1,8 @@
 import React from 'react';
 
 const ALLOWED_PROJECT_KEYS = [
+    "synthio",
+    "olfacta",
     "octalume-iot-dashboard",
     "octalume-dashboard",
     "ufbrand-salwar-ecommerce",
@@ -25,6 +27,8 @@ const isBadgeAllowed = (project) => {
     }
 
     if (
+        title.includes("synthio") ||
+        title.includes("olfacta") ||
         title.includes("octalume") ||
         title.includes("uf brand") ||
         title.includes("ufbrand") ||
