@@ -1,5 +1,104 @@
 export const projectsData = [
     {
+        id: "synthio",
+        slug: "synthio",
+        title: "Synthio — AI Agent Platform",
+        year: "2026",
+        type: "Web & Strategy",
+        category: "AI SaaS & Web Application",
+        image: "/images/work/synthio/synthio-card.webp",
+        heroImage: "/images/work/synthio/synthio-hero.webp",
+        client: "Synthio AI",
+        liveWebsiteLink: "https://synthio-website-angular.vercel.app/",
+        service: "Angular Development, UI/UX Design & Architecture",
+        time: "3 Weeks",
+        description: "Synthio is a next-generation conversational AI agent orchestration platform that empowers companies to build intelligent, autonomous AI agents capable of handling live customer phone calls, managing support inboxes, and automating complex multi-channel conversations. Built from the ground up using modern Angular with standalone architecture and reactive state management, Synthio bridges conversational AI with two-way CRM execution.",
+        challenge: {
+            text: "Customer operations teams struggle with fragmented communication channels, long hold queues, manual CRM data entry, and lost conversation context across voice calls, emails, and chat.",
+            subtext: "Traditional customer service tools isolate phone support from digital ticketing, causing high agent burnout, delayed resolution times, and repetitive customer interactions."
+        },
+        solution: {
+            text: "An All-In-One AI Conversational Orchestration Engine",
+            subtext: "I designed and engineered a unified Angular web platform featuring real-time autonomous voice agent simulation, an omnichannel support inbox, generative AI call transcripts with compliance redaction, and seamless bi-directional CRM syncing."
+        },
+        result: "Synthio enables enterprise customer operations to resolve 72% of calls and tickets autonomously, achieve 3x faster issue resolution, and eliminate customer hold queues with human-grade AI conversations.",
+        gridImages: [
+            "/images/work/synthio/synthio-card.webp",
+            "/images/work/synthio/synthio-hero.webp"
+        ],
+        stackImages: [
+            "/images/work/synthio/synthio-logo.png",
+            "/images/work/synthio/synthio-mark.png"
+        ],
+        impactImage: "/images/work/synthio/synthio-hero.webp",
+        caseStudy: {
+            goals: [
+                "Engineer a high-performance marketing and product platform using modern Angular",
+                "Design an intuitive interface for managing voice agents, email automation, and CRM sync",
+                "Showcase real-time call analytics, automated action items, and live transcripts",
+                "Build interactive pricing models with dynamic user tiers and billing toggle",
+                "Ensure ultra-fast page speed, seamless responsiveness, and accessible typography"
+            ],
+            targetUsers: [
+                "Customer Operations Directors & Support VPs",
+                "Sales & Support Engineering Leads",
+                "Contact Center Automation Managers",
+                "Growth & Revenue Operations Teams"
+            ],
+            challengeBullets: [
+                { icon: "📞", text: "High hold times and repetitive customer calls overwhelm support representatives." },
+                { icon: "📥", text: "Disjointed inboxes across Email, WhatsApp, and Slack cause communication silos." },
+                { icon: "📝", text: "Manual CRM note-taking and ticket updates waste hours and introduce human error." },
+                { icon: "🔒", text: "Strict privacy standards require automated PII redaction and PCI-DSS compliance." }
+            ],
+            solutions: [
+                {
+                    num: "1/4",
+                    title: "Autonomous Voice Agent Simulation",
+                    desc: "An ultra-low latency voice agent that handles inbound phone calls with natural interruption handling, sentiment detection, and zero customer hold time.",
+                    rationale: "Resolves front-line customer issues instantly while maintaining a friendly, human-grade conversational tone.",
+                    mockupBg: "#0F172A",
+                    mockupImg: "/images/work/synthio/synthio-hero.webp",
+                    mockupCaption: "Autonomous voice agent interface with real-time call handling and speaker detection"
+                },
+                {
+                    num: "2/4",
+                    title: "Unified Omnichannel Inbox",
+                    desc: "A centralized command center consolidating Voice, Email, WhatsApp, Slack, and Stripe customer interactions with SLA tracking.",
+                    rationale: "Gives support leads full situational context without switching between separate browser tabs.",
+                    mockupBg: "#111827",
+                    mockupImg: "/images/work/synthio/synthio-card.webp",
+                    mockupCaption: "Omnichannel inbox with multi-channel routing, ticket priorities, and customer timeline"
+                },
+                {
+                    num: "3/4",
+                    title: "Generative AI Insights & CRM Sync",
+                    desc: "Automated post-call summaries, key topic extraction, PII compliance redaction, and two-way sync with Salesforce, Zendesk, and HubSpot.",
+                    rationale: "Eliminates post-call manual documentation and logs structured resolution data directly into the CRM.",
+                    mockupBg: "#1E293B",
+                    mockupImg: "/images/work/synthio/synthio-hero.webp",
+                    mockupCaption: "Real-time call summary with action items, root-issue tags, and automated Stripe refunds"
+                },
+                {
+                    num: "4/4",
+                    title: "Modern Angular Architecture & Performance",
+                    desc: "Built with standalone components, signal-based state, optimized preloading, and responsive CSS custom properties for snappy transitions.",
+                    rationale: "Delivers enterprise-grade performance, sub-second load times, and an uncompromising developer experience.",
+                    mockupBg: "#18181B",
+                    mockupImg: "/images/work/synthio/synthio-card.webp",
+                    mockupCaption: "Modular Angular component architecture with reactive state and dynamic tier calculations"
+                }
+            ],
+            impactOnUsers: [
+                "Automated over 72% of customer calls and support tickets autonomously.",
+                "Cut issue resolution time by 3x across voice and email channels.",
+                "Completely eliminated customer phone queues and hold times.",
+                "Zero-code two-way CRM synchronization completed in under 2 minutes."
+            ],
+            finalOutcome: "Synthio demonstrates how modern Angular engineering and human-centered design converge to create an enterprise-grade AI operations platform that scales seamlessly across millions of customer conversations."
+        }
+    },
+    {
         id: "olfacta",
         slug: "olfacta",
         title: "Olfacta — ERP Workspace",

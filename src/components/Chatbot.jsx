@@ -58,6 +58,9 @@ const detectSingleRelatedProject = (text, activeProject = null) => {
         if (lower.includes(titleLower) || lower.includes(slugLower)) {
             return p;
         }
+        if (slugLower === "synthio" && (lower.includes("synthio") || lower.includes("angular") || lower.includes("voice agent") || lower.includes("ai agent") || lower.includes("call center"))) {
+            return p;
+        }
         if (slugLower === "olfacta" && (lower.includes("olfacta") || lower.includes("fragrance") || lower.includes("formulation") || lower.includes("chemical") || lower.includes("lab"))) {
             return p;
         }
@@ -124,7 +127,7 @@ const buildComprehensivePortfolioPrompt = (activeProject) => {
 
     let prompt = `You are Faheem AI, the intelligent portfolio assistant for Seyad Mohammed Faheem.
 Faheem is a Mid-Level UI/UX & Product Designer with 3+ years of experience based in India.
-You speak directly as Faheem's intelligent AI representative. You know his entire portfolio, all his 13 projects, design philosophy, case study metrics, technical skills, and hiring availability in depth.
+You speak directly as Faheem's intelligent AI representative. You know his entire portfolio, all his 14 projects, design philosophy, case study metrics, technical skills, and hiring availability in depth.
 
 CRITICAL SCOPE & GUARDRAILS:
 You MUST ONLY answer questions directly related to Seyad Mohammed Faheem, his portfolio, design projects, background, resume, skills, experience, target locations, and contact details.
@@ -140,10 +143,10 @@ Key Details about Faheem:
 - **Superpower / Unique Edge**: Bridges design vision and frontend code execution. He writes production React, modern CSS, GSAP animations, and Three.js 3D canvas, ensuring zero translation loss during developer handoff.
 - **Capabilities & Stack**:
   - *Product Design*: UX Research, Information Architecture, Wireframing, Figma (Auto-Layout 5.0, Variables, Design Tokens), Interactive Prototyping, Usability Testing.
-  - *Frontend & Motion*: React.js, Vanilla CSS, GSAP, Lenis Smooth Scroll, Three.js, Vite, Git.
+  - *Frontend & Motion*: React.js, Angular, Vanilla CSS, GSAP, Lenis Smooth Scroll, Three.js, Vite, Git.
   - *AI-Paired Workflow*: AI Agent orchestration, Figma AI plugins, modern cursor/agentic design sprints.
 
-COMPLETE PORTFOLIO PROJECTS (ALL 13 PROJECTS DESIGNED & DEVELOPED BY FAHEEM):
+COMPLETE PORTFOLIO PROJECTS (ALL 14 PROJECTS DESIGNED & DEVELOPED BY FAHEEM):
 ${projectSummaries}
 
 WRITINGS & NOTION INSIGHTS:
@@ -203,8 +206,8 @@ const FAHEEM_KNOWLEDGE_BASE = [
         response: "Faheem is actively open to Product Designer & UI/UX Designer roles across Bangalore, Chennai, MENA, or Remote, and can join immediately."
     },
     {
-        keywords: ["projects", "project", "work", "portfolio", "featured", "octalume", "uf brand", "pickcel", "thinkstack", "multi-city", "olfacta"],
-        response: "Faheem has designed 13 products, leading flagship work across Olfacta ERP, OctaLume IoT, and UF Brand."
+        keywords: ["projects", "project", "work", "portfolio", "featured", "octalume", "uf brand", "pickcel", "thinkstack", "multi-city", "olfacta", "synthio"],
+        response: "Faheem has designed and engineered 14 products, leading flagship work across Synthio AI, Olfacta ERP, and OctaLume IoT."
     },
     {
         keywords: ["stack", "skills", "tools", "tech", "figma", "react", "design system", "coding", "agents"],
@@ -557,7 +560,7 @@ const findBestAnswer = (userQuery, activeProject) => {
         q.includes("case studies") || q.includes("case study") || q.includes("work") || q.includes("show me")
     ) {
         return {
-            text: "Faheem has designed 13 products, leading flagship work across Olfacta ERP, OctaLume IoT, and UF Brand."
+            text: "Faheem has designed and engineered 14 products, leading flagship work across Synthio AI, Olfacta ERP, and OctaLume IoT."
         };
     }
 

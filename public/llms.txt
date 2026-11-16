@@ -16,6 +16,8 @@
 - **Awwwards**: https://www.awwwards.com/jury-member/Faheemmeehaf
 
 ## Key Case Studies & Projects (Designed & Developed)
+- [Synthio AI Platform](https://faheem.work/project/synthio): Conversational AI agent orchestration web platform for automated customer calls, emails, and CRM sync. Built with modern Angular. Live demo: https://synthio-website-angular.vercel.app/
+- [Olfacta ERP Workspace](https://faheem.work/project/olfacta): Specialized formulation ERP and regulatory compliance workspace for the fragrance industry.
 - [OctaLume IoT Dashboard](https://faheem.work/project/octalume-dashboard): Industrial IoT monitoring platform for multi-city smart streetlights and energy grids. Designed & Developed by Faheem.
 - [UF Brand E-Commerce](https://faheem.work/project/ufbrand-salwar): High-converting e-commerce web platform for ethnic fashion brand. Designed & Developed by Faheem.
 - [Multi-City Travel Planner](https://faheem.work/project/multi-city-travel-planner): Intelligent itinerary builder and multi-destination travel planning dashboard. Designed & Developed by Faheem.
